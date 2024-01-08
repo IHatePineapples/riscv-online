@@ -13,3 +13,5 @@ if(CCACHE_PROGRAM)
 endif()
 
 add_subdirectory(extern/wt)
+
+add_subdirectory(parser)
