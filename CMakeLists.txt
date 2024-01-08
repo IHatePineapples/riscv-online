@@ -5,4 +5,11 @@ project(
   VERSION 0.0.1
   LANGUAGES CXX)
 
+
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+endif()
+
 add_subdirectory(extern/wt)
