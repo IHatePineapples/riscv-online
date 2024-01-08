@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1...3.28)
+cmake_minimum_required(VERSION 3.9...3.28)
 
 project(
   "RISC-V Online"
