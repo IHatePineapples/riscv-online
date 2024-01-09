@@ -15,3 +15,5 @@ endif()
 add_subdirectory(extern/wt)
 
 add_subdirectory(parser)
+add_subdirectory(emulator)
+add_subdirectory("program")
