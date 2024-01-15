@@ -1,5 +1,7 @@
-
+#include "program.hpp"
 class Emulator final{
+
+    Program program;
 
 
     // Registers member TODO    
@@ -10,8 +12,8 @@ class Emulator final{
     void load_program();
 
 
-    void run() const;
+    void run();
     void parse();
-    void step() const;
+    void step();
 
 };
