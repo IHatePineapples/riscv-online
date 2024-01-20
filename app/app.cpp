@@ -4,36 +4,52 @@
 #include <Wt/WLineEdit.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WText.h>
+#include <Wt/WTextArea.h>
+#include <Wt/WTextEdit.h>
 
-class HelloApplication : public Wt::WApplication
-{
+#include "ui.hpp"
+class RiscvOnline : public Wt::WContainerWidget {
 public:
-    HelloApplication(const Wt::WEnvironment& env);
+  RiscvOnline();
 
 private:
-    Wt::WLineEdit *nameEdit_;
-    Wt::WText *greeting_;
+  Wt::WTextArea *programEdit_;
+  Wt::WText *greeting_;
 };
 
-HelloApplication::HelloApplication(const Wt::WEnvironment& env)
-    : Wt::WApplication(env)
-{
-    setTitle("Hello world");
-
-    root()->addNew<Wt::WText>("Your name, please? ");
-    nameEdit_ = root()->addNew<Wt::WLineEdit>();
-    Wt::WPushButton *button = root()->addNew<Wt::WPushButton>("Greet me.");
-    root()->addNew<Wt::WBreak>();
-    greeting_ = root()->addNew<Wt::WText>();
-    auto greet = [this]{
-      greeting_->setText("Hello there, " + nameEdit_->text());
-    };
-    button->clicked().connect(greet);
+RiscvOnline::RiscvOnline() : WContainerWidget() {
+  UI* ui = this->addWidget(std::make_unique<UI>());
+  ui->setMargin(20);
 }
 
-int main(int argc, char **argv)
-{
-    return Wt::WRun(argc, argv, [](const Wt::WEnvironment& env) {
-      return std::make_unique<HelloApplication>(env);
-    });
+// int main(int argc, char **argv)
+// {
+//     return Wt::WRun(argc, argv, [](const Wt::WEnvironment& env) {
+//       return std::make_unique<RiscvOnline>(env);
+//     });
+// }
+
+std::unique_ptr<Wt::WApplication>
+createApplication(const Wt::WEnvironment &env) {
+  std::unique_ptr<Wt::WApplication> app =
+      std::make_unique<Wt::WApplication>(env);
+  app->messageResourceBundle().use(Wt::WApplication::appRoot() + "app");
+  app->setTitle("R-V Online");
+
+  app->root()->addWidget(std::make_unique<RiscvOnline>());
+
+  Wt::WCssDecorationStyle langStyle;
+  langStyle.font().setSize(Wt::FontSize::Smaller);
+  langStyle.setCursor(Wt::Cursor::PointingHand);
+  langStyle.setForegroundColor(Wt::WColor("blue"));
+  langStyle.setTextDecoration(Wt::TextDecoration::Underline);
+  app->styleSheet().addRule(".lang", langStyle);
+
+  langStyle.setCursor(Wt::Cursor::Arrow);
+  langStyle.font().setWeight(Wt::FontWeight::Bold);
+  app->styleSheet().addRule(".langcurrent", langStyle);
+
+  return app;
 }
+
+int main(int argc, char **argv) { return WRun(argc, argv, &createApplication); }
