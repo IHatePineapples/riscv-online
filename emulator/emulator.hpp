@@ -1,4 +1,7 @@
 #include "program.hpp"
+
+namespace emulator {
+
 class Emulator final{
 
     Program program;
@@ -7,13 +10,16 @@ class Emulator final{
     // Registers member TODO    
     public:
 
-    constexpr Emulator();
+    constexpr Emulator() = default;
 
     void load_program();
 
 
-    void run();
     void parse();
     void step();
+    void run();
 
 };
+
+
+}
