@@ -4,7 +4,7 @@ class Program final {
 
 
 public:
-  constexpr Program();
+  constexpr Program() = default;
 
   constexpr Program(const Wt::WString);
 
