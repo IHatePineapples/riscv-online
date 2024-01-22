@@ -1,10 +1,13 @@
 add_executable( app
     app.cpp
-    ui.cpp
-    ui.hpp
 )
 
+target_include_directories( app PRIVATE ../emulator)
+
 target_link_libraries(app
+
+    Emulator
+    Program
     -lwthttp
     -lwt
 )
