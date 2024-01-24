@@ -23,8 +23,6 @@ set( ENABLE_LIBWTDBO    off)
 
 add_subdirectory(extern/wt)
 
-add_subdirectory(parser)
 add_subdirectory(emulator)
-add_subdirectory(program)
 add_subdirectory(app)
 
