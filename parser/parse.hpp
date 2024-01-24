@@ -83,7 +83,10 @@ enum class reg {
   t3 = x28,
   t4 = x29,
   t5 = x30,
-  t6 = x31
+  t6 = x31,
+
+  // Padding
+  NONE
 };
 
 using data_t = std::map<std::string, std::any>;
