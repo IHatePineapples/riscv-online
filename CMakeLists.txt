@@ -15,6 +15,12 @@ if(CCACHE_PROGRAM)
     set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
 endif()
 
+set( BUILD_EXAMPLES     off)
+set( ENABLE_MYSQL       off)
+set( ENABLE_MSSQLSERVER off)
+set( ENABLE_LIBWTTEST   off)
+set( ENABLE_LIBWTDBO    off)
+
 add_subdirectory(extern/wt)
 
 add_subdirectory(parser)
