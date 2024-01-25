@@ -1,11 +1,8 @@
-#include <Wt/WString.h>
+#include <string>
 class Program final {
-
-
 
 public:
   constexpr Program() = default;
 
-  constexpr Program(const Wt::WString);
-
+  constexpr Program(const std::string &);
 };
