@@ -7,12 +7,64 @@
 namespace parse {
 
 enum class opc {
-  RET,
-  RV32I_ADD,
-  RV32I_ADDI,
-  RV32I_MV,
-  RV32I_BNE,
-  RV32I_BNEZ
+  // 'R' FMT
+  ADD,
+  SUB,
+  XOR,
+  OR,
+  AND,
+  SLL,
+  SRL,
+  SRA,
+  SLT,
+  SLTU,
+
+  // 'I' FMT
+  ADDI,
+  XORI,
+  ORI,
+  ANDI,
+  SLLI,
+  SRLI,
+  SRAI,
+  SLTI,
+  SLTUI,
+
+  // Load, 'I' FMT
+  LB,
+  LH,
+  LW,
+  LBU,
+  LHU,
+
+  // 'S' FMT
+  SB,
+  SH,
+  SW,
+
+  // 'B' FMT
+  BEQ,
+  BNE,
+  BLT,
+  BGE,
+  BLTU,
+  BGEU,
+
+  // JALx
+  JAL,
+  JALR,
+
+  // 'U' FMT
+  LUI,
+  AUIPC,
+
+  // ENV
+
+  ECALL,
+  EBREAK,
+
+  // Used later to make a fake symbol table in a second pass
+  SYMBOL
 
 };
 
