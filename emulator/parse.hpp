@@ -1,8 +1,10 @@
 
 #include <any>
+#include <cstddef>
 #include <map>
 #include <string>
 #include <tuple>
+#include <variant>
 #include <vector>
 namespace parse {
 
@@ -141,10 +143,22 @@ enum class reg {
   NONE
 };
 
+using text_entry_t = std::variant<std::string, std::tuple<opc, reg, reg, reg>>;
+
 using data_t = std::map<std::string, std::any>;
-using text_t = std::vector<std::tuple<opc, reg, reg, reg>>;
+using text_t = std::vector<text_entry_t>;
+using symbol_table_t = std::map<std::string, std::size_t>;
 
 static constexpr data_t data(const std::string &program);
 static constexpr text_t text(const std::string &program);
+static symbol_table_t symbols(const text_t &text) {
+  symbol_table_t st = {};
+  for (int i = 0; i < text.size(); ++i) {
+    if (!std::holds_alternative<std::string>(text[i]))
+      continue;
+    st[std::get<std::string>(text[i])] = i;
+  }
+  return st;
+}
 
 } // namespace parse
