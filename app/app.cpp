@@ -66,7 +66,7 @@ void UI::create() {
                                          Wt::AlignmentFlag::Center);
   elementAt(row, 0)->setPadding(10);
   Wt::WText *title = elementAt(row, 0)->addWidget(
-      std::make_unique<Wt::WText>(tr("example.form")));
+      std::make_unique<Wt::WText>("RISC-V Online"));
   title->decorationStyle().font().setSize(Wt::FontSize::XLarge);
 
   // error messages
@@ -87,13 +87,13 @@ void UI::create() {
   remarksEdit_->setColumns(40);
   remarksEdit_->setRows(5);
   label = elementAt(row, 0)->addWidget(
-      std::make_unique<Wt::WLabel>(tr("example.remarks")));
+      std::make_unique<Wt::WLabel>("Assembly"));
   label->setBuddy(remarksEdit_);
 
   // Submit
   ++row;
   Wt::WPushButton *submit = elementAt(row, 0)->addWidget(
-      std::make_unique<Wt::WPushButton>(tr("submit")));
+      std::make_unique<Wt::WPushButton>("submit"));
   submit->clicked().connect(this, &UI::submit);
   submit->setMargin(15, Wt::Side::Top);
   elementAt(row, 0)->setColumnSpan(3);
@@ -136,7 +136,7 @@ void UI::submit() {
     Wt::WString remarks = remarksEdit_->text();
     on_run_(this);
 
-    if (!remarks.empty()){
+    if (!remarks.empty()) {
       elementAt(0, 0)->addWidget(std::make_unique<Wt::WText>(
           Wt::WString("<p>You had some remarks. Splendid !</p>")));
     }
@@ -144,7 +144,6 @@ void UI::submit() {
     // wApp->quit();
   }
 }
-
 
 class RiscvOnline : public Wt::WContainerWidget {
 public:
