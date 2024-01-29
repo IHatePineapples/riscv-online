@@ -36,7 +36,7 @@ private:
 
   Wt::WContainerWidget *feedbackMessages_;
 
-  Wt::WTextArea *remarksEdit_;
+  Wt::WTextArea *assemblyEdit_;
 
   /*!\brief Add a validation feedback for a field
    */
@@ -82,13 +82,13 @@ void UI::create() {
   errorStyle.font().setStyle(Wt::FontStyle::Italic);
 
   ++row;
-  remarksEdit_ =
+  assemblyEdit_ =
       elementAt(row, 2)->addWidget(std::make_unique<Wt::WTextArea>());
-  remarksEdit_->setColumns(40);
-  remarksEdit_->setRows(5);
+  assemblyEdit_->setColumns(40);
+  assemblyEdit_->setRows(5);
   label = elementAt(row, 0)->addWidget(
       std::make_unique<Wt::WLabel>("Assembly"));
-  label->setBuddy(remarksEdit_);
+  label->setBuddy(assemblyEdit_);
 
   // Submit
   ++row;
@@ -133,7 +133,7 @@ void UI::submit() {
     // do something useful with the data...
     // on_run(this);
 
-    Wt::WString remarks = remarksEdit_->text();
+    Wt::WString remarks = assemblyEdit_->text();
     on_run_(this);
 
     if (!remarks.empty()) {
