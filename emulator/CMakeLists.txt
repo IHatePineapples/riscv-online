@@ -5,3 +5,5 @@ add_library(Emulator
     program.hpp
     parse.hpp
     )
+
+add_subdirectory(test)
