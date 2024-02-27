@@ -5,7 +5,7 @@ add_executable( app
 target_include_directories( app PRIVATE 
     ${CMAKE_SOURCE_DIR}/emulator
     ${CMAKE_SOURCE_DIR}/extern/wt/src/
-    ${CMAKE_SOURCE_DIR}/extern/wt/
+    ${CMAKE_BINARY_DIR}/extern/wt/
     )
 
 target_link_libraries(app
