@@ -1,3 +1,6 @@
+#include <string>
+#include <vector>
+
 #include <Wt/WApplication.h>
 #include <Wt/WBreak.h>
 #include <Wt/WContainerWidget.h>
@@ -86,14 +89,14 @@ void UI::create() {
       elementAt(row, 2)->addWidget(std::make_unique<Wt::WTextArea>());
   assemblyEdit_->setColumns(40);
   assemblyEdit_->setRows(5);
-  label = elementAt(row, 0)->addWidget(
-      std::make_unique<Wt::WLabel>("Assembly"));
+  label =
+      elementAt(row, 0)->addWidget(std::make_unique<Wt::WLabel>("Assembly"));
   label->setBuddy(assemblyEdit_);
 
   // Submit
   ++row;
-  Wt::WPushButton *submit = elementAt(row, 0)->addWidget(
-      std::make_unique<Wt::WPushButton>("submit"));
+  Wt::WPushButton *submit =
+      elementAt(row, 0)->addWidget(std::make_unique<Wt::WPushButton>("submit"));
   submit->clicked().connect(this, &UI::submit);
   submit->setMargin(15, Wt::Side::Top);
   elementAt(row, 0)->setColumnSpan(3);
@@ -188,4 +191,10 @@ createApplication(const Wt::WEnvironment &env) {
   return app;
 }
 
-int main(int argc, char **argv) { return WRun(argc, argv, &createApplication); }
+int main(int argc, char **argv) {
+
+  static const std::vector<std::string> argv_{
+      "--docroot", ".", "--http-address", "0.0.0.0", "--http-port", "9090"};
+
+  return WRun(argv[0], argv_, &createApplication);
+}
