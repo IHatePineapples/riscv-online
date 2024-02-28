@@ -170,7 +170,7 @@ createApplication(const Wt::WEnvironment &env) {
   std::unique_ptr<Wt::WApplication> app =
       std::make_unique<Wt::WApplication>(env);
   app->messageResourceBundle().use(Wt::WApplication::appRoot() + "app");
-  app->setTitle("Risc-V OL");
+  app->setTitle("Risc-V Online");
 
   app->root()->addWidget(std::make_unique<RiscvOnline>());
 
