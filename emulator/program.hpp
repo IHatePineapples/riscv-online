@@ -1,5 +1,5 @@
 #include <string>
-class Program final {
+struct Program final {
 
 public:
   constexpr Program() = default;
