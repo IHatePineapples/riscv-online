@@ -57,7 +57,7 @@ private:
   bool checkValid(Wt::WFormWidget *edit, const Wt::WString &text);
 };
 
-UI::UI(void (*f)(UI *)) : on_run_(f), WTable() { create(); }
+UI::UI(void (*f)(UI *)) : WTable(), on_run_(f) { create(); }
 
 void UI::create() {
   Wt::WLabel *label;
