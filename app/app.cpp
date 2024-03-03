@@ -86,7 +86,7 @@ void UI::create() {
 
   ++row;
   assemblyEdit_ =
-      elementAt(row, 2)->addWidget(std::make_unique<Wt::WTextArea>());
+      elementAt(row, 1)->addWidget(std::make_unique<Wt::WTextArea>());
   assemblyEdit_->setColumns(40);
   assemblyEdit_->setRows(5);
   label =
@@ -172,8 +172,7 @@ std::unique_ptr<Wt::WApplication>
 createApplication(const Wt::WEnvironment &env) {
   std::unique_ptr<Wt::WApplication> app =
       std::make_unique<Wt::WApplication>(env);
-  app->messageResourceBundle().use(Wt::WApplication::appRoot() + "app");
-  app->setTitle("Risc-V Online");
+  app->setTitle("RISC-V Online");
 
   app->root()->addWidget(std::make_unique<RiscvOnline>());
 
