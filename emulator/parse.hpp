@@ -153,7 +153,7 @@ static constexpr data_t data(const std::string &program);
 static constexpr text_t text(const std::string &program);
 static symbol_table_t symbols(const text_t &text) {
   symbol_table_t st = {};
-  for (int i = 0; i < text.size(); ++i) {
+  for (std::size_t i = 0; i < text.size(); ++i) {
     if (!std::holds_alternative<std::string>(text[i]))
       continue;
     st[std::get<std::string>(text[i])] = i;
