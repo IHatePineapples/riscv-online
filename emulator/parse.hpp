@@ -143,7 +143,18 @@ enum class reg {
   NONE
 };
 
-using text_entry_t = std::variant<std::string, std::tuple<opc, reg, reg, reg>>;
+// Aliases
+using imm_t = std::any;
+using opa0_t = reg;
+using symbol_t = std::string;
+
+// Type-aggregates
+using opa1_t = std::variant<reg, imm_t>;
+using opa2_t = opa1_t;
+
+
+using instruction_t = std::tuple<opc, opa0_t, opa1_t, opa2_t>;
+using text_entry_t = std::variant<symbol_t, instruction_t>;
 
 using data_t = std::map<std::string, std::any>;
 using text_t = std::vector<text_entry_t>;
