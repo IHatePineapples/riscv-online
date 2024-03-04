@@ -1,5 +1,8 @@
 #include <bitset>
 #include <string>
+#include <vector>
+
+#include "parse.hpp"
 
 namespace emulator {
 
@@ -40,10 +43,16 @@ class Emulator final {
   register_t x30;
   register_t x31;
 
-public:
-  constexpr Emulator() = default;
+  std::vector<std::string> asm_lines_;
+  parse::symbol_table_t symbols_;
+  parse::data_t data_;
+  parse::text_t asm_;
 
-  void load_program(const std::string &);
+public:
+  Emulator() = default;
+  Emulator(const std::string &);
+
+  void reload_program(const std::string &);
 
   void parse();
   void step();
