@@ -6,6 +6,7 @@
 #include <tuple>
 #include <variant>
 #include <vector>
+
 namespace parse {
 
 enum class opc {
@@ -151,7 +152,6 @@ using symbol_t = std::string;
 // Type-aggregates
 using opa1_t = std::variant<reg, imm_t>;
 using opa2_t = opa1_t;
-
 
 using instruction_t = std::tuple<opc, opa0_t, opa1_t, opa2_t>;
 using text_entry_t = std::variant<symbol_t, instruction_t>;
