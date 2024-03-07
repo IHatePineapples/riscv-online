@@ -8,14 +8,14 @@
 
 namespace emulator {
 
-auto trim_line = [](auto s) {
+constexpr auto trim_line = [](auto& s) {
   for (auto &c : s)
     if (c == '\n' || c == '\r' || c == '\t')
       c = ' ';
   boost::trim(s);
 };
 
-auto preprocess_lines(const std::string &assembly) {
+static auto preprocess_lines(const std::string &assembly) {
   using boost::algorithm::is_any_of;
   using boost::algorithm::split;
   using boost::algorithm::token_compress_on;

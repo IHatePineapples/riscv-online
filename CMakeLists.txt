@@ -7,7 +7,7 @@ project(
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -Wall -fdiagnostics-color=always")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -Wall -Wextra -fdiagnostics-color=always")
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
