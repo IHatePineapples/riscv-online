@@ -47,6 +47,8 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 .qt
+build
+generated
 
 .cache
 .vscode
