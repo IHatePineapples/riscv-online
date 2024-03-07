@@ -1,3 +1,6 @@
 [submodule "extern/wt"]
 	path = extern/wt
 	url = git@github.com:emweb/wt.git
+[submodule "extern/pico-sdk"]
+	path = extern/pico-sdk
+	url = git@github.com:raspberrypi/pico-sdk.git
