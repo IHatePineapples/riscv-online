@@ -99,7 +99,7 @@ inline bool operator==(const std::string &s, const opc &o) {
 
 static opc to_opc(const std::string_view opc_s) {
   try {
-    return s_to_opc.at(std::string(opc_s));
+    return s_to_opc.at(opc_s);
   } catch (const std::out_of_range &) {
     return opc::UNSUPPORTED;
   }
