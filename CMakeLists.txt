@@ -1,11 +1,15 @@
-cmake_minimum_required(VERSION 3.13...3.28)
+cmake_minimum_required(VERSION 3.15...3.28)
+
+include(CMake/PrepareBoost.cmake)
 
 option(DEPLOY_PICO "Include building a ufw2 image for the Raspberry Pico W " OFF)
 
 
 if (DEPLOY_PICO)
-  include(CMake/Toolchain.cmake)
+  set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
   include(extern/pico-sdk/pico_sdk_init.cmake)
+  execute_process(./setupBoost.sh)
+
 endif()
 
 project(
