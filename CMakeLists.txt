@@ -37,4 +37,5 @@ add_subdirectory(extern)
 
 add_subdirectory(emulator)
 add_subdirectory(app)
+add_subdirectory(http)
 
