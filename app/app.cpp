@@ -1,3 +1,5 @@
+#if 0
+
 #include <string>
 #include <vector>
 
@@ -197,3 +199,7 @@ int main(int argc, char **argv) {
 
   return WRun(argv[0], argv_, &createApplication);
 }
+#else
+int main(){}
+
+#endif

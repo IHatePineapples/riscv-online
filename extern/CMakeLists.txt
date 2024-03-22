@@ -1,5 +1,3 @@
-add_subdirectory(wt)
-
-if (DEPLOY_PICO)
+if (CMAKE_CROSSCOMPILING)
     add_subdirectory(pico-sdk)
 endif()
