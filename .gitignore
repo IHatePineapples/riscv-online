@@ -54,6 +54,6 @@ generated
 .cache
 .vscode
 
-app/elf2uf2/
+elf2uf2/
 pico-sdk/
 pioasm/
