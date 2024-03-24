@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15...3.28)
 
-
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
+# Surprise! pico-sdk already does this !
+# set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
 
 include(extern/pico-sdk/pico_sdk_init.cmake)
 
@@ -13,8 +13,6 @@ project(
 pico_sdk_init()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -Wall -Wextra -fdiagnostics-color=always")
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)

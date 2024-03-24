@@ -2,6 +2,8 @@ add_executable( app
     app.cpp
 )
 
+# set_target_properties(app PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always --specs=nosys.specs")
+
 target_include_directories( app PRIVATE 
     ${CMAKE_SOURCE_DIR}/emulator
     )
