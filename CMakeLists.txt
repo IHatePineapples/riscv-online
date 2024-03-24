@@ -13,6 +13,7 @@ project(
 pico_sdk_init()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 17)
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
