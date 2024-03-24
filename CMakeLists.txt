@@ -1,24 +1,17 @@
 cmake_minimum_required(VERSION 3.15...3.28)
 
-include(CMake/PrepareBoost.cmake)
 
-option(DEPLOY_PICO "Include building a ufw2 image for the Raspberry Pico W " OFF)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
 
-
-if (DEPLOY_PICO)
-  set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
-  include(extern/pico-sdk/pico_sdk_init.cmake)
-
-endif()
+include(extern/pico-sdk/pico_sdk_init.cmake)
 
 project(
   "RISC-V Online"
   VERSION 0.0.1
-  LANGUAGES CXX)
+  LANGUAGES C CXX)
 
-if (DEPLOY_PICO)
-  pico_sdk_init()
-endif()
+enable_language(C)
+pico_sdk_init()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
