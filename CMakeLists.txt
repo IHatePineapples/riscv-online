@@ -8,9 +8,8 @@ include(extern/pico-sdk/pico_sdk_init.cmake)
 project(
   "RISC-V Online"
   VERSION 0.0.1
-  LANGUAGES C CXX)
+  LANGUAGES C CXX ASM)
 
-enable_language(C)
 pico_sdk_init()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
