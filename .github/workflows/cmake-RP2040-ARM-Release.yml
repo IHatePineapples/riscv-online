@@ -27,6 +27,7 @@ jobs:
     - name: Install Boost
       run: |
         sudo apt-get -y update
+        sudo apt-get -y upgrade
         sudo apt-get -y install libboost-dev
         sudo apt-get -y install libboost-all-dev
 
