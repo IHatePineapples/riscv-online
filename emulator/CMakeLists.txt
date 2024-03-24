@@ -1,3 +1,5 @@
+enable_testing()
+
 add_library(Emulator 
     emulator.cpp
     emulator.hpp

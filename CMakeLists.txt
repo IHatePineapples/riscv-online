@@ -23,7 +23,6 @@ if(CCACHE_PROGRAM)
     set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
 endif()
 
-enable_testing()
 
 # Third-party tools and dependencies.
 add_subdirectory(extern)

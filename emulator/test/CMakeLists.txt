@@ -8,7 +8,7 @@ link_libraries(test_parse
 
 target_include_directories(test_parse 
     PRIVATE
-    ${CMAKE_SOURCE_DIR}/)
+    ../../)
 
 add_test(NAME test_parse
     COMMAND test_parse)
