@@ -50,5 +50,10 @@ _deps
 build
 generated
 
+# IDE generated
 .cache
 .vscode
+
+app/elf2uf2/
+pico-sdk/
+pioasm/
