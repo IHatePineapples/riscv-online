@@ -65,10 +65,10 @@ jobs:
         # queries: security-extended,security-and-quality
 
 
-    # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    ## Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
+    ## If this step fails, then you should remove it and run the build manually (see below)
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v3
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
@@ -79,6 +79,34 @@ jobs:
     # - run: |
     #     echo "Run, Build Application using script"
     #     ./location_of_script_within_repo/buildscript.sh
+    - name: Install Boost
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y upgrade
+        sudo apt-get -y install libboost-dev
+        sudo apt-get -y install libboost-all-dev
+
+    - name: Install ARM Toolchain + deps
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install cmake 
+        sudo apt-get -y install gcc-arm-none-eabi 
+        sudo apt-get -y install libnewlib-arm-none-eabi 
+        sudo apt-get -y install build-essential 
+        sudo apt-get -y install libstdc++-arm-none-eabi-newlib
+      
+    - name: Ducktape Boost to ARM toolchain
+      run: |
+        sudo ln -s /usr/include/boost /usr/lib/gcc/arm-none-eabi/*/include/ 
+
+    - name: Configure CMake
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
