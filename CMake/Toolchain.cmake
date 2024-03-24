@@ -1,3 +1,4 @@
+set(PICO_PLATFORM rp2040)
 set(PICO_BOARD pico_w)
 
 set(CMAKE_SYSTEM_NAME Generic)
