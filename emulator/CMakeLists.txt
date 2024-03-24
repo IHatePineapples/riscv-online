@@ -6,4 +6,6 @@ add_library(Emulator
     parse.hpp
     )
 
+if( NOT CMAKE_CROSSCOMPILING)
 add_subdirectory(test)
+endif()
