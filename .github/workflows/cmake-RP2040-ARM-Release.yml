@@ -29,7 +29,6 @@ jobs:
         sudo apt-get -y update
         sudo apt-get -y install libboost-dev
         sudo apt-get -y install libboost-all-dev
-        ln -s /usr/include/boost /usr/arm-none-eabi/usr/include/boost
 
     - name: Install ARM Toolchain + deps
       run: |
@@ -41,6 +40,10 @@ jobs:
         sudo apt-get -y install libstdc++-arm-none-eabi-newlib
       
 
+
+    - name: Ducktape Boost to ARM toolchain
+      run: |
+        ln -s /usr/include/boost /usr/lib/gcc/arm-none-eabi/*/include/ 
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
