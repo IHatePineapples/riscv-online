@@ -43,7 +43,7 @@ jobs:
 
     - name: Ducktape Boost to ARM toolchain
       run: |
-        ln -s /usr/include/boost /usr/lib/gcc/arm-none-eabi/*/include/ 
+        sudo ln -s /usr/include/boost /usr/lib/gcc/arm-none-eabi/*/include/ 
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
