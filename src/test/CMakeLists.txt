@@ -4,6 +4,8 @@ add_executable(test_parse
    test_parse.cpp
 )
 
+set_target_properties(test_parse PROPERTIES CMAKE_CXX_STANDARD 17)
+
 link_libraries(test_parse
     emulator
 )
