@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.15...3.28)
 # Surprise! pico-sdk already does this !
 # set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
 
+set(PICO_PLATFORM rp2040)
+set(PICO_BOARD pico_w)
+
 include(extern/pico-sdk/pico_sdk_init.cmake)
 
 project(
@@ -25,7 +28,5 @@ endif()
 # Third-party tools and dependencies.
 add_subdirectory(extern)
 
-add_subdirectory(emulator)
-add_subdirectory(app)
-add_subdirectory(http)
 
+add_subdirectory(src)
