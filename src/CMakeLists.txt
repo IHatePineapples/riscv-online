@@ -11,10 +11,9 @@ set_target_properties(app PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os
 set_target_properties(app PROPERTIES CMAKE_CXX_STANDARD 17)
 
 target_link_libraries(app
-    pico_stdlib
-    pico_cyw43_arch_lwip_poll
+# pico_cyw43_arch_lwip_poll
+pico_stdlib
 )
 
 pico_add_extra_outputs(app)
 
-add_subdirectory(test)
