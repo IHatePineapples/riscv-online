@@ -90,19 +90,11 @@ const static std::unordered_map<std::string_view, opc> s_to_opc{
     {"auipc", opc::AUIPC}, {"ecall", opc::ECALL}, {"ebreak", opc::EBREAK}};
 
 inline bool operator==(const std::string &s, const opc &o) {
-  try {
     return s_to_opc.at(s) == o;
-  } catch (const std::out_of_range &) {
-    return false;
-  }
 }
 
 static opc to_opc(const std::string_view opc_s) {
-  try {
     return s_to_opc.at(opc_s);
-  } catch (const std::out_of_range &) {
-    return opc::UNSUPPORTED;
-  }
 }
 
 enum class reg {
@@ -199,11 +191,7 @@ static std::unordered_map<std::string_view, reg> s_to_reg{
 };
 
 static reg to_reg(const std::string_view s) {
-  try {
     return s_to_reg.at(s);
-  } catch (const std::out_of_range &) {
-    return reg::NONE;
-  }
 }
 
 // Aliases
@@ -236,8 +224,7 @@ static data_t data(const std::vector<std::string> &asm_lines) {
     return data;
 
   const auto last = std::find(start + 1, asm_lines.end(), ".text:");
-  if (last == asm_lines.end())
-    throw std::runtime_error{"No '.text' section!"};
+  if (last == asm_lines.end()) return data;
 
   static auto tokenize = [&data](const std::string &s) {
     static std::size_t cursor = 0;
@@ -284,14 +271,7 @@ static std::optional<I> make_I(const std::string_view s) {
   while (!isalnum(s.at(cursor)))
     ++cursor;
 
-  static int imm;
-  try {
-    imm = std::stoi(std::string(s.substr(cursor, s.length() - cursor)));
-  } catch (const std::invalid_argument &) {
-    return {};
-  } catch (const std::out_of_range &) {
-    return {};
-  }
+  static int imm = std::stoi(std::string(s.substr(cursor, s.length() - cursor)));
   return std::make_tuple(opc, opa1, opa2, imm);
 }
 
