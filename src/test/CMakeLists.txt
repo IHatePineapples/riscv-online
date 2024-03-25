@@ -1,3 +1,5 @@
+enable_testing()
+
 add_executable(test_parse
    test_parse.cpp
 )
