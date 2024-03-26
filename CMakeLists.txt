@@ -1,17 +1,15 @@
 cmake_minimum_required(VERSION 3.15...3.28)
 
-# Surprise! pico-sdk already does this !
-# set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/CMake/Toolchain.cmake)
-
 set(PICO_PLATFORM rp2040)
 set(PICO_BOARD pico_w)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 include(extern/pico-sdk/pico_sdk_init.cmake)
 
-project(
-  "RISC-V Online"
-  VERSION 0.0.1
-  LANGUAGES C CXX ASM)
+project("RISC-V Online"
+        VERSION 0.0.1
+        LANGUAGES C CXX ASM)
 
 pico_sdk_init()
 
