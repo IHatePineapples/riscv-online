@@ -29,8 +29,12 @@
 # Executables
 *.exe
 *.out
-*.app
-app/app
+*.bin
+*.dis
+*.elf
+*.elf.map
+*.hex
+*.uf2
 test_parse
 
 # CMake
