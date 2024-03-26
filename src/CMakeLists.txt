@@ -1,5 +1,4 @@
-add_executable( app
-    app.cpp
+add_executable("RISCV_Online" riscv_online.cpp # main() entry-point
     emulator.cpp
     emulator.hpp
     parse.hpp
@@ -7,15 +6,15 @@ add_executable( app
     server.cpp
 )
 
-set_target_properties(app PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always")
-target_compile_features(app PRIVATE cxx_std_20)
+set_target_properties("RISCV_Online" PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always")
+target_compile_features("RISCV_Online" PRIVATE cxx_std_20)
 
-target_include_directories(app PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories("RISCV_Online" PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
-target_link_libraries(app 
+target_link_libraries("RISCV_Online" 
     pico_cyw43_arch_lwip_poll 
     pico_stdlib
 )
 
-pico_add_extra_outputs(app)
+pico_add_extra_outputs("RISCV_Online")
 
