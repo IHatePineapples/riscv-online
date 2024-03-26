@@ -17,7 +17,9 @@ jobs:
         shell: bash
         
       - name: Generate Doxygen Documentation 🔧🔧
-        run: doxygen
+        run: |
+          mkdir -p docs/html
+          doxygen
         
       - name: Create .nojekyll 🔧🔧🔧
         run: touch docs/html/.nojekyll
