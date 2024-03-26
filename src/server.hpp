@@ -1,18 +1,16 @@
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
 
-namespace server {
+namespace server
+{
 
+    class server
+    {
+    public:
+        server() = default;
+        void start();
 
-    class server{
-        public:
-            server() = default;
-            void start();
-        private:
-
+    private:
         void bind();
-        
-
-    
     };
 }
