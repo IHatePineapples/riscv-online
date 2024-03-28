@@ -68,7 +68,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">error.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -96,6 +97,12 @@ $(function() {
 Macros</h2></td></tr>
 <tr class="memitem:a05c815a23ade8eb629649de45ce88468"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8hpp.html#a05c815a23ade8eb629649de45ce88468">on_error</a>()&#160;&#160;&#160;abort()</td></tr>
 <tr class="separator:a05c815a23ade8eb629649de45ce88468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a832f559e604fa0a7d6c3148ff4b7dc21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21">__printf_and_abort</a> (const char *f, const int i)</td></tr>
+<tr class="memdesc:a832f559e604fa0a7d6c3148ff4b7dc21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump some debug info and crash.  <a href="error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21">More...</a><br /></td></tr>
+<tr class="separator:a832f559e604fa0a7d6c3148ff4b7dc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines some debug helpers that will print to USB, useful crashing or core-ing. </p>
@@ -114,7 +121,48 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>In Release mode: abort silently. </p>
+<p>In Debug build:</p><ul>
+<li>Wraps around <b>PRETTY_FUNCTION and __LINE</b> and calls __printf_and_abort. In Release build: abort silently. </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a832f559e604fa0a7d6c3148ff4b7dc21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832f559e604fa0a7d6c3148ff4b7dc21">&#9670;&nbsp;</a></span>__printf_and_abort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __printf_and_abort </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump some debug info and crash. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>a C string for error/crash location. </td></tr>
+    <tr><td class="paramname">i</td><td>a line number to be more specific on location </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Call this, and program flow stops, calling abort after logging. Keep for desperate unrecoverable states. </dd></dl>
 
 </div>
 </div>

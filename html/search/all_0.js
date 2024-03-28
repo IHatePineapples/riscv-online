@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['emulator_0',['Emulator',['../classemulator_1_1Emulator.html',1,'emulator']]],
-  ['error_2ehpp_1',['error.hpp',['../error_8hpp.html',1,'']]]
+  ['_5f_5fprintf_5fand_5fabort_0',['__printf_and_abort',['../error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21',1,'error.hpp']]]
 ];
