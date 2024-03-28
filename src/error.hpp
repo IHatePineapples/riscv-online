@@ -8,8 +8,6 @@
  * useful crashing or core-ing.
 */
 
-#ifdef NDEBUG
-
 /**
  * \fn void __printf_and_abort(const char* f, const int i)
  * 
@@ -23,6 +21,9 @@ void __printf_and_abort(const char* f, const int i){
     printf("%s:%d: Aborting now.");
     abort();
 }
+
+#ifdef NDEBUG
+
 /**
  * \def on_error()
  * Effective only in Debug build.
@@ -34,7 +35,9 @@ void __printf_and_abort(const char* f, const int i){
 #else
 /**
  * \def on_error()
- * In Release mode: abort silently.
+ * In Debug build:
+ * - Wraps around __PRETTY_FUNCTION and __LINE__ and calls __printf_and_abort.
+ * In Release build: abort silently.
 */
 #   define on_error() abort()
 #endif
