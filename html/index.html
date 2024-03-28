@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RISC-V Online: Main Page</title>
+<title>RISC-V Online: RISC-V Online</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,11 +62,36 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">RISC-V Online Documentation</div>  </div>
+<div class="title">RISC-V Online </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a><img src="https://github.com/IHatePineapples/riscv-online/actions/workflows/cmake-RP2040-ARM-Release.yml/badge.svg" alt="1" style="pointer-events: none;" class="inline"/> <img src="https://github.com/IHatePineapples/riscv-online/actions/workflows/cmake-ubuntu-x86_64-Release.yml/badge.svg" alt="2" style="pointer-events: none;" class="inline"/> <img src="https://github.com/IHatePineapples/riscv-online/actions/workflows/codeql.yml/badge.svg" alt="3" style="pointer-events: none;" class="inline"/> <img src="https://github.com/IHatePineapples/riscv-online/actions/workflows/devskim.yml/badge.svg" alt="3" style="pointer-events: none;" class="inline"/></p>
+<p>RISC-V Assembly Web Interpreter written in C++ for the Raspberry Pi Pico W.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Building from source</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Requirements</h2>
+<ul>
+<li>CMake</li>
+<li>Make</li>
+<li>GCC/G++ or equivalent (supports c++17)</li>
+<li>Raspberry Pi Pico W</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Configure:</h2>
+<div class="fragment"><div class="line">cmake .</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Build:</h2>
+<div class="fragment"><div class="line">make -j$(nproc)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+Testing:</h2>
+<div class="fragment"><div class="line">cd src/test</div>
+<div class="line">cmake .</div>
+<div class="line">make</div>
+<div class="line">make test</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

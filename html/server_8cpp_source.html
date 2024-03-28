@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RISC-V Online: src/error.hpp Source File</title>
+<title>RISC-V Online: src/server.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,25 +68,20 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">error.hpp</div>  </div>
+<div class="title">server.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="error_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;pico/stdio.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;pico/cyw43_arch.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21">__printf_and_abort</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* f, <span class="keyword">const</span> <span class="keywordtype">int</span> i){</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    printf(<span class="stringliteral">&quot;%s:%d: Aborting now.&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    abort();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef NDEBUG</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#   define on_error() __printf_and_abort((__PRETTY_FUNCTION__), (__LINE__))</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="error_8hpp.html#a05c815a23ade8eb629649de45ce88468">   42</a></span>&#160;<span class="preprocessor">#   define on_error() abort()</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aerror_8hpp_html_a832f559e604fa0a7d6c3148ff4b7dc21"><div class="ttname"><a href="error_8hpp.html#a832f559e604fa0a7d6c3148ff4b7dc21">__printf_and_abort</a></div><div class="ttdeci">void __printf_and_abort(const char *f, const int i)</div><div class="ttdoc">Dump some debug info and crash.</div><div class="ttdef"><b>Definition:</b> <a href="error_8hpp_source.html#l00020">error.hpp:20</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;server.hpp&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>server{</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordtype">void</span> server::bind(){</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        <span class="comment">//bind</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    }</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">void</span> server::start(){</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        bind();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="comment">// Other stuff</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

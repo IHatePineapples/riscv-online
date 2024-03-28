@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['server_4',['server',['../classserver_1_1server.html',1,'server']]]
+  ['risc_2dv_20online_4',['RISC-V Online',['../index.html',1,'']]]
 ];
