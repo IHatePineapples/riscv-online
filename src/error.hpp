@@ -17,8 +17,8 @@
  * \note Call this, and program flow stops, calling abort after logging. 
  *  Keep for desperate unrecoverable states.
 */
-void __printf_and_abort(const char* f, const int i){
-    printf("%s:%d: Aborting now.");
+void printf_and_abort__(const char* f, const int i){
+    printf("%s:%d: Aborting now.", f, i);
     abort();
 }
 
@@ -31,12 +31,11 @@ void __printf_and_abort(const char* f, const int i){
  * See lower for Release definition
  * 
 */
-#   define on_error() __printf_and_abort((__PRETTY_FUNCTION__), (__LINE__))
+#   define on_error() printf_and_abort__((__PRETTY_FUNCTION__), (__LINE__))
 #else
 /**
  * \def on_error()
- * In Debug build:
- * - Wraps around __PRETTY_FUNCTION and __LINE__ and calls __printf_and_abort.
+ * In Debug build: __printf_and_abort(__PRETTY_FUNCTION__,__LINE__).
  * In Release build: abort silently.
 */
 #   define on_error() abort()
