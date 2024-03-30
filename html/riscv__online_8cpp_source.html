@@ -71,9 +71,28 @@ $(function() {
 <div class="title">riscv_online.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;server.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keywordtype">int</span> main(){}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;pico/cyw43_arch.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;pico/stdlib.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">int</span> main() {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  stdio_init_all();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  cyw43_arch_init_with_country(CYW43_COUNTRY_UK);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  cyw43_arch_enable_sta_mode();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  printf(<span class="stringliteral">&quot;Connecting...\n&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordflow">while</span> (cyw43_arch_wifi_connect_blocking(wifi_ssid, wifi_passwd,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                          CYW43_AUTH_WPA2_MIXED_PSK)) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    printf(<span class="stringliteral">&quot;Failed connecting, trying again.\n&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sleep_ms(3000);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  printf(<span class="stringliteral">&quot;Connected, starting server.\n&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
