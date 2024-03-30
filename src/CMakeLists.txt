@@ -1,20 +1,29 @@
-add_executable("RISCV_Online" riscv_online.cpp # main() entry-point
+
+set(riscv "RISCV_Online")
+add_executable(${riscv} riscv_online.cpp # main() entry-point
     emulator.cpp
     emulator.hpp
     parse.hpp
     server.hpp
     server.cpp
+    error.hpp
+    config.hpp
 )
 
-set_target_properties("RISCV_Online" PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always")
-target_compile_features("RISCV_Online" PRIVATE cxx_std_20)
+set_target_properties(${riscv} PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always -Wall -Wextra")
+target_compile_features(${riscv} PRIVATE cxx_std_20)
 
-target_include_directories("RISCV_Online" PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(${riscv} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
-target_link_libraries("RISCV_Online" 
+target_link_libraries(${riscv} 
     pico_cyw43_arch_lwip_poll 
     pico_stdlib
 )
 
-pico_add_extra_outputs("RISCV_Online")
+pico_enable_stdio_usb(${riscv} 1)
+pico_enable_stdio_uart(${riscv} 0)
+
+pico_add_extra_outputs(${riscv})
+
+unset(riscv)
 
