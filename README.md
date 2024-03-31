@@ -4,6 +4,11 @@
 ![3](https://github.com/IHatePineapples/riscv-online/actions/workflows/codeql.yml/badge.svg)
 ![3](https://github.com/IHatePineapples/riscv-online/actions/workflows/devskim.yml/badge.svg)
 
+<div style="text-align: center"> 
+  <img src="https://repository-images.githubusercontent.com/740292996/fc09680a-050d-4285-9090-8d38a7002559"/>
+</div>
+
+
 
 RISC-V Assembly Web Interpreter written in C++ for the Raspberry Pi Pico W.
 
