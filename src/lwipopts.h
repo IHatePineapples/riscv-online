@@ -95,4 +95,7 @@
 #define LWIP_HTTPD_SSI_INCLUDE_TAG 0
 
 #define LWIP_HTTPD_SUPPORT_POST 1
+
+// use fsdata
+#define HTTPD_FSDATA_FILE "fsdata.c"
 #endif /* __LWIPOPTS_H__ */

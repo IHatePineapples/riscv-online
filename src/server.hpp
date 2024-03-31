@@ -4,13 +4,5 @@
 namespace server
 {
 
-    class server
-    {
-    public:
-        server() = default;
-        void start();
-
-    private:
-        void bind();
-    };
+    void run();
 }
