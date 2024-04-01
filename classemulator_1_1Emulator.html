@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RISC-V Online: src/config.hpp File Reference</title>
+<title>RISC-V Online: emulator::Emulator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="full_logo_200x100.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RISC-V Online
    &#160;<span id="projectnumber">0.0.1</span>
@@ -63,48 +64,44 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><b>emulator</b></li><li class="navelem"><a class="el" href="classemulator_1_1Emulator.html">Emulator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classemulator_1_1Emulator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">config.hpp File Reference</div>  </div>
+<div class="title">emulator::Emulator Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="config_8hpp__dep__incl.png" border="0" usemap="#asrc_2config_8hppdep" alt=""/></div>
-<map name="asrc_2config_8hppdep" id="asrc_2config_8hppdep">
-<area shape="rect" title=" " alt="" coords="25,5,137,32"/>
-<area shape="rect" href="riscv__online_8cpp_source.html" title=" " alt="" coords="5,80,156,107"/>
-</map>
-</div>
-</div>
-<p><a href="config_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a4fb73bc51ebc20f3bfc3b1c6927fce0f"><td class="memItemLeft" align="right" valign="top"><a id="a4fb73bc51ebc20f3bfc3b1c6927fce0f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>wifi_country</b>&#160;&#160;&#160;CYW43_COUNTRY_UK</td></tr>
-<tr class="separator:a4fb73bc51ebc20f3bfc3b1c6927fce0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aaad517acea4c852b61bfbd307c1a5d"><td class="memItemLeft" align="right" valign="top"><a id="a7aaad517acea4c852b61bfbd307c1a5d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>wifi_ssid</b>&#160;&#160;&#160;&quot;QA&quot;</td></tr>
-<tr class="separator:a7aaad517acea4c852b61bfbd307c1a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cf75becb5e3abf0203e0071f2615d1a"><td class="memItemLeft" align="right" valign="top"><a id="a6cf75becb5e3abf0203e0071f2615d1a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>wifi_passwd</b>&#160;&#160;&#160;&quot;RISCV-Online&quot;</td></tr>
-<tr class="separator:a6cf75becb5e3abf0203e0071f2615d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afc619d64c2386dbb272758710db9b0d5"><td class="memItemLeft" align="right" valign="top"><a id="afc619d64c2386dbb272758710db9b0d5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Emulator</b> (const std::string &amp;)</td></tr>
+<tr class="separator:afc619d64c2386dbb272758710db9b0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf66dc862c9af4e18078712557e6c786"><td class="memItemLeft" align="right" valign="top"><a id="aaf66dc862c9af4e18078712557e6c786"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reload_program</b> (const std::string &amp;)</td></tr>
+<tr class="separator:aaf66dc862c9af4e18078712557e6c786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7cf3a77d93612df71540217431ed5c5"><td class="memItemLeft" align="right" valign="top"><a id="aa7cf3a77d93612df71540217431ed5c5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse</b> ()</td></tr>
+<tr class="separator:aa7cf3a77d93612df71540217431ed5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431177edf47b24dfdc884b42aa6fe31c"><td class="memItemLeft" align="right" valign="top"><a id="a431177edf47b24dfdc884b42aa6fe31c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> ()</td></tr>
+<tr class="separator:a431177edf47b24dfdc884b42aa6fe31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2b98ab0e6cc6318939e647ae2cdb5c"><td class="memItemLeft" align="right" valign="top"><a id="a0c2b98ab0e6cc6318939e647ae2cdb5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+<tr class="separator:a0c2b98ab0e6cc6318939e647ae2cdb5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Configuration for things such as Wi-Fi name and password</p>
-<dl class="section warning"><dt>Warning</dt><dd>You must edit this. The default values are bogus. </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
-</div></div><!-- contents -->
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="emulator_8hpp_source.html#l00011">11</a> of file <a class="el" href="emulator_8hpp_source.html">emulator.hpp</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/<a class="el" href="emulator_8hpp_source.html">emulator.hpp</a></li>
+<li>src/<a class="el" href="emulator_8cpp_source.html">emulator.cpp</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
