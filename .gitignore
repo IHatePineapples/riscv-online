@@ -61,3 +61,4 @@ generated
 elf2uf2/
 pico-sdk/
 pioasm/
+riscv_fsdata.c
