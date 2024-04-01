@@ -1,23 +1,26 @@
 
 find_package(Perl)
 
-set(MAKE_FS_DATA_SCRIPT ${CMAKE_SOURCE_DIR}/extern/pico-sdk/lib/lwip/src/apps/http/makefsdata/makefsdata)
+set(MAKEFSDATA_SCRIPT ${CMAKE_SOURCE_DIR}/extern/pico-sdk/lib/lwip/src/apps/http/makefsdata/makefsdata)
 
 add_custom_target(fsdata
-    COMMAND perl ${MAKE_FS_DATA_SCRIPT}
+    COMMAND perl ${MAKEFSDATA_SCRIPT}
+    COMMAND mv fsdata.c riscv_fsdata.c
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-    BYPRODUCTS fsdata.c
+    BYPRODUCTS riscv_fsdata.c
 )
 
 set(riscv "RISCV_Online")
 add_executable(${riscv} riscv_online.cpp # main() entry-point
+    cgi.cpp
+    cgi.h
+    config.hpp
     emulator.cpp
     emulator.hpp
-    parse.hpp
-    server.hpp
-    server.cpp
     error.hpp
-    config.hpp
+    parse.hpp
+    server.cpp
+    server.hpp
 
 )
 add_dependencies(${riscv} fsdata)
