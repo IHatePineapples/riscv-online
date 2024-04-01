@@ -5,6 +5,8 @@
 
 #include "config.hpp"
 
+#include "server.hpp"
+
 int main()
 {
   if (!stdio_init_all())
@@ -28,5 +30,6 @@ int main()
     sleep_ms(3000);
   };
   printf("Connected, starting server.\n");
+  server::run();
 
 }
