@@ -2,13 +2,20 @@
 <html>
 
 <head>
-    <title>PICO W!!!</title>
+    <title>RISC-V Online</title>
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
-    <h1>Noix de Coco Pico</h1>
-    <p>Welcome and goodbye.</p>
+
+    <h1>RISC-V Online</h1>
+    <form action="run">
+
+        <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
+            spellcheck="false" wrap="off" style="resize: none"></textarea>
+        <button type="submit" onClick="this.form.submit()">Run</button>
+    </form>
+
 </body>
 
 </html>
