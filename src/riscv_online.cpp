@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "pico/cyw43_arch.h"
 #include "pico/multicore.h"
 #include "pico/stdlib.h"
