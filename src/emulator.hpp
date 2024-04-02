@@ -6,6 +6,8 @@
 
 namespace emulator {
 
+void run();
+
 using register_t = std::bitset<32>;
 
 class Emulator final {

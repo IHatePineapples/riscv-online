@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 #include "pico/cyw43_arch.h"
+#include "pico/multicore.h"
 #include "pico/stdlib.h"
 
 #include "config.hpp"
 
+#include "emulator.hpp"
 #include "server.hpp"
 
 int main()
@@ -29,7 +31,14 @@ int main()
     printf("Failed connecting, trying again.\n");
     sleep_ms(3000);
   };
-  printf("Connected, starting server.\n");
+
+  
+  printf("Connected, starting Emulator on core 1.\n");
+  multicore_launch_core1(emulator::run);
+
+  printf("Starting server.\n");
   server::run();
+
+
 
 }

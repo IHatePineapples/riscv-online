@@ -8,6 +8,10 @@
 
 namespace emulator {
 
+  void run(){
+    // Nothing yet
+  }
+
 constexpr auto trim_line = [](auto& s) {
   for (auto &c : s)
     if (c == '\n' || c == '\r' || c == '\t')

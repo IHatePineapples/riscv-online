@@ -33,6 +33,7 @@ target_link_libraries(${riscv}
     pico_cyw43_arch_lwip_poll 
     pico_lwip_http
     pico_stdlib
+    pico_multicore
 )
 
 pico_enable_stdio_usb(${riscv} 1)
