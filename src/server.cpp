@@ -4,6 +4,7 @@
 // #include "ssi.h"
 #include "cgi.h"
 #include "pico/cyw43_arch.h"
+#include "pico/stdlib.h"
 #include "pico/time.h"
 
 namespace server
