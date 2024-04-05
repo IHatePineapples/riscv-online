@@ -19,6 +19,7 @@ RISC-V Assembly Web Interpreter written in C++ for the Raspberry Pi Pico W.
 * Make
 * GCC/G++ or equivalent (supports c++17)
 * Raspberry Pi Pico W
+* Boost (Header-only)
 
 ### Configure:
 
