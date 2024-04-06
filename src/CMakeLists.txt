@@ -14,6 +14,8 @@ set(riscv "RISCV_Online")
 add_executable(${riscv} riscv_online.cpp # main() entry-point
     cgi.cpp
     cgi.h
+    concurrent_queue.hpp
+    concurrent_queue.cpp
     config.hpp
     emulator.cpp
     emulator.hpp
@@ -32,8 +34,9 @@ target_include_directories(${riscv} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(${riscv} 
     pico_cyw43_arch_lwip_poll 
     pico_lwip_http
-    pico_stdlib
     pico_multicore
+    pico_stdlib
+    pico_sync
 )
 
 pico_enable_stdio_usb(${riscv} 1)
