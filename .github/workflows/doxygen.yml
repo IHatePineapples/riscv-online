@@ -19,6 +19,7 @@ jobs:
       - name: Generate Doxygen Documentation 🔧🔧
         run: |
           mkdir -p docs/html
+          cp static/favicon.ico docs/html/
           doxygen
         
       - name: Create .nojekyll 🔧🔧🔧
