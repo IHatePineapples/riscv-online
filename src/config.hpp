@@ -1,8 +1,8 @@
 /**
  * \file config.hpp Configuration for things such as Wi-Fi name and password
- * 
+ *
  * \warning You must edit this. The default values are bogus.
-*/
+ */
 
 /**
  * \def wifi_country Where is your access point ? Find correct enum value.
@@ -22,4 +22,3 @@
  * \warning Edit this to match a real Wi-Fi.
  */
 #define wifi_passwd "RISCV-Online"
-
