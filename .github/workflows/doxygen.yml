@@ -18,15 +18,15 @@ jobs:
         
       - name: Generate Doxygen Documentation 🔧🔧
         run: |
-          mkdir -p docs/
+          mkdir -p docs/html
           doxygen
         
       - name: Create .nojekyll 🔧🔧🔧
-        run: touch docs/.nojekyll
+        run: touch docs/html/.nojekyll
     
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: docs/
+          folder: docs/html
           config_file: Doxyfile
