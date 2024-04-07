@@ -32,10 +32,10 @@ static auto preprocess_lines(const std::string &assembly) {
   return asm_lines;
 }
 
-Emulator::Emulator(const std::string &asm_)
+RV32I_emu::RV32I_emu(const std::string &asm_)
     : asm_lines_(preprocess_lines(asm_)) {}
 
-void Emulator::reload_program(const std::string &asm_) {
+void RV32I_emu::reload_program(const std::string &asm_) {
   asm_lines_ = preprocess_lines(asm_);
 }
 

@@ -35,6 +35,8 @@ int main()
   multicore_launch_core1(emulator::run);
 
   printf("Starting server.\n");
+
+  
   server::run();
 
 

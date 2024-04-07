@@ -10,7 +10,7 @@ void run();
 
 using register_t = std::bitset<32>;
 
-class Emulator final {
+class RV32I_emu final {
 
   register_t x0;
   register_t x1;
@@ -51,8 +51,8 @@ class Emulator final {
   parse::text_t asm_;
 
 public:
-  Emulator() = default;
-  Emulator(const std::string &);
+  RV32I_emu() = default;
+  RV32I_emu(const std::string &);
 
   void reload_program(const std::string &);
 
