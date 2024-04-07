@@ -1,6 +1,8 @@
+#pragma once
 
 #include "pico/mutex.h"
 #include <queue>
+#include <string>
 
 /***
  * \class concurrent_queue
@@ -34,3 +36,6 @@ public:
   void push(T &&);
   void pop();
 };
+
+using job_t = std::pair<std::string, std::string>;
+using job_queue = concurrent_queue<job_t>;
