@@ -23,9 +23,9 @@ jobs:
         
       - name: Create .nojekyll 🔧🔧🔧
         run: |
-        touch docs/html/.nojekyll
-        touch docs/.nojekyll
-        touch .nojekyll
+          touch docs/html/.nojekyll
+          touch docs/.nojekyll
+          touch .nojekyll
     
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
