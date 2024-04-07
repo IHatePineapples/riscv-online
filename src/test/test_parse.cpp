@@ -7,7 +7,10 @@
 #include <boost/assert.hpp>
 
 using namespace parse;
-
+/***
+ * \file test_parse.cpp
+ * \brief Sample test unit for the parsing utilies. Validates parsing output.
+*/
 int main(){
     auto i = make_I("addi   x1, x2, 5");
 
