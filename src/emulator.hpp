@@ -52,7 +52,7 @@ class RV32I_emu final {
 
 public:
   RV32I_emu() = default;
-  RV32I_emu(const std::string &);
+  RV32I_emu(const std::string_view &);
 
   void reload_program(const std::string &);
 

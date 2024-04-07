@@ -19,7 +19,7 @@ constexpr auto trim_line = [](auto& s) {
   boost::trim(s);
 };
 
-static auto preprocess_lines(const std::string &assembly) {
+static auto preprocess_lines(const std::string_view &assembly) {
   using boost::algorithm::is_any_of;
   using boost::algorithm::split;
   using boost::algorithm::token_compress_on;
@@ -32,7 +32,7 @@ static auto preprocess_lines(const std::string &assembly) {
   return asm_lines;
 }
 
-RV32I_emu::RV32I_emu(const std::string &asm_)
+RV32I_emu::RV32I_emu(const std::string_view &asm_)
     : asm_lines_(preprocess_lines(asm_)) {}
 
 void RV32I_emu::reload_program(const std::string &asm_) {
