@@ -2,4 +2,4 @@
 
 #include "utils/threaded/queue.hpp"
 
-extern job_queue jq;
+extern job_queue jq_;
