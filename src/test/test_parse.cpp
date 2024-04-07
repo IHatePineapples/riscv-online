@@ -10,6 +10,7 @@ using namespace parse;
 /***
  * \file test_parse.cpp
  * \brief Sample test unit for the parsing utilies. Validates parsing output.
+ * \note Tests are to be run on the host.
 */
 int main(){
     auto i = make_I("addi   x1, x2, 5");
