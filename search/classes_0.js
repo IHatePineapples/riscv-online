@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['emulator_5',['Emulator',['../classemulator_1_1Emulator.html',1,'emulator']]]
+  ['concurrent_5fqueue_6',['concurrent_queue',['../classconcurrent__queue.html',1,'']]]
 ];
