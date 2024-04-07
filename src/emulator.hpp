@@ -56,9 +56,6 @@ public:
 
   void reload_program(const std::string &);
 
-  void parse();
-  void step();
-  void run();
 };
 
 } // namespace emulator
