@@ -2,7 +2,8 @@
 ![1](https://github.com/IHatePineapples/riscv-online/actions/workflows/cmake-RP2040-ARM-Release.yml/badge.svg)
 ![2](https://github.com/IHatePineapples/riscv-online/actions/workflows/cmake-ubuntu-x86_64-Release.yml/badge.svg)
 ![3](https://github.com/IHatePineapples/riscv-online/actions/workflows/codeql.yml/badge.svg)
-![3](https://github.com/IHatePineapples/riscv-online/actions/workflows/devskim.yml/badge.svg)
+![4](https://github.com/IHatePineapples/riscv-online/actions/workflows/devskim.yml/badge.svg)
+![5](https://github.com/IHatePineapples/riscv-online/actions/workflows/doxygen.yml/badge.svg)
 
 <div style="text-align: center"> 
   <img width="30%" src="https://repository-images.githubusercontent.com/740292996/fc09680a-050d-4285-9090-8d38a7002559"/>
