@@ -41,6 +41,8 @@ test_parse
 
 CMakeLists.txt.user
 CMakeCache.txt
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
 CMakeFiles
 CMakeScripts
 Testing
@@ -62,3 +64,4 @@ elf2uf2/
 pico-sdk/
 pioasm/
 riscv_fsdata.c
+
