@@ -1,5 +1,6 @@
 /**
  * \file config.hpp Configuration for things such as Wi-Fi name and password
+ * \brief Edit to match your configuration and system.
  *
  * \warning You must edit this. The default values are bogus.
  */
