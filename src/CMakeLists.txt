@@ -1,4 +1,3 @@
-
 find_package(Perl)
 
 set(MAKEFSDATA_SCRIPT ${CMAKE_SOURCE_DIR}/extern/pico-sdk/lib/lwip/src/apps/http/makefsdata/makefsdata)
@@ -14,13 +13,9 @@ set(riscv "RISCV_Online")
 add_executable(${riscv} riscv_online.cpp # main() entry-point
     cgi.cpp
     cgi.h
-    concurrent_queue.hpp
-    concurrent_queue.cpp
     config.hpp
     emulator.cpp
     emulator.hpp
-    error.hpp
-    parse.hpp
     server.cpp
     server.hpp
 
@@ -36,7 +31,8 @@ target_link_libraries(${riscv}
     pico_lwip_http
     pico_multicore
     pico_stdlib
-    pico_sync
+    
+    queue
 )
 
 pico_enable_stdio_usb(${riscv} 1)
@@ -46,3 +42,5 @@ pico_add_extra_outputs(${riscv})
 
 unset(riscv)
 
+
+add_subdirectory(utils)
