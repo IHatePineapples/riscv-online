@@ -93,7 +93,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  boost::trim(s);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keyword">auto</span> preprocess_lines(<span class="keyword">const</span> std::string &amp;assembly) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keyword">auto</span> preprocess_lines(<span class="keyword">const</span> std::string_view &amp;assembly) {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">using</span> boost::algorithm::is_any_of;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">using</span> boost::algorithm::split;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">using</span> boost::algorithm::token_compress_on;</div>
@@ -106,10 +106,10 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordflow">return</span> asm_lines;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;Emulator::Emulator(<span class="keyword">const</span> std::string &amp;asm_)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;RV32I_emu::RV32I_emu(<span class="keyword">const</span> std::string_view &amp;asm_)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    : asm_lines_(preprocess_lines(asm_)) {}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> Emulator::reload_program(<span class="keyword">const</span> std::string &amp;asm_) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> RV32I_emu::reload_program(<span class="keyword">const</span> std::string &amp;asm_) {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  asm_lines_ = preprocess_lines(asm_);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
