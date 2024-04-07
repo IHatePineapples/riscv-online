@@ -13,13 +13,12 @@ jobs:
           submodules: recursive
           
       - name: Install Doxygen 🔧
-        run: sudo apt-get install doxygen graphviz -y
+        run: sudo apt-get install doxygen graphviz inkscape pdf2svg -y
         shell: bash
         
       - name: Generate Doxygen Documentation 🔧🔧
         run: |
           mkdir -p docs/html
-          cp static/favicon.ico docs/html/
           doxygen
         
       - name: Create .nojekyll 🔧🔧🔧
