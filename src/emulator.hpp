@@ -6,48 +6,48 @@
 
 #include "RoL/parse.hpp"
 
-namespace emulator
+namespace emulation
 {
 
   void run();
 
-  using register_t = std::bitset<32>;
-
-  class RV32I_emu final
+  template<int xlen>
+  class emulator final
   {
 
-    register_t x0;
-    register_t x1;
-    register_t x2;
-    register_t x3;
-    register_t x4;
-    register_t x5;
-    register_t x6;
-    register_t x7;
-    register_t x8;
-    register_t x9;
-    register_t x10;
-    register_t x11;
-    register_t x12;
-    register_t x13;
-    register_t x14;
-    register_t x15;
-    register_t x16;
-    register_t x17;
-    register_t x18;
-    register_t x19;
-    register_t x20;
-    register_t x21;
-    register_t x22;
-    register_t x23;
-    register_t x24;
-    register_t x25;
-    register_t x26;
-    register_t x27;
-    register_t x28;
-    register_t x29;
-    register_t x30;
-    register_t x31;
+    using reg = std::bitset<xlen>;
+    reg x0;
+    reg x1;
+    reg x2;
+    reg x3;
+    reg x4;
+    reg x5;
+    reg x6;
+    reg x7;
+    reg x8;
+    reg x9;
+    reg x10;
+    reg x11;
+    reg x12;
+    reg x13;
+    reg x14;
+    reg x15;
+    reg x16;
+    reg x17;
+    reg x18;
+    reg x19;
+    reg x20;
+    reg x21;
+    reg x22;
+    reg x23;
+    reg x24;
+    reg x25;
+    reg x26;
+    reg x27;
+    reg x28;
+    reg x29;
+    reg x30;
+    reg x31;
 
     std::vector<std::string> asm_lines_;
     parse::symbol_table_t symbols_;
@@ -55,10 +55,8 @@ namespace emulator
     parse::text_t asm_;
 
   public:
-    RV32I_emu() = default;
-    RV32I_emu(const std::string_view &);
+    emulator() = default;
 
-    void reload_program(const std::string &);
   };
 
 } // namespace emulator
