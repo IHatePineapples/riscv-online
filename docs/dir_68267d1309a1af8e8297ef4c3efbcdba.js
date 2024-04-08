@@ -11,5 +11,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "riscv_online.cpp", "riscv__online_8cpp_source.html", null ],
     [ "server.cpp", "server_8cpp_source.html", null ],
     [ "server.hpp", "server_8hpp_source.html", null ],
+    [ "shared.hpp", "shared_8hpp_source.html", null ],
     [ "ssi.h", "ssi_8h_source.html", null ]
 ];

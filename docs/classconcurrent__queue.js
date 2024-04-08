@@ -1,7 +1,6 @@
 var classconcurrent__queue =
 [
     [ "concurrent_queue", "classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed", null ],
-    [ "~concurrent_queue", "classconcurrent__queue.html#a7e8bf348b8aa4288173ec937386eaed0", null ],
     [ "back", "classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720", null ],
     [ "back", "classconcurrent__queue.html#ab475c53ec9577d6b3a0a702aad5950db", null ],
     [ "empty", "classconcurrent__queue.html#aa533c1d439286c9b040d65a90c12af57", null ],
