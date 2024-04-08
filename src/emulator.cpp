@@ -1,5 +1,5 @@
 #include "emulator.hpp"
-#include "shared.hpp"
+#include "utils/threaded/shared_queue.hpp"
 
 #include <algorithm>
 #include <string>

@@ -6,9 +6,9 @@
 
 #include "emulator.hpp"
 #include "server.hpp"
-#include "shared.hpp"
 
 #include "utils/threaded/queue.hpp"
+#include "utils/threaded/shared_queue.hpp"
 
 job_queue jq_;
 
