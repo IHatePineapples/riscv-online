@@ -88,30 +88,35 @@ $(document).ready(function(){initNavTree('cgi_8cpp_source.html',''); initResizab
 <div class="title">cgi.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;cgi.h&quot;</span></div>
+<a href="cgi_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cgi_8h.html">cgi.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;lwip/apps/httpd.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;lwipopts.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lwipopts_8h.html">lwipopts.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;pico/cyw43_arch.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/* cgi-handler triggered by a request for &quot;/leds.cgi&quot; */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> tCGI cgi_handlers[] = {</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="cgi_8cpp.html#a677c7b4e9135d79da3d8cda26cc2eb38">    7</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> tCGI <a class="code" href="cgi_8cpp.html#a677c7b4e9135d79da3d8cda26cc2eb38">cgi_handlers</a>[] = {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">/* Html request for &quot;/leds.cgi&quot; will start cgi_index_handler */</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {<span class="stringliteral">&quot;/&quot;</span>, cgi_index_handler},</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {<span class="stringliteral">&quot;/&quot;</span>, <a class="code" href="cgi_8cpp.html#a6f781a80380cd4efe9b0a11ae31fcd14">cgi_index_handler</a>},</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *cgi_index_handler(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">char</span> *[], <span class="keywordtype">char</span> *[]) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="cgi_8cpp.html#a6f781a80380cd4efe9b0a11ae31fcd14">   12</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="cgi_8cpp.html#a6f781a80380cd4efe9b0a11ae31fcd14">cgi_index_handler</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">char</span> *[], <span class="keywordtype">char</span> *[]) {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="comment">/* Our response to the &quot;SUBMIT&quot; is to simply send the same page again*/</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordflow">return</span> <span class="stringliteral">&quot;/index.html&quot;</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* initialize the CGI handler */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> cgi_init() { http_set_cgi_handlers(cgi_handlers, 1); }</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="cgi_8cpp.html#aef660d1f674ee1d9991042ac8143931c">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="cgi_8cpp.html#aef660d1f674ee1d9991042ac8143931c">cgi_init</a>() { http_set_cgi_handlers(<a class="code" href="cgi_8cpp.html#a677c7b4e9135d79da3d8cda26cc2eb38">cgi_handlers</a>, 1); }</div>
+<div class="ttc" id="acgi_8cpp_html_a677c7b4e9135d79da3d8cda26cc2eb38"><div class="ttname"><a href="cgi_8cpp.html#a677c7b4e9135d79da3d8cda26cc2eb38">cgi_handlers</a></div><div class="ttdeci">static const tCGI cgi_handlers[]</div><div class="ttdef"><b>Definition:</b> <a href="cgi_8cpp_source.html#l00007">cgi.cpp:7</a></div></div>
+<div class="ttc" id="acgi_8cpp_html_a6f781a80380cd4efe9b0a11ae31fcd14"><div class="ttname"><a href="cgi_8cpp.html#a6f781a80380cd4efe9b0a11ae31fcd14">cgi_index_handler</a></div><div class="ttdeci">const char * cgi_index_handler(int, int, char *[], char *[])</div><div class="ttdef"><b>Definition:</b> <a href="cgi_8cpp_source.html#l00012">cgi.cpp:12</a></div></div>
+<div class="ttc" id="acgi_8cpp_html_aef660d1f674ee1d9991042ac8143931c"><div class="ttname"><a href="cgi_8cpp.html#aef660d1f674ee1d9991042ac8143931c">cgi_init</a></div><div class="ttdeci">void cgi_init()</div><div class="ttdef"><b>Definition:</b> <a href="cgi_8cpp_source.html#l00018">cgi.cpp:18</a></div></div>
+<div class="ttc" id="acgi_8h_html"><div class="ttname"><a href="cgi_8h.html">cgi.h</a></div></div>
+<div class="ttc" id="alwipopts_8h_html"><div class="ttname"><a href="lwipopts_8h.html">lwipopts.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>cgi.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="cgi_8cpp.html">cgi.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

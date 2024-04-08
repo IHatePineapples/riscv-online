@@ -88,76 +88,85 @@ $(document).ready(function(){initNavTree('emulator_8hpp_source.html',''); initRe
 <div class="title">emulator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<a href="emulator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;bitset&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;utils/parse.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parse_8hpp.html">utils/parse.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>emulator {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemulator.html">emulator</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> run();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">run</a>();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> register_t = std::bitset&lt;32&gt;;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">   13</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> = std::bitset&lt;32&gt;;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classemulator_1_1RV32I__emu.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemulator_1_1RV32I__emu.html">RV32I_emu</a> final {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  register_t x0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  register_t x1;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  register_t x2;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  register_t x3;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  register_t x4;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  register_t x5;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  register_t x6;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  register_t x7;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  register_t x8;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  register_t x9;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  register_t x10;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  register_t x11;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  register_t x12;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  register_t x13;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  register_t x14;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  register_t x15;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  register_t x16;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  register_t x17;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  register_t x18;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  register_t x19;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  register_t x20;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  register_t x21;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  register_t x22;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  register_t x23;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  register_t x24;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  register_t x25;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  register_t x26;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  register_t x27;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  register_t x28;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  register_t x29;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  register_t x30;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  register_t x31;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x1;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x2;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x3;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x4;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x5;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x6;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x7;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x8;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x9;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x10;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x11;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x12;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x13;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x14;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x15;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x16;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x17;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x18;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x19;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x20;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x21;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x22;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x23;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x24;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x25;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x26;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x27;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x28;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x29;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x30;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">register_t</a> x31;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::vector&lt;std::string&gt; asm_lines_;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  parse::symbol_table_t symbols_;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  parse::data_t data_;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  parse::text_t asm_;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">parse::symbol_table_t</a> symbols_;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">parse::data_t</a> data_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">parse::text_t</a> asm_;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="classemulator_1_1RV32I__emu.html">RV32I_emu</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="classemulator_1_1RV32I__emu.html">RV32I_emu</a>(<span class="keyword">const</span> std::string_view &amp;);</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">   56</a></span>&#160;  <a class="code" href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">RV32I_emu</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">RV32I_emu</a>(<span class="keyword">const</span> std::string_view &amp;);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> reload_program(<span class="keyword">const</span> std::string &amp;);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classemulator_1_1RV32I__emu.html#a3866940494359f9f00b21a3b1162339f">reload_program</a>(<span class="keyword">const</span> std::string &amp;);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace emulator</span></div>
 <div class="ttc" id="aclassemulator_1_1RV32I__emu_html"><div class="ttname"><a href="classemulator_1_1RV32I__emu.html">emulator::RV32I_emu</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00015">emulator.hpp:15</a></div></div>
+<div class="ttc" id="aclassemulator_1_1RV32I__emu_html_a3866940494359f9f00b21a3b1162339f"><div class="ttname"><a href="classemulator_1_1RV32I__emu.html#a3866940494359f9f00b21a3b1162339f">emulator::RV32I_emu::reload_program</a></div><div class="ttdeci">void reload_program(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00039">emulator.cpp:39</a></div></div>
+<div class="ttc" id="aclassemulator_1_1RV32I__emu_html_abc8cb71e92b687b041b08efdeeda2cb2"><div class="ttname"><a href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">emulator::RV32I_emu::RV32I_emu</a></div><div class="ttdeci">RV32I_emu()=default</div></div>
+<div class="ttc" id="anamespaceemulator_html"><div class="ttname"><a href="namespaceemulator.html">emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00010">emulator.cpp:10</a></div></div>
+<div class="ttc" id="anamespaceemulator_html_a3aa82b6bd4263e89bb021617a21a744c"><div class="ttname"><a href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">emulator::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00012">emulator.cpp:12</a></div></div>
+<div class="ttc" id="anamespaceemulator_html_aa64ba8c3d649e37f96f76eedf65bbe3e"><div class="ttname"><a href="namespaceemulator.html#aa64ba8c3d649e37f96f76eedf65bbe3e">emulator::register_t</a></div><div class="ttdeci">std::bitset&lt; 32 &gt; register_t</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00013">emulator.hpp:13</a></div></div>
+<div class="ttc" id="anamespaceparse_html_aaf653b3fd261a392f81eceb02cbb2685"><div class="ttname"><a href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">parse::data_t</a></div><div class="ttdeci">std::map&lt; std::string, std::any &gt; data_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00215">parse.hpp:215</a></div></div>
+<div class="ttc" id="anamespaceparse_html_ac7e64a159bc21ae34f6556f1d069b5c6"><div class="ttname"><a href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">parse::symbol_table_t</a></div><div class="ttdeci">std::map&lt; std::string, std::size_t &gt; symbol_table_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00217">parse.hpp:217</a></div></div>
+<div class="ttc" id="anamespaceparse_html_ac9e16ba3822b25ba05588b50ba6bdb18"><div class="ttname"><a href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">parse::text_t</a></div><div class="ttdeci">std::vector&lt; text_entry_t &gt; text_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00216">parse.hpp:216</a></div></div>
+<div class="ttc" id="aparse_8hpp_html"><div class="ttname"><a href="parse_8hpp.html">parse.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>emulator.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="emulator_8hpp.html">emulator.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

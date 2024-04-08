@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['on_5ferror_10',['on_error',['../error_8hpp.html#a05c815a23ade8eb629649de45ce88468',1,'error.hpp']]]
+  ['api_5flib_5fdebug_428',['API_LIB_DEBUG',['../lwipopts_8h.html#a671009550216f7dc03e67ba5751e3160',1,'lwipopts.h']]],
+  ['api_5fmsg_5fdebug_429',['API_MSG_DEBUG',['../lwipopts_8h.html#a4279d7ff9f986b2ff3eb068bb012b697',1,'lwipopts.h']]]
 ];
