@@ -15,25 +15,66 @@
 template <typename T>
 class concurrent_queue
 {
+  /***
+   * \var q_
+   * \brief Underlying `std::queue`, protected by a mutex, `mtx_`.
+  */
   std::queue<T> q_;
   mutex mtx_ = {};
 
 public:
+
+  /***
+   * \fn concurrent_queue()
+   * 
+   * Default constructor.
+   * \remark Copy construction is not made available to avoid weird
+   * locking mechanisms.
+  */
   concurrent_queue();
 
   concurrent_queue<T> &operator=(const concurrent_queue<T> &) = delete;
   concurrent_queue<T> &operator=(concurrent_queue<T> &&) = delete;
 
+  /***
+   * \fn front()
+   * \returns `&` to first item.
+   * 
+   * \brief Reference to first item in the queue.
+  */
   T &front();
   const T &front() const;
 
+  /***
+   * \fn back()
+   * \returns `&` to last item.
+   * 
+   * \brief Reference to last item in the queue.
+  */
   T &back();
   const T &back() const;
 
+  /***
+   * \fn empty()
+   * \returns `true` if queue empty, `false` otherwise.
+  */
   bool empty() const;
+
+  /***
+   * \fn size()
+   * \returns number of elements in the queue.
+  */
   std::size_t size() const;
 
+  /***
+   * \fn push(T &&)
+   * \brief Push an item onto the stack, doing an `emplace_back()` in the background.
+  */
   void push(T &&);
+  /***
+   * \fn pop()
+   * \brief Pops the first element of the queue, pointed to by `front()`.
+  */
   void pop();
 };
 
