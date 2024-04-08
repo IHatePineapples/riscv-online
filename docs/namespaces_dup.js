@@ -1,6 +1,6 @@
 var namespaces_dup =
 [
-    [ "emulator", "namespaceemulator.html", "namespaceemulator" ],
+    [ "emulation", "namespaceemulation.html", "namespaceemulation" ],
     [ "parse", "namespaceparse.html", [
       [ "data_t", "namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685", null ],
       [ "I", "namespaceparse.html#a96d5f14153ce99fc309cff723e7f4e02", null ],

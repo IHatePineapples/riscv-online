@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('emulator_8cpp_source.html',''); initRe
 </div><!--header-->
 <div class="contents">
 <a href="emulator_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="emulator_8hpp.html">emulator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared_8hpp.html">shared.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared__queue_8hpp.html">RoL/threaded/shared_queue.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -97,48 +97,19 @@ $(document).ready(function(){initNavTree('emulator_8cpp_source.html',''); initRe
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceemulator.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemulator.html">emulator</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">   12</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">run</a>(){</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// Nothing yet</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceemulator.html#ab25f651b0a00c13ca31ef14f5da6624f">   16</a></span>&#160;constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemulator.html#ab25f651b0a00c13ca31ef14f5da6624f">trim_line</a> = [](<span class="keyword">auto</span>&amp; s) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;c : s)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span> || c == <span class="charliteral">&#39;\r&#39;</span> || c == <span class="charliteral">&#39;\t&#39;</span>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      c = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  boost::trim(s);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceemulator.html#a25083cdbdb9373e1624cfcd4bb1b067a">   23</a></span>&#160;<span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="namespaceemulator.html#a25083cdbdb9373e1624cfcd4bb1b067a">preprocess_lines</a>(<span class="keyword">const</span> std::string_view &amp;assembly) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">using</span> boost::algorithm::is_any_of;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">using</span> boost::algorithm::split;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">using</span> boost::algorithm::token_compress_on;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">static</span> std::vector&lt;std::string&gt; asm_lines{};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  split(asm_lines, assembly, is_any_of(<span class="stringliteral">&quot;\n\r&quot;</span>), token_compress_on);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  std::for_each(asm_lines.begin(), asm_lines.end(), <a class="code" href="namespaceemulator.html#ab25f651b0a00c13ca31ef14f5da6624f">trim_line</a>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">return</span> asm_lines;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classemulator_1_1RV32I__emu.html#a475ec0b41237759a3889df0bf5a61a81">   36</a></span>&#160;<a class="code" href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">RV32I_emu::RV32I_emu</a>(<span class="keyword">const</span> std::string_view &amp;asm_)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    : asm_lines_(<a class="code" href="namespaceemulator.html#a25083cdbdb9373e1624cfcd4bb1b067a">preprocess_lines</a>(asm_)) {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classemulator_1_1RV32I__emu.html#a3866940494359f9f00b21a3b1162339f">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classemulator_1_1RV32I__emu.html#a3866940494359f9f00b21a3b1162339f">RV32I_emu::reload_program</a>(<span class="keyword">const</span> std::string &amp;asm_) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  asm_lines_ = <a class="code" href="namespaceemulator.html#a25083cdbdb9373e1624cfcd4bb1b067a">preprocess_lines</a>(asm_);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace emulator</span></div>
-<div class="ttc" id="aclassemulator_1_1RV32I__emu_html_a3866940494359f9f00b21a3b1162339f"><div class="ttname"><a href="classemulator_1_1RV32I__emu.html#a3866940494359f9f00b21a3b1162339f">emulator::RV32I_emu::reload_program</a></div><div class="ttdeci">void reload_program(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00039">emulator.cpp:39</a></div></div>
-<div class="ttc" id="aclassemulator_1_1RV32I__emu_html_abc8cb71e92b687b041b08efdeeda2cb2"><div class="ttname"><a href="classemulator_1_1RV32I__emu.html#abc8cb71e92b687b041b08efdeeda2cb2">emulator::RV32I_emu::RV32I_emu</a></div><div class="ttdeci">RV32I_emu()=default</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceemulation.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemulation.html">emulation</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10">   13</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10">run</a>()</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Nothing yet</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace emulator</span></div>
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
-<div class="ttc" id="anamespaceemulator_html"><div class="ttname"><a href="namespaceemulator.html">emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00010">emulator.cpp:10</a></div></div>
-<div class="ttc" id="anamespaceemulator_html_a25083cdbdb9373e1624cfcd4bb1b067a"><div class="ttname"><a href="namespaceemulator.html#a25083cdbdb9373e1624cfcd4bb1b067a">emulator::preprocess_lines</a></div><div class="ttdeci">static auto preprocess_lines(const std::string_view &amp;assembly)</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00023">emulator.cpp:23</a></div></div>
-<div class="ttc" id="anamespaceemulator_html_a3aa82b6bd4263e89bb021617a21a744c"><div class="ttname"><a href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">emulator::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00012">emulator.cpp:12</a></div></div>
-<div class="ttc" id="anamespaceemulator_html_ab25f651b0a00c13ca31ef14f5da6624f"><div class="ttname"><a href="namespaceemulator.html#ab25f651b0a00c13ca31ef14f5da6624f">emulator::trim_line</a></div><div class="ttdeci">constexpr auto trim_line</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00016">emulator.cpp:16</a></div></div>
-<div class="ttc" id="ashared_8hpp_html"><div class="ttname"><a href="shared_8hpp.html">shared.hpp</a></div></div>
+<div class="ttc" id="anamespaceemulation_html"><div class="ttname"><a href="namespaceemulation.html">emulation</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00010">emulator.cpp:11</a></div></div>
+<div class="ttc" id="anamespaceemulation_html_af40bee66d457d56de0b3b721199a7e10"><div class="ttname"><a href="namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10">emulation::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00013">emulator.cpp:13</a></div></div>
+<div class="ttc" id="ashared__queue_8hpp_html"><div class="ttname"><a href="shared__queue_8hpp.html">shared_queue.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

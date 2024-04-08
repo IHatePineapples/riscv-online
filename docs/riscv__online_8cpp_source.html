@@ -96,9 +96,9 @@ $(document).ready(function(){initNavTree('riscv__online_8cpp_source.html',''); i
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="emulator_8hpp.html">emulator.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server_8hpp.html">server.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared_8hpp.html">shared.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="queue_8hpp.html">utils/threaded/queue.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="queue_8hpp.html">RoL/threaded/queue.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared__queue_8hpp.html">RoL/threaded/shared_queue.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="riscv__online_8cpp.html#aaa7b6b8d5080d0902511108722c09a82">   13</a></span>&#160;<a class="code" href="classconcurrent__queue.html">job_queue</a> <a class="code" href="riscv__online_8cpp.html#aaa7b6b8d5080d0902511108722c09a82">jq_</a>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
@@ -125,31 +125,25 @@ $(document).ready(function(){initNavTree('riscv__online_8cpp_source.html',''); i
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    sleep_ms(3000);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  printf(<span class="stringliteral">&quot;Connected, starting Emulator on core 1.\n&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  multicore_launch_core1(<a class="code" href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">emulator::run</a>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  printf(<span class="stringliteral">&quot;Starting server.\n&quot;</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="namespaceserver.html#a66bd9eb32455d0581abe2c82dda4dc87">server::run</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  printf(<span class="stringliteral">&quot;Connected, starting Emulator on core 1.\n&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  multicore_launch_core1(<a class="code" href="namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10">emulation::run</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  printf(<span class="stringliteral">&quot;Starting server.\n&quot;</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="namespaceserver.html#a66bd9eb32455d0581abe2c82dda4dc87">server::run</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="ttc" id="aclassconcurrent__queue_html"><div class="ttname"><a href="classconcurrent__queue.html">concurrent_queue</a></div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00016">queue.hpp:17</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">Edit to match your configuration and system.</div></div>
 <div class="ttc" id="aconfig_8hpp_html_a4fb73bc51ebc20f3bfc3b1c6927fce0f"><div class="ttname"><a href="config_8hpp.html#a4fb73bc51ebc20f3bfc3b1c6927fce0f">wifi_country</a></div><div class="ttdeci">#define wifi_country</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00013">config.hpp:13</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a6cf75becb5e3abf0203e0071f2615d1a"><div class="ttname"><a href="config_8hpp.html#a6cf75becb5e3abf0203e0071f2615d1a">wifi_passwd</a></div><div class="ttdeci">#define wifi_passwd</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00025">config.hpp:25</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a7aaad517acea4c852b61bfbd307c1a5d"><div class="ttname"><a href="config_8hpp.html#a7aaad517acea4c852b61bfbd307c1a5d">wifi_ssid</a></div><div class="ttdeci">#define wifi_ssid</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00019">config.hpp:19</a></div></div>
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
-<div class="ttc" id="anamespaceemulator_html_a3aa82b6bd4263e89bb021617a21a744c"><div class="ttname"><a href="namespaceemulator.html#a3aa82b6bd4263e89bb021617a21a744c">emulator::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00012">emulator.cpp:12</a></div></div>
+<div class="ttc" id="anamespaceemulation_html_af40bee66d457d56de0b3b721199a7e10"><div class="ttname"><a href="namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10">emulation::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00013">emulator.cpp:13</a></div></div>
 <div class="ttc" id="anamespaceserver_html_a66bd9eb32455d0581abe2c82dda4dc87"><div class="ttname"><a href="namespaceserver.html#a66bd9eb32455d0581abe2c82dda4dc87">server::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00020">server.cpp:20</a></div></div>
 <div class="ttc" id="aqueue_8hpp_html"><div class="ttname"><a href="queue_8hpp.html">queue.hpp</a></div></div>
 <div class="ttc" id="ariscv__online_8cpp_html_aaa7b6b8d5080d0902511108722c09a82"><div class="ttname"><a href="riscv__online_8cpp.html#aaa7b6b8d5080d0902511108722c09a82">jq_</a></div><div class="ttdeci">job_queue jq_</div><div class="ttdef"><b>Definition:</b> <a href="riscv__online_8cpp_source.html#l00013">riscv_online.cpp:13</a></div></div>
 <div class="ttc" id="ariscv__online_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="riscv__online_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="riscv__online_8cpp_source.html#l00015">riscv_online.cpp:15</a></div></div>
 <div class="ttc" id="aserver_8hpp_html"><div class="ttname"><a href="server_8hpp.html">server.hpp</a></div></div>
-<div class="ttc" id="ashared_8hpp_html"><div class="ttname"><a href="shared_8hpp.html">shared.hpp</a></div></div>
+<div class="ttc" id="ashared__queue_8hpp_html"><div class="ttname"><a href="shared__queue_8hpp.html">shared_queue.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
