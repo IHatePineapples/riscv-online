@@ -2,6 +2,5 @@
 
 namespace server
 {
-
     void run();
 }

@@ -35,15 +35,9 @@ int main()
     sleep_ms(3000);
   };
 
-  
   printf("Connected, starting Emulator on core 1.\n");
   multicore_launch_core1(emulator::run);
 
   printf("Starting server.\n");
-
-  
   server::run();
-
-
-
 }

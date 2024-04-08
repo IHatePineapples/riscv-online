@@ -4,7 +4,6 @@
 /* initialize the CGI handler */
 void cgi_init();
 
-const char * cgi_index_handler(int , int , char *[], char *[]);
-
+const char *cgi_index_handler(int, int, char *[], char *[]);
 
 #endif // __CGI_H__
