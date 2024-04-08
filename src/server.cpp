@@ -1,8 +1,9 @@
-#include "lwip/apps/httpd.h"
-
 #include "server.hpp"
+#include "shared.hpp"
+#include "lwip/apps/httpd.h"
 // #include "ssi.h"
 #include "cgi.h"
+
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
 #include "pico/time.h"

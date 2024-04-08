@@ -1,4 +1,5 @@
 #include "emulator.hpp"
+#include "shared.hpp"
 
 #include <algorithm>
 #include <string>

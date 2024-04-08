@@ -31,8 +31,7 @@ target_link_libraries(${riscv}
     pico_lwip_http
     pico_multicore
     pico_stdlib
-    
-    queue
+    pico_sync
 )
 
 pico_enable_stdio_usb(${riscv} 1)
@@ -41,6 +40,3 @@ pico_enable_stdio_uart(${riscv} 0)
 pico_add_extra_outputs(${riscv})
 
 unset(riscv)
-
-
-add_subdirectory(utils)

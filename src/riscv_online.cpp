@@ -6,6 +6,11 @@
 
 #include "emulator.hpp"
 #include "server.hpp"
+#include "shared.hpp"
+
+#include "utils/threaded/queue.hpp"
+
+job_queue jq_;
 
 int main()
 {
