@@ -9,13 +9,32 @@
 <body>
 
     <h1>RISC-V Online</h1>
-    <form action="run">
 
-        <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
-            spellcheck="false" wrap="off" style="resize: none"></textarea>
-        <button type="submit" onClick="this.form.submit()">Run</button>
-    </form>
+    <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
+        spellcheck="false" wrap="off" style="resize: none"></textarea>
+    <button type="submit" onClick="run();">Run</button>
+    <textarea id="out"></textarea>
 
 </body>
+<script>
+
+    function run() {
+        var code_block = document.getElementById("code-block");
+        var lines = code_block.value.split("\n");
+        var out = document.getElementById("out");
+
+
+        lines.forEach(line => {
+            // Always dealing with RV32I for now.
+            line = line.trim();
+            var bitstream = "11";
+
+            var split_in_2 = line.split(" ", 2);
+            let instruction = split_in_2[0];
+            out.value += instruction;
+            out.value += "\n";
+        });
+    }
+</script>
 
 </html>
