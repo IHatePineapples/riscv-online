@@ -10,7 +10,8 @@
 #include "RoL/threaded/queue.hpp"
 #include "RoL/threaded/shared_queue.hpp"
 
-job_queue jq_;
+job_queue in_jq_{};
+job_queue out_jq_{};
 
 int main()
 {
