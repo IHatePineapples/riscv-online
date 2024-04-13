@@ -10,6 +10,10 @@
 #include "RoL/threaded/queue.hpp"
 #include "RoL/threaded/shared_queue.hpp"
 
+/**
+ * \file Main entry point of the firmware.
+*/
+
 job_queue in_jq_{};
 job_queue out_jq_{};
 
