@@ -7,7 +7,7 @@
 #include <boost/assert.hpp>
 
 using namespace parse;
-/***
+/**
  * \file test_parse.cpp
  * \brief Sample test unit for the parsing utilies. Validates parsing output.
  * \note Tests are to be run on the host.
