@@ -12,7 +12,7 @@ namespace emulation
   void run();
 
   template <int xlen = 32>
-  struct emulator final
+  class emulator final
   {
 
     using reg = std::bitset<xlen>;
@@ -51,7 +51,7 @@ namespace emulation
 
     reg pc;
 
-    std::vector<std::bitset<xlen>> RAM;
+    std::vector<std::bitset<xlen>> ram;
 
     /**
      * \fn lui_
@@ -276,6 +276,22 @@ namespace emulation
      */
     void and_();
 
+    public:
+
+    /**
+     * \fn load_to_ram
+     * 
+     * \brief Loads binary "program" in RAM.
+     * \note This is called before execuation.
+    */
+    void load_to_ram();
+    
+    /**
+     * \fn serialize_ram
+     * 
+     * \brief Dumps ram content in a serialized format, useful for rendering, for example back to userspace.
+    */
+    void serialize_ram();
   };
 
 } // namespace emulator
