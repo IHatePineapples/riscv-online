@@ -12,49 +12,50 @@ namespace emulation
   void run();
 
   template<int xlen>
-  class emulator final
+  struct emulator final
   {
 
     using reg = std::bitset<xlen>;
-    reg x0;
-    reg x1;
-    reg x2;
-    reg x3;
-    reg x4;
-    reg x5;
-    reg x6;
-    reg x7;
-    reg x8;
-    reg x9;
-    reg x10;
-    reg x11;
-    reg x12;
-    reg x13;
-    reg x14;
-    reg x15;
-    reg x16;
-    reg x17;
-    reg x18;
-    reg x19;
-    reg x20;
-    reg x21;
-    reg x22;
-    reg x23;
-    reg x24;
-    reg x25;
-    reg x26;
-    reg x27;
-    reg x28;
-    reg x29;
-    reg x30;
-    reg x31;
+    reg zero;
+    reg ra;
+    reg sp;
+    reg gp;
+    reg tp;
+    reg t0;
+    reg t1;
+    reg t2;
+    reg fp;
+    reg s1;
+    reg a0;
+    reg a1;
+    reg a2;
+    reg a3;
+    reg a4;
+    reg a5;
+    reg a6;
+    reg a7;
+    reg s2;
+    reg s3;
+    reg s4;
+    reg s5;
+    reg s6;
+    reg s7;
+    reg s8;
+    reg s9;
+    reg s10;
+    reg s11;
+    reg t3;
+    reg t4;
+    reg t5;
+    reg t6;
+
+    reg pc;
 
     std::vector<std::string> asm_lines_;
     parse::symbol_table_t symbols_;
     parse::data_t data_;
     parse::text_t asm_;
 
-  public:
     emulator() = default;
 
   };
