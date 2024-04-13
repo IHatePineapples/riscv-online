@@ -2,7 +2,6 @@
 #include "RoL/threaded/shared_queue.hpp"
 #include "lwip/apps/httpd.h"
 // #include "ssi.h"
-#include "cgi.h"
 
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
@@ -14,7 +13,6 @@ namespace server
     {
         httpd_init();
         // ssi_init();
-        cgi_init();
     }
 
     void run()
