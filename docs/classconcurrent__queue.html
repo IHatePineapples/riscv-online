@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('classconcurrent__queue.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p>Wraps around std::queue and as name implies, allows concurrent access accross execution flows (cores/threads, etc..). Relays all operations to the underlying queue, concurrently.  
+ <a href="classconcurrent__queue.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="queue_8hpp_source.html">queue.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for concurrent_queue&lt; T &gt;:</div>
@@ -111,10 +114,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aefbd17555f94568b40a1768eca45c799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconcurrent__queue.html">concurrent_queue</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">operator=</a> (<a class="el" href="classconcurrent__queue.html">concurrent_queue</a>&lt; T &gt; &amp;&amp;)=delete</td></tr>
 <tr class="separator:aefbd17555f94568b40a1768eca45c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acef464c5141917bfa1e207b762737ec8"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">front</a> ()</td></tr>
+<tr class="memdesc:acef464c5141917bfa1e207b762737ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to first item in the queue.  <a href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">More...</a><br /></td></tr>
 <tr class="separator:acef464c5141917bfa1e207b762737ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbfe8a7c43e6248d2b64d631cd6073ca"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#abbfe8a7c43e6248d2b64d631cd6073ca">front</a> () const</td></tr>
 <tr class="separator:abbfe8a7c43e6248d2b64d631cd6073ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3af12bf374d2395aa4918a489777f720"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">back</a> ()</td></tr>
+<tr class="memdesc:a3af12bf374d2395aa4918a489777f720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to last item in the queue.  <a href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">More...</a><br /></td></tr>
 <tr class="separator:a3af12bf374d2395aa4918a489777f720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab475c53ec9577d6b3a0a702aad5950db"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#ab475c53ec9577d6b3a0a702aad5950db">back</a> () const</td></tr>
 <tr class="separator:ab475c53ec9577d6b3a0a702aad5950db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,14 +128,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac3ad4a5fb4e87709b1fd4b5cc618b5fd"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#ac3ad4a5fb4e87709b1fd4b5cc618b5fd">size</a> () const</td></tr>
 <tr class="separator:ac3ad4a5fb4e87709b1fd4b5cc618b5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6098253682efb5ed8930f8f60342b761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">push</a> (T &amp;&amp;)</td></tr>
+<tr class="memdesc:a6098253682efb5ed8930f8f60342b761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push an item onto the stack, doing an <code>emplace_back()</code> in the background.  <a href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">More...</a><br /></td></tr>
 <tr class="separator:a6098253682efb5ed8930f8f60342b761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf8caf9c7d650bc24005970641d155cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">pop</a> ()</td></tr>
+<tr class="memdesc:acf8caf9c7d650bc24005970641d155cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops the first element of the queue, pointed to by <code><a class="el" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8" title="Reference to first item in the queue.">front()</a></code>.  <a href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">More...</a><br /></td></tr>
 <tr class="separator:acf8caf9c7d650bc24005970641d155cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class concurrent_queue&lt; T &gt;</h3>
 
+<p>Wraps around std::queue and as name implies, allows concurrent access accross execution flows (cores/threads, etc..). Relays all operations to the underlying queue, concurrently. </p>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00016">16</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -147,6 +155,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Default constructor. </p><dl class="section remark"><dt>Remarks</dt><dd>Copy construction is not made available to avoid weird locking mechanisms. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00082">82</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
@@ -166,6 +175,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reference to last item in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>&amp;</code> to last item. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00103">103</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
@@ -202,6 +214,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if queue empty, <code>false</code> otherwise. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00121">121</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
@@ -220,6 +233,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reference to first item in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>&amp;</code> to first item. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00085">85</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
@@ -313,6 +329,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Pops the first element of the queue, pointed to by <code><a class="el" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8" title="Reference to first item in the queue.">front()</a></code>. </p>
+
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00138">138</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
 </div>
@@ -335,6 +353,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Push an item onto the stack, doing an <code>emplace_back()</code> in the background. </p>
+
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00130">130</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 
 </div>
@@ -352,6 +372,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>number of elements in the queue. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="queue_8hpp_source.html#l00146">146</a> of file <a class="el" href="queue_8hpp_source.html">queue.hpp</a>.</p>
 

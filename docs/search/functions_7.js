@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3d_278',['operator=',['../classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48',1,'concurrent_queue::operator=(const concurrent_queue&lt; T &gt; &amp;)=delete'],['../classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799',1,'concurrent_queue::operator=(concurrent_queue&lt; T &gt; &amp;&amp;)=delete']]],
-  ['operator_3d_3d_279',['operator==',['../namespaceparse.html#a43efe93ca67d143249fb4fd376666f54',1,'parse']]]
+  ['jal_5f_326',['jal_',['../structemulation_1_1emulator.html#a1c232b2c6675697fbce47c28754ce0e8',1,'emulation::emulator']]],
+  ['jalr_5f_327',['jalr_',['../structemulation_1_1emulator.html#a624c7c2ffe1c9d94976c42dc718c9fd5',1,'emulation::emulator']]]
 ];

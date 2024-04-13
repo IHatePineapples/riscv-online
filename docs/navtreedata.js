@@ -46,7 +46,9 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -65,7 +67,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa78d45106f65f83d7dc79ae7985c1c0f"
+"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa78d45106f65f83d7dc79ae7985c1c0f",
+"structemulation_1_1emulator.html#af06cddb66aa2b1d0849dc9fc68cd916b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

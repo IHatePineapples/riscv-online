@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Sample test unit for the parsing utilies. Validates parsing output.">
 <polygon fill="#bfbfbf" stroke="black" points="255.5,-112.5 255.5,-131.5 382.5,-131.5 382.5,-112.5 255.5,-112.5"/>
 <text text-anchor="middle" x="319" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_parse.cpp</text>
 </a>

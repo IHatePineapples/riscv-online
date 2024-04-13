@@ -36,7 +36,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="test__parse_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="test__parse_8cpp.html" target="_top" xlink:title="Sample test unit for the parsing utilies. Validates parsing output.">
 <polygon fill="white" stroke="black" points="178.5,-56.5 178.5,-75.5 305.5,-75.5 305.5,-56.5 178.5,-56.5"/>
 <text text-anchor="middle" x="242" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_parse.cpp</text>
 </a>
