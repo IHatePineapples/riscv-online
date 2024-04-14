@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_5fall_325',['init_all',['../namespaceserver.html#ad541d1c9a5343ca647c393636ca0f327',1,'server']]]
+  ['load_5fto_5fram_318',['load_to_ram',['../classemulation_1_1emulator.html#a59f0e167588fcf42b48de83d72f36b89',1,'emulation::emulator']]]
 ];

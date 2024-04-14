@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['in_5fjq_5f_378',['in_jq_',['../riscv__online_8cpp.html#a3a0a88114f20545f32fc48e4e49448cf',1,'in_jq_():&#160;riscv_online.cpp'],['../shared__queue_8hpp.html#a3a0a88114f20545f32fc48e4e49448cf',1,'in_jq_():&#160;riscv_online.cpp']]]
+  ['jal_5fb_348',['jal_b',['../namespaceparse.html#ab1ca62ba04003b7205ddc1760041efb9',1,'parse']]],
+  ['jalr_5fb_349',['jalr_b',['../namespaceparse.html#a7168595280a1ba44ba2fb855c4929a9c',1,'parse']]]
 ];
