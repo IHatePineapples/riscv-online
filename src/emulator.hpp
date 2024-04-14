@@ -9,9 +9,9 @@
 namespace emulation
 {
 
+  constexpr unsigned char xlen = 32;
   void run();
 
-  template <int xlen = 32>
   class emulator final
   {
 
