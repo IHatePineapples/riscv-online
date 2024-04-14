@@ -10,6 +10,7 @@ namespace emulation
 {
 
   constexpr unsigned char xlen = 32;
+
   void run();
 
   class emulator final
@@ -58,7 +59,10 @@ namespace emulation
      *
      * \brief Load Unsigned Immediate.
      */
-    void lui_();
+    void lui_(reg &rd, unsigned int imm)
+    {
+      rd = imm;
+    };
     /**
      * \fn auipc_
      *
@@ -276,21 +280,38 @@ namespace emulation
      */
     void and_();
 
-    public:
+  public:
+    void execute()
+    {
+      const auto i = pc.to_ulong() >> 5;
+      if (i > ram.size())
+      {
+        printf("%s:%i: Bad PC content or bad math! Out of Range!", __PRETTY_FUNCTION__, __LINE__);
+        return;
+      }
+
+      const auto &r = ram.at(i);
+      std::bitset<7> opc;
+      for (std::size_t i = 0; i < 7; ++i)
+        opc[i] = r[xlen - 7 + i];
+      
+
+      
+    }
 
     /**
      * \fn load_to_ram
-     * 
+     *
      * \brief Loads binary "program" in RAM.
      * \note This is called before execuation.
-    */
+     */
     void load_to_ram();
-    
+
     /**
      * \fn serialize_ram
-     * 
+     *
      * \brief Dumps ram content in a serialized format, useful for rendering, for example back to userspace.
-    */
+     */
     void serialize_ram();
   };
 
