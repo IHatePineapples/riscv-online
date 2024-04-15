@@ -211,211 +211,211 @@ namespace emulation
      *
      * \brief Jump And Link.
      */
-    void jal_();
+    void jal_(reg& rd, const std::bitset<20> imm);
     /**
      * \fn jalr_
      *
      * \brief Jump And Link Register.
      */
-    void jalr_();
+    void jalr_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn beq_
      *
      * \brief Branch EQual.
      */
-    void beq_();
+    void beq_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn bne_
      *
      * \brief Branch Not Equal.
      */
-    void bne_();
+    void bne_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn blt_
      *
      * \brief Branch Less Than.
      */
-    void blt_();
+    void blt_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn bge_
      *
      * \brief Branch Greater than or Equal.
      */
-    void bge_();
+    void bge_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn bltu_
      *
      * \brief Branch Less Than Unsigned.
      */
-    void bltu_();
+    void bltu_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn bgeu_
      *
      * \brief Branch Greater than or Equal Unsigned.
      */
-    void bgeu_();
+    void bgeu_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn lb_
      *
      * \brief Load Byte.
      */
-    void lb_();
+    void lb_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn lh_
      *
      * \brief Load Halfword.
      */
-    void lh_();
+    void lh_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn lw_
      *
      * \brief Load Word.
      */
-    void lw_();
+    void lw_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn lbu_
      *
      * \brief Load Byte Unsigned.
      */
-    void lbu_();
+    void lbu_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn lhu_
      *
      * \brief Load Halfword Unsigned.
      */
-    void lhu_();
+    void lhu_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn sb_
      *
      * \brief Store Byte.
      */
-    void sb_();
+    void sb_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn sh_
      *
      * \brief Store Halfword.
      */
-    void sh_();
+    void sh_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn sw_
      *
      * \brief Store Word.
      */
-    void sw_();
+    void sw_(reg& rs1, reg& rs2, std::bitset<12> imm);
     /**
      * \fn addi_
      *
      * \brief Add Immediate.
      */
-    void addi_();
+    void addi_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn slti_
      *
      * \brief Set Less Than Immediate.
      */
-    void slti_();
+    void slti_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn sltiu_
      *
      * \brief Set Less Than Immediate Unsigned.
      */
-    void sltiu_();
+    void sltiu_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn xori_
      *
      * \brief eXclusive OR Immediate.
      */
-    void xori_();
+    void xori_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn ori_
      *
      * \brief OR Immediate.
      */
-    void ori_();
+    void ori_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn andi_
      *
      * \brief AND Immediate.
      */
-    void andi_();
+    void andi_(reg& rd, reg& rs1, std::bitset<11> imm);
     /**
      * \fn slli_
      *
      * \brief Shift Left Logical Immediate.
      */
-    void slli_();
+    void slli_(reg& rd, reg& rs1, std::bitset<5> shamt);
     /**
      * \fn stli
      *
      * \brief Shift Right Logical Immediate.
      */
-    void srli_();
+    void srli_(reg& rd, reg& rs1, std::bitset<5> shamt);
     /**
      * \fn srai_
      *
      * \brief Shift Right Arithmetic Immediate.
      */
-    void srai_();
+    void srai_(reg& rd, reg& rs1, std::bitset<5> shamt);
     /**
      * \fn add_
      *
      * \brief ADD.
      */
-    void add_();
+    void add_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn sub_
      *
      * \brief SUBstract.
      */
-    void sub_();
+    void sub_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn sll_
      *
      * \brief Shift Left Logical.
      */
-    void sll_();
+    void sll_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn slt_
      *
      * \brief Set Less Than.
      */
-    void slt_();
+    void slt_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn sltu_
      *
      * \brief Set Less Than Unsigned.
      */
-    void sltu_();
+    void sltu_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn xor_
      *
      * \brief eXclusive OR.
      */
-    void xor_();
+    void xor_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn srl_
      *
      * \brief Shift Right Logical.
      */
-    void srl_();
+    void srl_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn sra_
      *
      * \brief Shift Right Arithmetic.
      */
-    void sra_();
+    void sra_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn or_
      *
      * \brief OR.
      */
-    void or_();
+    void or_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn and_
      *
      * \brief AND.
      */
-    void and_();
+    void and_(reg& rd, const reg& rs1, const reg& rs2);
 
   public:
     void execute()
