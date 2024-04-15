@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['xlen_375',['xlen',['../namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3',1,'emulation']]],
-  ['xor_5fb_376',['xor_b',['../namespaceparse.html#abcda93dcf663b0b2c98d667fc6ee353c',1,'parse']]],
-  ['xori_5fb_377',['xori_b',['../namespaceparse.html#a155fc17d38c4253f99299c0de6c5b84f',1,'parse']]]
+  ['s_5ffmt_318',['S_fmt',['../namespaceparse.html#ad13373d4ef04f17e9104128b051070c3',1,'parse']]],
+  ['s_5fto_5fopc_319',['s_to_opc',['../namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696',1,'parse']]],
+  ['s_5fto_5freg_320',['s_to_reg',['../namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2',1,'parse']]]
 ];

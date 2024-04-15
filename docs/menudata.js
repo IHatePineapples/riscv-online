@@ -42,14 +42,7 @@ var menudata={children:[
 {text:"u",url:"namespacemembers.html#index_u"},
 {text:"x",url:"namespacemembers.html#index_x"}]},
 {text:"Functions",url:"namespacemembers_func.html"},
-{text:"Variables",url:"namespacemembers_vars.html",children:[
-{text:"a",url:"namespacemembers_vars.html#index_a"},
-{text:"b",url:"namespacemembers_vars.html#index_b"},
-{text:"j",url:"namespacemembers_vars.html#index_j"},
-{text:"l",url:"namespacemembers_vars.html#index_l"},
-{text:"o",url:"namespacemembers_vars.html#index_o"},
-{text:"s",url:"namespacemembers_vars.html#index_s"},
-{text:"x",url:"namespacemembers_vars.html#index_x"}]},
+{text:"Variables",url:"namespacemembers_vars.html"},
 {text:"Typedefs",url:"namespacemembers_type.html"},
 {text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
