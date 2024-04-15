@@ -443,11 +443,11 @@ namespace emulation
       if (opc_r == lui_fmt or opc_r == auipc_fmt)
       {
         std::bitset<20> imm;
-        for (int i = 0; i < imm.size(); ++i)
+        for (std::size_t i = 0; i < imm.size(); ++i)
           imm[i] = r[i + 12];
 
         std::bitset<5> rd_b;
-        for (int i = 0; i < rd_b.size(); ++i)
+        for (std::size_t i = 0; i < rd_b.size(); ++i)
           rd_b[i] = r[i + 7];
 
         reg &rd = resolv_rd(rd_b);
