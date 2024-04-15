@@ -14,43 +14,15 @@
 namespace parse
 {
 
-  const std::bitset<7> lui_b = 0b0110111;
-  const std::bitset<7> auipc_b = 0b0010111;
-  const std::bitset<7> jal_b = 0b1101111;
-  const std::bitset<7> jalr_b = 0b1100111;
-  const std::bitset<7> beq_b = 0b1100011;
-  const std::bitset<7> bne_b = 0b1100011;
-  const std::bitset<7> blt_b = 0b1100011;
-  const std::bitset<7> bge_b = 0b1100011;
-  const std::bitset<7> bltu_b = 0b1100011;
-  const std::bitset<7> bgeu_b = 0b1100011;
-  const std::bitset<7> lb_b = 0b0000011;
-  const std::bitset<7> lh_b = 0b0000011;
-  const std::bitset<7> lw_b = 0b0000011;
-  const std::bitset<7> lbu_b = 0b0000011;
-  const std::bitset<7> lhu_b = 0b0000011;
-  const std::bitset<7> sb_b = 0b0100011;
-  const std::bitset<7> sh_b = 0b0100011;
-  const std::bitset<7> sw_b = 0b0100011;
-  const std::bitset<7> addi_b = 0b0010011;
-  const std::bitset<7> slti_b = 0b0010011;
-  const std::bitset<7> sltiu_b = 0b0010011;
-  const std::bitset<7> xori_b = 0b0010011;
-  const std::bitset<7> ori_b = 0b0010011;
-  const std::bitset<7> andi_b = 0b0010011;
-  const std::bitset<7> slli_b = 0b0010011;
-  const std::bitset<7> srli_b = 0b0010011;
-  const std::bitset<7> srai_b = 0b0010011;
-  const std::bitset<7> add_b = 0b0110011;
-  const std::bitset<7> sub_b = 0b0110011;
-  const std::bitset<7> sll_b = 0b0110011;
-  const std::bitset<7> slt_b = 0b0110011;
-  const std::bitset<7> sltu_b = 0b0110011;
-  const std::bitset<7> xor_b = 0b0110011;
-  const std::bitset<7> srl_b = 0b0110011;
-  const std::bitset<7> sra_b = 0b0110011;
-  const std::bitset<7> or_b = 0b0110011;
-  const std::bitset<7> and_b = 0b0110011;
+  constexpr std::bitset<7> lui_fmt = 0b0110111;
+  constexpr std::bitset<7> auipc_fmt = 0b0010111;
+  constexpr std::bitset<7> jal_fmt = 0b1101111;
+  constexpr std::bitset<7> jalr_b = 0b1100111;
+  constexpr std::bitset<7> B_fmt = 0b1100011;
+  constexpr std::bitset<7> L_fmt = 0b0000011; // Technically, it's I. 
+  constexpr std::bitset<7> S_fmt = 0b0100011;
+  constexpr std::bitset<7> I_fmt = 0b0010011;
+  constexpr std::bitset<7> R_fmt = 0b0110011;
 
   enum class opc
   {
