@@ -13,30 +13,6 @@ namespace emulation
     // Nothing yet
   }
 
-  void emulator::inc_pc()
-  {
-    bool carry = false;
-    for (int i = xlen - 1 - 5; i < 0; --i)
-    {
-      if (!pc.test(i))
-      {
-        pc.set(i, 1);
-        carry = false;
-      }
-      else
-      {
-        pc.set(i, 0);
-        carry = true;
-      }
-
-      if (!carry)
-        return;
-    }
-
-    if (carry)
-      printf("%s:%i: Exhausted PC past maximum ('%s'). Proceeding anyway.", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
-  }
-
   reg &emulator::resolv_rd(const std::bitset<5> &rd)
   {
 
@@ -112,4 +88,65 @@ namespace emulation
     }
   }
 
+  void emulator::inc_pc()
+  {
+    bool carry = false;
+    for (int i = xlen - 1 - 5; i < 0; --i)
+    {
+      if (!pc.test(i))
+      {
+        pc.set(i, 1);
+        carry = false;
+      }
+      else
+      {
+        pc.set(i, 0);
+        carry = true;
+      }
+
+      if (!carry)
+        return;
+    }
+
+    if (carry)
+      printf("%s:%i: Exhausted PC past maximum ('%s'). Proceeding anyway.", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
+  }
+
+  void emulator::lui_(reg &rd, const std::bitset<20> &imm)
+  {
+    rd = (imm.to_ulong() << (xlen - imm.size()));
+  };
+
+  void emulator::auipc_(reg &rd, const std::bitset<20> imm)
+  {
+    rd = 0;
+
+    for (int i = 0; i < 12; ++i)
+      pc[i] = 0;
+
+    bool carry = 0;
+    for (int i = 12; i < 32; ++i)
+    {
+      if (pc.test(i) and imm.test(i))
+      {
+        pc[i] = 0 + carry;
+        carry = 1;
+      }
+      else if (pc.test(i) xor imm.test(i) and !carry)
+      {
+        pc[i] = 1;
+      }
+      else if (pc.test(i) xor imm.test(i) and carry)
+      {
+        pc[i] = 0;
+      }
+      else
+      {
+        pc[i] = carry;
+        carry = 0;
+      }
+    }
+
+    rd = pc;
+  };
 } // namespace emulator

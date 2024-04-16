@@ -72,50 +72,19 @@ namespace emulation
 
     /**
      * \fn lui_
-     *
+     * \param rd
+     * \param imm
      * \brief Load Upper Immediate.
      */
-    void lui_(reg &rd, const std::bitset<20> &imm)
-    {
-      rd = (imm.to_ulong() << (xlen - 20));
-    };
+    void lui_(reg &, const std::bitset<20> &);
+
     /**
      * \fn auipc_
      *
      * \brief Add Upper Immeddiate to PC.
      */
-    void auipc_(reg &rd, const std::bitset<20> imm)
-    {
-      rd = 0;
+    void auipc_(reg &rd, const std::bitset<20> imm);
 
-      for (int i = 0; i < 12; ++i)
-        pc[i] = 0;
-
-      bool carry = 0;
-      for (int i = 12; i < 32; ++i)
-      {
-        if (pc.test(i) and imm.test(i))
-        {
-          pc[i] = 0 + carry;
-          carry = 1;
-        }
-        else if (pc.test(i) xor imm.test(i) and !carry)
-        {
-          pc[i] = 1;
-        }
-        else if (pc.test(i) xor imm.test(i) and carry)
-        {
-          pc[i] = 0;
-        }
-        else
-        {
-          pc[i] = carry;
-          carry = 0;
-        }
-      }
-
-      rd = pc;
-    };
     /**
      * \fn jal_
      *
