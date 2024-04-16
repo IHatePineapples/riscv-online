@@ -55,6 +55,12 @@ namespace emulation
 
     std::vector<reg> ram;
 
+    /**
+     * \fn resolv_rd
+     * \param rd bitset where the rd is encoded as a 5 bit digit.
+     * 
+     * \brief Returns a reference to the destination register bitset `rd` points to.
+    */
     reg &resolv_rd(const std::bitset<5> &rd)
     {
 
@@ -125,7 +131,7 @@ namespace emulation
       case 31:
         return t6;
       default:
-        printf("%s:%i: Weird RD content, got '%s'", __PRETTY_FUNCTION__, __LINE__, rd.to_string().c_str());
+        printf("%s:%d: Weird RD content, got '%lu'", __PRETTY_FUNCTION__, __LINE__, rd.to_ulong());
       }
     }
 
