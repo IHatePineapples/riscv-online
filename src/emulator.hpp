@@ -297,45 +297,7 @@ namespace emulation
     void and_(reg& rd, const reg& rs1, const reg& rs2);
 
   public:
-    void execute()
-    {
-      using namespace parse;
-
-      const auto i = pc.to_ulong() >> 5;
-      if (i > ram.size())
-      {
-        printf("%s:%i: Bad PC content or bad math! Out of Range!", __PRETTY_FUNCTION__, __LINE__);
-        return;
-      }
-
-      const auto &r = ram.at(i);
-      std::bitset<7> opc_r;
-
-      for (std::size_t i = 0; i < 7; ++i)
-        opc_r[i] = r[i];
-
-      std::bitset<3> opc_l;
-
-      for (std::size_t i = 0; i < opc_l.size(); ++i)
-        opc_l[i] = r[i + 12];
-
-      if (opc_r == lui_fmt or opc_r == auipc_fmt)
-      {
-        std::bitset<20> imm;
-        for (std::size_t i = 0; i < imm.size(); ++i)
-          imm[i] = r[i + 12];
-
-        std::bitset<5> rd_b;
-        for (std::size_t i = 0; i < rd_b.size(); ++i)
-          rd_b[i] = r[i + 7];
-
-        reg &rd = resolv_rd(rd_b);
-        if (opc_r.test(5))
-          lui_(rd, imm);
-        else
-          auipc_(rd, imm);
-      }
-    }
+    void execute();
 
     /**
      * \fn load_to_ram
