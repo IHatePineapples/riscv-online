@@ -90,7 +90,7 @@ namespace emulation
   void emulator::inc_pc()
   {
     bool carry = false;
-    for (int i = xlen - 1 - 5; i < 0; --i)
+    for (int i = 4; i < 32; ++i)
     {
       if (!pc.test(i))
       {
