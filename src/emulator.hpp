@@ -238,11 +238,21 @@ namespace emulation
     /**
      * \fn add_
      *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
+     *
      * \brief ADD.
      */
     void add_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn sub_
+     *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
      *
      * \brief SUBstract.
      */
@@ -250,17 +260,34 @@ namespace emulation
     /**
      * \fn sll_
      *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
+     *
      * \brief Shift Left Logical.
      */
     void sll_(reg& rd, const reg& rs1, const reg& rs2);
+    
     /**
      * \fn slt_
+     *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
      *
      * \brief Set Less Than.
      */
     void slt_(reg& rd, const reg& rs1, const reg& rs2);
+
     /**
      * \fn sltu_
+     *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
      *
      * \brief Set Less Than Unsigned.
      */
@@ -268,11 +295,21 @@ namespace emulation
     /**
      * \fn xor_
      *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
+     *
      * \brief eXclusive OR.
      */
     void xor_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn srl_
+     *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
      *
      * \brief Shift Right Logical.
      */
@@ -280,19 +317,32 @@ namespace emulation
     /**
      * \fn sra_
      *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
+     * rd = rs1 >> rs2, MSB extends, i.e. "signed" shift.
      * \brief Shift Right Arithmetic.
      */
     void sra_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn or_
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
      *
      * \brief OR.
      */
     void or_(reg& rd, const reg& rs1, const reg& rs2);
     /**
      * \fn and_
-     *
+     * \param rd Destination rd.
+     * \param rs1 First operand.
+     * \param rs2 Second operand.
+     * 
+     * `rd = rs1 & rs2`
      * \brief AND.
+     * 
      */
     void and_(reg& rd, const reg& rs1, const reg& rs2);
 

@@ -126,19 +126,14 @@ namespace emulation
     bool carry = 0;
     for (int i = 12; i < 32; ++i)
     {
-      if (pc.test(i) and imm.test(i))
+      if (pc[i] and imm[i - 12])
       {
         pc[i] = 0 + carry;
         carry = 1;
       }
-      /** \todo Collapse these two : `pc[i] = !carry` */
-      else if (pc.test(i) xor imm.test(i) and !carry)
+      else if (pc[i] xor imm[i - 12])
       {
-        pc[i] = 1;
-      }
-      else if (pc.test(i) xor imm.test(i) and carry)
-      {
-        pc[i] = 0;
+        pc[i] = !carry;
       }
       else
       {
@@ -189,4 +184,55 @@ namespace emulation
         auipc_(rd, imm);
     }
   }
+
+  void slt_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    /** \todo Two's complement here! */
+    if (rs1[rs1.size() - 1] xor rs2[rs2.size() - 1])
+    {
+      rd = rs1[rs1.size() - 1] > rs2[rs2.size() - 1];
+      return;
+    }
+
+    if (rs1[rs1.size() - 1] and rs2[rs2.size() - 1])
+    {
+      rd = rs1.to_ulong() > rs2.to_ulong();
+      return;
+    }
+
+    rd = rs1.to_ulong() < rs2.to_ulong();
+    return;
+  };
+
+  void sltu_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    rd = rs1.to_ulong() > rs2.to_ulong(); // ? 1 : 0;
+  };
+
+  void emulator::xor_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    rd = rs1 ^ rs2;
+  };
+
+  void emulator::srl_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    rd = rs1 >> rs2.to_ulong();
+  };
+
+  void emulator::sra_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    bool signbit = rs1[rs1.size() - 1];
+    rd = rs1 >> rs2.to_ulong();
+    rd[rd.size() - 1] = signbit;
+  };
+
+  void emulator::or_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    rd = rs1 | rs2;
+  };
+
+  void emulator::and_(reg &rd, const reg &rs1, const reg &rs2)
+  {
+    rd = rs1 & rs2;
+  };
 } // namespace emulator
