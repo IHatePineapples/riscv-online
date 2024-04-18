@@ -51,7 +51,7 @@ namespace emulation
 
     reg pc;
 
-    std::vector<reg> ram;
+    std::vector<bool> ram;
 
     /**
      * \fn resolv_rd
