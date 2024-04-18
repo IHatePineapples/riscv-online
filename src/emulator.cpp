@@ -12,7 +12,7 @@ namespace emulation
     // Nothing yet
   }
   template <std::size_t n = 11>
-  static constexpr reg sign_extend(std::bitset<n> imm)
+  static constexpr reg sign_extend(std::bitset<n> imm, std::size_t msb_pos = (n - 1))
   {
     reg tmp = 0;
     for (int i = 0; i < n; ++i)
@@ -20,7 +20,7 @@ namespace emulation
 
     // Sign extend
     for (int i = n - 1; i < xlen - 1; ++i)
-      tmp[i] = imm[n - 1];
+      tmp[i] = imm[msb_pos];
     return tmp;
   }
 
@@ -196,13 +196,91 @@ namespace emulation
     }
   }
 
+  void emulator::lb_(reg& rd, reg& rs1, std::bitset<11> imm){
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen / 4; ++i)
+      rd[i] = ram[addr + i];
+
+    rd = sign_extend<xlen>(rd, xlen / 4 - 1);
+
+  };
+
+  void emulator::lh_(reg &rd, reg &rs1, std::bitset<11> imm)
+  {
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen / 2; ++i)
+      rd[i] = ram[addr + i];
+
+    rd = sign_extend<xlen>(rd, xlen / 2 - 1);
+  };
+
+  void emulator::lw_(reg& rd, reg& rs1, std::bitset<11> imm){
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen; ++i)
+      rd[i] = ram[addr + i];
+  };
+  
+  void emulator::lbu_(reg& rd, reg& rs1, std::bitset<11> imm){
+    rd = 0;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen / 4; ++i)
+      rd[i] = ram[addr + i];
+
+  };
+  
+  void emulator::lhu_(reg &rd, reg &rs1, std::bitset<11> imm){
+    rd = 0;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen / 2; ++i)
+      rd[i] = ram[addr + i];
+
+  };
+
   /** \todo Implement real RAM! */
   void emulator::sb_(reg &rs1, reg &rs2, std::bitset<12> imm)
   {
     // RAM not implemented yet !
     // This is will just cause stack corrution/decay lol
-    const auto addr = rs1.to_ulong() + imm.to_ulong();
-    for (int i = 0; i < xlen / 2; ++i)
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
+    for (int i = 0; i < xlen / 4; ++i)
       ram[addr + i] = rs2[i];
   };
   /** \todo Implement real RAM! */
@@ -210,7 +288,13 @@ namespace emulation
   {
     // RAM not implemented yet !
     // This is will just cause stack corrution/decay lol
-    const auto addr = rs1.to_ulong() + imm.to_ulong();
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
       ram[addr + i] = rs2[i];
   };
@@ -220,7 +304,12 @@ namespace emulation
   {
     // RAM not implemented yet !
     // This is will just cause stack corrution/decay lol
-    const auto addr = rs1.to_ulong() + imm.to_ulong();
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen; ++i)
       ram[addr + i] = rs2[i];
   };
