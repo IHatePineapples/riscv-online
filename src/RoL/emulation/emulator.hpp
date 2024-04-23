@@ -14,7 +14,7 @@ namespace emulation
 
   void run();
 
-  class emulator final
+  struct emulator final
   {
     reg zero;
     reg ra;
@@ -346,7 +346,6 @@ namespace emulation
      */
     void and_(reg& rd, const reg& rs1, const reg& rs2);
 
-  public:
     void execute();
 
     /**
