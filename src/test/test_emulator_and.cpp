@@ -12,11 +12,11 @@ int main()
 
     emulation::reg l, r, res;
 
-    for (std::size_t i = 0; i < (1 << emulation::xlen - 1); ++i)
+    for (std::size_t i = 0; i < (2 << 16); ++i)
     {
 
         l = i;
-        for (std::size_t j = 0; j < (1 << emulation::xlen - 1); ++j)
+        for (std::size_t j = 0; j < (2 << 8); ++j)
         {
             r = j;
 
