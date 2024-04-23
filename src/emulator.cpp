@@ -156,7 +156,164 @@ namespace emulation
 
     rd = pc;
   };
-  void emulator::lb_(reg& rd, reg& rs1, std::bitset<11> imm){
+
+  void emulator::jal_(reg &rd, const std::bitset<20> imm){
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset <<= 1;
+    rd = pc.to_ulong() + (2<<4);
+    pc = pc.to_ulong() + offset;
+  };
+  void emulator::jalr_(reg &rd, reg &rs1, std::bitset<12> imm){
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset <<= 1;
+
+    unsigned int address = rs1.to_ulong() + offset;
+
+    rd = pc.to_ulong() + (1<<5);
+    pc = address;
+  };
+
+  void emulator::beq_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+
+    int l = 0;
+    for (int i = 0; i < rs1.size() - 2; ++i)
+      l += rs1[i] << i;
+
+    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+
+    int r = 0;
+    for (int i = 0; i < rs2.size() - 2; ++i)
+      r += rs2[i] << i;
+
+    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+
+    if (l == r)
+      return;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+  void emulator::bne_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+    int l = 0;
+    for (int i = 0; i < rs1.size() - 2; ++i)
+      l += rs1[i] << i;
+
+    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+
+    int r = 0;
+    for (int i = 0; i < rs2.size() - 2; ++i)
+      r += rs2[i] << i;
+
+    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+
+    if (l == r)
+      return;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+
+  void emulator::blt_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+    int l = 0;
+    for (int i = 0; i < rs1.size() - 2; ++i)
+      l += rs1[i] << i;
+
+    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+
+    int r = 0;
+    for (int i = 0; i < rs2.size() - 2; ++i)
+      r += rs2[i] << i;
+
+    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+
+    if (l >= r)
+      return;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+  void emulator::bge_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+    int l = 0;
+    for (int i = 0; i < rs1.size() - 2; ++i)
+      l += rs1[i] << i;
+
+    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+
+    int r = 0;
+    for (int i = 0; i < rs2.size() - 2; ++i)
+      r += rs2[i] << i;
+
+    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+
+    if (l < r)
+      return;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+  void emulator::bltu_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+    if (rs1.to_ulong() >= rs2.to_ulong())
+      return;
+
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+
+  void emulator::bgeu_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  {
+    if (rs1.to_ulong() < rs2.to_ulong())
+      return;
+    int offset = 0;
+    for (int i = 0; i < imm.size() - 2; ++i)
+      offset += imm[i] << i;
+
+    offset -= imm[imm.size() - 1] << imm.size() - 1;
+
+    pc = pc.to_ulong() + (offset << 1);
+  }
+
+  void emulator::lb_(reg &rd, reg &rs1, std::bitset<11> imm)
+  {
     int offset = 0;
     for (int i = 0; i < imm.size() - 2; ++i)
       offset += imm[i] << i;
@@ -168,7 +325,6 @@ namespace emulation
       rd[i] = ram[addr + i];
 
     rd = sign_extend<xlen>(rd, xlen / 4 - 1);
-
   };
 
   void emulator::lh_(reg &rd, reg &rs1, std::bitset<11> imm)
@@ -186,7 +342,8 @@ namespace emulation
     rd = sign_extend<xlen>(rd, xlen / 2 - 1);
   };
 
-  void emulator::lw_(reg& rd, reg& rs1, std::bitset<11> imm){
+  void emulator::lw_(reg &rd, reg &rs1, std::bitset<11> imm)
+  {
     int offset = 0;
     for (int i = 0; i < imm.size() - 2; ++i)
       offset += imm[i] << i;
@@ -197,8 +354,9 @@ namespace emulation
     for (int i = 0; i < xlen; ++i)
       rd[i] = ram[addr + i];
   };
-  
-  void emulator::lbu_(reg& rd, reg& rs1, std::bitset<11> imm){
+
+  void emulator::lbu_(reg &rd, reg &rs1, std::bitset<11> imm)
+  {
     rd = 0;
 
     int offset = 0;
@@ -210,10 +368,10 @@ namespace emulation
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 4; ++i)
       rd[i] = ram[addr + i];
-
   };
-  
-  void emulator::lhu_(reg &rd, reg &rs1, std::bitset<11> imm){
+
+  void emulator::lhu_(reg &rd, reg &rs1, std::bitset<11> imm)
+  {
     rd = 0;
 
     int offset = 0;
@@ -225,7 +383,6 @@ namespace emulation
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
       rd[i] = ram[addr + i];
-
   };
 
   /** \todo Implement real RAM! */
@@ -421,8 +578,6 @@ namespace emulation
   {
     rd = rs1 & rs2;
   };
-
-
 
   void emulator::execute()
   {
