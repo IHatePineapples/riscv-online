@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_3d_294',['operator=',['../classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48',1,'concurrent_queue::operator=(const concurrent_queue&lt; T &gt; &amp;)=delete'],['../classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799',1,'concurrent_queue::operator=(concurrent_queue&lt; T &gt; &amp;&amp;)=delete']]],
-  ['operator_3d_3d_295',['operator==',['../namespaceparse.html#a43efe93ca67d143249fb4fd376666f54',1,'parse']]]
+  ['pop_290',['pop',['../classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc',1,'concurrent_queue']]],
+  ['printf_5fand_5fabort_5f_5f_291',['printf_and_abort__',['../error_8hpp.html#af8aea2b6edf711b9c06b97d4beecbf50',1,'error.hpp']]],
+  ['push_292',['push',['../classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761',1,'concurrent_queue']]]
 ];

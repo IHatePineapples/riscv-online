@@ -359,102 +359,14 @@ $(document).ready(function(){initNavTree('parse_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">  268</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> = std::vector&lt;text_entry_t&gt;;</div>
 <div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">  269</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">symbol_table_t</a> = std::map&lt;std::string, std::size_t&gt;;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">  271</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">data_t</a> <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;asm_lines)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">data_t</a> <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a> = {};</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> start = std::find(asm_lines.begin(), asm_lines.end(), <span class="stringliteral">&quot;.data:&quot;</span>);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">if</span> (start == asm_lines.end())</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> last = std::find(start + 1, asm_lines.end(), <span class="stringliteral">&quot;.text:&quot;</span>);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span> (last == asm_lines.end())</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> tokenize = [&amp;<a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>](<span class="keyword">const</span> std::string &amp;s)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keyword">static</span> std::size_t cursor = 0;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keywordflow">if</span> (s.substr(0, 4) == <span class="stringliteral">&quot;.equ&quot;</span>)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        cursor += 4;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">while</span> (s[cursor] == <span class="charliteral">&#39; &#39;</span> || s[cursor] == <span class="charliteral">&#39;,&#39;</span>)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        ++cursor;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">auto</span> symbol_start = cursor;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keywordflow">while</span> (s[cursor] == <span class="charliteral">&#39;,&#39;</span>)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        ++cursor;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keyword">auto</span> symbol_size = cursor - symbol_start;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="keywordflow">while</span> (s[cursor] == <span class="charliteral">&#39; &#39;</span>)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        ++cursor;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>[s.substr(symbol_start, symbol_size)] =</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          std::stoi(s.substr(cursor, s.length() - cursor));</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    };</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    std::for_each(start + 1, last, tokenize);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  };</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="namespaceparse.html#a0e6d30149d3cb1e4f42ba450a85f3780">  309</a></span>&#160;  <span class="keyword">static</span> std::optional&lt;I&gt; <a class="code" href="namespaceparse.html#a0e6d30149d3cb1e4f42ba450a85f3780">make_I</a>(<span class="keyword">const</span> std::string_view s)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">static</span> std::size_t cursor = 0;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">while</span> (isalpha(s[cursor]))</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="namespaceparse.html#acfc3b773ce544636484c919bcfff906f">opc</a> = <a class="code" href="namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa">to_opc</a>(s.substr(0, cursor));</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">while</span> (!isalnum(s.at(cursor)))</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> opa1_i = cursor;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">while</span> (isalnum(s.at(cursor)))</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> opa1 = <a class="code" href="namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1">to_reg</a>(s.substr(opa1_i, cursor - opa1_i));</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">while</span> (!isalnum(s.at(cursor)))</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> opa2_i = cursor;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">while</span> (isalnum(s.at(cursor)))</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> opa2 = <a class="code" href="namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1">to_reg</a>(s.substr(opa2_i, cursor - opa2_i));</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">while</span> (!isalnum(s.at(cursor)))</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      ++cursor;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> imm = std::stoi(std::string(s.substr(cursor, s.length() - cursor)));</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">return</span> std::make_tuple(<a class="code" href="namespaceparse.html#acfc3b773ce544636484c919bcfff906f">opc</a>, opa1, opa2, imm);</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  }</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">  334</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> <a class="code" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;asm_lines)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <a class="code" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> asm_text = {};</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> start = std::find(asm_lines.begin(), asm_lines.end(), <span class="stringliteral">&quot;.text:&quot;</span>);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> (start == asm_lines.end())</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">return</span> asm_text;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">return</span> asm_text;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  };</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="namespaceparse.html#adba184882439b806705ae95a4e4e8fdd">  346</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">symbol_table_t</a> <a class="code" href="namespaceparse.html#adba184882439b806705ae95a4e4e8fdd">symbols</a>(<span class="keyword">const</span> <a class="code" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> &amp;<a class="code" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>)</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <a class="code" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">symbol_table_t</a> st = {};</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <a class="code" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>.size(); ++i)</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    {</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="keywordflow">if</span> (!std::holds_alternative&lt;std::string&gt;(<a class="code" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>[i]))</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      st[std::get&lt;std::string&gt;(<a class="code" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>[i])] = i;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">return</span> st;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  }</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;} <span class="comment">// namespace parse</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;} <span class="comment">// namespace parse</span></div>
 <div class="ttc" id="anamespaceparse_html"><div class="ttname"><a href="namespaceparse.html">parse</a></div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00014">parse.hpp:15</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a075c154fa1f2b3fcb4133f8e480f4afb"><div class="ttname"><a href="namespaceparse.html#a075c154fa1f2b3fcb4133f8e480f4afb">parse::U</a></div><div class="ttdeci">std::tuple&lt; opc, reg, imm_t &gt; U</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00263">parse.hpp:263</a></div></div>
-<div class="ttc" id="anamespaceparse_html_a0e6d30149d3cb1e4f42ba450a85f3780"><div class="ttname"><a href="namespaceparse.html#a0e6d30149d3cb1e4f42ba450a85f3780">parse::make_I</a></div><div class="ttdeci">static std::optional&lt; I &gt; make_I(const std::string_view s)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00309">parse.hpp:309</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a122a86f50165a4592a1d7b92497ceeed"><div class="ttname"><a href="namespaceparse.html#a122a86f50165a4592a1d7b92497ceeed">parse::jalr_b</a></div><div class="ttdeci">constexpr std::bitset&lt; 7 &gt; jalr_b</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00020">parse.hpp:20</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a1ca01dcc915d4c7580ab68ec2e1ae7db"><div class="ttname"><a href="namespaceparse.html#a1ca01dcc915d4c7580ab68ec2e1ae7db">parse::opa1_t</a></div><div class="ttdeci">std::variant&lt; reg, imm_t &gt; opa1_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00255">parse.hpp:255</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a1e55c1a9b21d8066aabe768fc6264a3a"><div class="ttname"><a href="namespaceparse.html#a1e55c1a9b21d8066aabe768fc6264a3a">parse::text_entry_t</a></div><div class="ttdeci">std::variant&lt; symbol_t, I, S, SB, R, U &gt; text_entry_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00265">parse.hpp:265</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a22e18b532671d85736196cbb193f133f"><div class="ttname"><a href="namespaceparse.html#a22e18b532671d85736196cbb193f133f">parse::SB</a></div><div class="ttdeci">std::tuple&lt; opc, reg, reg, imm_t &gt; SB</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00261">parse.hpp:261</a></div></div>
-<div class="ttc" id="anamespaceparse_html_a353f0ffcffbdf82d173fea85f01e52f6"><div class="ttname"><a href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">parse::text</a></div><div class="ttdeci">static text_t text(const std::vector&lt; std::string &gt; &amp;asm_lines)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00334">parse.hpp:334</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a3f6d3b346ffc1ec55ce4e1573aea8134"><div class="ttname"><a href="namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134">parse::reg</a></div><div class="ttdeci">reg</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00102">parse.hpp:103</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a3f6d3b346ffc1ec55ce4e1573aea8134a01ac7014b5fb8201dc364f2eafd995c7"><div class="ttname"><a href="namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134a01ac7014b5fb8201dc364f2eafd995c7">parse::reg::x25</a></div><div class="ttdeci">@ x25</div></div>
 <div class="ttc" id="anamespaceparse_html_a3f6d3b346ffc1ec55ce4e1573aea8134a03e04301b15a7969eae9d94821cc8222"><div class="ttname"><a href="namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134a03e04301b15a7969eae9d94821cc8222">parse::reg::s9</a></div><div class="ttdeci">@ s9</div></div>
@@ -581,11 +493,9 @@ $(document).ready(function(){initNavTree('parse_8hpp_source.html',''); initResiz
 <div class="ttc" id="anamespaceparse_html_acfc3b773ce544636484c919bcfff906faec5704f0d56945d1e5b8f9a2384a2b4b"><div class="ttname"><a href="namespaceparse.html#acfc3b773ce544636484c919bcfff906faec5704f0d56945d1e5b8f9a2384a2b4b">parse::opc::SH</a></div><div class="ttdeci">@ SH</div></div>
 <div class="ttc" id="anamespaceparse_html_ad13373d4ef04f17e9104128b051070c3"><div class="ttname"><a href="namespaceparse.html#ad13373d4ef04f17e9104128b051070c3">parse::S_fmt</a></div><div class="ttdeci">constexpr std::bitset&lt; 7 &gt; S_fmt</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00023">parse.hpp:23</a></div></div>
 <div class="ttc" id="anamespaceparse_html_ad7c177fc40a168e0787dfec191c6343b"><div class="ttname"><a href="namespaceparse.html#ad7c177fc40a168e0787dfec191c6343b">parse::R_fmt</a></div><div class="ttdeci">constexpr std::bitset&lt; 7 &gt; R_fmt</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00025">parse.hpp:25</a></div></div>
-<div class="ttc" id="anamespaceparse_html_adba184882439b806705ae95a4e4e8fdd"><div class="ttname"><a href="namespaceparse.html#adba184882439b806705ae95a4e4e8fdd">parse::symbols</a></div><div class="ttdeci">static symbol_table_t symbols(const text_t &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00346">parse.hpp:346</a></div></div>
 <div class="ttc" id="anamespaceparse_html_add733294ba7197a50c500013a1f09968"><div class="ttname"><a href="namespaceparse.html#add733294ba7197a50c500013a1f09968">parse::R</a></div><div class="ttdeci">std::tuple&lt; opc, reg, reg, reg &gt; R</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00262">parse.hpp:262</a></div></div>
 <div class="ttc" id="anamespaceparse_html_ade69e29b0242661724c8f4503ace2270"><div class="ttname"><a href="namespaceparse.html#ade69e29b0242661724c8f4503ace2270">parse::imm_t</a></div><div class="ttdeci">int imm_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00250">parse.hpp:250</a></div></div>
 <div class="ttc" id="anamespaceparse_html_ae97fdb136d1fe8306f45161fa08010f2"><div class="ttname"><a href="namespaceparse.html#ae97fdb136d1fe8306f45161fa08010f2">parse::opa2_t</a></div><div class="ttdeci">opa1_t opa2_t</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00256">parse.hpp:256</a></div></div>
-<div class="ttc" id="anamespaceparse_html_af077233a0b580e6916c60d9c09c313b9"><div class="ttname"><a href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">parse::data</a></div><div class="ttdeci">static data_t data(const std::vector&lt; std::string &gt; &amp;asm_lines)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00271">parse.hpp:271</a></div></div>
 <div class="ttc" id="anamespaceparse_html_afeb4510776d150ecc11761be82ca7ec1"><div class="ttname"><a href="namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1">parse::to_reg</a></div><div class="ttdeci">static reg to_reg(const std::string_view s)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00244">parse.hpp:244</a></div></div>
 <div class="ttc" id="anamespaceparse_html_aff8bceef399c52b78f80e2dbbfc435aa"><div class="ttname"><a href="namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa">parse::to_opc</a></div><div class="ttdeci">static opc to_opc(const std::string_view opc_s)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00097">parse.hpp:97</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

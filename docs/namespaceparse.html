@@ -278,14 +278,6 @@ Functions</h2></td></tr>
 <tr class="separator:aff8bceef399c52b78f80e2dbbfc435aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeb4510776d150ecc11761be82ca7ec1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134">reg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1">to_reg</a> (const std::string_view s)</td></tr>
 <tr class="separator:afeb4510776d150ecc11761be82ca7ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af077233a0b580e6916c60d9c09c313b9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#af077233a0b580e6916c60d9c09c313b9">data</a> (const std::vector&lt; std::string &gt; &amp;asm_lines)</td></tr>
-<tr class="separator:af077233a0b580e6916c60d9c09c313b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e6d30149d3cb1e4f42ba450a85f3780"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="namespaceparse.html#a96d5f14153ce99fc309cff723e7f4e02">I</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a0e6d30149d3cb1e4f42ba450a85f3780">make_I</a> (const std::string_view s)</td></tr>
-<tr class="separator:a0e6d30149d3cb1e4f42ba450a85f3780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353f0ffcffbdf82d173fea85f01e52f6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a> (const std::vector&lt; std::string &gt; &amp;asm_lines)</td></tr>
-<tr class="separator:a353f0ffcffbdf82d173fea85f01e52f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba184882439b806705ae95a4e4e8fdd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">symbol_table_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#adba184882439b806705ae95a4e4e8fdd">symbols</a> (const <a class="el" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> &amp;<a class="el" href="namespaceparse.html#a353f0ffcffbdf82d173fea85f01e52f6">text</a>)</td></tr>
-<tr class="separator:adba184882439b806705ae95a4e4e8fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -713,78 +705,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af077233a0b580e6916c60d9c09c313b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af077233a0b580e6916c60d9c09c313b9">&#9670;&nbsp;</a></span>data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">data_t</a> parse::data </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>asm_lines</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00271">271</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0e6d30149d3cb1e4f42ba450a85f3780"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e6d30149d3cb1e4f42ba450a85f3780">&#9670;&nbsp;</a></span>make_I()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::optional&lt;<a class="el" href="namespaceparse.html#a96d5f14153ce99fc309cff723e7f4e02">I</a>&gt; parse::make_I </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00309">309</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_a0e6d30149d3cb1e4f42ba450a85f3780_cgraph.svg" width="282" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_a0e6d30149d3cb1e4f42ba450a85f3780_icgraph.svg" width="227" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="a43efe93ca67d143249fb4fd376666f54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43efe93ca67d143249fb4fd376666f54">&#9670;&nbsp;</a></span>operator==()</h2>
 
@@ -823,78 +743,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="adba184882439b806705ae95a4e4e8fdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adba184882439b806705ae95a4e4e8fdd">&#9670;&nbsp;</a></span>symbols()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">symbol_table_t</a> parse::symbols </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00346">346</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_adba184882439b806705ae95a4e4e8fdd_cgraph.svg" width="272" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a353f0ffcffbdf82d173fea85f01e52f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a353f0ffcffbdf82d173fea85f01e52f6">&#9670;&nbsp;</a></span>text()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">text_t</a> parse::text </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>asm_lines</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00334">334</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_a353f0ffcffbdf82d173fea85f01e52f6_icgraph.svg" width="272" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <a id="aff8bceef399c52b78f80e2dbbfc435aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff8bceef399c52b78f80e2dbbfc435aa">&#9670;&nbsp;</a></span>to_opc()</h2>
 
@@ -920,14 +768,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00097">97</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_aff8bceef399c52b78f80e2dbbfc435aa_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -956,14 +796,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00244">244</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_afeb4510776d150ecc11761be82ca7ec1_icgraph.svg" width="382" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

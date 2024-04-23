@@ -125,11 +125,7 @@ var parse_8hpp =
       [ "t6", "parse_8hpp.html#a3f6d3b346ffc1ec55ce4e1573aea8134aa77cca9bd375665b36f4239eeda0c996", null ],
       [ "NONE", "parse_8hpp.html#a3f6d3b346ffc1ec55ce4e1573aea8134ab50339a10e1de285ac99d4c3990b8693", null ]
     ] ],
-    [ "data", "parse_8hpp.html#af077233a0b580e6916c60d9c09c313b9", null ],
-    [ "make_I", "parse_8hpp.html#a0e6d30149d3cb1e4f42ba450a85f3780", null ],
     [ "operator==", "parse_8hpp.html#a43efe93ca67d143249fb4fd376666f54", null ],
-    [ "symbols", "parse_8hpp.html#adba184882439b806705ae95a4e4e8fdd", null ],
-    [ "text", "parse_8hpp.html#a353f0ffcffbdf82d173fea85f01e52f6", null ],
     [ "to_opc", "parse_8hpp.html#aff8bceef399c52b78f80e2dbbfc435aa", null ],
     [ "to_reg", "parse_8hpp.html#afeb4510776d150ecc11761be82ca7ec1", null ],
     [ "auipc_fmt", "parse_8hpp.html#a6cb069de1091b8c1383074be21c0220d", null ],
