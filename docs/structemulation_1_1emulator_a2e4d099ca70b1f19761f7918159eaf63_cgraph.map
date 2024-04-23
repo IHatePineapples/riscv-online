@@ -1,0 +1,6 @@
+<map id="emulation::emulator::execute" name="emulation::emulator::execute">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,160,112"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a23250dfcc344cea6e9d178d607cf18c2" title="Load Upper Immediate." alt="" coords="208,71,363,112"/>
+<area shape="rect" id="node4" href="$structemulation_1_1emulator.html#a6bcdb0a2b140d320e081bc06f124b538" title="Returns a reference to the destination register bitset rd points to." alt="" coords="208,136,363,177"/>
+</map>

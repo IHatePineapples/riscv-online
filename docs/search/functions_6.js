@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_287',['main',['../riscv__online_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;riscv_online.cpp'],['../test__parse_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test_parse.cpp']]]
+  ['jal_5f_417',['jal_',['../structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9',1,'emulation::emulator']]],
+  ['jalr_5f_418',['jalr_',['../structemulation_1_1emulator.html#a6d75cc1fbd76f54c99483aa62821df0d',1,'emulation::emulator']]]
 ];
