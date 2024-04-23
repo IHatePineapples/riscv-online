@@ -16,7 +16,7 @@ foreach(single_test_cpp ${ALL_TESTS})
     
     target_compile_features(${single_test_name} PRIVATE cxx_std_20)
 
-    link_libraries(${single_test_name} emulator)
+    target_link_libraries(${single_test_name} emulator)
     
     target_include_directories(${single_test_name} PRIVATE ../)
     
