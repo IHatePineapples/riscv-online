@@ -1,18 +1,18 @@
 enable_testing()
 
-add_executable(test_parse
-   test_parse.cpp
-)
+file(GLOB ALL_TESTS "*.cpp")
 
-target_compile_features(test_parse PRIVATE cxx_std_20)
+foreach(single_test_cpp ${ALL_TESTS})
+    get_filename_component(single_test_name ${single_test_cpp} NAME_WE)
+    
+    add_executable(${single_test_name} ${single_test_cpp})
+    
+    target_compile_features(${single_test_name} PRIVATE cxx_std_20)
 
-link_libraries(test_parse
-    emulator
-)
+    link_libraries(${single_test_name} emulator)
+    
+    target_include_directories(${single_test_name} PRIVATE ../)
+    
+    add_test(NAME ${single_test_name} COMMAND ${single_test_name})
+endforeach()
 
-target_include_directories(test_parse 
-    PRIVATE
-    ../)
-
-add_test(NAME test_parse
-    COMMAND test_parse)
