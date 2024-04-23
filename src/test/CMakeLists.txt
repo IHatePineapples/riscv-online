@@ -1,6 +1,13 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(RISCV_Online_tests
+    LANGUAGES CXX C ASM)
+
+add_subdirectory(../RoL/emulation/ ./ROL_emulation_bin)
+
 enable_testing()
 
-file(GLOB ALL_TESTS "*.cpp")
+file(GLOB ALL_TESTS "test_*.cpp")
 
 foreach(single_test_cpp ${ALL_TESTS})
     get_filename_component(single_test_name ${single_test_cpp} NAME_WE)
