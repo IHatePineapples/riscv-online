@@ -1,3 +1,5 @@
+add_subdirectory(RoL/emulation)
+
 find_package(Perl)
 
 set(MAKEFSDATA_SCRIPT ${CMAKE_SOURCE_DIR}/extern/pico-sdk/lib/lwip/src/apps/http/makefsdata/makefsdata)
@@ -14,8 +16,6 @@ add_executable(${riscv} riscv_online.cpp # main() entry-point
     cgi.cpp
     cgi.h
     config.hpp
-    emulator.cpp
-    emulator.hpp
     server.cpp
     server.hpp
 
@@ -27,6 +27,7 @@ target_compile_features(${riscv} PRIVATE cxx_std_20)
 target_include_directories(${riscv} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
 target_link_libraries(${riscv} 
+    emulator
     pico_cyw43_arch_lwip_poll 
     pico_lwip_http
     pico_multicore

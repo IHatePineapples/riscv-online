@@ -4,9 +4,9 @@
 
 #include "config.hpp"
 
-#include "emulator.hpp"
 #include "server.hpp"
 
+#include "RoL/emulation/emulator.hpp"
 #include "RoL/threaded/queue.hpp"
 #include "RoL/threaded/shared_queue.hpp"
 
