@@ -10,7 +10,7 @@ inline unsigned long operator*(emulation::reg bs)
     return bs.to_ulong();
 }
 
-inline unsigned long operator*(std::bitset<11> bs)
+inline unsigned long operator*(std::bitset<12> bs)
 {
     return bs.to_ulong();
 }
@@ -20,7 +20,7 @@ int main(){
     emulation::emulator emu{};
 
     emulation::reg l, res;
-    std::bitset<11> r;
+    std::bitset<12> r;
 
 
     l = 55;

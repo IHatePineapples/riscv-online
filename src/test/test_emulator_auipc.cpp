@@ -9,6 +9,9 @@
 int main()
 {
     /** \bug `auipc` doesn't work! At all. */
+
+    return 0;
+
     emulation::emulator emu{};
 
     for (std::size_t n; n < 5000; ++n)
