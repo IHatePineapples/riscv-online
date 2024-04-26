@@ -19,7 +19,7 @@ namespace parse
   constexpr std::bitset<7> jal_fmt = 0b1101111;
   constexpr std::bitset<7> jalr_b = 0b1100111;
   constexpr std::bitset<7> B_fmt = 0b1100011;
-  constexpr std::bitset<7> L_fmt = 0b0000011; // Technically, it's I. 
+  constexpr std::bitset<7> L_fmt = 0b0000011; // Technically, it's I.
   constexpr std::bitset<7> S_fmt = 0b0100011;
   constexpr std::bitset<7> I_fmt = 0b0010011;
   constexpr std::bitset<7> R_fmt = 0b0110011;
@@ -94,7 +94,7 @@ namespace parse
     return s_to_opc.at(s) == o;
   }
 
-  static opc to_opc(const std::string_view opc_s)
+  [[maybe_unused]] static opc to_opc(const std::string_view opc_s)
   {
     return s_to_opc.at(opc_s);
   }
@@ -241,7 +241,7 @@ namespace parse
       {"t6", reg::x31},
   };
 
-  static reg to_reg(const std::string_view s)
+  [[maybe_unused]] static reg to_reg(const std::string_view s)
   {
     return s_to_reg.at(s);
   }
@@ -267,6 +267,5 @@ namespace parse
   using data_t = std::map<std::string, std::any>;
   using text_t = std::vector<text_entry_t>;
   using symbol_table_t = std::map<std::string, std::size_t>;
-
 
 } // namespace parse
