@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('test__emulator__addi_8cpp_source.html'
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> bs.to_ulong();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="test__emulator__addi_8cpp.html#a23113c1f45708cc9e4d063383dbfc95c">   13</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="test__emulator__addi_8cpp.html#ac3abadc3408660a8e85d334a65c812ba">operator*</a>(std::bitset&lt;11&gt; bs)</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="test__emulator__addi_8cpp.html#a53e252a2de5265c8dfb675be8d53ef14">   13</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="test__emulator__addi_8cpp.html#ac3abadc3408660a8e85d334a65c812ba">operator*</a>(std::bitset&lt;12&gt; bs)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> bs.to_ulong();</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
@@ -111,12 +111,12 @@ $(document).ready(function(){initNavTree('test__emulator__addi_8cpp_source.html'
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> emu{};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> l, res;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::bitset&lt;11&gt; r;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::bitset&lt;12&gt; r;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    l = 55;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    r = 200;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    emu.<a class="code" href="structemulation_1_1emulator.html#a842d140c755023a3a4a1f2194e506b75">addi_</a>(res, l, r);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    emu.<a class="code" href="structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01">addi_</a>(res, l, r);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    BOOST_VERIFY(*l + *r == *res);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::cout &lt;&lt; *l &lt;&lt; <span class="stringliteral">&quot; + &quot;</span> &lt;&lt; *r &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; *res &lt;&lt; std::endl;</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('test__emulator__addi_8cpp_source.html'
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
 <div class="ttc" id="anamespaceemulation_html_a054a3ba06a8354bb9925d0528e308475"><div class="ttname"><a href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a></div><div class="ttdeci">std::bitset&lt; xlen &gt; reg</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00013">emulator.hpp:13</a></div></div>
 <div class="ttc" id="astructemulation_1_1emulator_html"><div class="ttname"><a href="structemulation_1_1emulator.html">emulation::emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00017">emulator.hpp:18</a></div></div>
-<div class="ttc" id="astructemulation_1_1emulator_html_a842d140c755023a3a4a1f2194e506b75"><div class="ttname"><a href="structemulation_1_1emulator.html#a842d140c755023a3a4a1f2194e506b75">emulation::emulator::addi_</a></div><div class="ttdeci">void addi_(reg &amp;rd, reg &amp;rs1, std::bitset&lt; 11 &gt; imm)</div><div class="ttdoc">Add Immediate.</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00434">emulator.cpp:434</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html_a5f9c67126d2260f36d5149df40f3cd01"><div class="ttname"><a href="structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01">emulation::emulator::addi_</a></div><div class="ttdeci">void addi_(reg &amp;rd, reg &amp;rs1, std::bitset&lt; 12 &gt; imm)</div><div class="ttdoc">Add Immediate.</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00437">emulator.cpp:437</a></div></div>
 <div class="ttc" id="atest__emulator__addi_8cpp_html_ac3abadc3408660a8e85d334a65c812ba"><div class="ttname"><a href="test__emulator__addi_8cpp.html#ac3abadc3408660a8e85d334a65c812ba">operator*</a></div><div class="ttdeci">unsigned long operator*(emulation::reg bs)</div><div class="ttdef"><b>Definition:</b> <a href="test__emulator__addi_8cpp_source.html#l00008">test_emulator_addi.cpp:8</a></div></div>
 <div class="ttc" id="atest__emulator__addi_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="test__emulator__addi_8cpp_source.html#l00018">test_emulator_addi.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

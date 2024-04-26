@@ -32,6 +32,7 @@ var NAVTREE =
       [ "Testing:", "index.html#autotoc_md5", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
+    [ "Bug List", "bug.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -67,8 +68,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa635fc06d049226d08e56335ad4261885",
-"structemulation_1_1emulator.html#abaf5dc6c7af44fdd8fd24b157fc3f280"
+"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa78d45106f65f83d7dc79ae7985c1c0f",
+"test__emulator__add_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

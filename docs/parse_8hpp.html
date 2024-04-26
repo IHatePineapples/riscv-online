@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -95,24 +94,19 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 <div class="title">parse.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;any&gt;</code><br />
-<code>#include &lt;cctype&gt;</code><br />
+<div class="textblock"><code>#include &lt;cctype&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &lt;optional&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;variant&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for parse.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="643" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -130,39 +124,6 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceparse"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html">parse</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ade69e29b0242661724c8f4503ace2270"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ade69e29b0242661724c8f4503ace2270">parse::imm_t</a> = int</td></tr>
-<tr class="separator:ade69e29b0242661724c8f4503ace2270"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564d35b3b6ca5732811bf0fd13e8e4c9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a564d35b3b6ca5732811bf0fd13e8e4c9">parse::opa0_t</a> = reg</td></tr>
-<tr class="separator:a564d35b3b6ca5732811bf0fd13e8e4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab70ea541638a3042210c650eedc564d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aab70ea541638a3042210c650eedc564d">parse::symbol_t</a> = std::string</td></tr>
-<tr class="separator:aab70ea541638a3042210c650eedc564d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ca01dcc915d4c7580ab68ec2e1ae7db"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a1ca01dcc915d4c7580ab68ec2e1ae7db">parse::opa1_t</a> = std::variant&lt; reg, imm_t &gt;</td></tr>
-<tr class="separator:a1ca01dcc915d4c7580ab68ec2e1ae7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae97fdb136d1fe8306f45161fa08010f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ae97fdb136d1fe8306f45161fa08010f2">parse::opa2_t</a> = opa1_t</td></tr>
-<tr class="separator:ae97fdb136d1fe8306f45161fa08010f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5135815961054608f9a51274d2a0a2c4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a5135815961054608f9a51274d2a0a2c4">parse::instruction_t</a> = std::tuple&lt; opc, opa0_t, opa1_t, opa2_t &gt;</td></tr>
-<tr class="separator:a5135815961054608f9a51274d2a0a2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d5f14153ce99fc309cff723e7f4e02"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a96d5f14153ce99fc309cff723e7f4e02">parse::I</a> = std::tuple&lt; opc, reg, reg, imm_t &gt;</td></tr>
-<tr class="separator:a96d5f14153ce99fc309cff723e7f4e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c3b8956d465d2cc0213fe001791a45d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a4c3b8956d465d2cc0213fe001791a45d">parse::S</a> = std::tuple&lt; opc, reg, reg, imm_t &gt;</td></tr>
-<tr class="separator:a4c3b8956d465d2cc0213fe001791a45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22e18b532671d85736196cbb193f133f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a22e18b532671d85736196cbb193f133f">parse::SB</a> = std::tuple&lt; opc, reg, reg, imm_t &gt;</td></tr>
-<tr class="separator:a22e18b532671d85736196cbb193f133f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add733294ba7197a50c500013a1f09968"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#add733294ba7197a50c500013a1f09968">parse::R</a> = std::tuple&lt; opc, reg, reg, reg &gt;</td></tr>
-<tr class="separator:add733294ba7197a50c500013a1f09968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a075c154fa1f2b3fcb4133f8e480f4afb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a075c154fa1f2b3fcb4133f8e480f4afb">parse::U</a> = std::tuple&lt; opc, reg, imm_t &gt;</td></tr>
-<tr class="separator:a075c154fa1f2b3fcb4133f8e480f4afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e55c1a9b21d8066aabe768fc6264a3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a1e55c1a9b21d8066aabe768fc6264a3a">parse::text_entry_t</a> = std::variant&lt; symbol_t, I, S, SB, R, U &gt;</td></tr>
-<tr class="separator:a1e55c1a9b21d8066aabe768fc6264a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf653b3fd261a392f81eceb02cbb2685"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aaf653b3fd261a392f81eceb02cbb2685">parse::data_t</a> = std::map&lt; std::string, std::any &gt;</td></tr>
-<tr class="separator:aaf653b3fd261a392f81eceb02cbb2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9e16ba3822b25ba05588b50ba6bdb18"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ac9e16ba3822b25ba05588b50ba6bdb18">parse::text_t</a> = std::vector&lt; text_entry_t &gt;</td></tr>
-<tr class="separator:ac9e16ba3822b25ba05588b50ba6bdb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e64a159bc21ae34f6556f1d069b5c6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ac7e64a159bc21ae34f6556f1d069b5c6">parse::symbol_table_t</a> = std::map&lt; std::string, std::size_t &gt;</td></tr>
-<tr class="separator:ac7e64a159bc21ae34f6556f1d069b5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -317,24 +278,24 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a5b537ee06b40402155cf97aa738b7203"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a5b537ee06b40402155cf97aa738b7203">parse::lui_fmt</a> = 0b0110111</td></tr>
-<tr class="separator:a5b537ee06b40402155cf97aa738b7203"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cb069de1091b8c1383074be21c0220d"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a6cb069de1091b8c1383074be21c0220d">parse::auipc_fmt</a> = 0b0010111</td></tr>
-<tr class="separator:a6cb069de1091b8c1383074be21c0220d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98ba88b92fec75d49341e0a4dad9a78a"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a98ba88b92fec75d49341e0a4dad9a78a">parse::jal_fmt</a> = 0b1101111</td></tr>
-<tr class="separator:a98ba88b92fec75d49341e0a4dad9a78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a122a86f50165a4592a1d7b92497ceeed"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a122a86f50165a4592a1d7b92497ceeed">parse::jalr_b</a> = 0b1100111</td></tr>
-<tr class="separator:a122a86f50165a4592a1d7b92497ceeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e92d2035ad4cd78b08b080327881385"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a6e92d2035ad4cd78b08b080327881385">parse::B_fmt</a> = 0b1100011</td></tr>
-<tr class="separator:a6e92d2035ad4cd78b08b080327881385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb2c9b287509e38cb090b2176662c91d"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#abb2c9b287509e38cb090b2176662c91d">parse::L_fmt</a> = 0b0000011</td></tr>
-<tr class="separator:abb2c9b287509e38cb090b2176662c91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad13373d4ef04f17e9104128b051070c3"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ad13373d4ef04f17e9104128b051070c3">parse::S_fmt</a> = 0b0100011</td></tr>
-<tr class="separator:ad13373d4ef04f17e9104128b051070c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e1890a6c24ccfbf441797b99ca335f"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aa6e1890a6c24ccfbf441797b99ca335f">parse::I_fmt</a> = 0b0010011</td></tr>
-<tr class="separator:aa6e1890a6c24ccfbf441797b99ca335f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c177fc40a168e0787dfec191c6343b"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ad7c177fc40a168e0787dfec191c6343b">parse::R_fmt</a> = 0b0110011</td></tr>
-<tr class="separator:ad7c177fc40a168e0787dfec191c6343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab104956fc36af5749998703524514267"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ab104956fc36af5749998703524514267">parse::lui</a> = 0b0110111</td></tr>
+<tr class="separator:ab104956fc36af5749998703524514267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a53e14247e452843a9379628b270fd0"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a0a53e14247e452843a9379628b270fd0">parse::auipc</a> = 0b0010111</td></tr>
+<tr class="separator:a0a53e14247e452843a9379628b270fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfefa7ea5650b517bfa0b34239102848"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#adfefa7ea5650b517bfa0b34239102848">parse::jal</a> = 0b1101111</td></tr>
+<tr class="separator:adfefa7ea5650b517bfa0b34239102848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3b1077594d219b1de4d2f4b31c3965"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a1c3b1077594d219b1de4d2f4b31c3965">parse::jalr</a> = 0b1100111</td></tr>
+<tr class="separator:a1c3b1077594d219b1de4d2f4b31c3965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca91a58ffb5306e03d346f8dd742a50"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aaca91a58ffb5306e03d346f8dd742a50">parse::B</a> = 0b1100011</td></tr>
+<tr class="separator:aaca91a58ffb5306e03d346f8dd742a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09731eca800745329a5b8de62e7a5cd"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ad09731eca800745329a5b8de62e7a5cd">parse::S</a> = 0b0100011</td></tr>
+<tr class="separator:ad09731eca800745329a5b8de62e7a5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc4b8ab6b6aa3193ab83127a858770e"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a5cc4b8ab6b6aa3193ab83127a858770e">parse::I</a> = 0b0010011</td></tr>
+<tr class="separator:a5cc4b8ab6b6aa3193ab83127a858770e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d81b68cb262cfc049b9685eef37ce6"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a27d81b68cb262cfc049b9685eef37ce6">parse::L</a> = 0b0000011</td></tr>
+<tr class="separator:a27d81b68cb262cfc049b9685eef37ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff45dc159cde5ccb0f749676facb2de"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a7ff45dc159cde5ccb0f749676facb2de">parse::R</a> = 0b0110011</td></tr>
+<tr class="separator:a7ff45dc159cde5ccb0f749676facb2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3704d267f7ee7c939b2442fbb908696"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; std::string_view, opc &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696">parse::s_to_opc</a></td></tr>
 <tr class="separator:ab3704d267f7ee7c939b2442fbb908696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9a7b5d46610f1e42e23d6859dd14b2"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string_view, reg &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2">parse::s_to_reg</a></td></tr>

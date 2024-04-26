@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['jal_5ffmt_475',['jal_fmt',['../namespaceparse.html#a98ba88b92fec75d49341e0a4dad9a78a',1,'parse']]],
-  ['jalr_5fb_476',['jalr_b',['../namespaceparse.html#a122a86f50165a4592a1d7b92497ceeed',1,'parse']]]
+  ['jal_462',['jal',['../namespaceparse.html#adfefa7ea5650b517bfa0b34239102848',1,'parse']]],
+  ['jalr_463',['jalr',['../namespaceparse.html#a1c3b1077594d219b1de4d2f4b31c3965',1,'parse']]]
 ];

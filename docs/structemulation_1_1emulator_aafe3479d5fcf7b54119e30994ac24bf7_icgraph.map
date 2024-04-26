@@ -1,7 +1,8 @@
 <map id="emulation::emulator::add_" name="emulation::emulator::add_">
-<area shape="rect" id="node1" title="ADD." alt="" coords="311,64,465,105"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a842d140c755023a3a4a1f2194e506b75" title="Add Immediate." alt="" coords="108,5,263,47"/>
-<area shape="rect" id="node4" href="$test__emulator__add_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="158,71,213,98"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#af3cce7c55fd0ee41bb0ab47bb9c65b1f" title="SUBstract." alt="" coords="108,123,263,164"/>
-<area shape="rect" id="node3" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node1" title="ADD." alt="" coords="411,55,565,97"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01" title="Add Immediate." alt="" coords="208,143,363,185"/>
+<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,26,160,67"/>
+<area shape="rect" id="node5" href="$test__emulator__add_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="258,92,313,119"/>
+<area shape="rect" id="node6" href="$structemulation_1_1emulator.html#af3cce7c55fd0ee41bb0ab47bb9c65b1f" title="SUBstract." alt="" coords="208,26,363,67"/>
+<area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,151,110,177"/>
 </map>

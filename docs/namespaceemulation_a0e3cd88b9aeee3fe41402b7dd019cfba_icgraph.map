@@ -1,10 +1,12 @@
 <map id="emulation::sign_extend" name="emulation::sign_extend">
-<area shape="rect" id="node1" title=" " alt="" coords="311,177,485,203"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a842d140c755023a3a4a1f2194e506b75" title="Add Immediate." alt="" coords="108,5,263,47"/>
-<area shape="rect" id="node4" href="$structemulation_1_1emulator.html#a71805ddfb719135f1cc97b8f887bbf57" title="AND Immediate." alt="" coords="108,71,263,112"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#acc83a9f58d0cbfac73ecc1e81a973865" title="OR Immediate." alt="" coords="108,136,263,177"/>
-<area shape="rect" id="node6" href="$structemulation_1_1emulator.html#ab84c5b721fdde8ed5ff1e34b4fc47a0b" title="Set Less Than Immediate." alt="" coords="108,201,263,243"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a1ed848ccbb7bf14058e3ec2982cb1efd" title="Set Less Than Immediate Unsigned." alt="" coords="108,267,263,308"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#aeb9b5b3255f4ac44c6715cbae82295f8" title="eXclusive OR Immediate." alt="" coords="108,332,263,373"/>
-<area shape="rect" id="node3" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="411,177,585,203"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01" title="Add Immediate." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#aed962b5f80b5af390a79d5a6aaa290f8" title="AND Immediate." alt="" coords="208,332,363,373"/>
+<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#ae75621b92b72655354a0d36fa9ff4ab2" title="OR Immediate." alt="" coords="208,71,363,112"/>
+<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a26320b09d16d03954e00f64f9f4a043e" title="Set Less Than Immediate." alt="" coords="208,136,363,177"/>
+<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#a09c3d0223377df323d794fb6469f505f" title="Set Less Than Immediate Unsigned." alt="" coords="208,201,363,243"/>
+<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#a82c92b91f16ebb65040ce0b5da4b9d4e" title="eXclusive OR Immediate." alt="" coords="208,267,363,308"/>
+<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,169,160,211"/>
+<area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,39"/>
+<area shape="rect" id="node6" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,339,110,366"/>
 </map>

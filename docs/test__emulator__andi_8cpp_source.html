@@ -89,8 +89,45 @@ $(document).ready(function(){initNavTree('test__emulator__andi_8cpp_source.html'
 <div class="title">test_emulator_andi.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="test__emulator__andi_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    1</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(){}</div>
-<div class="ttc" id="atest__emulator__andi_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="test__emulator__andi_8cpp_source.html#l00001">test_emulator_andi.cpp:1</a></div></div>
+<a href="test__emulator__andi_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="emulator_8hpp.html">RoL/emulation/emulator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#undef NDEBUG</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;boost/assert.hpp&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    8</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> emu{};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span> (std::size_t n; n &lt; 50000; ++n)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        int32_t bin_l = (rand() - RAND_MAX) * 2; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        int32_t bin_r = rand() &gt;&gt; (<a class="code" href="namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3">emulation::xlen</a> - 12);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        int32_t bin_lr = bin_l &amp; bin_r;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> l = bin_l;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::bitset&lt;12&gt; r = bin_r;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> lr;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        emu.<a class="code" href="structemulation_1_1emulator.html#aed962b5f80b5af390a79d5a6aaa290f8">andi_</a>(lr, l, r);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cout &lt;&lt; l &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;&amp;&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;+++++++++++++++++++++&quot;</span> &lt;&lt; r &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;=&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::cout &lt;&lt; lr &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        BOOST_VERIFY(lr == bin_lr);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
+<div class="ttc" id="anamespaceemulation_html_a054a3ba06a8354bb9925d0528e308475"><div class="ttname"><a href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a></div><div class="ttdeci">std::bitset&lt; xlen &gt; reg</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00013">emulator.hpp:13</a></div></div>
+<div class="ttc" id="anamespaceemulation_html_ab4535dcc0f526dc1b8c70125fefd99b3"><div class="ttname"><a href="namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3">emulation::xlen</a></div><div class="ttdeci">constexpr unsigned char xlen</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00012">emulator.hpp:12</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html"><div class="ttname"><a href="structemulation_1_1emulator.html">emulation::emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00017">emulator.hpp:18</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html_aed962b5f80b5af390a79d5a6aaa290f8"><div class="ttname"><a href="structemulation_1_1emulator.html#aed962b5f80b5af390a79d5a6aaa290f8">emulation::emulator::andi_</a></div><div class="ttdeci">void andi_(reg &amp;rd, reg &amp;rs1, std::bitset&lt; 12 &gt; imm)</div><div class="ttdoc">AND Immediate.</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00462">emulator.cpp:462</a></div></div>
+<div class="ttc" id="atest__emulator__andi_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="test__emulator__andi_8cpp_source.html#l00008">test_emulator_andi.cpp:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

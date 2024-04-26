@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b_5ffmt_469',['B_fmt',['../namespaceparse.html#a6e92d2035ad4cd78b08b080327881385',1,'parse']]]
+  ['b_456',['B',['../namespaceparse.html#aaca91a58ffb5306e03d346f8dd742a50',1,'parse']]]
 ];
