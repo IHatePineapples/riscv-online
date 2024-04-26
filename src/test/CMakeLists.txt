@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 project(RISCV_Online_tests
     LANGUAGES CXX)
 
-add_subdirectory(../RoL/emulation/ ./ROL_emulation_bin)
+add_subdirectory(../RoL/emulation/ ./RoL_emulation_bin)
 
 enable_testing()
 
