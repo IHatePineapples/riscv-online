@@ -1,28 +1,25 @@
-#include <algorithm>
-#include <any>
+#pragma once
+
 #include <cctype>
 #include <cstddef>
 #include <map>
-#include <optional>
-#include <stdexcept>
 #include <string>
 #include <tuple>
 #include <unordered_map>
-#include <variant>
 #include <vector>
 
 namespace parse
 {
 
-  constexpr std::bitset<7> lui_fmt = 0b0110111;
-  constexpr std::bitset<7> auipc_fmt = 0b0010111;
-  constexpr std::bitset<7> jal_fmt = 0b1101111;
-  constexpr std::bitset<7> jalr_b = 0b1100111;
-  constexpr std::bitset<7> B_fmt = 0b1100011;
-  constexpr std::bitset<7> L_fmt = 0b0000011; // Technically, it's I.
-  constexpr std::bitset<7> S_fmt = 0b0100011;
-  constexpr std::bitset<7> I_fmt = 0b0010011;
-  constexpr std::bitset<7> R_fmt = 0b0110011;
+  constexpr std::bitset<7> lui = 0b0110111;
+  constexpr std::bitset<7> auipc = 0b0010111;
+  constexpr std::bitset<7> jal = 0b1101111;
+  constexpr std::bitset<7> jalr = 0b1100111;
+  constexpr std::bitset<7> B = 0b1100011;
+  constexpr std::bitset<7> S = 0b0100011;
+  constexpr std::bitset<7> I = 0b0010011;
+  constexpr std::bitset<7> L = 0b0000011; // 2nd version of I.
+  constexpr std::bitset<7> R = 0b0110011;
 
   enum class opc
   {
@@ -246,26 +243,5 @@ namespace parse
     return s_to_reg.at(s);
   }
 
-  // Aliases
-  using imm_t = int;
-  using opa0_t = reg;
-  using symbol_t = std::string;
-
-  // Type-aggregates
-  using opa1_t = std::variant<reg, imm_t>;
-  using opa2_t = opa1_t;
-
-  using instruction_t = std::tuple<opc, opa0_t, opa1_t, opa2_t>;
-  using I = std::tuple<opc, reg, reg, imm_t>;
-  using S = std::tuple<opc, reg, reg, imm_t>;
-  using SB = std::tuple<opc, reg, reg, imm_t>;
-  using R = std::tuple<opc, reg, reg, reg>;
-  using U = std::tuple<opc, reg, imm_t>;
-
-  using text_entry_t = std::variant<symbol_t, I, S, SB, R, U>;
-
-  using data_t = std::map<std::string, std::any>;
-  using text_t = std::vector<text_entry_t>;
-  using symbol_table_t = std::map<std::string, std::size_t>;
 
 } // namespace parse
