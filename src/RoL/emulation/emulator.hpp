@@ -138,31 +138,31 @@ namespace emulation
      *
      * \brief Load Byte.
      */
-    void lb_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void lb_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn lh_
      *
      * \brief Load Halfword.
      */
-    void lh_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void lh_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn lw_
      *
      * \brief Load Word.
      */
-    void lw_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void lw_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn lbu_
      *
      * \brief Load Byte Unsigned.
      */
-    void lbu_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void lbu_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn lhu_
      *
      * \brief Load Halfword Unsigned.
      */
-    void lhu_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void lhu_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn sb_
      *
@@ -186,37 +186,37 @@ namespace emulation
      *
      * \brief Add Immediate.
      */
-    void addi_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void addi_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn slti_
      *
      * \brief Set Less Than Immediate.
      */
-    void slti_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void slti_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn sltiu_
      *
      * \brief Set Less Than Immediate Unsigned.
      */
-    void sltiu_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void sltiu_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn xori_
      *
      * \brief eXclusive OR Immediate.
      */
-    void xori_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void xori_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn ori_
      *
      * \brief OR Immediate.
      */
-    void ori_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void ori_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn andi_
      *
      * \brief AND Immediate.
      */
-    void andi_(reg& rd, reg& rs1, std::bitset<11> imm);
+    void andi_(reg& rd, reg& rs1, std::bitset<12> imm);
     /**
      * \fn slli_
      *
