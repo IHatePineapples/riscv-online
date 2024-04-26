@@ -529,6 +529,10 @@ namespace emulation
     emulator::add_(std::forward<reg &>(rd), std::forward<const reg &>(rs1), std::move(rs2_tmp));
   };
 
+  void emulator::sll_(reg &rd, const reg &rs1, const reg& rs2){
+    rd = rs1 << rs2.to_ulong();
+  }
+
   void emulator::slt_(reg &rd, const reg &rs1, const reg &rs2)
   {
     /** \todo Two's complement here! */
