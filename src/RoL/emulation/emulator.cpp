@@ -1,10 +1,12 @@
 #include "RoL/emulation/emulator.hpp"
+#include "RoL/threaded/shared_job.hpp"
 #include "RoL/parse.hpp"
 
 #include <algorithm>
 #include <string>
 #include <vector>
 
+job_t current_job = {};
 namespace emulation
 {
 
