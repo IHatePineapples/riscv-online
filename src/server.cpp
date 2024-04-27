@@ -6,7 +6,7 @@
 #include "pico/time.h"
 
 #include "RoL/threaded/shared_queue.hpp"
-// #include "ssi.h"
+#include "ssi.h"
 
 
 namespace server
@@ -14,7 +14,7 @@ namespace server
     void init_all()
     {
         httpd_init();
-        // ssi_init();
+        ssi_init();
     }
 
     void run()

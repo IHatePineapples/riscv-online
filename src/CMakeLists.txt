@@ -18,6 +18,8 @@ add_executable(${riscv} riscv_online.cpp # main() entry-point
     config.hpp
     server.cpp
     server.hpp
+    ssi.cpp
+    ssi.h
 
 )
 add_dependencies(${riscv} fsdata)
