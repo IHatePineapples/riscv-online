@@ -1,6 +1,4 @@
-#ifndef _LWIPOPTS_EXAMPLE_COMMONH_H
-#define _LWIPOPTS_EXAMPLE_COMMONH_H
-
+#pragma once
 
 // Common settings used in most of the pico_w examples
 // (see https://www.nongnu.org/lwip/2_1_x/group__lwip__opts.html for details)
@@ -99,4 +97,3 @@
 
 // use fsdata
 #define HTTPD_FSDATA_FILE "riscv_fsdata.c"
-#endif /* __LWIPOPTS_H__ */
