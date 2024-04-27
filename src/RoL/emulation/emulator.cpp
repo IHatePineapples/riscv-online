@@ -1,12 +1,16 @@
 #include "RoL/emulation/emulator.hpp"
-#include "RoL/threaded/shared_job.hpp"
 #include "RoL/parse.hpp"
 
 #include <algorithm>
 #include <string>
 #include <vector>
 
+#ifdef NDEBUG
+
+#include "RoL/threaded/shared_job.hpp"
 job_t current_job = {};
+
+#endif
 namespace emulation
 {
 
