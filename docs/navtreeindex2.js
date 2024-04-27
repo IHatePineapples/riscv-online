@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130":[4,0,0,0,12],
 "structemulation_1_1emulator.html#af216ac120e70e2897983f3bc872934c0":[4,0,0,0,21],
 "structemulation_1_1emulator.html#af233b44ab24272b5fa82ff0a8ce8ac99":[4,0,0,0,10],
 "structemulation_1_1emulator.html#af3cce7c55fd0ee41bb0ab47bb9c65b1f":[4,0,0,0,38],

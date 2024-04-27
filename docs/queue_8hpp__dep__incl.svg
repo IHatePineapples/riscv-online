@@ -71,35 +71,50 @@
 <path fill="none" stroke="midnightblue" d="M190.95,-113.4C192.62,-104.37 194.46,-94.41 195.9,-86.58"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="187.48,-112.93 189.1,-123.4 194.36,-114.2 187.48,-112.93"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="server_8cpp.html" target="_top" xlink:title=" ">
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="server_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="283.5,-62 283.5,-81 367.5,-81 367.5,-62 283.5,-62"/>
 <text text-anchor="middle" x="325.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">src/server.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node6 -->
-<g id="edge6" class="edge">
-<title>Node3&#45;&gt;Node6</title>
+<!-- Node3&#45;&gt;Node7 -->
+<g id="edge7" class="edge">
+<title>Node3&#45;&gt;Node7</title>
 <path fill="none" stroke="midnightblue" d="M225.78,-119.13C252.53,-106.62 286.71,-90.64 307.31,-81.01"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="224.24,-115.99 216.66,-123.4 227.2,-122.33 224.24,-115.99"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="ssi_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="164.5,-0.5 164.5,-19.5 232.5,-19.5 232.5,-0.5 164.5,-0.5"/>
-<text text-anchor="middle" x="198.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/ssi.cpp</text>
+<g id="a_node5"><a xlink:href="emulator_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="44,-0.5 44,-19.5 215,-19.5 215,-0.5 44,-0.5"/>
+<text text-anchor="middle" x="129.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/RoL/emulation/emulator.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge5" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M198.5,-46.29C198.5,-36.86 198.5,-26.65 198.5,-19.66"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="195,-46.4 198.5,-56.4 202,-46.4 195,-46.4"/>
+<path fill="none" stroke="midnightblue" d="M174.26,-49.6C162.34,-39.32 148.61,-27.48 139.54,-19.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="172.29,-52.52 182.15,-56.4 176.86,-47.22 172.29,-52.52"/>
+</g>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="ssi_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="233.5,-0.5 233.5,-19.5 301.5,-19.5 301.5,-0.5 233.5,-0.5"/>
+<text text-anchor="middle" x="267.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/ssi.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node6 -->
+<g id="edge6" class="edge">
+<title>Node4&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M222.74,-49.6C234.66,-39.32 248.39,-27.48 257.46,-19.66"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="220.14,-47.22 214.85,-56.4 224.71,-52.52 220.14,-47.22"/>
 </g>
 </g>
 </svg>
