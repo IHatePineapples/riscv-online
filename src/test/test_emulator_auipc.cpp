@@ -12,12 +12,12 @@ int main()
 
     emulation::emulator emu{};
 
-    for (std::size_t n; n < 500; ++n)
+    for (std::size_t n; n < 2000; ++n)
     {
         emulation::reg pre;
         emu.auipc_(pre, 0);
 
-        const int offset = rand() % (2<<7); // Let's be reasonable in the jump size.
+        const int offset = (rand() - RAND_MAX / 2) % (2 << 7); // Let's be reasonable in the jump size.
 
         emulation::reg post;
         emu.auipc_(post, offset);
@@ -27,6 +27,6 @@ int main()
         std::cout << '=' << '\n';
         std::cout << post << '\n';
         std::cout << std::endl;
-        BOOST_VERIFY(post.to_ulong() == pre.to_ulong() + (offset<<12));
+        BOOST_VERIFY(post.to_ulong() == pre.to_ulong() + (offset << 12));
     }
 }
