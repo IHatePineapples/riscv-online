@@ -132,30 +132,12 @@ namespace emulation
   void emulator::auipc_(reg &rd, const std::bitset<20> imm)
   {
     rd = 0;
+    reg offset = 0;
 
-    for (int i = 0; i < 12; ++i)
-      pc[i] = 0;
-
-    bool carry = 0;
-    for (int i = 12; i < 32; ++i)
-    {
-      if (pc[i] and imm[i - 12])
-      {
-        pc[i] = 0 + carry;
-        carry = 1;
-      }
-      else if (pc[i] xor imm[i - 12])
-      {
-        pc[i] = !carry;
-      }
-      else
-      {
-        pc[i] = carry;
-        carry = 0;
-      }
-    }
-
-    rd = pc;
+    for (std::size_t i = 0; i < imm.size(); ++i)
+      offset[i + offset.size() - imm.size()] = imm[i];
+    add_(rd, pc, offset);
+    pc = rd;
   };
 
   void emulator::jal_(reg &rd, const std::bitset<20> imm)
