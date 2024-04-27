@@ -151,5 +151,3 @@ std::size_t concurrent_queue<T>::size() const
   return n;
 }
 
-using job_t = std::pair<std::string, std::string>;
-using job_queue = concurrent_queue<job_t>;
