@@ -9,5 +9,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "riscv_online.cpp", "riscv__online_8cpp.html", "riscv__online_8cpp" ],
     [ "server.cpp", "server_8cpp.html", "server_8cpp" ],
     [ "server.hpp", "server_8hpp.html", "server_8hpp" ],
+    [ "ssi.cpp", "ssi_8cpp.html", "ssi_8cpp" ],
     [ "ssi.h", "ssi_8h.html", "ssi_8h" ]
 ];

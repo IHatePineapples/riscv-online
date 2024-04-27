@@ -36,6 +36,7 @@ var NAVTREEINDEX0 =
 "dir_744228610704725ebd5d7128a2bc9c58.html":[5,0,0,0],
 "emulator_8cpp.html":[5,0,0,0,0,0],
 "emulator_8cpp.html#a0e3cd88b9aeee3fe41402b7dd019cfba":[5,0,0,0,0,0,1],
+"emulator_8cpp.html#af11a76e8aa3afd856dd86f154909c201":[5,0,0,0,0,0,2],
 "emulator_8cpp.html#af40bee66d457d56de0b3b721199a7e10":[5,0,0,0,0,0,0],
 "emulator_8cpp_source.html":[5,0,0,0,0,0],
 "emulator_8hpp.html":[5,0,0,0,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa97675eb3f268048604dc5155511a2a4d":[3,0,1,0,2],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa9eeb52badb613229884838847294b90d":[3,0,1,0,0],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906faa06b33d1ea28e90733617ec889d4e76e":[3,0,1,0,24],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa6778a757ccb0afc3f8845f2af08e4af":[3,0,1,0,22],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa762e6a6343c5132765a43bb0ccab610":[3,0,1,0,38]
+"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa6778a757ccb0afc3f8845f2af08e4af":[3,0,1,0,22]
 };

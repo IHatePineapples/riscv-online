@@ -87,12 +87,14 @@ $(document).ready(function(){initNavTree('emulator_8cpp.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">emulator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="emulator_8hpp_source.html">RoL/emulation/emulator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="shared__job_8hpp_source.html">RoL/threaded/shared_job.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parse_8hpp_source.html">RoL/parse.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -102,7 +104,7 @@ $(document).ready(function(){initNavTree('emulator_8cpp.html',''); initResizable
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="emulator_8cpp__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="emulator_8cpp__incl.svg" width="100%" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div>
@@ -120,7 +122,29 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e3cd88b9aeee3fe41402b7dd019cfba"><td class="memTemplParams" colspan="2">template&lt;std::size_t n = 11&gt; </td></tr>
 <tr class="memitem:a0e3cd88b9aeee3fe41402b7dd019cfba"><td class="memTemplItemLeft" align="right" valign="top">static constexpr reg&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba">emulation::sign_extend</a> (std::bitset&lt; n &gt; imm, std::size_t msb_pos=(n - 1))</td></tr>
 <tr class="separator:a0e3cd88b9aeee3fe41402b7dd019cfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af11a76e8aa3afd856dd86f154909c201"><td class="memItemLeft" align="right" valign="top"><a class="el" href="shared__queue_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="emulator_8cpp.html#af11a76e8aa3afd856dd86f154909c201">current_job</a> = {}</td></tr>
+<tr class="separator:af11a76e8aa3afd856dd86f154909c201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="af11a76e8aa3afd856dd86f154909c201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11a76e8aa3afd856dd86f154909c201">&#9670;&nbsp;</a></span>current_job</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="shared__queue_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a> current_job = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00009">9</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

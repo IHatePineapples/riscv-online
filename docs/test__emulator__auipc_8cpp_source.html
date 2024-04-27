@@ -99,32 +99,31 @@ $(document).ready(function(){initNavTree('test__emulator__auipc_8cpp_source.html
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="test__emulator__auipc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__emulator__auipc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> emu{};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (std::size_t n; n &lt; 5000; ++n)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> pre;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        emu.<a class="code" href="structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a">auipc_</a>(pre, 0);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> offset = rand();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> post;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        emu.auipc_(post, 0);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::cout &lt;&lt; pre &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;+&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::cout &lt;&lt; std::bitset&lt;20&gt;(offset) &lt;&lt; <span class="stringliteral">&quot;oooooooooooo&quot;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;=&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::cout &lt;&lt; post &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        BOOST_VERIFY(post.to_ulong() == pre.to_ulong() + offset);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> emu{};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">for</span> (std::size_t n; n &lt; 2000; ++n)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> pre;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        emu.<a class="code" href="structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a">auipc_</a>(pre, 0);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> offset = (rand() - RAND_MAX / 2) % (2 &lt;&lt; 7); <span class="comment">// Let&#39;s be reasonable in the jump size.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a> post;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        emu.auipc_(post, offset);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::cout &lt;&lt; pre &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;+&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::cout &lt;&lt; std::bitset&lt;20&gt;(offset) &lt;&lt; <span class="stringliteral">&quot;oooooooooooo&quot;</span> &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; <span class="charliteral">&#39;(&#39;</span> &lt;&lt; offset &lt;&lt; <span class="charliteral">&#39;)&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::cout &lt;&lt; <span class="charliteral">&#39;=&#39;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cout &lt;&lt; post &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        BOOST_VERIFY(post.to_ulong() == pre.to_ulong() + (offset &lt;&lt; 12));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
 <div class="ttc" id="anamespaceemulation_html_a054a3ba06a8354bb9925d0528e308475"><div class="ttname"><a href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">emulation::reg</a></div><div class="ttdeci">std::bitset&lt; xlen &gt; reg</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00013">emulator.hpp:13</a></div></div>
 <div class="ttc" id="astructemulation_1_1emulator_html"><div class="ttname"><a href="structemulation_1_1emulator.html">emulation::emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00017">emulator.hpp:18</a></div></div>
-<div class="ttc" id="astructemulation_1_1emulator_html_a5c23ebba4840ee6cc2b1b1b0a83df86a"><div class="ttname"><a href="structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a">emulation::emulator::auipc_</a></div><div class="ttdeci">void auipc_(reg &amp;rd, const std::bitset&lt; 20 &gt; imm)</div><div class="ttdoc">Add Upper Immeddiate to PC.</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00132">emulator.cpp:132</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html_a5c23ebba4840ee6cc2b1b1b0a83df86a"><div class="ttname"><a href="structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a">emulation::emulator::auipc_</a></div><div class="ttdeci">void auipc_(reg &amp;rd, const std::bitset&lt; 20 &gt; imm)</div><div class="ttdoc">Add Upper Immeddiate to PC.</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00134">emulator.cpp:134</a></div></div>
 <div class="ttc" id="atest__emulator__auipc_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="test__emulator__auipc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="test__emulator__auipc_8cpp_source.html#l00009">test_emulator_auipc.cpp:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
