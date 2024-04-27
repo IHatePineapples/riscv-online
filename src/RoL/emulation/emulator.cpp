@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#ifdef NDEBUG
+#if !RoL_testing
 
 #include "RoL/threaded/shared_job.hpp"
 job_t current_job = {};
