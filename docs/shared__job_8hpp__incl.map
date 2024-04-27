@@ -1,8 +1,7 @@
 <map id="src/RoL/threaded/shared_job.hpp" name="src/RoL/threaded/shared_job.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="79,5,257,47"/>
-<area shape="rect" id="node2" href="$shared__queue_8hpp.html" title=" " alt="" coords="90,95,246,136"/>
-<area shape="rect" id="node3" href="$queue_8hpp.html" title=" " alt="" coords="78,184,258,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="24,5,203,47"/>
+<area shape="rect" id="node2" href="$shared__queue_8hpp.html" title=" " alt="" coords="35,95,191,136"/>
+<area shape="rect" id="node3" href="$queue_8hpp.html" title=" " alt="" coords="23,184,203,211"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,259,112,285"/>
 <area shape="rect" id="node5" title=" " alt="" coords="137,259,199,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="224,259,283,285"/>
 </map>
