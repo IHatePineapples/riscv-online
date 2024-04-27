@@ -3,7 +3,6 @@
 #include "pico/mutex.h"
 
 #include <queue>
-#include <string>
 
 /**
  * \class concurrent_queue

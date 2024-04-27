@@ -1,7 +1,6 @@
 #pragma once
 
 #include <bitset>
-#include <string>
 #include <vector>
 
 #include "RoL/parse.hpp"

@@ -1,8 +1,6 @@
 #include "RoL/emulation/emulator.hpp"
 #include "RoL/parse.hpp"
 
-#include <algorithm>
-#include <string>
 #include <vector>
 
 #if !RoL_testing

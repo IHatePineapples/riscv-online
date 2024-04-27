@@ -1,12 +1,7 @@
 #pragma once
 
-#include <cctype>
-#include <cstddef>
-#include <map>
-#include <string>
-#include <tuple>
+#include <bitset>
 #include <unordered_map>
-#include <vector>
 
 namespace parse
 {
