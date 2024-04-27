@@ -7,5 +7,5 @@ var searchData=
   ['cgi_5finit_40',['cgi_init',['../cgi_8cpp.html#aef660d1f674ee1d9991042ac8143931c',1,'cgi_init():&#160;cgi.cpp'],['../cgi_8h.html#aef660d1f674ee1d9991042ac8143931c',1,'cgi_init():&#160;cgi.cpp']]],
   ['concurrent_5fqueue_41',['concurrent_queue',['../classconcurrent__queue.html',1,'concurrent_queue&lt; T &gt;'],['../classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed',1,'concurrent_queue::concurrent_queue()']]],
   ['config_2ehpp_42',['config.hpp',['../config_8hpp.html',1,'']]],
-  ['current_5fjob_43',['current_job',['../emulator_8cpp.html#af11a76e8aa3afd856dd86f154909c201',1,'current_job():&#160;emulator.cpp'],['../shared__job_8hpp.html#af11a76e8aa3afd856dd86f154909c201',1,'current_job():&#160;emulator.cpp']]]
+  ['current_5fjob_43',['current_job',['../shared__job_8hpp.html#af11a76e8aa3afd856dd86f154909c201',1,'shared_job.hpp']]]
 ];
