@@ -8,7 +8,6 @@
 
 int main()
 {
-    /** \warning auipc() doesn't work with negative values! */
 
     emulation::emulator emu{};
 
