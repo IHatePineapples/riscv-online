@@ -46,7 +46,7 @@ const char *ssi_tags[] = {
 
 u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
 {
-    std::size_t printed;
+    u16_t printed;
     const auto &[id, state] = current_job;
 
     switch (iIndex)
