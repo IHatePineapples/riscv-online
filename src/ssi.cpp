@@ -159,6 +159,7 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
     default:
         break;
     }
+    return printed;
 }
 
 void ssi_init()
