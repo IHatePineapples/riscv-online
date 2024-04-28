@@ -16,6 +16,7 @@ add_executable(${riscv} riscv_online.cpp # main() entry-point
     cgi.cpp
     cgi.h
     config.hpp
+    post.cpp
     server.cpp
     server.hpp
     ssi.cpp
