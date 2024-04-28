@@ -65,9 +65,6 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
     // Locate tokens
     if (submit_job)
     {
-        u16_t token_user = pbuf_memfind(p, "user=", 5, 0);
-        u16_t token_pass = pbuf_memfind(p, "pass=", 5, 0);
-
         u16_t token_id = pbuf_memfind(p, "id=", 3, 0);
         if ( token_id   == 0xFFFF) return ERR_VAL;
         u16_t token_ram  = pbuf_memfind(p, "ram=", 4, 0);
@@ -361,7 +358,6 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 
         char* endptr = "";
 
-        u16_t value_user = token_user + 5;
         long  id   = strtol(   id_buf       , &endptr, 16);
         /** \todo Implement ram */
         // long  ram  = strtol(   ram_buf      , &endptr, 16); 
