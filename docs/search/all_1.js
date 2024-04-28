@@ -1,7 +1,7 @@
 var searchData=
 [
   ['b_21',['B',['../namespaceparse.html#aaca91a58ffb5306e03d346f8dd742a50',1,'parse']]],
-  ['back_22',['back',['../classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720',1,'concurrent_queue::back()'],['../classconcurrent__queue.html#ab475c53ec9577d6b3a0a702aad5950db',1,'concurrent_queue::back() const']]],
+  ['back_22',['back',['../classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720',1,'concurrent_queue']]],
   ['beq_23',['BEQ',['../namespaceparse.html#acfc3b773ce544636484c919bcfff906fa499629ce03b097953665c430ea737f6f',1,'parse']]],
   ['beq_5f_24',['beq_',['../structemulation_1_1emulator.html#a347abcda80446cec6144e27a56e54f59',1,'emulation::emulator']]],
   ['bge_25',['BGE',['../namespaceparse.html#acfc3b773ce544636484c919bcfff906fa10351fd73d4cc51eaa23d1f5d5fe04b0',1,'parse']]],

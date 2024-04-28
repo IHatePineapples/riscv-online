@@ -4,7 +4,7 @@ var searchData=
   ['serialize_5fram_431',['serialize_ram',['../structemulation_1_1emulator.html#ab7750d52e383b9290565ed64f0669d98',1,'emulation::emulator']]],
   ['sh_5f_432',['sh_',['../structemulation_1_1emulator.html#ad9d16af8f0a16133dcb9fa67144f3b14',1,'emulation::emulator']]],
   ['sign_5fextend_433',['sign_extend',['../namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba',1,'emulation']]],
-  ['size_434',['size',['../classconcurrent__queue.html#ac3ad4a5fb4e87709b1fd4b5cc618b5fd',1,'concurrent_queue']]],
+  ['size_434',['size',['../classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df',1,'concurrent_queue']]],
   ['sll_5f_435',['sll_',['../structemulation_1_1emulator.html#a5beb63c288532ba1044aae29c0906589',1,'emulation::emulator']]],
   ['slli_5f_436',['slli_',['../structemulation_1_1emulator.html#a4c2cba41aa7dd930e78166375ffde7ea',1,'emulation::emulator']]],
   ['slt_5f_437',['slt_',['../structemulation_1_1emulator.html#a0b05a393f872484b0989e0520143d24e',1,'emulation::emulator']]],

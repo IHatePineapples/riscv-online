@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('ssi_8cpp_source.html',''); initResizab
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="ssi_8cpp.html#ad9477666f554e11fbb9ad11f7e9fbd95">   47</a></span>&#160;u16_t <a class="code" href="ssi_8cpp.html#ad9477666f554e11fbb9ad11f7e9fbd95">ssi_handler</a>(<span class="keywordtype">int</span> iIndex, <span class="keywordtype">char</span> *pcInsert, <span class="keywordtype">int</span> iInsertLen)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::size_t printed;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    u16_t printed;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;[id, state] = <a class="code" href="emulator_8cpp.html#af11a76e8aa3afd856dd86f154909c201">current_job</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">switch</span> (iIndex)</div>
@@ -250,18 +250,19 @@ $(document).ready(function(){initNavTree('ssi_8cpp_source.html',''); initResizab
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">  164</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">ssi_init</a>()</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;{</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    http_set_ssi_handler(<a class="code" href="ssi_8cpp.html#ad9477666f554e11fbb9ad11f7e9fbd95">ssi_handler</a>,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                         <a class="code" href="ssi_8cpp.html#a894a170d8d332969f0edff08b3f17c76">ssi_tags</a>, LWIP_ARRAYSIZE(<a class="code" href="ssi_8cpp.html#a894a170d8d332969f0edff08b3f17c76">ssi_tags</a>));</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> printed;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">  165</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">ssi_init</a>()</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    http_set_ssi_handler(<a class="code" href="ssi_8cpp.html#ad9477666f554e11fbb9ad11f7e9fbd95">ssi_handler</a>,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                         <a class="code" href="ssi_8cpp.html#a894a170d8d332969f0edff08b3f17c76">ssi_tags</a>, LWIP_ARRAYSIZE(<a class="code" href="ssi_8cpp.html#a894a170d8d332969f0edff08b3f17c76">ssi_tags</a>));</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
 <div class="ttc" id="aemulator_8cpp_html_af11a76e8aa3afd856dd86f154909c201"><div class="ttname"><a href="emulator_8cpp.html#af11a76e8aa3afd856dd86f154909c201">current_job</a></div><div class="ttdeci">job_t current_job</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8cpp_source.html#l00009">emulator.cpp:9</a></div></div>
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
 <div class="ttc" id="ashared__job_8hpp_html"><div class="ttname"><a href="shared__job_8hpp.html">shared_job.hpp</a></div></div>
 <div class="ttc" id="assi_8cpp_html_a894a170d8d332969f0edff08b3f17c76"><div class="ttname"><a href="ssi_8cpp.html#a894a170d8d332969f0edff08b3f17c76">ssi_tags</a></div><div class="ttdeci">const char * ssi_tags[]</div><div class="ttdef"><b>Definition:</b> <a href="ssi_8cpp_source.html#l00009">ssi.cpp:9</a></div></div>
-<div class="ttc" id="assi_8cpp_html_ab07d85d6a87e78cccd7b39b699a67a29"><div class="ttname"><a href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">ssi_init</a></div><div class="ttdeci">void ssi_init()</div><div class="ttdef"><b>Definition:</b> <a href="ssi_8cpp_source.html#l00164">ssi.cpp:164</a></div></div>
+<div class="ttc" id="assi_8cpp_html_ab07d85d6a87e78cccd7b39b699a67a29"><div class="ttname"><a href="ssi_8cpp.html#ab07d85d6a87e78cccd7b39b699a67a29">ssi_init</a></div><div class="ttdeci">void ssi_init()</div><div class="ttdef"><b>Definition:</b> <a href="ssi_8cpp_source.html#l00165">ssi.cpp:165</a></div></div>
 <div class="ttc" id="assi_8cpp_html_ad9477666f554e11fbb9ad11f7e9fbd95"><div class="ttname"><a href="ssi_8cpp.html#ad9477666f554e11fbb9ad11f7e9fbd95">ssi_handler</a></div><div class="ttdeci">u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)</div><div class="ttdef"><b>Definition:</b> <a href="ssi_8cpp_source.html#l00047">ssi.cpp:47</a></div></div>
 <div class="ttc" id="assi_8h_html"><div class="ttname"><a href="ssi_8h.html">ssi.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

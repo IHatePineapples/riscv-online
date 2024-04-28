@@ -1,0 +1,7 @@
+<map id="emulation::run" name="emulation::run">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,123,108"/>
+<area shape="rect" id="node2" href="$classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede" title=" " alt="" coords="171,5,359,32"/>
+<area shape="rect" id="node3" href="$classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8" title="Reference to first item in the queue." alt="" coords="176,56,353,83"/>
+<area shape="rect" id="node4" href="$classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc" title="Pops the first element of the queue, pointed to by front()." alt="" coords="179,107,350,133"/>
+<area shape="rect" id="node5" href="$classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761" title="Push an item onto the stack, doing an emplace_back() in the background." alt="" coords="176,157,353,184"/>
+</map>

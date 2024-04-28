@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa762e6a6343c5132765a43bb0ccab610":[3,0,1,0,38],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906faa78d45106f65f83d7dc79ae7985c1c0f":[3,0,1,0,35],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906faae2ecfbd95d475ddf08876080d57e3d9":[3,0,1,0,5],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fab60980ad7dacf61aafe097e6033c59ea":[3,0,1,0,37],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fac556331de98ff0977430dade00c6c714":[3,0,1,0,21],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "structemulation_1_1emulator.html#ae75621b92b72655354a0d36fa9ff4ab2":[4,0,0,0,23],
 "structemulation_1_1emulator.html#ae9ad43623e2e527febca0438000dd5a1":[4,0,0,0,35],
 "structemulation_1_1emulator.html#aed962b5f80b5af390a79d5a6aaa290f8":[4,0,0,0,3],
-"structemulation_1_1emulator.html#af10ab73aa03331f48b481015703d3934":[4,0,0,0,37]
+"structemulation_1_1emulator.html#af10ab73aa03331f48b481015703d3934":[4,0,0,0,37],
+"structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130":[4,0,0,0,12],
+"structemulation_1_1emulator.html#af216ac120e70e2897983f3bc872934c0":[4,0,0,0,21]
 };
