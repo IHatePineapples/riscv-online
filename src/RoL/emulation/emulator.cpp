@@ -12,10 +12,26 @@ job_t current_job = {};
 namespace emulation
 {
 
+#if !RoL_testing
   void run()
   {
-    // Nothing yet
+  start_run:
+    while (in_jq_.empty())
+    {
+      /** Busy wait until a job is available*/
+      sleep_ms(2); // Sleeping to reduce CPU busy time slightly.
+    }
+
+    auto &[id, state] = in_jq_.front();
+
+    state.execute();
+
+    out_jq_.push({id, state});
+    in_jq_.pop();
+    goto start_run;
   }
+#endif
+
   template <std::size_t n = 11>
   static constexpr reg sign_extend(std::bitset<n> imm, std::size_t msb_pos = (n - 1))
   {
