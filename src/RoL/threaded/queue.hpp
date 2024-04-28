@@ -42,7 +42,6 @@ public:
    * \brief Reference to first item in the queue.
   */
   T &front();
-  const T &front() const;
 
   /**
    * \fn back()
@@ -51,19 +50,18 @@ public:
    * \brief Reference to last item in the queue.
   */
   T &back();
-  const T &back() const;
 
   /**
    * \fn empty()
    * \returns `true` if queue empty, `false` otherwise.
   */
-  bool empty() const;
+  bool empty();
 
   /**
    * \fn size()
    * \returns number of elements in the queue.
   */
-  std::size_t size() const;
+  std::size_t size();
 
   /**
    * \fn push(T &&)
@@ -90,15 +88,6 @@ T &concurrent_queue<T>::front()
 }
 
 template <typename T>
-const T &concurrent_queue<T>::front() const
-{
-  mutex_enter_blocking(&mtx_);
-  const auto &f = q_.front();
-  mutex_exit(&mtx_);
-  return f;
-}
-
-template <typename T>
 T &concurrent_queue<T>::back()
 {
   mutex_enter_blocking(&mtx_);
@@ -108,16 +97,7 @@ T &concurrent_queue<T>::back()
 }
 
 template <typename T>
-const T &concurrent_queue<T>::back() const
-{
-  mutex_enter_blocking(&mtx_);
-  const auto &f = q_.back();
-  mutex_exit(&mtx_);
-  return f;
-}
-
-template <typename T>
-bool concurrent_queue<T>::empty() const
+bool concurrent_queue<T>::empty()
 {
   mutex_enter_blocking(&mtx_);
   const auto b = q_.empty();
@@ -129,7 +109,7 @@ template <typename T>
 void concurrent_queue<T>::push(T &&e)
 {
   mutex_enter_blocking(&mtx_);
-  q_.push(std::forward(e));
+  q_.push(std::forward<T>(e));
   mutex_exit(&mtx_);
 }
 
@@ -142,7 +122,7 @@ void concurrent_queue<T>::pop()
 }
 
 template <typename T>
-std::size_t concurrent_queue<T>::size() const
+std::size_t concurrent_queue<T>::size()
 {
   mutex_enter_blocking(&mtx_);
   const auto n = q_.size();
