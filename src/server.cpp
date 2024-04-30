@@ -5,7 +5,7 @@
 #include "pico/stdlib.h"
 #include "pico/time.h"
 
-#include "RoL/threaded/shared_queue.hpp"
+#include "RoL/threaded/shared.hpp"
 #include "ssi.h"
 
 

@@ -9,7 +9,7 @@
 
 #include <string>
 
-#include "RoL/threaded/shared_queue.hpp"
+#include "RoL/threaded/shared.hpp"
 #include "RoL/emulation/emulator.hpp"
 
 #define USER_PASS_BUFSIZE 16

@@ -8,7 +8,7 @@
 
 #include "RoL/emulation/emulator.hpp"
 #include "RoL/threaded/queue.hpp"
-#include "RoL/threaded/shared_queue.hpp"
+#include "RoL/threaded/shared.hpp"
 
 /**
  * \file Main entry point of the firmware.
