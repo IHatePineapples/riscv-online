@@ -98,44 +98,44 @@ $(document).ready(function(){initNavTree('post_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared_8hpp.html">RoL/threaded/shared.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="emulator_8hpp.html">RoL/emulation/emulator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="post_8cpp.html#a05c734a459dd5bea88d56adb0a120966">   15</a></span>&#160;<span class="preprocessor">#define USER_PASS_BUFSIZE 16</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">   17</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">   18</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *<a class="code" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">   20</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">   21</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">   23</a></span>&#160;err_t <a class="code" href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">httpd_post_begin</a>(<span class="keywordtype">void</span> *connection, <span class="keyword">const</span> <span class="keywordtype">char</span> *uri, <span class="keyword">const</span> <span class="keywordtype">char</span> *http_request,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                       u16_t http_request_len, <span class="keywordtype">int</span> content_len, <span class="keywordtype">char</span> *response_uri,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                       u16_t response_uri_len, u8_t *post_auto_wnd)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> (!memcmp(uri, <span class="stringliteral">&quot;/submit&quot;</span>, 8))</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> == connection)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> ERR_VAL;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> = connection;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">/* default page is &quot;login failed&quot; */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/submit.json&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">/* e.g. for large uploads to slow flash over a fast connection, you should</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">           manually update the rx window. That way, a sender can only send a full</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">           tcp window at a time. If this is required, set &#39;post_aut_wnd&#39; to 0.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">           We do not need to throttle upload speed here, so: */</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        *post_auto_wnd = 1;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> ERR_OK;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!memcmp(uri, <span class="stringliteral">&quot;/return&quot;</span>, 8))</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> == connection)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> ERR_VAL;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> = connection;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shared_8hpp.html">RoL/threaded/shared.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="emulator_8hpp.html">RoL/emulation/emulator.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="post_8cpp.html#a05c734a459dd5bea88d56adb0a120966">   16</a></span>&#160;<span class="preprocessor">#define USER_PASS_BUFSIZE 16</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">   18</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">   19</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *<a class="code" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">   21</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">   22</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="post_8cpp.html#a86244485a8e1178510132bca33575cc3">   24</a></span>&#160;<a class="code" href="shared_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a> <a class="code" href="post_8cpp.html#a86244485a8e1178510132bca33575cc3">current_job_</a>{};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">   26</a></span>&#160;err_t <a class="code" href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">httpd_post_begin</a>(<span class="keywordtype">void</span> *connection, <span class="keyword">const</span> <span class="keywordtype">char</span> *uri, <span class="keyword">const</span> <span class="keywordtype">char</span> *http_request,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                       u16_t http_request_len, <span class="keywordtype">int</span> content_len, <span class="keywordtype">char</span> *response_uri,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                       u16_t response_uri_len, u8_t *post_auto_wnd)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> == connection)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> ERR_VAL;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> = connection;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    *post_auto_wnd = 1;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (!memcmp(uri, <span class="stringliteral">&quot;/submit&quot;</span>, 8))</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">/* default page is &quot;login failed&quot; */</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/submit.json&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">/* e.g. for large uploads to slow flash over a fast connection, you should</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">           manually update the rx window. That way, a sender can only send a full</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">           tcp window at a time. If this is required, set &#39;post_aut_wnd&#39; to 0.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">           We do not need to throttle upload speed here, so: */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> ERR_OK;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!memcmp(uri, <span class="stringliteral">&quot;/return&quot;</span>, 8))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">/* default page is &quot;login failed&quot; */</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/return.json&quot;</span>);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">/* e.g. for large uploads to slow flash over a fast connection, you should</span></div>
@@ -413,151 +413,195 @@ $(document).ready(function(){initNavTree('post_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordtype">char</span> prog_buf[100 * (4 * 2 + 2)]    = {};</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        pbuf_get_contiguous(p, id_buf  , <span class="keyword">sizeof</span>(id_buf    )  ,len_id  ,   value_id      );</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        pbuf_get_contiguous(p, ram_buf , <span class="keyword">sizeof</span>(ram_buf   )  ,len_ram ,   value_ram     );</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        pbuf_get_contiguous(p, ra_buf  , <span class="keyword">sizeof</span>(ra_buf    )  ,len_ra  ,   value_ra      );</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        pbuf_get_contiguous(p, sp_buf  , <span class="keyword">sizeof</span>(sp_buf    )  ,len_sp  ,   value_sp      );</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        pbuf_get_contiguous(p, gp_buf  , <span class="keyword">sizeof</span>(gp_buf    )  ,len_gp  ,   value_gp      );</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        pbuf_get_contiguous(p, tp_buf  , <span class="keyword">sizeof</span>(tp_buf    )  ,len_tp  ,   value_tp      );</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        pbuf_get_contiguous(p, t0_buf  , <span class="keyword">sizeof</span>(t0_buf    )  ,len_t0  ,   value_t0      );</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        pbuf_get_contiguous(p, t1_buf  , <span class="keyword">sizeof</span>(t1_buf    )  ,len_t1  ,   value_t1      );</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        pbuf_get_contiguous(p, t2_buf  , <span class="keyword">sizeof</span>(t2_buf    )  ,len_t2  ,   value_t2      );</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        pbuf_get_contiguous(p, fp_buf  , <span class="keyword">sizeof</span>(fp_buf    )  ,len_fp  ,   value_fp      );</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        pbuf_get_contiguous(p, s1_buf  , <span class="keyword">sizeof</span>(s1_buf    )  ,len_s1  ,   value_s1      );</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        pbuf_get_contiguous(p, a0_buf  , <span class="keyword">sizeof</span>(a0_buf    )  ,len_a0  ,   value_a0      );</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        pbuf_get_contiguous(p, a1_buf  , <span class="keyword">sizeof</span>(a1_buf    )  ,len_a1  ,   value_a1      );</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        pbuf_get_contiguous(p, a2_buf  , <span class="keyword">sizeof</span>(a2_buf    )  ,len_a2  ,   value_a2      );</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        pbuf_get_contiguous(p, a3_buf  , <span class="keyword">sizeof</span>(a3_buf    )  ,len_a3  ,   value_a3      );</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        pbuf_get_contiguous(p, a4_buf  , <span class="keyword">sizeof</span>(a4_buf    )  ,len_a4  ,   value_a4      );</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        pbuf_get_contiguous(p, a5_buf  , <span class="keyword">sizeof</span>(a5_buf    )  ,len_a5  ,   value_a5      );</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        pbuf_get_contiguous(p, a6_buf  , <span class="keyword">sizeof</span>(a6_buf    )  ,len_a6  ,   value_a6      );</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        pbuf_get_contiguous(p, a7_buf  , <span class="keyword">sizeof</span>(a7_buf    )  ,len_a7  ,   value_a7      );</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        pbuf_get_contiguous(p, s2_buf  , <span class="keyword">sizeof</span>(s2_buf    )  ,len_s2  ,   value_s2      );</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        pbuf_get_contiguous(p, s3_buf  , <span class="keyword">sizeof</span>(s3_buf    )  ,len_s3  ,   value_s3      );</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        pbuf_get_contiguous(p, s4_buf  , <span class="keyword">sizeof</span>(s4_buf    )  ,len_s4  ,   value_s4      );</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        pbuf_get_contiguous(p, s5_buf  , <span class="keyword">sizeof</span>(s5_buf    )  ,len_s5  ,   value_s5      );</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        pbuf_get_contiguous(p, s6_buf  , <span class="keyword">sizeof</span>(s6_buf    )  ,len_s6  ,   value_s6      );</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        pbuf_get_contiguous(p, s7_buf  , <span class="keyword">sizeof</span>(s7_buf    )  ,len_s7  ,   value_s7      );</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        pbuf_get_contiguous(p, s8_buf  , <span class="keyword">sizeof</span>(s8_buf    )  ,len_s8  ,   value_s8      );</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        pbuf_get_contiguous(p, s9_buf  , <span class="keyword">sizeof</span>(s9_buf    )  ,len_s9  ,   value_s9      );</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        pbuf_get_contiguous(p, s10_buf , <span class="keyword">sizeof</span>(s10_buf   )  ,len_s10 ,   value_s10     );</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        pbuf_get_contiguous(p, s11_buf , <span class="keyword">sizeof</span>(s11_buf   )  ,len_s11 ,   value_s11     );</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        pbuf_get_contiguous(p, t3_buf  , <span class="keyword">sizeof</span>(t3_buf    )  ,len_t3  ,   value_t3      );</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        pbuf_get_contiguous(p, t4_buf  , <span class="keyword">sizeof</span>(t4_buf    )  ,len_t4  ,   value_t4      );</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        pbuf_get_contiguous(p, t5_buf  , <span class="keyword">sizeof</span>(t5_buf    )  ,len_t5  ,   value_t5      );</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        pbuf_get_contiguous(p, t6_buf  , <span class="keyword">sizeof</span>(t6_buf    )  ,len_t6  ,   value_t6      );</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        pbuf_get_contiguous(p, pc_buf  , <span class="keyword">sizeof</span>(pc_buf    )  ,len_pc  ,   value_pc      );</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordtype">char</span> * id_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, id_buf  , <span class="keyword">sizeof</span>(id_buf    )  ,len_id  ,   value_id      );</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordtype">char</span> * ram_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, ram_buf , <span class="keyword">sizeof</span>(ram_buf   )  ,len_ram ,   value_ram     );</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordtype">char</span> * ra_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, ra_buf  , <span class="keyword">sizeof</span>(ra_buf    )  ,len_ra  ,   value_ra      );</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordtype">char</span> * sp_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, sp_buf  , <span class="keyword">sizeof</span>(sp_buf    )  ,len_sp  ,   value_sp      );</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordtype">char</span> * gp_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, gp_buf  , <span class="keyword">sizeof</span>(gp_buf    )  ,len_gp  ,   value_gp      );</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keywordtype">char</span> * tp_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, tp_buf  , <span class="keyword">sizeof</span>(tp_buf    )  ,len_tp  ,   value_tp      );</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordtype">char</span> * t0_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t0_buf  , <span class="keyword">sizeof</span>(t0_buf    )  ,len_t0  ,   value_t0      );</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordtype">char</span> * t1_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t1_buf  , <span class="keyword">sizeof</span>(t1_buf    )  ,len_t1  ,   value_t1      );</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordtype">char</span> * t2_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t2_buf  , <span class="keyword">sizeof</span>(t2_buf    )  ,len_t2  ,   value_t2      );</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordtype">char</span> * fp_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, fp_buf  , <span class="keyword">sizeof</span>(fp_buf    )  ,len_fp  ,   value_fp      );</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordtype">char</span> * s1_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s1_buf  , <span class="keyword">sizeof</span>(s1_buf    )  ,len_s1  ,   value_s1      );</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordtype">char</span> * a0_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a0_buf  , <span class="keyword">sizeof</span>(a0_buf    )  ,len_a0  ,   value_a0      );</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordtype">char</span> * a1_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a1_buf  , <span class="keyword">sizeof</span>(a1_buf    )  ,len_a1  ,   value_a1      );</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordtype">char</span> * a2_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a2_buf  , <span class="keyword">sizeof</span>(a2_buf    )  ,len_a2  ,   value_a2      );</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordtype">char</span> * a3_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a3_buf  , <span class="keyword">sizeof</span>(a3_buf    )  ,len_a3  ,   value_a3      );</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordtype">char</span> * a4_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a4_buf  , <span class="keyword">sizeof</span>(a4_buf    )  ,len_a4  ,   value_a4      );</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordtype">char</span> * a5_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a5_buf  , <span class="keyword">sizeof</span>(a5_buf    )  ,len_a5  ,   value_a5      );</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordtype">char</span> * a6_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a6_buf  , <span class="keyword">sizeof</span>(a6_buf    )  ,len_a6  ,   value_a6      );</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordtype">char</span> * a7_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, a7_buf  , <span class="keyword">sizeof</span>(a7_buf    )  ,len_a7  ,   value_a7      );</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordtype">char</span> * s2_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s2_buf  , <span class="keyword">sizeof</span>(s2_buf    )  ,len_s2  ,   value_s2      );</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordtype">char</span> * s3_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s3_buf  , <span class="keyword">sizeof</span>(s3_buf    )  ,len_s3  ,   value_s3      );</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordtype">char</span> * s4_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s4_buf  , <span class="keyword">sizeof</span>(s4_buf    )  ,len_s4  ,   value_s4      );</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordtype">char</span> * s5_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s5_buf  , <span class="keyword">sizeof</span>(s5_buf    )  ,len_s5  ,   value_s5      );</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        <span class="keywordtype">char</span> * s6_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s6_buf  , <span class="keyword">sizeof</span>(s6_buf    )  ,len_s6  ,   value_s6      );</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordtype">char</span> * s7_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s7_buf  , <span class="keyword">sizeof</span>(s7_buf    )  ,len_s7  ,   value_s7      );</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordtype">char</span> * s8_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s8_buf  , <span class="keyword">sizeof</span>(s8_buf    )  ,len_s8  ,   value_s8      );</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordtype">char</span> * s9_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, s9_buf  , <span class="keyword">sizeof</span>(s9_buf    )  ,len_s9  ,   value_s9      );</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordtype">char</span> * s10_p = (<span class="keywordtype">char</span>*)pbuf_get_contiguous(p, s10_buf , <span class="keyword">sizeof</span>(s10_buf   )  ,len_s10 ,   value_s10     );</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordtype">char</span> * s11_p = (<span class="keywordtype">char</span>*)pbuf_get_contiguous(p, s11_buf , <span class="keyword">sizeof</span>(s11_buf   )  ,len_s11 ,   value_s11     );</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keywordtype">char</span> * t3_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t3_buf  , <span class="keyword">sizeof</span>(t3_buf    )  ,len_t3  ,   value_t3      );</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordtype">char</span> * t4_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t4_buf  , <span class="keyword">sizeof</span>(t4_buf    )  ,len_t4  ,   value_t4      );</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordtype">char</span> * t5_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t5_buf  , <span class="keyword">sizeof</span>(t5_buf    )  ,len_t5  ,   value_t5      );</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordtype">char</span> * t6_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, t6_buf  , <span class="keyword">sizeof</span>(t6_buf    )  ,len_t6  ,   value_t6      );</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="keywordtype">char</span> * pc_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, pc_buf  , <span class="keyword">sizeof</span>(pc_buf    )  ,len_pc  ,   value_pc      );</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        pbuf_get_contiguous(p, prog_buf, <span class="keyword">sizeof</span>(prog_buf  )  ,len_prog,   value_prog    );</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordtype">char</span>* endptr = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordtype">char</span>* endptr = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordtype">long</span>  <span class="keywordtype">id</span>   = strtol(   id_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordtype">long</span>  ra   = strtol(   ra_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordtype">long</span>  sp   = strtol(   sp_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordtype">long</span>  gp   = strtol(   gp_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordtype">long</span>  tp   = strtol(   tp_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordtype">long</span>  t0   = strtol(   t0_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordtype">long</span>  t1   = strtol(   t1_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordtype">long</span>  t2   = strtol(   t2_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordtype">long</span>  fp   = strtol(   fp_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keywordtype">long</span>  s1   = strtol(   s1_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordtype">long</span>  a0   = strtol(   a0_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordtype">long</span>  a1   = strtol(   a1_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <span class="keywordtype">long</span>  a2   = strtol(   a2_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordtype">long</span>  a3   = strtol(   a3_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keywordtype">long</span>  a4   = strtol(   a4_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordtype">long</span>  a5   = strtol(   a5_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <span class="keywordtype">long</span>  a6   = strtol(   a6_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="keywordtype">long</span>  a7   = strtol(   a7_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="keywordtype">long</span>  s2   = strtol(   s2_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="keywordtype">long</span>  s3   = strtol(   s3_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="keywordtype">long</span>  s4   = strtol(   s4_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordtype">long</span>  s5   = strtol(   s5_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keywordtype">long</span>  s6   = strtol(   s6_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordtype">long</span>  s7   = strtol(   s7_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keywordtype">long</span>  s8   = strtol(   s8_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordtype">long</span>  s9   = strtol(   s9_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordtype">long</span>  s10  = strtol(   s10_buf      , &amp;endptr, 36);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordtype">long</span>  s11  = strtol(   s11_buf      , &amp;endptr, 36);</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordtype">long</span>  t3   = strtol(   t3_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="keywordtype">long</span>  t4   = strtol(   t4_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordtype">long</span>  t5   = strtol(   t5_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordtype">long</span>  t6   = strtol(   t6_buf       , &amp;endptr, 36);</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordtype">long</span>  pc   = strtol(   pc_buf       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordtype">long</span>  <span class="keywordtype">id</span>   = strtol(   id_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordtype">long</span>  ra   = strtol(   ra_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordtype">long</span>  sp   = strtol(   sp_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordtype">long</span>  gp   = strtol(   gp_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordtype">long</span>  tp   = strtol(   tp_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordtype">long</span>  t0   = strtol(   t0_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordtype">long</span>  t1   = strtol(   t1_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordtype">long</span>  t2   = strtol(   t2_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordtype">long</span>  fp   = strtol(   fp_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keywordtype">long</span>  s1   = strtol(   s1_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordtype">long</span>  a0   = strtol(   a0_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordtype">long</span>  a1   = strtol(   a1_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <span class="keywordtype">long</span>  a2   = strtol(   a2_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordtype">long</span>  a3   = strtol(   a3_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keywordtype">long</span>  a4   = strtol(   a4_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordtype">long</span>  a5   = strtol(   a5_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <span class="keywordtype">long</span>  a6   = strtol(   a6_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="keywordtype">long</span>  a7   = strtol(   a7_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="keywordtype">long</span>  s2   = strtol(   s2_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="keywordtype">long</span>  s3   = strtol(   s3_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="keywordtype">long</span>  s4   = strtol(   s4_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordtype">long</span>  s5   = strtol(   s5_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keywordtype">long</span>  s6   = strtol(   s6_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordtype">long</span>  s7   = strtol(   s7_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keywordtype">long</span>  s8   = strtol(   s8_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordtype">long</span>  s9   = strtol(   s9_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordtype">long</span>  s10  = strtol(   s10_p      , &amp;endptr, 36);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordtype">long</span>  s11  = strtol(   s11_p      , &amp;endptr, 36);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordtype">long</span>  t3   = strtol(   t3_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="keywordtype">long</span>  t4   = strtol(   t4_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordtype">long</span>  t5   = strtol(   t5_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordtype">long</span>  t6   = strtol(   t6_p       , &amp;endptr, 36);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordtype">long</span>  pc   = strtol(   pc_p       , &amp;endptr, 36);</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        std::string ram_s{ram_buf, len_ram};</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> state{};</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        state.<a class="code" href="structemulation_1_1emulator.html#ad72b33bfc1c2ce40f18ce7e28b0d8505">ram</a>    = <a class="code" href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">parse::decode_ram</a>({ram_buf, len_ram});</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        state.ra     =  ra   ;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        state.sp     =  sp   ;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        state.gp     =  gp   ;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        state.tp     =  tp   ;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        state.t0     =  t0   ;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        state.t1     =  t1   ;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        state.t2     =  t2   ;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        state.fp     =  fp   ;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        state.s1     =  s1   ;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        state.a0     =  a0   ;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        state.a1     =  a1   ;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        state.a2     =  a2   ;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        state.a3     =  a3   ;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        state.a4     =  a4   ;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        state.a5     =  a5   ;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        state.a6     =  a6   ;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        state.a7     =  a7   ;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        state.s2     =  s2   ;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        state.s3     =  s3   ;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        state.s4     =  s4   ;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        state.s5     =  s5   ;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        state.s6     =  s6   ;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        state.s7     =  s7   ;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        state.s8     =  s8   ;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        state.s9     =  s9   ;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        state.s10    =  s10  ;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        state.s11    =  s11  ;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        state.t3     =  t3   ;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        state.t4     =  t4   ;</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        state.t5     =  t5   ;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        state.t6     =  t6   ; </div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        state.pc     =  pc   ;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <a class="code" href="riscv__online_8cpp.html#a3a0a88114f20545f32fc48e4e49448cf">in_jq_</a>.<a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">push</a>({id, state});</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    }</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">/* not returning ERR_OK aborts the connection, so return ERR_OK unless the</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment">       conenction is unknown */</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordflow">return</span> ERR_OK;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;}</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
-<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">  446</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">httpd_post_finished</a>(<span class="keywordtype">void</span> *connection, <span class="keywordtype">char</span> *response_uri, u16_t response_uri_len)</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;{</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="comment">/* default page is &quot;login failed&quot; */</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/loginfail.html&quot;</span>);</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> == connection)</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    {</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a> == connection)</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        {</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;            <span class="comment">/* login succeeded */</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/session.html&quot;</span>);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        }</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> = NULL;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <a class="code" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a> = NULL;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    }</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;}</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <a class="code" href="structemulation_1_1emulator.html">emulation::emulator</a> state{};</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        state.<a class="code" href="structemulation_1_1emulator.html#ad72b33bfc1c2ce40f18ce7e28b0d8505">ram</a>    = <a class="code" href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">parse::decode_ram</a>({ram_p, len_ram});</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        state.ra     =  ra   ;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        state.sp     =  sp   ;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        state.gp     =  gp   ;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        state.tp     =  tp   ;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        state.t0     =  t0   ;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        state.t1     =  t1   ;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        state.t2     =  t2   ;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        state.fp     =  fp   ;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        state.s1     =  s1   ;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        state.a0     =  a0   ;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        state.a1     =  a1   ;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        state.a2     =  a2   ;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        state.a3     =  a3   ;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        state.a4     =  a4   ;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        state.a5     =  a5   ;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        state.a6     =  a6   ;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        state.a7     =  a7   ;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        state.s2     =  s2   ;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        state.s3     =  s3   ;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        state.s4     =  s4   ;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        state.s5     =  s5   ;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        state.s6     =  s6   ;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        state.s7     =  s7   ;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        state.s8     =  s8   ;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        state.s9     =  s9   ;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        state.s10    =  s10  ;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        state.s11    =  s11  ;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        state.t3     =  t3   ;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        state.t4     =  t4   ;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        state.t5     =  t5   ;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        state.t6     =  t6   ; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        state.pc     =  pc   ;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <a class="code" href="riscv__online_8cpp.html#a3a0a88114f20545f32fc48e4e49448cf">in_jq_</a>.<a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">push</a>({id, state});</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        printf(<span class="stringliteral">&quot;%d: Submitted job [%ld] successffuly\n&quot;</span>, __LINE__, <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a>)</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        u16_t token_id = pbuf_memfind(p, <span class="stringliteral">&quot;id=&quot;</span>, 3, 0);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">if</span> (token_id == 0xFFFF)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            <span class="keywordflow">return</span> ERR_VAL;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        u16_t value_id = token_id + 3;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        u16_t tmp = pbuf_memfind(p, <span class="stringliteral">&quot;&amp;&quot;</span>, 1, value_id);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        u16_t len_id = (tmp != 0xFFFF ? tmp : p-&gt;tot_len) - value_id;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        <span class="keywordtype">char</span> id_buf[4] = {};</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        <span class="keywordtype">char</span> * id_p = (<span class="keywordtype">char</span>*) pbuf_get_contiguous(p, id_buf, <span class="keyword">sizeof</span>(id_buf), len_id, value_id);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <span class="keywordtype">char</span> *endptr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">id</span> = strtol(id_p, &amp;endptr, 36);</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        printf(<span class="stringliteral">&quot;%d: Returning job [%ld] successffuly\n&quot;</span>, __LINE__, <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533">lock</a>();</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> it = std::find_if(<a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">begin</a>(), <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">end</a>(), [<span class="keywordtype">id</span>](<span class="keyword">const</span> <a class="code" href="shared_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a> &amp;j)</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                               { return j.first == id; });</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160; </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">if</span> (it == <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">end</a>()){</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">unlock</a>();</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;            <span class="keywordflow">return</span> ERR_VAL;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        }</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        <a class="code" href="post_8cpp.html#a86244485a8e1178510132bca33575cc3">current_job_</a> = *it;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31">erase</a>(it);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        <a class="code" href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a>.<a class="code" href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">unlock</a>();</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    }</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="comment">/* not returning ERR_OK aborts the connection, so return ERR_OK unless the</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">       conenction is unknown */</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="keywordflow">return</span> ERR_OK;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;}</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; </div>
+<div class="line"><a name="l00475"></a><span class="lineno"><a class="line" href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">  475</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">httpd_post_finished</a>(<span class="keywordtype">void</span> *connection, <span class="keywordtype">char</span> *response_uri, u16_t response_uri_len)</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;{</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="comment">/* default page is &quot;login failed&quot; */</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="comment">// snprintf(response_uri, response_uri_len, &quot;/loginfail.html&quot;);</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="comment">// if (current_connection != connection) return;</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="comment">// if (valid_connection == connection)</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="comment">// {</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="comment">//     /* login succeeded */</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="comment">//     snprintf(response_uri, response_uri_len, &quot;/session.html&quot;);</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="comment">// }</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <a class="code" href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a> = NULL;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <a class="code" href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a> = NULL;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a>) </div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/return.json&quot;</span>);</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        snprintf(response_uri, response_uri_len, <span class="stringliteral">&quot;/submit.json&quot;</span>);</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <a class="code" href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <a class="code" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;}</div>
 <div class="ttc" id="aclassconcurrent__queue_html_a6098253682efb5ed8930f8f60342b761"><div class="ttname"><a href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">concurrent_queue::push</a></div><div class="ttdeci">void push(T &amp;&amp;)</div><div class="ttdoc">Push an item onto the stack, doing an emplace_back() in the background.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00109">queue.hpp:109</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a26e2bd5d0d65f524424e3beee4785622"><div class="ttname"><a href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">concurrent_vector::end</a></div><div class="ttdeci">auto end()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00137">vector.hpp:137</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a4816dd67e2542cd82b1facdabe477a31"><div class="ttname"><a href="classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31">concurrent_vector::erase</a></div><div class="ttdeci">void erase(std::vector&lt; T &gt;::iterator it)</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00080">vector.hpp:80</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a490a93f96b5be4920dd9999fbd263f3c"><div class="ttname"><a href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">concurrent_vector::unlock</a></div><div class="ttdeci">void unlock()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00077">vector.hpp:77</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a781554e96ab42b9e3f4972224d328d65"><div class="ttname"><a href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">concurrent_vector::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00131">vector.hpp:131</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_af99a6039a1177d9b2c4997288b974533"><div class="ttname"><a href="classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533">concurrent_vector::lock</a></div><div class="ttdeci">void lock()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00076">vector.hpp:76</a></div></div>
 <div class="ttc" id="aemulator_8hpp_html"><div class="ttname"><a href="emulator_8hpp.html">emulator.hpp</a></div></div>
 <div class="ttc" id="anamespaceparse_html_a838cb9143367db8b56b28f0ce809bb9c"><div class="ttname"><a href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">parse::decode_ram</a></div><div class="ttdeci">std::vector&lt; bool &gt; decode_ram(const std::string_view s)</div><div class="ttdef"><b>Definition:</b> <a href="parse_8hpp_source.html#l00037">parse.hpp:37</a></div></div>
-<div class="ttc" id="apost_8cpp_html_a1036e857e20debcc9b02faf08b352107"><div class="ttname"><a href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a></div><div class="ttdeci">static bool submit_job</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00020">post.cpp:20</a></div></div>
+<div class="ttc" id="apost_8cpp_html_a1036e857e20debcc9b02faf08b352107"><div class="ttname"><a href="post_8cpp.html#a1036e857e20debcc9b02faf08b352107">submit_job</a></div><div class="ttdeci">static bool submit_job</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00021">post.cpp:21</a></div></div>
 <div class="ttc" id="apost_8cpp_html_a461409c8813c2a82ba63fde987c0e537"><div class="ttname"><a href="post_8cpp.html#a461409c8813c2a82ba63fde987c0e537">httpd_post_receive_data</a></div><div class="ttdeci">err_t httpd_post_receive_data(void *connection, struct pbuf *p)</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00062">post.cpp:62</a></div></div>
-<div class="ttc" id="apost_8cpp_html_a477473f7ead250fec71f1f8b9926fec5"><div class="ttname"><a href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">httpd_post_finished</a></div><div class="ttdeci">void httpd_post_finished(void *connection, char *response_uri, u16_t response_uri_len)</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00446">post.cpp:446</a></div></div>
-<div class="ttc" id="apost_8cpp_html_a5734a92dd27e95c71d13d38ff1de9265"><div class="ttname"><a href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a></div><div class="ttdeci">static void * valid_connection</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00018">post.cpp:18</a></div></div>
-<div class="ttc" id="apost_8cpp_html_a6cb33693ee8f0c054be82a968ceff582"><div class="ttname"><a href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">httpd_post_begin</a></div><div class="ttdeci">err_t httpd_post_begin(void *connection, const char *uri, const char *http_request, u16_t http_request_len, int content_len, char *response_uri, u16_t response_uri_len, u8_t *post_auto_wnd)</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00023">post.cpp:23</a></div></div>
-<div class="ttc" id="apost_8cpp_html_ab2022812d72395c4ae34edd62f7cf4f8"><div class="ttname"><a href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a></div><div class="ttdeci">static bool return_job</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00021">post.cpp:21</a></div></div>
-<div class="ttc" id="apost_8cpp_html_ae71552de44b1e784057de58c0562d184"><div class="ttname"><a href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a></div><div class="ttdeci">static void * current_connection</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00017">post.cpp:17</a></div></div>
+<div class="ttc" id="apost_8cpp_html_a477473f7ead250fec71f1f8b9926fec5"><div class="ttname"><a href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">httpd_post_finished</a></div><div class="ttdeci">void httpd_post_finished(void *connection, char *response_uri, u16_t response_uri_len)</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00475">post.cpp:475</a></div></div>
+<div class="ttc" id="apost_8cpp_html_a5734a92dd27e95c71d13d38ff1de9265"><div class="ttname"><a href="post_8cpp.html#a5734a92dd27e95c71d13d38ff1de9265">valid_connection</a></div><div class="ttdeci">static void * valid_connection</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00019">post.cpp:19</a></div></div>
+<div class="ttc" id="apost_8cpp_html_a6cb33693ee8f0c054be82a968ceff582"><div class="ttname"><a href="post_8cpp.html#a6cb33693ee8f0c054be82a968ceff582">httpd_post_begin</a></div><div class="ttdeci">err_t httpd_post_begin(void *connection, const char *uri, const char *http_request, u16_t http_request_len, int content_len, char *response_uri, u16_t response_uri_len, u8_t *post_auto_wnd)</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00026">post.cpp:26</a></div></div>
+<div class="ttc" id="apost_8cpp_html_a86244485a8e1178510132bca33575cc3"><div class="ttname"><a href="post_8cpp.html#a86244485a8e1178510132bca33575cc3">current_job_</a></div><div class="ttdeci">job_t current_job_</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00024">post.cpp:24</a></div></div>
+<div class="ttc" id="apost_8cpp_html_ab2022812d72395c4ae34edd62f7cf4f8"><div class="ttname"><a href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a></div><div class="ttdeci">static bool return_job</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00022">post.cpp:22</a></div></div>
+<div class="ttc" id="apost_8cpp_html_ae71552de44b1e784057de58c0562d184"><div class="ttname"><a href="post_8cpp.html#ae71552de44b1e784057de58c0562d184">current_connection</a></div><div class="ttdeci">static void * current_connection</div><div class="ttdef"><b>Definition:</b> <a href="post_8cpp_source.html#l00018">post.cpp:18</a></div></div>
 <div class="ttc" id="ariscv__online_8cpp_html_a3a0a88114f20545f32fc48e4e49448cf"><div class="ttname"><a href="riscv__online_8cpp.html#a3a0a88114f20545f32fc48e4e49448cf">in_jq_</a></div><div class="ttdeci">job_queue in_jq_</div><div class="ttdef"><b>Definition:</b> <a href="riscv__online_8cpp_source.html#l00017">riscv_online.cpp:17</a></div></div>
+<div class="ttc" id="ariscv__online_8cpp_html_a863c7a92a9e9d348b741001b53ec660c"><div class="ttname"><a href="riscv__online_8cpp.html#a863c7a92a9e9d348b741001b53ec660c">out_jq_</a></div><div class="ttdeci">job_vector out_jq_</div><div class="ttdef"><b>Definition:</b> <a href="riscv__online_8cpp_source.html#l00018">riscv_online.cpp:18</a></div></div>
 <div class="ttc" id="ashared_8hpp_html"><div class="ttname"><a href="shared_8hpp.html">shared.hpp</a></div></div>
-<div class="ttc" id="astructemulation_1_1emulator_html"><div class="ttname"><a href="structemulation_1_1emulator.html">emulation::emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00016">emulator.hpp:17</a></div></div>
-<div class="ttc" id="astructemulation_1_1emulator_html_ad72b33bfc1c2ce40f18ce7e28b0d8505"><div class="ttname"><a href="structemulation_1_1emulator.html#ad72b33bfc1c2ce40f18ce7e28b0d8505">emulation::emulator::ram</a></div><div class="ttdeci">std::vector&lt; bool &gt; ram</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00053">emulator.hpp:53</a></div></div>
+<div class="ttc" id="ashared_8hpp_html_a57c0c472681eee220e3fa0bac9b389db"><div class="ttname"><a href="shared_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a></div><div class="ttdeci">std::pair&lt; unsigned char, emulation::emulator &gt; job_t</div><div class="ttdef"><b>Definition:</b> <a href="shared_8hpp_source.html#l00017">shared.hpp:17</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html"><div class="ttname"><a href="structemulation_1_1emulator.html">emulation::emulator</a></div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00017">emulator.hpp:18</a></div></div>
+<div class="ttc" id="astructemulation_1_1emulator_html_ad72b33bfc1c2ce40f18ce7e28b0d8505"><div class="ttname"><a href="structemulation_1_1emulator.html#ad72b33bfc1c2ce40f18ce7e28b0d8505">emulation::emulator::ram</a></div><div class="ttdeci">std::vector&lt; bool &gt; ram</div><div class="ttdef"><b>Definition:</b> <a href="emulator_8hpp_source.html#l00054">emulator.hpp:54</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['l_505',['L',['../namespaceparse.html#a27d81b68cb262cfc049b9685eef37ce6',1,'parse']]],
-  ['lui_506',['lui',['../namespaceparse.html#ab104956fc36af5749998703524514267',1,'parse']]]
+  ['jal_506',['jal',['../namespaceparse.html#adfefa7ea5650b517bfa0b34239102848',1,'parse']]],
+  ['jalr_507',['jalr',['../namespaceparse.html#a1c3b1077594d219b1de4d2f4b31c3965',1,'parse']]]
 ];

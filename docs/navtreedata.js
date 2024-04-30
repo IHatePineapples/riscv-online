@@ -69,7 +69,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa51e2f66f40782bd70c07ff2b13dff590",
-"structemulation_1_1emulator.html#aafe3479d5fcf7b54119e30994ac24bf7"
+"structemulation_1_1emulator.html#aa98b416bf802ef95f4f816a8abed3242"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -122,78 +122,83 @@ $(document).ready(function(){initNavTree('vector_8hpp_source.html',''); initResi
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533">   76</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533">lock</a>() { mutex_enter_blocking(&amp;mtx_); }</div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">   77</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">unlock</a>() { mutex_exit(&amp;mtx_); }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">   81</a></span>&#160;<a class="code" href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">concurrent_vector&lt;T&gt;::concurrent_vector</a>() { mutex_init(&amp;mtx_); }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a7f41b0f5078aaaea78d6aa30ab3e82dc">   79</a></span>&#160;  T &amp;<a class="code" href="classconcurrent__vector.html#a7f41b0f5078aaaea78d6aa30ab3e82dc">operator[]</a>(std::size_t n) { <span class="keywordflow">return</span> v_[n]; }</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31">   80</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31">erase</a>(std::vector&lt;T&gt;::iterator it) { v_.erase(it); }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">   84</a></span>&#160;T &amp;<a class="code" href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">concurrent_vector&lt;T&gt;::front</a>()</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">auto</span> &amp;f = v_.front();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">   93</a></span>&#160;T &amp;<a class="code" href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">concurrent_vector&lt;T&gt;::back</a>()</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">auto</span> &amp;f = v_.back();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">  102</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">concurrent_vector&lt;T&gt;::empty</a>()</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> b = v_.empty();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">  111</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">concurrent_vector&lt;T&gt;::emplace_back</a>(T &amp;&amp;e)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  v_.emplace_back(std::forward&lt;T&gt;(e));</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">  119</a></span>&#160;std::size_t <a class="code" href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">concurrent_vector&lt;T&gt;::size</a>()</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> n = v_.size();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">  128</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">concurrent_vector&lt;T&gt;::begin</a>()</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> v_.begin();</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">  134</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">concurrent_vector&lt;T&gt;::end</a>()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keywordflow">return</span> v_.end();</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">   84</a></span>&#160;<a class="code" href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">concurrent_vector&lt;T&gt;::concurrent_vector</a>() { mutex_init(&amp;mtx_); }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">   87</a></span>&#160;T &amp;<a class="code" href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">concurrent_vector&lt;T&gt;::front</a>()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">auto</span> &amp;f = v_.front();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">   96</a></span>&#160;T &amp;<a class="code" href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">concurrent_vector&lt;T&gt;::back</a>()</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keyword">auto</span> &amp;f = v_.back();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">  105</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">concurrent_vector&lt;T&gt;::empty</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> b = v_.empty();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">  114</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">concurrent_vector&lt;T&gt;::emplace_back</a>(T &amp;&amp;e)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  v_.emplace_back(std::forward&lt;T&gt;(e));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">  122</a></span>&#160;std::size_t <a class="code" href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">concurrent_vector&lt;T&gt;::size</a>()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> n = v_.size();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">  131</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">concurrent_vector&lt;T&gt;::begin</a>()</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">return</span> v_.begin();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">  137</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">concurrent_vector&lt;T&gt;::end</a>()</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">return</span> v_.end();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
 <div class="ttc" id="aclassconcurrent__vector_html"><div class="ttname"><a href="classconcurrent__vector.html">concurrent_vector</a></div><div class="ttdoc">Wraps around std::vector and as name implies, allows concurrent access accross execution flows (cores...</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00015">vector.hpp:16</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_a26e2bd5d0d65f524424e3beee4785622"><div class="ttname"><a href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">concurrent_vector::end</a></div><div class="ttdeci">auto end()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00134">vector.hpp:134</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a26e2bd5d0d65f524424e3beee4785622"><div class="ttname"><a href="classconcurrent__vector.html#a26e2bd5d0d65f524424e3beee4785622">concurrent_vector::end</a></div><div class="ttdeci">auto end()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00137">vector.hpp:137</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a4816dd67e2542cd82b1facdabe477a31"><div class="ttname"><a href="classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31">concurrent_vector::erase</a></div><div class="ttdeci">void erase(std::vector&lt; T &gt;::iterator it)</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00080">vector.hpp:80</a></div></div>
 <div class="ttc" id="aclassconcurrent__vector_html_a490a93f96b5be4920dd9999fbd263f3c"><div class="ttname"><a href="classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c">concurrent_vector::unlock</a></div><div class="ttdeci">void unlock()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00077">vector.hpp:77</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_a4a98ea5ea5880b8181a9cfbc6d74abc8"><div class="ttname"><a href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">concurrent_vector::empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00102">vector.hpp:102</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a4a98ea5ea5880b8181a9cfbc6d74abc8"><div class="ttname"><a href="classconcurrent__vector.html#a4a98ea5ea5880b8181a9cfbc6d74abc8">concurrent_vector::empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00105">vector.hpp:105</a></div></div>
 <div class="ttc" id="aclassconcurrent__vector_html_a59da1fce4264bc542d00c413939cb017"><div class="ttname"><a href="classconcurrent__vector.html#a59da1fce4264bc542d00c413939cb017">concurrent_vector::operator=</a></div><div class="ttdeci">concurrent_vector&lt; T &gt; &amp; operator=(concurrent_vector&lt; T &gt; &amp;&amp;)=delete</div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_a69128f0aca84e6e34fa4c85231eeaf9f"><div class="ttname"><a href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">concurrent_vector::front</a></div><div class="ttdeci">T &amp; front()</div><div class="ttdoc">Reference to first item in the vector.</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00084">vector.hpp:84</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_a77e3cb21ee566573ada1f33233cd1b61"><div class="ttname"><a href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">concurrent_vector::back</a></div><div class="ttdeci">T &amp; back()</div><div class="ttdoc">Reference to last item in the vector.</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00093">vector.hpp:93</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_a781554e96ab42b9e3f4972224d328d65"><div class="ttname"><a href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">concurrent_vector::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00128">vector.hpp:128</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a69128f0aca84e6e34fa4c85231eeaf9f"><div class="ttname"><a href="classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f">concurrent_vector::front</a></div><div class="ttdeci">T &amp; front()</div><div class="ttdoc">Reference to first item in the vector.</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00087">vector.hpp:87</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a77e3cb21ee566573ada1f33233cd1b61"><div class="ttname"><a href="classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61">concurrent_vector::back</a></div><div class="ttdeci">T &amp; back()</div><div class="ttdoc">Reference to last item in the vector.</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00096">vector.hpp:96</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a781554e96ab42b9e3f4972224d328d65"><div class="ttname"><a href="classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65">concurrent_vector::begin</a></div><div class="ttdeci">auto begin()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00131">vector.hpp:131</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_a7f41b0f5078aaaea78d6aa30ab3e82dc"><div class="ttname"><a href="classconcurrent__vector.html#a7f41b0f5078aaaea78d6aa30ab3e82dc">concurrent_vector::operator[]</a></div><div class="ttdeci">T &amp; operator[](std::size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00079">vector.hpp:79</a></div></div>
 <div class="ttc" id="aclassconcurrent__vector_html_a9c094379824eb8723e658db1266ee554"><div class="ttname"><a href="classconcurrent__vector.html#a9c094379824eb8723e658db1266ee554">concurrent_vector::operator=</a></div><div class="ttdeci">concurrent_vector&lt; T &gt; &amp; operator=(const concurrent_vector&lt; T &gt; &amp;)=delete</div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_ab9861a78f8ea436d4faa94925d3b9ac1"><div class="ttname"><a href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">concurrent_vector::size</a></div><div class="ttdeci">std::size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00119">vector.hpp:119</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_acd87374cfc3abe94c8fb4aa5637558e3"><div class="ttname"><a href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">concurrent_vector::emplace_back</a></div><div class="ttdeci">void emplace_back(T &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00111">vector.hpp:111</a></div></div>
-<div class="ttc" id="aclassconcurrent__vector_html_ad700d1628d81d118b78e6f51e2b20687"><div class="ttname"><a href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">concurrent_vector::concurrent_vector</a></div><div class="ttdeci">concurrent_vector()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00081">vector.hpp:81</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_ab9861a78f8ea436d4faa94925d3b9ac1"><div class="ttname"><a href="classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1">concurrent_vector::size</a></div><div class="ttdeci">std::size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00122">vector.hpp:122</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_acd87374cfc3abe94c8fb4aa5637558e3"><div class="ttname"><a href="classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3">concurrent_vector::emplace_back</a></div><div class="ttdeci">void emplace_back(T &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00114">vector.hpp:114</a></div></div>
+<div class="ttc" id="aclassconcurrent__vector_html_ad700d1628d81d118b78e6f51e2b20687"><div class="ttname"><a href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">concurrent_vector::concurrent_vector</a></div><div class="ttdeci">concurrent_vector()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00084">vector.hpp:84</a></div></div>
 <div class="ttc" id="aclassconcurrent__vector_html_af99a6039a1177d9b2c4997288b974533"><div class="ttname"><a href="classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533">concurrent_vector::lock</a></div><div class="ttdeci">void lock()</div><div class="ttdef"><b>Definition:</b> <a href="vector_8hpp_source.html#l00076">vector.hpp:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

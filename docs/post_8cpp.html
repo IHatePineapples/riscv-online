@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('post_8cpp.html',''); initResizable(); 
 <code>#include &quot;lwip/mem.h&quot;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="shared_8hpp_source.html">RoL/threaded/shared.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="emulator_8hpp_source.html">RoL/emulation/emulator.hpp</a>&quot;</code><br />
@@ -137,6 +138,8 @@ Variables</h2></td></tr>
 <tr class="separator:a1036e857e20debcc9b02faf08b352107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2022812d72395c4ae34edd62f7cf4f8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#ab2022812d72395c4ae34edd62f7cf4f8">return_job</a> = false</td></tr>
 <tr class="separator:ab2022812d72395c4ae34edd62f7cf4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86244485a8e1178510132bca33575cc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="shared_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#a86244485a8e1178510132bca33575cc3">current_job_</a> {}</td></tr>
+<tr class="separator:a86244485a8e1178510132bca33575cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a05c734a459dd5bea88d56adb0a120966"></a>
@@ -151,7 +154,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00015">15</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00016">16</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +221,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00023">23</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00026">26</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +257,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00446">446</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00475">475</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -285,7 +288,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement ram </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Parse program. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Add retrieve functionality </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00062">62</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -293,7 +295,7 @@ Variables</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="post_8cpp_a461409c8813c2a82ba63fde987c0e537_cgraph.svg" width="419" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="post_8cpp_a461409c8813c2a82ba63fde987c0e537_cgraph.svg" width="419" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -320,7 +322,23 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00017">17</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00018">18</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a86244485a8e1178510132bca33575cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86244485a8e1178510132bca33575cc3">&#9670;&nbsp;</a></span>current_job_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="shared_8hpp.html#a57c0c472681eee220e3fa0bac9b389db">job_t</a> current_job_ {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00024">24</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +362,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00021">21</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00022">22</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -368,7 +386,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00020">20</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00021">21</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -392,7 +410,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00018">18</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00019">19</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>

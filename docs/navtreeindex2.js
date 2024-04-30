@@ -1,9 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"structemulation_1_1emulator.html#aa98b416bf802ef95f4f816a8abed3242":[4,0,0,0,22],
 "structemulation_1_1emulator.html#aafe3479d5fcf7b54119e30994ac24bf7":[4,0,0,0,0],
 "structemulation_1_1emulator.html#ab486a312e602c2624e412c1e8a85c0e6":[4,0,0,0,33],
 "structemulation_1_1emulator.html#ab486ce265f9b8f982971ff2613062cd1":[4,0,0,0,48],
-"structemulation_1_1emulator.html#ab7750d52e383b9290565ed64f0669d98":[4,0,0,0,26],
 "structemulation_1_1emulator.html#ab983fed8fd557858bd3cc1a448857066":[4,0,0,0,17],
 "structemulation_1_1emulator.html#abd9bf9124a3f90eec1095e685708e92e":[4,0,0,0,59],
 "structemulation_1_1emulator.html#ac054f3434b51993de6d97f9f85216494":[4,0,0,0,62],
@@ -153,6 +153,6 @@ var NAVTREEINDEX2 =
 "test__xlen__32bit_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[5,0,0,1,38,0],
 "test__xlen__32bit_8cpp_source.html":[5,0,0,1,38],
 "todo.html":[1],
-"vector_8hpp.html":[5,0,0,0,1,3],
-"vector_8hpp_source.html":[5,0,0,0,1,3]
+"vector_8hpp.html":[5,0,0,0,1,2],
+"vector_8hpp_source.html":[5,0,0,0,1,2]
 };

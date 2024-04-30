@@ -26,7 +26,7 @@ var structemulation_1_1emulator =
     [ "ori_", "structemulation_1_1emulator.html#ae75621b92b72655354a0d36fa9ff4ab2", null ],
     [ "resolv_rd", "structemulation_1_1emulator.html#a6bcdb0a2b140d320e081bc06f124b538", null ],
     [ "sb_", "structemulation_1_1emulator.html#a2300c03b0456fb868055a471c4f67d58", null ],
-    [ "serialize_ram", "structemulation_1_1emulator.html#ab7750d52e383b9290565ed64f0669d98", null ],
+    [ "serialize_ram", "structemulation_1_1emulator.html#a3ddcb06e2e448b28bb315e39d4c12a07", null ],
     [ "sh_", "structemulation_1_1emulator.html#ad9d16af8f0a16133dcb9fa67144f3b14", null ],
     [ "sll_", "structemulation_1_1emulator.html#a5beb63c288532ba1044aae29c0906589", null ],
     [ "slli_", "structemulation_1_1emulator.html#a4c2cba41aa7dd930e78166375ffde7ea", null ],
