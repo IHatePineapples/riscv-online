@@ -1,8 +1,9 @@
 #pragma once
 
-#include <charconv>
 #include <bitset>
+#include <charconv>
 #include <unordered_map>
+#include <vector>
 #include <ranges>
 
 namespace parse
@@ -272,6 +273,5 @@ namespace parse
   {
     return s_to_reg.at(s);
   }
-
 
 } // namespace parse
