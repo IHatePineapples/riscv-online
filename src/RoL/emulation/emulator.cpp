@@ -747,6 +747,7 @@ namespace emulation
           break;
         case 1:
           slli_(rd, rs1, shamt);
+          break;
         case 5:
           if (r[30])
             srli_(rd, rs1, shamt);
