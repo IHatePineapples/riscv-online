@@ -75,6 +75,8 @@ public:
   /** Use this when actively using container, e.g. find() */
   void lock() { mutex_enter_blocking(&mtx_); }
   void unlock() { mutex_exit(&mtx_); }
+
+  T &operator[](std::size_t n) { return v_[n]; }
 };
 
 template <typename T>
