@@ -16,6 +16,39 @@ namespace parse
   constexpr std::bitset<7> L = 0b0000011; // 2nd version of I.
   constexpr std::bitset<7> R = 0b0110011;
 
+  constexpr std::string_view ram_delim = "|";
+
+  /** 
+   * \fn decode_ram Decode ram content from a specific encoding
+   * \param s String of base36 encoded instructions
+   * 
+   * It accepts a C string in this format: `"awdj93jda|j9j8djasjd|dakwkdak2"`
+   * Splits it: `["awdj93jda","j9j8djasjd","dakwkdak2"]`
+   * Then decodes it from base 36
+   * 
+   * \details Vector is created with space for 100 32bits instructions. You can
+   * definetly submit more, but at the cost of potential resizing of the vector. 
+   * 
+  */
+ 
+  inline std::vector<bool> decode_ram(const std::string_view s)
+  {
+    std::vector<bool> ram;
+    ram.reserve(32*100);
+
+    for (const auto l : std::views::split(s, ram_delim))
+    {
+      int i = 0;
+      std::from_chars(l.begin(), l.begin() + l.size(), i, 36);
+      std::bitset<32> bs = i;
+
+      for (std::size_t i = 0; i < bs.size(); ++i)
+        ram.emplace_back(bs[i]);
+    }
+
+    return ram;
+  }
+
   enum class opc
   {
     // 'R' FMT
