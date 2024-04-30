@@ -95,13 +95,16 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;charconv&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;ranges&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for parse.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="219" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="502" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -264,6 +267,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a838cb9143367db8b56b28f0ce809bb9c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">parse::decode_ram</a> (const std::string_view s)</td></tr>
+<tr class="separator:a838cb9143367db8b56b28f0ce809bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43efe93ca67d143249fb4fd376666f54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a43efe93ca67d143249fb4fd376666f54">parse::operator==</a> (const std::string &amp;s, const opc &amp;o)</td></tr>
 <tr class="separator:a43efe93ca67d143249fb4fd376666f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8bceef399c52b78f80e2dbbfc435aa"><td class="memItemLeft" align="right" valign="top">static opc&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa">parse::to_opc</a> (const std::string_view opc_s)</td></tr>
@@ -291,6 +296,8 @@ Variables</h2></td></tr>
 <tr class="separator:a27d81b68cb262cfc049b9685eef37ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ff45dc159cde5ccb0f749676facb2de"><td class="memItemLeft" align="right" valign="top">constexpr std::bitset&lt; 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a7ff45dc159cde5ccb0f749676facb2de">parse::R</a> = 0b0110011</td></tr>
 <tr class="separator:a7ff45dc159cde5ccb0f749676facb2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9715ddc3e97ebc1b9b98ed8eea4b6a9d"><td class="memItemLeft" align="right" valign="top">constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a9715ddc3e97ebc1b9b98ed8eea4b6a9d">parse::ram_delim</a> = &quot;|&quot;</td></tr>
+<tr class="separator:a9715ddc3e97ebc1b9b98ed8eea4b6a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3704d267f7ee7c939b2442fbb908696"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; std::string_view, opc &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696">parse::s_to_opc</a></td></tr>
 <tr class="separator:ab3704d267f7ee7c939b2442fbb908696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9a7b5d46610f1e42e23d6859dd14b2"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string_view, reg &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2">parse::s_to_reg</a></td></tr>

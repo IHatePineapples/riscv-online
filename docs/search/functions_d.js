@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['to_5fopc_449',['to_opc',['../namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa',1,'parse']]],
-  ['to_5freg_450',['to_reg',['../namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1',1,'parse']]]
+  ['resolv_5frd_460',['resolv_rd',['../structemulation_1_1emulator.html#a6bcdb0a2b140d320e081bc06f124b538',1,'emulation::emulator']]],
+  ['run_461',['run',['../namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10',1,'emulation::run()'],['../namespaceserver.html#a66bd9eb32455d0581abe2c82dda4dc87',1,'server::run()']]]
 ];

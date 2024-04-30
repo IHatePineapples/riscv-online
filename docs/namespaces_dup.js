@@ -112,6 +112,7 @@ var namespaces_dup =
         [ "t6", "namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134aa77cca9bd375665b36f4239eeda0c996", null ],
         [ "NONE", "namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134ab50339a10e1de285ac99d4c3990b8693", null ]
       ] ],
+      [ "decode_ram", "namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c", null ],
       [ "operator==", "namespaceparse.html#a43efe93ca67d143249fb4fd376666f54", null ],
       [ "to_opc", "namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa", null ],
       [ "to_reg", "namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1", null ],
@@ -123,6 +124,7 @@ var namespaces_dup =
       [ "L", "namespaceparse.html#a27d81b68cb262cfc049b9685eef37ce6", null ],
       [ "lui", "namespaceparse.html#ab104956fc36af5749998703524514267", null ],
       [ "R", "namespaceparse.html#a7ff45dc159cde5ccb0f749676facb2de", null ],
+      [ "ram_delim", "namespaceparse.html#a9715ddc3e97ebc1b9b98ed8eea4b6a9d", null ],
       [ "S", "namespaceparse.html#ad09731eca800745329a5b8de62e7a5cd", null ],
       [ "s_to_opc", "namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696", null ],
       [ "s_to_reg", "namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2", null ]

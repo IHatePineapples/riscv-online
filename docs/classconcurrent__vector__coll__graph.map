@@ -1,0 +1,3 @@
+<map id="concurrent_vector&lt; T &gt;" name="concurrent_vector&lt; T &gt;">
+<area shape="rect" id="node1" title="Wraps around std::vector and as name implies, allows concurrent access accross execution flows (cores..." alt="" coords="5,5,183,244"/>
+</map>

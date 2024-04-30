@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['inc_5fpc_408',['inc_pc',['../structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130',1,'emulation::emulator']]],
-  ['init_5fall_409',['init_all',['../namespaceserver.html#ad541d1c9a5343ca647c393636ca0f327',1,'server']]]
+  ['front_435',['front',['../classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8',1,'concurrent_queue::front()'],['../classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f',1,'concurrent_vector::front()']]]
 ];

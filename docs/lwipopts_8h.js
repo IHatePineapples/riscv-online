@@ -22,6 +22,7 @@ var lwipopts_8h =
     [ "LWIP_HTTPD_CGI", "lwipopts_8h.html#afb28f7c5fee75f013a199d427452372c", null ],
     [ "LWIP_HTTPD_SSI", "lwipopts_8h.html#acb70e0cdd30a940f8bce681c6cc63949", null ],
     [ "LWIP_HTTPD_SSI_INCLUDE_TAG", "lwipopts_8h.html#a975961a6d22d1a077118fb85dfec809a", null ],
+    [ "LWIP_HTTPD_SUPPORT_POST", "lwipopts_8h.html#acbea06ce33933e3ef2f2f1834a21cc2c", null ],
     [ "LWIP_ICMP", "lwipopts_8h.html#ae4d45345c3ab8e5a355fda1d8d24fca6", null ],
     [ "LWIP_IPV4", "lwipopts_8h.html#a429e811a80ebb5157e14a854870c4410", null ],
     [ "LWIP_NETCONN", "lwipopts_8h.html#a478041b8544461258f6961bf0f3c1a77", null ],
