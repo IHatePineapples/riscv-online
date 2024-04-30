@@ -1,3 +1,5 @@
+#pragma once
+
 #include "pico/stdio.h"
 #include "pico/cyw43_arch.h"
 
