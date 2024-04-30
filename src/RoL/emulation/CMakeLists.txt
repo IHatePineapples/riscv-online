@@ -13,6 +13,7 @@ if(${CMAKE_CROSSCOMPILING})
     )
 
 endif()
+
 target_include_directories(emulator 
     PRIVATE
     ../../
