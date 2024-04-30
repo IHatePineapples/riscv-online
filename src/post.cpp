@@ -7,6 +7,8 @@
 #include <cstdio>
 #include <cstring>
 
+#include <string>
+
 #include "RoL/threaded/shared_queue.hpp"
 #include "RoL/emulation/emulator.hpp"
 
@@ -50,8 +52,8 @@ err_t httpd_post_begin(void *connection, const char *uri, const char *http_reque
            tcp window at a time. If this is required, set 'post_aut_wnd' to 0.
            We do not need to throttle upload speed here, so: */
         *post_auto_wnd = 1;
-        return ERR_OK;
         return_job = true;
+        return ERR_OK;
     }
 
     return ERR_VAL;
@@ -358,45 +360,48 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 
         char* endptr = "";
 
-        long  id   = strtol(   id_buf       , &endptr, 16);
+        long  id   = strtol(   id_buf       , &endptr, 36);
         /** \todo Implement ram */
-        // long  ram  = strtol(   ram_buf      , &endptr, 16); 
-        long  ra   = strtol(   ra_buf       , &endptr, 16);
-        long  sp   = strtol(   sp_buf       , &endptr, 16);
-        long  gp   = strtol(   gp_buf       , &endptr, 16);
-        long  tp   = strtol(   tp_buf       , &endptr, 16);
-        long  t0   = strtol(   t0_buf       , &endptr, 16);
-        long  t1   = strtol(   t1_buf       , &endptr, 16);
-        long  t2   = strtol(   t2_buf       , &endptr, 16);
-        long  fp   = strtol(   fp_buf       , &endptr, 16);
-        long  s1   = strtol(   s1_buf       , &endptr, 16);
-        long  a0   = strtol(   a0_buf       , &endptr, 16);
-        long  a1   = strtol(   a1_buf       , &endptr, 16);
-        long  a2   = strtol(   a2_buf       , &endptr, 16);
-        long  a3   = strtol(   a3_buf       , &endptr, 16);
-        long  a4   = strtol(   a4_buf       , &endptr, 16);
-        long  a5   = strtol(   a5_buf       , &endptr, 16);
-        long  a6   = strtol(   a6_buf       , &endptr, 16);
-        long  a7   = strtol(   a7_buf       , &endptr, 16);
-        long  s2   = strtol(   s2_buf       , &endptr, 16);
-        long  s3   = strtol(   s3_buf       , &endptr, 16);
-        long  s4   = strtol(   s4_buf       , &endptr, 16);
-        long  s5   = strtol(   s5_buf       , &endptr, 16);
-        long  s6   = strtol(   s6_buf       , &endptr, 16);
-        long  s7   = strtol(   s7_buf       , &endptr, 16);
-        long  s8   = strtol(   s8_buf       , &endptr, 16);
-        long  s9   = strtol(   s9_buf       , &endptr, 16);
-        long  s10  = strtol(   s10_buf      , &endptr, 16);
-        long  s11  = strtol(   s11_buf      , &endptr, 16);
-        long  t3   = strtol(   t3_buf       , &endptr, 16);
-        long  t4   = strtol(   t4_buf       , &endptr, 16);
-        long  t5   = strtol(   t5_buf       , &endptr, 16);
-        long  t6   = strtol(   t6_buf       , &endptr, 16);
-        long  pc   = strtol(   pc_buf       , &endptr, 16);
 
+        
+        long  ra   = strtol(   ra_buf       , &endptr, 36);
+        long  sp   = strtol(   sp_buf       , &endptr, 36);
+        long  gp   = strtol(   gp_buf       , &endptr, 36);
+        long  tp   = strtol(   tp_buf       , &endptr, 36);
+        long  t0   = strtol(   t0_buf       , &endptr, 36);
+        long  t1   = strtol(   t1_buf       , &endptr, 36);
+        long  t2   = strtol(   t2_buf       , &endptr, 36);
+        long  fp   = strtol(   fp_buf       , &endptr, 36);
+        long  s1   = strtol(   s1_buf       , &endptr, 36);
+        long  a0   = strtol(   a0_buf       , &endptr, 36);
+        long  a1   = strtol(   a1_buf       , &endptr, 36);
+        long  a2   = strtol(   a2_buf       , &endptr, 36);
+        long  a3   = strtol(   a3_buf       , &endptr, 36);
+        long  a4   = strtol(   a4_buf       , &endptr, 36);
+        long  a5   = strtol(   a5_buf       , &endptr, 36);
+        long  a6   = strtol(   a6_buf       , &endptr, 36);
+        long  a7   = strtol(   a7_buf       , &endptr, 36);
+        long  s2   = strtol(   s2_buf       , &endptr, 36);
+        long  s3   = strtol(   s3_buf       , &endptr, 36);
+        long  s4   = strtol(   s4_buf       , &endptr, 36);
+        long  s5   = strtol(   s5_buf       , &endptr, 36);
+        long  s6   = strtol(   s6_buf       , &endptr, 36);
+        long  s7   = strtol(   s7_buf       , &endptr, 36);
+        long  s8   = strtol(   s8_buf       , &endptr, 36);
+        long  s9   = strtol(   s9_buf       , &endptr, 36);
+        long  s10  = strtol(   s10_buf      , &endptr, 36);
+        long  s11  = strtol(   s11_buf      , &endptr, 36);
+        long  t3   = strtol(   t3_buf       , &endptr, 36);
+        long  t4   = strtol(   t4_buf       , &endptr, 36);
+        long  t5   = strtol(   t5_buf       , &endptr, 36);
+        long  t6   = strtol(   t6_buf       , &endptr, 36);
+        long  pc   = strtol(   pc_buf       , &endptr, 36);
+
+        std::string ram_s{ram_buf, len_ram};
 
         /** \todo Parse program. */
         emulation::emulator state{};
+        state.ram    = parse::decode_ram({ram_buf, len_ram});
         state.ra     =  ra   ;
         state.sp     =  sp   ;
         state.gp     =  gp   ;
