@@ -1,7 +1,9 @@
 #pragma once
 
+#include <charconv>
 #include <bitset>
 #include <unordered_map>
+#include <ranges>
 
 namespace parse
 {
