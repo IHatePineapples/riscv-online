@@ -4,7 +4,7 @@
 #include "lwip/def.h"
 
 #include "RoL/emulation/emulator.hpp"
-#include "RoL/threaded/shared_job.hpp"
+#include "RoL/threaded/shared.hpp"
 
 const char *ssi_tags[] = {
     /*  0 */ "stat",
@@ -47,7 +47,7 @@ const char *ssi_tags[] = {
 u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
 {
     u16_t printed;
-    const auto &[id, state] = current_job;
+    const auto &[id, state] = current_job_;
 
     switch (iIndex)
     {
@@ -55,7 +55,7 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
         printed = snprintf(pcInsert, iInsertLen, "Returned: %d", id);
         break;
     case 1:
-        printed = snprintf(pcInsert, iInsertLen, "" /** \todo RAM */);
+        printed = snprintf(pcInsert, iInsertLen, state.serialize_ram().c_str());
         break;
     case 2:
         printed = snprintf(pcInsert, iInsertLen, state.ra.to_string().c_str());

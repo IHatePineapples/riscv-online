@@ -1,12 +1,14 @@
 #include "RoL/emulation/emulator.hpp"
 #include "RoL/parse.hpp"
 
+#include <ranges>
+#include <string>
+#include <sstream>
 #include <vector>
 
 #if !RoL_testing
 
-#include "RoL/threaded/shared_job.hpp"
-job_t current_job = {};
+#include "RoL/threaded/shared.hpp"
 
 #endif
 namespace emulation
@@ -16,6 +18,7 @@ namespace emulation
   void run()
   {
   start_run:
+    printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
     while (in_jq_.empty())
     {
       /** Busy wait until a job is available*/
@@ -23,9 +26,10 @@ namespace emulation
     }
 
     auto &[id, state] = in_jq_.front();
-
+    printf("%s:%d: Got a job [%d]!\n", __PRETTY_FUNCTION__, __LINE__, id);
     state.execute();
 
+    printf("%s:%d: Done [%d]!\n", __PRETTY_FUNCTION__, __LINE__, id);
     out_jq_.emplace_back({id, state});
     in_jq_.pop();
     goto start_run;
@@ -847,6 +851,26 @@ namespace emulation
     }
 
     inc_pc();
+  }
+
+  std::string emulator::serialize_ram() const
+  {
+    std::vector<std::string> splitted;
+    for (const auto bs : ram | std::views::chunk(xlen))
+    {
+      reg bs_;
+      for (std::size_t i; i < xlen; ++i)
+        bs_[i] = bs[i];
+      splitted.emplace_back(bs_.to_string());
+    }
+    std::stringstream ss;
+    // splitted | std::views::join_with(parse::delim) | std::ranges::to;
+    for (const auto c : splitted | std::views::join_with(parse::delim))
+    {
+      ss << c;
+    };
+
+    return ss.str();
   }
 
 } // namespace emulator

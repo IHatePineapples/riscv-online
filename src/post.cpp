@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <cstring>
 
+#include <algorithm>
 #include <string>
 
 #include "RoL/threaded/shared.hpp"
@@ -20,31 +21,30 @@ static void *valid_connection;
 static bool submit_job = false;
 static bool return_job = false;
 
+job_t current_job_{};
+
 err_t httpd_post_begin(void *connection, const char *uri, const char *http_request,
                        u16_t http_request_len, int content_len, char *response_uri,
                        u16_t response_uri_len, u8_t *post_auto_wnd)
 {
+    if (current_connection == connection)
+        return ERR_VAL;
+
+    current_connection = connection;
+    *post_auto_wnd = 1;
     if (!memcmp(uri, "/submit", 8))
     {
-        if (current_connection == connection)
-            return ERR_VAL;
-        current_connection = connection;
         /* default page is "login failed" */
         snprintf(response_uri, response_uri_len, "/submit.json");
         /* e.g. for large uploads to slow flash over a fast connection, you should
            manually update the rx window. That way, a sender can only send a full
            tcp window at a time. If this is required, set 'post_aut_wnd' to 0.
            We do not need to throttle upload speed here, so: */
-        *post_auto_wnd = 1;
         submit_job = true;
         return ERR_OK;
     }
     else if (!memcmp(uri, "/return", 8))
     {
-
-        if (current_connection == connection)
-            return ERR_VAL;
-        current_connection = connection;
         /* default page is "login failed" */
         snprintf(response_uri, response_uri_len, "/return.json");
         /* e.g. for large uploads to slow flash over a fast connection, you should
@@ -322,86 +322,84 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         char prog_buf[100 * (4 * 2 + 2)]    = {};
 
 
-        pbuf_get_contiguous(p, id_buf  , sizeof(id_buf    )  ,len_id  ,   value_id      );
-        pbuf_get_contiguous(p, ram_buf , sizeof(ram_buf   )  ,len_ram ,   value_ram     );
-        pbuf_get_contiguous(p, ra_buf  , sizeof(ra_buf    )  ,len_ra  ,   value_ra      );
-        pbuf_get_contiguous(p, sp_buf  , sizeof(sp_buf    )  ,len_sp  ,   value_sp      );
-        pbuf_get_contiguous(p, gp_buf  , sizeof(gp_buf    )  ,len_gp  ,   value_gp      );
-        pbuf_get_contiguous(p, tp_buf  , sizeof(tp_buf    )  ,len_tp  ,   value_tp      );
-        pbuf_get_contiguous(p, t0_buf  , sizeof(t0_buf    )  ,len_t0  ,   value_t0      );
-        pbuf_get_contiguous(p, t1_buf  , sizeof(t1_buf    )  ,len_t1  ,   value_t1      );
-        pbuf_get_contiguous(p, t2_buf  , sizeof(t2_buf    )  ,len_t2  ,   value_t2      );
-        pbuf_get_contiguous(p, fp_buf  , sizeof(fp_buf    )  ,len_fp  ,   value_fp      );
-        pbuf_get_contiguous(p, s1_buf  , sizeof(s1_buf    )  ,len_s1  ,   value_s1      );
-        pbuf_get_contiguous(p, a0_buf  , sizeof(a0_buf    )  ,len_a0  ,   value_a0      );
-        pbuf_get_contiguous(p, a1_buf  , sizeof(a1_buf    )  ,len_a1  ,   value_a1      );
-        pbuf_get_contiguous(p, a2_buf  , sizeof(a2_buf    )  ,len_a2  ,   value_a2      );
-        pbuf_get_contiguous(p, a3_buf  , sizeof(a3_buf    )  ,len_a3  ,   value_a3      );
-        pbuf_get_contiguous(p, a4_buf  , sizeof(a4_buf    )  ,len_a4  ,   value_a4      );
-        pbuf_get_contiguous(p, a5_buf  , sizeof(a5_buf    )  ,len_a5  ,   value_a5      );
-        pbuf_get_contiguous(p, a6_buf  , sizeof(a6_buf    )  ,len_a6  ,   value_a6      );
-        pbuf_get_contiguous(p, a7_buf  , sizeof(a7_buf    )  ,len_a7  ,   value_a7      );
-        pbuf_get_contiguous(p, s2_buf  , sizeof(s2_buf    )  ,len_s2  ,   value_s2      );
-        pbuf_get_contiguous(p, s3_buf  , sizeof(s3_buf    )  ,len_s3  ,   value_s3      );
-        pbuf_get_contiguous(p, s4_buf  , sizeof(s4_buf    )  ,len_s4  ,   value_s4      );
-        pbuf_get_contiguous(p, s5_buf  , sizeof(s5_buf    )  ,len_s5  ,   value_s5      );
-        pbuf_get_contiguous(p, s6_buf  , sizeof(s6_buf    )  ,len_s6  ,   value_s6      );
-        pbuf_get_contiguous(p, s7_buf  , sizeof(s7_buf    )  ,len_s7  ,   value_s7      );
-        pbuf_get_contiguous(p, s8_buf  , sizeof(s8_buf    )  ,len_s8  ,   value_s8      );
-        pbuf_get_contiguous(p, s9_buf  , sizeof(s9_buf    )  ,len_s9  ,   value_s9      );
-        pbuf_get_contiguous(p, s10_buf , sizeof(s10_buf   )  ,len_s10 ,   value_s10     );
-        pbuf_get_contiguous(p, s11_buf , sizeof(s11_buf   )  ,len_s11 ,   value_s11     );
-        pbuf_get_contiguous(p, t3_buf  , sizeof(t3_buf    )  ,len_t3  ,   value_t3      );
-        pbuf_get_contiguous(p, t4_buf  , sizeof(t4_buf    )  ,len_t4  ,   value_t4      );
-        pbuf_get_contiguous(p, t5_buf  , sizeof(t5_buf    )  ,len_t5  ,   value_t5      );
-        pbuf_get_contiguous(p, t6_buf  , sizeof(t6_buf    )  ,len_t6  ,   value_t6      );
-        pbuf_get_contiguous(p, pc_buf  , sizeof(pc_buf    )  ,len_pc  ,   value_pc      );
+        char * id_p = (char*) pbuf_get_contiguous(p, id_buf  , sizeof(id_buf    )  ,len_id  ,   value_id      );
+        char * ram_p = (char*) pbuf_get_contiguous(p, ram_buf , sizeof(ram_buf   )  ,len_ram ,   value_ram     );
+        char * ra_p = (char*) pbuf_get_contiguous(p, ra_buf  , sizeof(ra_buf    )  ,len_ra  ,   value_ra      );
+        char * sp_p = (char*) pbuf_get_contiguous(p, sp_buf  , sizeof(sp_buf    )  ,len_sp  ,   value_sp      );
+        char * gp_p = (char*) pbuf_get_contiguous(p, gp_buf  , sizeof(gp_buf    )  ,len_gp  ,   value_gp      );
+        char * tp_p = (char*) pbuf_get_contiguous(p, tp_buf  , sizeof(tp_buf    )  ,len_tp  ,   value_tp      );
+        char * t0_p = (char*) pbuf_get_contiguous(p, t0_buf  , sizeof(t0_buf    )  ,len_t0  ,   value_t0      );
+        char * t1_p = (char*) pbuf_get_contiguous(p, t1_buf  , sizeof(t1_buf    )  ,len_t1  ,   value_t1      );
+        char * t2_p = (char*) pbuf_get_contiguous(p, t2_buf  , sizeof(t2_buf    )  ,len_t2  ,   value_t2      );
+        char * fp_p = (char*) pbuf_get_contiguous(p, fp_buf  , sizeof(fp_buf    )  ,len_fp  ,   value_fp      );
+        char * s1_p = (char*) pbuf_get_contiguous(p, s1_buf  , sizeof(s1_buf    )  ,len_s1  ,   value_s1      );
+        char * a0_p = (char*) pbuf_get_contiguous(p, a0_buf  , sizeof(a0_buf    )  ,len_a0  ,   value_a0      );
+        char * a1_p = (char*) pbuf_get_contiguous(p, a1_buf  , sizeof(a1_buf    )  ,len_a1  ,   value_a1      );
+        char * a2_p = (char*) pbuf_get_contiguous(p, a2_buf  , sizeof(a2_buf    )  ,len_a2  ,   value_a2      );
+        char * a3_p = (char*) pbuf_get_contiguous(p, a3_buf  , sizeof(a3_buf    )  ,len_a3  ,   value_a3      );
+        char * a4_p = (char*) pbuf_get_contiguous(p, a4_buf  , sizeof(a4_buf    )  ,len_a4  ,   value_a4      );
+        char * a5_p = (char*) pbuf_get_contiguous(p, a5_buf  , sizeof(a5_buf    )  ,len_a5  ,   value_a5      );
+        char * a6_p = (char*) pbuf_get_contiguous(p, a6_buf  , sizeof(a6_buf    )  ,len_a6  ,   value_a6      );
+        char * a7_p = (char*) pbuf_get_contiguous(p, a7_buf  , sizeof(a7_buf    )  ,len_a7  ,   value_a7      );
+        char * s2_p = (char*) pbuf_get_contiguous(p, s2_buf  , sizeof(s2_buf    )  ,len_s2  ,   value_s2      );
+        char * s3_p = (char*) pbuf_get_contiguous(p, s3_buf  , sizeof(s3_buf    )  ,len_s3  ,   value_s3      );
+        char * s4_p = (char*) pbuf_get_contiguous(p, s4_buf  , sizeof(s4_buf    )  ,len_s4  ,   value_s4      );
+        char * s5_p = (char*) pbuf_get_contiguous(p, s5_buf  , sizeof(s5_buf    )  ,len_s5  ,   value_s5      );
+        char * s6_p = (char*) pbuf_get_contiguous(p, s6_buf  , sizeof(s6_buf    )  ,len_s6  ,   value_s6      );
+        char * s7_p = (char*) pbuf_get_contiguous(p, s7_buf  , sizeof(s7_buf    )  ,len_s7  ,   value_s7      );
+        char * s8_p = (char*) pbuf_get_contiguous(p, s8_buf  , sizeof(s8_buf    )  ,len_s8  ,   value_s8      );
+        char * s9_p = (char*) pbuf_get_contiguous(p, s9_buf  , sizeof(s9_buf    )  ,len_s9  ,   value_s9      );
+        char * s10_p = (char*)pbuf_get_contiguous(p, s10_buf , sizeof(s10_buf   )  ,len_s10 ,   value_s10     );
+        char * s11_p = (char*)pbuf_get_contiguous(p, s11_buf , sizeof(s11_buf   )  ,len_s11 ,   value_s11     );
+        char * t3_p = (char*) pbuf_get_contiguous(p, t3_buf  , sizeof(t3_buf    )  ,len_t3  ,   value_t3      );
+        char * t4_p = (char*) pbuf_get_contiguous(p, t4_buf  , sizeof(t4_buf    )  ,len_t4  ,   value_t4      );
+        char * t5_p = (char*) pbuf_get_contiguous(p, t5_buf  , sizeof(t5_buf    )  ,len_t5  ,   value_t5      );
+        char * t6_p = (char*) pbuf_get_contiguous(p, t6_buf  , sizeof(t6_buf    )  ,len_t6  ,   value_t6      );
+        char * pc_p = (char*) pbuf_get_contiguous(p, pc_buf  , sizeof(pc_buf    )  ,len_pc  ,   value_pc      );
         pbuf_get_contiguous(p, prog_buf, sizeof(prog_buf  )  ,len_prog,   value_prog    );
 
-        char* endptr = "";
+        char* endptr = nullptr;
 
-        long  id   = strtol(   id_buf       , &endptr, 36);
+        long  id   = strtol(   id_p       , &endptr, 36);
         /** \todo Implement ram */
 
         
-        long  ra   = strtol(   ra_buf       , &endptr, 36);
-        long  sp   = strtol(   sp_buf       , &endptr, 36);
-        long  gp   = strtol(   gp_buf       , &endptr, 36);
-        long  tp   = strtol(   tp_buf       , &endptr, 36);
-        long  t0   = strtol(   t0_buf       , &endptr, 36);
-        long  t1   = strtol(   t1_buf       , &endptr, 36);
-        long  t2   = strtol(   t2_buf       , &endptr, 36);
-        long  fp   = strtol(   fp_buf       , &endptr, 36);
-        long  s1   = strtol(   s1_buf       , &endptr, 36);
-        long  a0   = strtol(   a0_buf       , &endptr, 36);
-        long  a1   = strtol(   a1_buf       , &endptr, 36);
-        long  a2   = strtol(   a2_buf       , &endptr, 36);
-        long  a3   = strtol(   a3_buf       , &endptr, 36);
-        long  a4   = strtol(   a4_buf       , &endptr, 36);
-        long  a5   = strtol(   a5_buf       , &endptr, 36);
-        long  a6   = strtol(   a6_buf       , &endptr, 36);
-        long  a7   = strtol(   a7_buf       , &endptr, 36);
-        long  s2   = strtol(   s2_buf       , &endptr, 36);
-        long  s3   = strtol(   s3_buf       , &endptr, 36);
-        long  s4   = strtol(   s4_buf       , &endptr, 36);
-        long  s5   = strtol(   s5_buf       , &endptr, 36);
-        long  s6   = strtol(   s6_buf       , &endptr, 36);
-        long  s7   = strtol(   s7_buf       , &endptr, 36);
-        long  s8   = strtol(   s8_buf       , &endptr, 36);
-        long  s9   = strtol(   s9_buf       , &endptr, 36);
-        long  s10  = strtol(   s10_buf      , &endptr, 36);
-        long  s11  = strtol(   s11_buf      , &endptr, 36);
-        long  t3   = strtol(   t3_buf       , &endptr, 36);
-        long  t4   = strtol(   t4_buf       , &endptr, 36);
-        long  t5   = strtol(   t5_buf       , &endptr, 36);
-        long  t6   = strtol(   t6_buf       , &endptr, 36);
-        long  pc   = strtol(   pc_buf       , &endptr, 36);
-
-        std::string ram_s{ram_buf, len_ram};
+        long  ra   = strtol(   ra_p       , &endptr, 36);
+        long  sp   = strtol(   sp_p       , &endptr, 36);
+        long  gp   = strtol(   gp_p       , &endptr, 36);
+        long  tp   = strtol(   tp_p       , &endptr, 36);
+        long  t0   = strtol(   t0_p       , &endptr, 36);
+        long  t1   = strtol(   t1_p       , &endptr, 36);
+        long  t2   = strtol(   t2_p       , &endptr, 36);
+        long  fp   = strtol(   fp_p       , &endptr, 36);
+        long  s1   = strtol(   s1_p       , &endptr, 36);
+        long  a0   = strtol(   a0_p       , &endptr, 36);
+        long  a1   = strtol(   a1_p       , &endptr, 36);
+        long  a2   = strtol(   a2_p       , &endptr, 36);
+        long  a3   = strtol(   a3_p       , &endptr, 36);
+        long  a4   = strtol(   a4_p       , &endptr, 36);
+        long  a5   = strtol(   a5_p       , &endptr, 36);
+        long  a6   = strtol(   a6_p       , &endptr, 36);
+        long  a7   = strtol(   a7_p       , &endptr, 36);
+        long  s2   = strtol(   s2_p       , &endptr, 36);
+        long  s3   = strtol(   s3_p       , &endptr, 36);
+        long  s4   = strtol(   s4_p       , &endptr, 36);
+        long  s5   = strtol(   s5_p       , &endptr, 36);
+        long  s6   = strtol(   s6_p       , &endptr, 36);
+        long  s7   = strtol(   s7_p       , &endptr, 36);
+        long  s8   = strtol(   s8_p       , &endptr, 36);
+        long  s9   = strtol(   s9_p       , &endptr, 36);
+        long  s10  = strtol(   s10_p      , &endptr, 36);
+        long  s11  = strtol(   s11_p      , &endptr, 36);
+        long  t3   = strtol(   t3_p       , &endptr, 36);
+        long  t4   = strtol(   t4_p       , &endptr, 36);
+        long  t5   = strtol(   t5_p       , &endptr, 36);
+        long  t6   = strtol(   t6_p       , &endptr, 36);
+        long  pc   = strtol(   pc_p       , &endptr, 36);
 
         /** \todo Parse program. */
         emulation::emulator state{};
-        state.ram    = parse::decode_ram({ram_buf, len_ram});
+        state.ram    = parse::decode_ram({ram_p, len_ram});
         state.ra     =  ra   ;
         state.sp     =  sp   ;
         state.gp     =  gp   ;
@@ -436,8 +434,39 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         state.pc     =  pc   ;
 
         in_jq_.push({id, state});
+        printf("%d: Submitted job [%ld] successffuly\n", __LINE__, id);
     }
-    /** \todo Add retrieve functionality */
+    else if (return_job)
+    {
+
+        u16_t token_id = pbuf_memfind(p, "id=", 3, 0);
+        if (token_id == 0xFFFF)
+            return ERR_VAL;
+        u16_t value_id = token_id + 3;
+        u16_t tmp = pbuf_memfind(p, "&", 1, value_id);
+        u16_t len_id = (tmp != 0xFFFF ? tmp : p->tot_len) - value_id;
+        char id_buf[4] = {};
+        char * id_p = (char*) pbuf_get_contiguous(p, id_buf, sizeof(id_buf), len_id, value_id);
+
+        char *endptr = nullptr;
+        long id = strtol(id_p, &endptr, 36);
+        printf("%d: Returning job [%ld] successffuly\n", __LINE__, id);
+
+        out_jq_.lock();
+        const auto it = std::find_if(out_jq_.begin(), out_jq_.end(), [id](const job_t &j)
+                               { return j.first == id; });
+
+        if (it == out_jq_.end()){
+
+            out_jq_.unlock();
+            return ERR_VAL;
+        }
+
+        current_job_ = *it;
+
+        out_jq_.erase(it);
+        out_jq_.unlock();
+    }
     /* not returning ERR_OK aborts the connection, so return ERR_OK unless the
        conenction is unknown */
     return ERR_OK;
@@ -446,15 +475,21 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 void httpd_post_finished(void *connection, char *response_uri, u16_t response_uri_len)
 {
     /* default page is "login failed" */
-    snprintf(response_uri, response_uri_len, "/loginfail.html");
-    if (current_connection == connection)
-    {
-        if (valid_connection == connection)
-        {
-            /* login succeeded */
-            snprintf(response_uri, response_uri_len, "/session.html");
-        }
-        current_connection = NULL;
-        valid_connection = NULL;
-    }
+    // snprintf(response_uri, response_uri_len, "/loginfail.html");
+    // if (current_connection != connection) return;
+    
+    // if (valid_connection == connection)
+    // {
+    //     /* login succeeded */
+    //     snprintf(response_uri, response_uri_len, "/session.html");
+    // }
+    current_connection = NULL;
+    valid_connection = NULL;
+
+    if(return_job) 
+        snprintf(response_uri, response_uri_len, "/return.json");
+    else
+        snprintf(response_uri, response_uri_len, "/submit.json");
+    submit_job = false;
+    return_job = false;
 }

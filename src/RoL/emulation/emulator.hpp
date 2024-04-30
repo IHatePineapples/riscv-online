@@ -1,6 +1,7 @@
 #pragma once
 
 #include <bitset>
+#include <string>
 #include <vector>
 
 #include "RoL/parse.hpp"
@@ -360,7 +361,7 @@ namespace emulation
      *
      * \brief Dumps ram content in a serialized format, useful for rendering, for example back to userspace.
      */
-    void serialize_ram();
+    std::string serialize_ram() const;
   };
 
 } // namespace emulator

@@ -20,3 +20,4 @@ using job_vector = concurrent_vector<job_t>;
 
 extern job_queue in_jq_;
 extern job_vector out_jq_;
+extern job_t current_job_;

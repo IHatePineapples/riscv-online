@@ -19,7 +19,7 @@ namespace parse
   constexpr std::bitset<7> L = 0b0000011; // 2nd version of I.
   constexpr std::bitset<7> R = 0b0110011;
 
-  constexpr std::string_view ram_delim = "|";
+  constexpr std::string_view delim = "|";
 
   /** 
    * \fn decode_ram Decode ram content from a specific encoding
@@ -39,7 +39,7 @@ namespace parse
     std::vector<bool> ram;
     ram.reserve(32*100);
 
-    for (const auto l : std::views::split(s, ram_delim))
+    for (const auto l : std::views::split(s, delim))
     {
       int i = 0;
       std::from_chars(l.begin(), l.begin() + l.size(), i, 36);
