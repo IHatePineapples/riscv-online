@@ -25,7 +25,7 @@ add_executable(${riscv} riscv_online.cpp # main() entry-point
 )
 add_dependencies(${riscv} fsdata)
 set_target_properties(${riscv} PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -pipe -Os -fdiagnostics-color=always -Wall -Wextra")
-target_compile_features(${riscv} PRIVATE cxx_std_20)
+target_compile_features(${riscv} PRIVATE cxx_std_23)
 
 target_include_directories(${riscv} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
