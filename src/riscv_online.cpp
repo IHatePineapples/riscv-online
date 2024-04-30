@@ -15,7 +15,7 @@
 */
 
 job_queue in_jq_{};
-job_queue out_jq_{};
+job_vector out_jq_{};
 
 int main()
 {

@@ -26,7 +26,7 @@ namespace emulation
 
     state.execute();
 
-    out_jq_.push({id, state});
+    out_jq_.emplace_back({id, state});
     in_jq_.pop();
     goto start_run;
   }
