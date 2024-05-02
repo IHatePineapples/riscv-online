@@ -600,7 +600,7 @@ namespace emulation
 
     for (int i = 0; i < xlen; ++i)
     {
-      r[i] = ram[pc.to_ulong() + xlen - i];
+      r[i] = ram[pc.to_ulong() + xlen - i - 1];
     }
 
     std::bitset<7> opc_r;
