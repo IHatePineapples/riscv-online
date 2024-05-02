@@ -474,16 +474,6 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 
 void httpd_post_finished(void *connection, char *response_uri, u16_t response_uri_len)
 {
-    /* default page is "login failed" */
-    // snprintf(response_uri, response_uri_len, "/loginfail.html");
-    // if (current_connection != connection) return;
-    
-    // if (valid_connection == connection)
-    // {
-    //     /* login succeeded */
-    //     snprintf(response_uri, response_uri_len, "/session.html");
-    // }
-
     if(connection != current_connection) return;
 
     current_connection = NULL;
