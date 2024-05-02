@@ -43,19 +43,16 @@ namespace parse
     return buff;
   }
 
-  /** 
+  /**
    * \fn decode_ram Decode ram content from a specific encoding
    * \param s String of base36 encoded instructions
-   * 
+   *
    * It accepts a C string in this format: `"awdj93jda|j9j8djasjd|dakwkdak2"`
    * Splits it: `["awdj93jda","j9j8djasjd","dakwkdak2"]`
    * Then decodes it from base 36
-   * 
-   * \details Vector is created with space for 100 32bits instructions. You can
-   * definetly submit more, but at the cost of potential resizing of the vector. 
-   * 
-  */
- 
+   *
+   */
+
   template <std::size_t xlen>
   inline std::vector<bool> decode_ram(const std::string_view s)
   {
