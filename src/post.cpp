@@ -23,8 +23,8 @@ static bool return_job = false;
 
 job_t current_job_{};
 
-err_t httpd_post_begin(void *connection, const char *uri, const char *http_request,
-                       u16_t http_request_len, int content_len, char *response_uri,
+err_t httpd_post_begin(void *connection, const char *uri, const char *,
+                       u16_t , int , char *response_uri,
                        u16_t response_uri_len, u8_t *post_auto_wnd)
 {
     if (current_connection == connection)
@@ -399,7 +399,7 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 
         /** \todo Parse program. */
         emulation::emulator state{};
-        state.ram    = parse::decode_ram({ram_p, len_ram});
+        state.ram    = parse::decode_ram<emulation::xlen>({ram_p, len_ram});
         state.ra     =  ra   ;
         state.sp     =  sp   ;
         state.gp     =  gp   ;
@@ -448,9 +448,8 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         char id_buf[4] = {};
         char * id_p = (char*) pbuf_get_contiguous(p, id_buf, sizeof(id_buf), len_id, value_id);
 
-        char *endptr = nullptr;
-        long id = strtol(id_p, &endptr, 36);
-        printf("%d: Returning job [%ld] successffuly\n", __LINE__, id);
+        char id = strtol(id_p, nullptr, 36);
+        printf("%d: Returning job [%d] successffuly\n", __LINE__, id);
 
         out_jq_.lock();
         const auto it = std::find_if(out_jq_.begin(), out_jq_.end(), [id](const job_t &j)
