@@ -605,7 +605,7 @@ namespace emulation
 
     std::bitset<7> opc_r;
 
-    for (std::size_t i = 0; i < 7; ++i)
+    for (std::size_t i = 0; i < opc_r.size(); ++i)
       opc_r[i] = r[i];
 
     std::bitset<3> opc_l;
@@ -623,7 +623,7 @@ namespace emulation
     {
       std::bitset<20> imm;
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm[i] = r[i + 12];
+        imm[i] = r[i + xlen - imm.size()];
 
       if (opc_r[5])
         lui_(rd, imm);
@@ -651,13 +651,13 @@ namespace emulation
 
     std::bitset<5> rs1_b;
 
-    for (std::size_t i = 0; i < 5; ++i)
+    for (std::size_t i = 0; i < rs1_b.size(); ++i)
       rs1_b[i] = r[i + 15];
 
     auto rs1 = resolv_rd(rs1_b);
 
     std::bitset<5> rs2_b;
-    for (std::size_t i = 0; i < 5; ++i)
+    for (std::size_t i = 0; i < rs2_b.size(); ++i)
       rs2_b[i] = r[i + 15];
 
     auto rs2 = resolv_rd(rs2_b);
@@ -666,8 +666,8 @@ namespace emulation
     {
       std::bitset<12> imm;
 
-      for (std::size_t i = 0; i < 12; ++i)
-        imm[i] = r[i + 20];
+      for (std::size_t i = 0; i < imm.size(); ++i)
+        imm[i] = r[i + xlen - imm.size()];
 
       jalr_(rd, rs1, imm);
       return;
@@ -717,17 +717,17 @@ namespace emulation
     {
       std::bitset<12> imm;
 
-      for (std::size_t i = 0; i < 12; ++i)
+      for (std::size_t i = 0; i < imm.size(); ++i)
       {
-        imm[i] = r[i + 20];
+        imm[i] = r[i + xlen - imm.size()];
       }
 
       if (opc_r[4])
       {
         std::bitset<5> shamt = 0;
 
-        for (std::size_t i = 0; i < 5; ++i)
-          shamt[i] = r[i + 20];
+        for (std::size_t i = 0; i < shamt.size(); ++i)
+          shamt[i] = r[i + xlen - imm.size()];
 
         switch (opc_r.to_ulong())
         {
@@ -794,7 +794,7 @@ namespace emulation
 
       for (std::size_t i = 0; i < 5; ++i)
         imm[i] = r[i + 7];
-      for (std::size_t i = 5; i < 12; ++i)
+      for (std::size_t i = 5; i < imm.size(); ++i)
         imm[i] = r[i + 25];
 
       switch (opc_l.to_ulong())
