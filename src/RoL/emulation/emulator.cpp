@@ -855,22 +855,28 @@ namespace emulation
 
   std::string emulator::serialize_ram() const
   {
-    std::vector<std::string> splitted;
-    for (const auto bs : ram | std::views::chunk(xlen))
-    {
-      reg bs_;
-      for (std::size_t i; i < xlen; ++i)
-        bs_[i] = bs[i];
-      splitted.emplace_back(bs_.to_string());
-    }
-    std::stringstream ss;
-    // splitted | std::views::join_with(parse::delim) | std::ranges::to;
-    for (const auto c : splitted | std::views::join_with(parse::delim))
-    {
-      ss << c;
-    };
+    std::vector<char> ram_c;
+    for (const auto b : ram)
+      ram_c.emplace_back(b + 48); // ASCII hack
 
-    return ss.str();
+
+    std::vector<std::string> splitted;
+    for (std::size_t n = 0; n < ram.size(); n += xlen)
+    {
+      // auto begin = ram_c.begin() + n;
+
+      reg bs(ram_c.data() + n, xlen);
+
+      splitted.emplace_back(parse::base36_encode(bs.to_ulong()));
+      splitted[n / xlen].append("|");
+    }
+
+    std::string out;
+
+    for (const auto &s : splitted)
+      out.append(s);
+
+    return out;
   }
 
 } // namespace emulator
