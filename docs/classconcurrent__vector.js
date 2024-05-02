@@ -1,6 +1,7 @@
 var classconcurrent__vector =
 [
     [ "concurrent_vector", "classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687", null ],
+    [ "concurrent_vector", "classconcurrent__vector.html#ac9e64e864007e4c718d15c9fcc662cf9", null ],
     [ "back", "classconcurrent__vector.html#a77e3cb21ee566573ada1f33233cd1b61", null ],
     [ "begin", "classconcurrent__vector.html#a781554e96ab42b9e3f4972224d328d65", null ],
     [ "emplace_back", "classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3", null ],

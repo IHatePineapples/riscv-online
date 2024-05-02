@@ -94,9 +94,12 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 <div class="title">parse.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;bitset&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
 <code>#include &lt;charconv&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -104,7 +107,7 @@ $(document).ready(function(){initNavTree('parse_8hpp.html',''); initResizable();
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="502" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="parse_8hpp__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -267,8 +270,11 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a838cb9143367db8b56b28f0ce809bb9c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">parse::decode_ram</a> (const std::string_view s)</td></tr>
-<tr class="separator:a838cb9143367db8b56b28f0ce809bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0782273f6ba8bb6893ffccb1ab89b589"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a0782273f6ba8bb6893ffccb1ab89b589">parse::base36_encode</a> (long long num)</td></tr>
+<tr class="separator:a0782273f6ba8bb6893ffccb1ab89b589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b870c63db38e1a66b3de77b50c15d72"><td class="memTemplParams" colspan="2">template&lt;std::size_t xlen&gt; </td></tr>
+<tr class="memitem:a9b870c63db38e1a66b3de77b50c15d72"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a9b870c63db38e1a66b3de77b50c15d72">parse::decode_ram</a> (const std::string_view s)</td></tr>
+<tr class="separator:a9b870c63db38e1a66b3de77b50c15d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43efe93ca67d143249fb4fd376666f54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a43efe93ca67d143249fb4fd376666f54">parse::operator==</a> (const std::string &amp;s, const opc &amp;o)</td></tr>
 <tr class="separator:a43efe93ca67d143249fb4fd376666f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8bceef399c52b78f80e2dbbfc435aa"><td class="memItemLeft" align="right" valign="top">static opc&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa">parse::to_opc</a> (const std::string_view opc_s)</td></tr>
@@ -298,6 +304,8 @@ Variables</h2></td></tr>
 <tr class="separator:a7ff45dc159cde5ccb0f749676facb2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfda0008a4de8527d0b8c603abbf2266"><td class="memItemLeft" align="right" valign="top">constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#acfda0008a4de8527d0b8c603abbf2266">parse::delim</a> = &quot;|&quot;</td></tr>
 <tr class="separator:acfda0008a4de8527d0b8c603abbf2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7fb9c06d90c94c871c95d7e3665505"><td class="memItemLeft" align="right" valign="top">static constexpr std::array&lt; const char, 36 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a4b7fb9c06d90c94c871c95d7e3665505">parse::digits</a> {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}</td></tr>
+<tr class="separator:a4b7fb9c06d90c94c871c95d7e3665505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3704d267f7ee7c939b2442fbb908696"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; std::string_view, opc &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696">parse::s_to_opc</a></td></tr>
 <tr class="separator:ab3704d267f7ee7c939b2442fbb908696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9a7b5d46610f1e42e23d6859dd14b2"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string_view, reg &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2">parse::s_to_reg</a></td></tr>

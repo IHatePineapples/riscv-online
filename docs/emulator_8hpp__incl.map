@@ -1,10 +1,13 @@
 <map id="src/RoL/emulation/emulator.hpp" name="src/RoL/emulation/emulator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="52,5,281,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="56,5,285,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="296,80,355,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="353,80,412,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="89,155,151,181"/>
-<area shape="rect" id="node5" href="$parse_8hpp.html" title=" " alt="" coords="157,80,272,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="175,155,257,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="281,155,405,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="429,155,496,181"/>
+<area shape="rect" id="node5" href="$parse_8hpp.html" title=" " alt="" coords="215,80,329,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="176,155,261,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="286,155,367,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="392,155,459,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="483,155,607,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="632,155,688,181"/>
+<area shape="rect" id="node11" title=" " alt="" coords="712,155,779,181"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="emulation::emulator::serialize_ram" name="emulation::emulator::serialize_ram">
+<area shape="rect" id="node1" title="Dumps ram content in a serialized format, useful for rendering, for example back to userspace." alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$namespaceparse.html#a0782273f6ba8bb6893ffccb1ab89b589" title=" " alt="" coords="208,13,375,39"/>
+</map>

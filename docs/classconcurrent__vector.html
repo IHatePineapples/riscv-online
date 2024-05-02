@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('classconcurrent__vector.html',''); ini
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classconcurrent__vector__coll__graph.svg" width="188" height="279"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classconcurrent__vector__coll__graph.svg" width="188" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -110,6 +110,8 @@ $(document).ready(function(){initNavTree('classconcurrent__vector.html',''); ini
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad700d1628d81d118b78e6f51e2b20687"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__vector.html#ad700d1628d81d118b78e6f51e2b20687">concurrent_vector</a> ()</td></tr>
 <tr class="separator:ad700d1628d81d118b78e6f51e2b20687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e64e864007e4c718d15c9fcc662cf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__vector.html#ac9e64e864007e4c718d15c9fcc662cf9">concurrent_vector</a> (const <a class="el" href="classconcurrent__vector.html">concurrent_vector</a> &amp;)=delete</td></tr>
+<tr class="separator:ac9e64e864007e4c718d15c9fcc662cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c094379824eb8723e658db1266ee554"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__vector.html#a9c094379824eb8723e658db1266ee554">operator=</a> (const <a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt; &amp;)=delete</td></tr>
 <tr class="separator:a9c094379824eb8723e658db1266ee554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59da1fce4264bc542d00c413939cb017"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconcurrent__vector.html#a59da1fce4264bc542d00c413939cb017">operator=</a> (<a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt; &amp;&amp;)=delete</td></tr>
@@ -148,7 +150,7 @@ class concurrent_vector&lt; T &gt;</h3>
 <p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00015">15</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad700d1628d81d118b78e6f51e2b20687"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad700d1628d81d118b78e6f51e2b20687">&#9670;&nbsp;</a></span>concurrent_vector()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad700d1628d81d118b78e6f51e2b20687">&#9670;&nbsp;</a></span>concurrent_vector() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +164,35 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Default constructor. </p><dl class="section remark"><dt>Remarks</dt><dd>Copy construction is not made available to avoid weird locking mechanisms. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00084">84</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00085">85</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac9e64e864007e4c718d15c9fcc662cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9e64e864007e4c718d15c9fcc662cf9">&#9670;&nbsp;</a></span>concurrent_vector() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt;::<a class="el" href="classconcurrent__vector.html">concurrent_vector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classconcurrent__vector.html">concurrent_vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -184,7 +214,7 @@ template&lt;typename T &gt; </div>
 <p>Reference to last item in the vector. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>&amp;</code> to last item. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00096">96</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00097">97</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -202,7 +232,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00131">131</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00132">132</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -232,7 +262,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00114">114</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00115">115</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -259,7 +289,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if vector empty, <code>false</code> otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00105">105</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00106">106</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +307,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00137">137</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00138">138</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -315,7 +345,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00080">80</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00081">81</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -344,7 +374,7 @@ template&lt;typename T &gt; </div>
 <p>Reference to first item in the vector. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>&amp;</code> to first item. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00087">87</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00088">88</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +404,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Use this when actively using container, e.g. find() </p>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00076">76</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00077">77</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -468,7 +498,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00079">79</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00080">80</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -487,7 +517,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>number of elements in the vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00122">122</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00123">123</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -516,7 +546,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00077">77</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8hpp_source.html#l00078">78</a> of file <a class="el" href="vector_8hpp_source.html">vector.hpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">

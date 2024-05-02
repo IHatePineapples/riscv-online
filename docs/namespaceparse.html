@@ -238,8 +238,11 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a838cb9143367db8b56b28f0ce809bb9c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a838cb9143367db8b56b28f0ce809bb9c">decode_ram</a> (const std::string_view s)</td></tr>
-<tr class="separator:a838cb9143367db8b56b28f0ce809bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0782273f6ba8bb6893ffccb1ab89b589"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a0782273f6ba8bb6893ffccb1ab89b589">base36_encode</a> (long long num)</td></tr>
+<tr class="separator:a0782273f6ba8bb6893ffccb1ab89b589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b870c63db38e1a66b3de77b50c15d72"><td class="memTemplParams" colspan="2">template&lt;std::size_t xlen&gt; </td></tr>
+<tr class="memitem:a9b870c63db38e1a66b3de77b50c15d72"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a9b870c63db38e1a66b3de77b50c15d72">decode_ram</a> (const std::string_view s)</td></tr>
+<tr class="separator:a9b870c63db38e1a66b3de77b50c15d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43efe93ca67d143249fb4fd376666f54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a43efe93ca67d143249fb4fd376666f54">operator==</a> (const std::string &amp;s, const <a class="el" href="namespaceparse.html#acfc3b773ce544636484c919bcfff906f">opc</a> &amp;o)</td></tr>
 <tr class="separator:a43efe93ca67d143249fb4fd376666f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8bceef399c52b78f80e2dbbfc435aa"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceparse.html#acfc3b773ce544636484c919bcfff906f">opc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa">to_opc</a> (const std::string_view opc_s)</td></tr>
@@ -269,6 +272,8 @@ Variables</h2></td></tr>
 <tr class="separator:a7ff45dc159cde5ccb0f749676facb2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfda0008a4de8527d0b8c603abbf2266"><td class="memItemLeft" align="right" valign="top">constexpr std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#acfda0008a4de8527d0b8c603abbf2266">delim</a> = &quot;|&quot;</td></tr>
 <tr class="separator:acfda0008a4de8527d0b8c603abbf2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7fb9c06d90c94c871c95d7e3665505"><td class="memItemLeft" align="right" valign="top">static constexpr std::array&lt; const char, 36 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a4b7fb9c06d90c94c871c95d7e3665505">digits</a> {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}</td></tr>
+<tr class="separator:a4b7fb9c06d90c94c871c95d7e3665505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3704d267f7ee7c939b2442fbb908696"><td class="memItemLeft" align="right" valign="top">static const std::unordered_map&lt; std::string_view, <a class="el" href="namespaceparse.html#acfc3b773ce544636484c919bcfff906f">opc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#ab3704d267f7ee7c939b2442fbb908696">s_to_opc</a></td></tr>
 <tr class="separator:ab3704d267f7ee7c939b2442fbb908696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9a7b5d46610f1e42e23d6859dd14b2"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string_view, <a class="el" href="namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134">reg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparse.html#a8c9a7b5d46610f1e42e23d6859dd14b2">s_to_reg</a></td></tr>
@@ -337,7 +342,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="acfc3b773ce544636484c919bcfff906fa40aa75f8e8cfdf7b660c5620e953229f"></a>UNSUPPORTED&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00055">55</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00077">77</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -429,16 +434,54 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a3f6d3b346ffc1ec55ce4e1573aea8134ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00130">130</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00152">152</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a838cb9143367db8b56b28f0ce809bb9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a838cb9143367db8b56b28f0ce809bb9c">&#9670;&nbsp;</a></span>decode_ram()</h2>
+<a id="a0782273f6ba8bb6893ffccb1ab89b589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0782273f6ba8bb6893ffccb1ab89b589">&#9670;&nbsp;</a></span>base36_encode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string parse::base36_encode </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00029">29</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_a0782273f6ba8bb6893ffccb1ab89b589_icgraph.svg" width="380" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a9b870c63db38e1a66b3de77b50c15d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b870c63db38e1a66b3de77b50c15d72">&#9670;&nbsp;</a></span>decode_ram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t xlen&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -458,15 +501,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00037">37</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceparse_a838cb9143367db8b56b28f0ce809bb9c_icgraph.svg" width="388" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00057">57</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +539,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00120">120</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00142">142</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -532,7 +567,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00125">125</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00147">147</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +595,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00272">272</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00294">294</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +620,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00013">13</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00016">16</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +644,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00016">16</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00019">19</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -633,7 +668,31 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00022">22</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00025">25</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b7fb9c06d90c94c871c95d7e3665505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7fb9c06d90c94c871c95d7e3665505">&#9670;&nbsp;</a></span>digits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::array&lt;const char, 36&gt; parse::digits {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00027">27</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -657,7 +716,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00018">18</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00021">21</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -681,7 +740,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00014">14</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00017">17</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -705,7 +764,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00015">15</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00018">18</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +788,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00019">19</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00022">22</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -753,7 +812,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00012">12</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00015">15</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -777,7 +836,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00020">20</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00023">23</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -801,7 +860,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00017">17</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00020">20</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -828,7 +887,7 @@ Variables</h2></td></tr>
 <div class="line"> </div>
 <div class="line">      {<span class="stringliteral">&quot;add&quot;</span>, opc::ADD}, {<span class="stringliteral">&quot;sub&quot;</span>, opc::SUB}, {<span class="stringliteral">&quot;xor&quot;</span>, opc::XOR}, {<span class="stringliteral">&quot;or&quot;</span>, opc::OR}, {<span class="stringliteral">&quot;and&quot;</span>, opc::AND}, {<span class="stringliteral">&quot;sll&quot;</span>, opc::SLL}, {<span class="stringliteral">&quot;srl&quot;</span>, opc::SRL}, {<span class="stringliteral">&quot;sra&quot;</span>, opc::SRA}, {<span class="stringliteral">&quot;slt&quot;</span>, opc::SLT}, {<span class="stringliteral">&quot;sltu&quot;</span>, opc::SLTU}, {<span class="stringliteral">&quot;addi&quot;</span>, opc::ADDI}, {<span class="stringliteral">&quot;xori&quot;</span>, opc::XORI}, {<span class="stringliteral">&quot;ori&quot;</span>, opc::ORI}, {<span class="stringliteral">&quot;andi&quot;</span>, opc::ANDI}, {<span class="stringliteral">&quot;slli&quot;</span>, opc::SLLI}, {<span class="stringliteral">&quot;srli&quot;</span>, opc::SRLI}, {<span class="stringliteral">&quot;srai&quot;</span>, opc::SRAI}, {<span class="stringliteral">&quot;slti&quot;</span>, opc::SLTI}, {<span class="stringliteral">&quot;sltui&quot;</span>, opc::SLTUI}, {<span class="stringliteral">&quot;sb&quot;</span>, opc::SB}, {<span class="stringliteral">&quot;sh&quot;</span>, opc::SH}, {<span class="stringliteral">&quot;sw&quot;</span>, opc::SW}, {<span class="stringliteral">&quot;beq&quot;</span>, opc::BEQ}, {<span class="stringliteral">&quot;bne&quot;</span>, opc::BNE}, {<span class="stringliteral">&quot;blt&quot;</span>, opc::BLT}, {<span class="stringliteral">&quot;bge&quot;</span>, opc::BGE}, {<span class="stringliteral">&quot;bltu&quot;</span>, opc::BLTU}, {<span class="stringliteral">&quot;bgeu&quot;</span>, opc::BGEU}, {<span class="stringliteral">&quot;lb&quot;</span>, opc::LB}, {<span class="stringliteral">&quot;lh&quot;</span>, opc::LH}, {<span class="stringliteral">&quot;lw&quot;</span>, opc::LW}, {<span class="stringliteral">&quot;lbu&quot;</span>, opc::LBU}, {<span class="stringliteral">&quot;lhu&quot;</span>, opc::LHU}, {<span class="stringliteral">&quot;jal&quot;</span>, opc::JAL}, {<span class="stringliteral">&quot;jalr&quot;</span>, opc::JALR}, {<span class="stringliteral">&quot;lui&quot;</span>, opc::LUI}, {<span class="stringliteral">&quot;auipc&quot;</span>, opc::AUIPC}, {<span class="stringliteral">&quot;ecall&quot;</span>, opc::ECALL}, {<span class="stringliteral">&quot;ebreak&quot;</span>, opc::EBREAK}}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00116">116</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00138">138</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>
@@ -852,7 +911,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00204">204</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parse_8hpp_source.html#l00226">226</a> of file <a class="el" href="parse_8hpp_source.html">parse.hpp</a>.</p>
 
 </div>
 </div>

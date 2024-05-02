@@ -1,8 +1,11 @@
 <map id="src/RoL/parse.hpp" name="src/RoL/parse.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="187,5,325,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,64,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="89,80,170,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="194,80,318,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="342,80,405,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="429,80,496,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="329,5,466,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="115,80,173,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="198,80,279,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="304,80,371,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="395,80,519,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="544,80,600,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="625,80,687,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="712,80,779,107"/>
 </map>

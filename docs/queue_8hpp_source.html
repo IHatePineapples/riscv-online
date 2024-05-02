@@ -99,92 +99,94 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classconcurrent__queue.html">concurrent_queue</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  std::queue&lt;T&gt; q_;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  mutex mtx_ = {};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48">   35</a></span>&#160;  <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;<a class="code" href="classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48">operator=</a>(<span class="keyword">const</span> <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">   36</a></span>&#160;  <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;<a class="code" href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">operator=</a>(<a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="comment">/* </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">   * | You would think there is not need to make this volatile/mutable</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">   * I have seen the CPU do wonders otherwise.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">mutable</span> mutex mtx_ = {};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  T &amp;<a class="code" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">front</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  T &amp;<a class="code" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">back</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">empty</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::size_t <a class="code" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">size</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">push</a>(T &amp;&amp;);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">pop</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">   79</a></span>&#160;<a class="code" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue&lt;T&gt;::concurrent_queue</a>() { mutex_init(&amp;mtx_); }</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48">   38</a></span>&#160;  <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;<a class="code" href="classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48">operator=</a>(<span class="keyword">const</span> <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">   39</a></span>&#160;  <a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;<a class="code" href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">operator=</a>(<a class="code" href="classconcurrent__queue.html">concurrent_queue&lt;T&gt;</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  T &amp;<a class="code" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">front</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  T &amp;<a class="code" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">back</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">empty</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  std::size_t <a class="code" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">size</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">push</a>(T &amp;&amp;);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">pop</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">   82</a></span>&#160;T &amp;<a class="code" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">concurrent_queue&lt;T&gt;::front</a>()</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">auto</span> &amp;f = q_.front();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">   91</a></span>&#160;T &amp;<a class="code" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">concurrent_queue&lt;T&gt;::back</a>()</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">auto</span> &amp;f = q_.back();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">  100</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">concurrent_queue&lt;T&gt;::empty</a>()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> b = q_.empty();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">return</span> b;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">concurrent_queue&lt;T&gt;::push</a>(T &amp;&amp;e)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  q_.push(std::forward&lt;T&gt;(e));</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">concurrent_queue&lt;T&gt;::pop</a>()</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  q_.pop();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">  125</a></span>&#160;std::size_t <a class="code" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">concurrent_queue&lt;T&gt;::size</a>()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> n = q_.size();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  mutex_exit(&amp;mtx_);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">   82</a></span>&#160;<a class="code" href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue&lt;T&gt;::concurrent_queue</a>() { mutex_init(&amp;mtx_); }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">   85</a></span>&#160;T &amp;<a class="code" href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">concurrent_queue&lt;T&gt;::front</a>()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">auto</span> &amp;f = q_.front();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">   94</a></span>&#160;T &amp;<a class="code" href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">concurrent_queue&lt;T&gt;::back</a>()</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">auto</span> &amp;f = q_.back();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">  103</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">concurrent_queue&lt;T&gt;::empty</a>()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> b = q_.empty();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">  112</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">concurrent_queue&lt;T&gt;::push</a>(T &amp;&amp;e)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  q_.push(std::forward&lt;T&gt;(e));</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">  120</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">concurrent_queue&lt;T&gt;::pop</a>()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  q_.pop();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">  128</a></span>&#160;std::size_t <a class="code" href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">concurrent_queue&lt;T&gt;::size</a>()</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  mutex_enter_blocking(&amp;mtx_);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> n = q_.size();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  mutex_exit(&amp;mtx_);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
 <div class="ttc" id="aclassconcurrent__queue_html"><div class="ttname"><a href="classconcurrent__queue.html">concurrent_queue</a></div><div class="ttdoc">Wraps around std::queue and as name implies, allows concurrent access accross execution flows (cores/...</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00015">queue.hpp:16</a></div></div>
 <div class="ttc" id="aclassconcurrent__queue_html_a0dee7f5c9eb6b405c777ad12671b7f48"><div class="ttname"><a href="classconcurrent__queue.html#a0dee7f5c9eb6b405c777ad12671b7f48">concurrent_queue::operator=</a></div><div class="ttdeci">concurrent_queue&lt; T &gt; &amp; operator=(const concurrent_queue&lt; T &gt; &amp;)=delete</div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_a3af12bf374d2395aa4918a489777f720"><div class="ttname"><a href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">concurrent_queue::back</a></div><div class="ttdeci">T &amp; back()</div><div class="ttdoc">Reference to last item in the queue.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00091">queue.hpp:91</a></div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_a6098253682efb5ed8930f8f60342b761"><div class="ttname"><a href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">concurrent_queue::push</a></div><div class="ttdeci">void push(T &amp;&amp;)</div><div class="ttdoc">Push an item onto the stack, doing an emplace_back() in the background.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00109">queue.hpp:109</a></div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_acef464c5141917bfa1e207b762737ec8"><div class="ttname"><a href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">concurrent_queue::front</a></div><div class="ttdeci">T &amp; front()</div><div class="ttdoc">Reference to first item in the queue.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00082">queue.hpp:82</a></div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_acf8caf9c7d650bc24005970641d155cc"><div class="ttname"><a href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">concurrent_queue::pop</a></div><div class="ttdeci">void pop()</div><div class="ttdoc">Pops the first element of the queue, pointed to by front().</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00117">queue.hpp:117</a></div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_ad1c1798ca5dc9a576da6ecfaf025a7ed"><div class="ttname"><a href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue::concurrent_queue</a></div><div class="ttdeci">concurrent_queue()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00079">queue.hpp:79</a></div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_ada7853bc4c571a8d8b363fde5e230ede"><div class="ttname"><a href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">concurrent_queue::empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00100">queue.hpp:100</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_a3af12bf374d2395aa4918a489777f720"><div class="ttname"><a href="classconcurrent__queue.html#a3af12bf374d2395aa4918a489777f720">concurrent_queue::back</a></div><div class="ttdeci">T &amp; back()</div><div class="ttdoc">Reference to last item in the queue.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00094">queue.hpp:94</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_a6098253682efb5ed8930f8f60342b761"><div class="ttname"><a href="classconcurrent__queue.html#a6098253682efb5ed8930f8f60342b761">concurrent_queue::push</a></div><div class="ttdeci">void push(T &amp;&amp;)</div><div class="ttdoc">Push an item onto the stack, doing an emplace_back() in the background.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00112">queue.hpp:112</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_acef464c5141917bfa1e207b762737ec8"><div class="ttname"><a href="classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8">concurrent_queue::front</a></div><div class="ttdeci">T &amp; front()</div><div class="ttdoc">Reference to first item in the queue.</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00085">queue.hpp:85</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_acf8caf9c7d650bc24005970641d155cc"><div class="ttname"><a href="classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc">concurrent_queue::pop</a></div><div class="ttdeci">void pop()</div><div class="ttdoc">Pops the first element of the queue, pointed to by front().</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00120">queue.hpp:120</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_ad1c1798ca5dc9a576da6ecfaf025a7ed"><div class="ttname"><a href="classconcurrent__queue.html#ad1c1798ca5dc9a576da6ecfaf025a7ed">concurrent_queue::concurrent_queue</a></div><div class="ttdeci">concurrent_queue()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00082">queue.hpp:82</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_ada7853bc4c571a8d8b363fde5e230ede"><div class="ttname"><a href="classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede">concurrent_queue::empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00103">queue.hpp:103</a></div></div>
 <div class="ttc" id="aclassconcurrent__queue_html_aefbd17555f94568b40a1768eca45c799"><div class="ttname"><a href="classconcurrent__queue.html#aefbd17555f94568b40a1768eca45c799">concurrent_queue::operator=</a></div><div class="ttdeci">concurrent_queue&lt; T &gt; &amp; operator=(concurrent_queue&lt; T &gt; &amp;&amp;)=delete</div></div>
-<div class="ttc" id="aclassconcurrent__queue_html_aff708b19304d9c28c0b12e0507e426df"><div class="ttname"><a href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">concurrent_queue::size</a></div><div class="ttdeci">std::size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00125">queue.hpp:125</a></div></div>
+<div class="ttc" id="aclassconcurrent__queue_html_aff708b19304d9c28c0b12e0507e426df"><div class="ttname"><a href="classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df">concurrent_queue::size</a></div><div class="ttdeci">std::size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="queue_8hpp_source.html#l00128">queue.hpp:128</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
