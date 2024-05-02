@@ -598,9 +598,9 @@ namespace emulation
 
     reg r = 0;
 
-    for (int i = 0; i < 32; ++i)
+    for (int i = 0; i < xlen; ++i)
     {
-      r[i] = ram[pc.to_ulong() + i];
+      r[i] = ram[pc.to_ulong() + xlen - i];
     }
 
     std::bitset<7> opc_r;
@@ -859,12 +859,9 @@ namespace emulation
     for (const auto b : ram)
       ram_c.emplace_back(b + 48); // ASCII hack
 
-
     std::vector<std::string> splitted;
     for (std::size_t n = 0; n < ram.size(); n += xlen)
     {
-      // auto begin = ram_c.begin() + n;
-
       reg bs(ram_c.data() + n, xlen);
 
       splitted.emplace_back(parse::base36_encode(bs.to_ulong()));

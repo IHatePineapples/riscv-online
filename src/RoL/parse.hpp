@@ -24,7 +24,7 @@ namespace parse
 
   constexpr std::string_view delim = "|";
 
-  static constexpr std::array<const char, 36> digits{'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+  static constexpr std::array<const char, 36> digits{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
   inline std::string base36_encode(long long num)
   {
@@ -63,9 +63,11 @@ namespace parse
       uint32_t to_int = 0;
       std::from_chars(l.begin(), l.begin() + l.size(), to_int, 36);
       std::bitset<xlen> bs = to_int;
-      bs[31] = 1;
 
-      for (int i = xlen - 1; i != -1 ; --i)
+      if (bs.any())
+        bs[0] = 1;
+
+      for (int i = xlen - 1; i != -1; --i)
         ram.emplace_back(bs[i]);
     }
 
