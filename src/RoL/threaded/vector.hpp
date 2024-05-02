@@ -19,7 +19,7 @@ class concurrent_vector
    * \brief Underlying `std::vector`, protected by a mutex, `mtx_`.
    */
   std::vector<T> v_;
-  mutex mtx_ = {};
+  mutable mutex mtx_ = {};
 
 public:
   /**
@@ -31,6 +31,7 @@ public:
    */
   concurrent_vector();
 
+  concurrent_vector(const concurrent_vector &) = delete;
   concurrent_vector<T> &operator=(const concurrent_vector<T> &) = delete;
   concurrent_vector<T> &operator=(concurrent_vector<T> &&) = delete;
 
