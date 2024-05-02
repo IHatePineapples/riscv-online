@@ -1,8 +1,11 @@
 #pragma once
 
+#include <algorithm>
 #include <bitset>
 #include <charconv>
+#include <cstdint>
 #include <unordered_map>
+#include <array>
 #include <vector>
 #include <ranges>
 
@@ -53,18 +56,19 @@ namespace parse
    * 
   */
  
+  template <std::size_t xlen>
   inline std::vector<bool> decode_ram(const std::string_view s)
   {
     std::vector<bool> ram;
-    ram.reserve(32*100);
 
     for (const auto l : std::views::split(s, delim))
     {
-      int i = 0;
-      std::from_chars(l.begin(), l.begin() + l.size(), i, 36);
-      std::bitset<32> bs = i;
+      uint32_t to_int = 0;
+      std::from_chars(l.begin(), l.begin() + l.size(), to_int, 36);
+      std::bitset<xlen> bs = to_int;
+      bs[31] = 1;
 
-      for (std::size_t i = 0; i < bs.size(); ++i)
+      for (int i = xlen - 1; i != -1 ; --i)
         ram.emplace_back(bs[i]);
     }
 
