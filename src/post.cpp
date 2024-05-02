@@ -483,6 +483,9 @@ void httpd_post_finished(void *connection, char *response_uri, u16_t response_ur
     //     /* login succeeded */
     //     snprintf(response_uri, response_uri_len, "/session.html");
     // }
+
+    if(connection != current_connection) return;
+
     current_connection = NULL;
     valid_connection = NULL;
 
