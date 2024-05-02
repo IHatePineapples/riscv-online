@@ -21,6 +21,25 @@ namespace parse
 
   constexpr std::string_view delim = "|";
 
+  static constexpr std::array<const char, 36> digits{'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+  inline std::string base36_encode(long long num)
+  {
+    int sign = num < 0;
+    std::string buff;
+
+    do
+    {
+      buff += digits[abs(num % 36)];
+      num /= 36;
+    } while (num);
+
+    if (sign)
+      buff += '-';
+    std::reverse(buff.begin(), buff.end());
+    return buff;
+  }
+
   /** 
    * \fn decode_ram Decode ram content from a specific encoding
    * \param s String of base36 encoded instructions
