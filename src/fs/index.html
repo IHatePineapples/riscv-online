@@ -7,32 +7,192 @@
 </head>
 
 <body>
+    <style>
+        :root {
+            --black: rgb(33, 34, 44);
+            --grey: rgb(65, 69, 88);
+            --white: rgb(248, 248, 242);
+            --cyan: rgb(128, 255, 234);
+            --green: rgb(138, 255, 128);
+            --orange: rgb(255, 202, 128);
+            --pink: rgb(255, 128, 191);
+            --purple: rgb(149, 128, 255);
+            --red: rgb(255, 149, 128);
+            --yellow: rgb(255, 255, 128);
+        }
+
+        html {
+            background-color: var(--black) !important;
+        }
+
+        html {
+            color-scheme: dark !important;
+        }
+
+        html,
+        body {
+            background-color: var(--black);
+            align-self: center;
+        }
+
+        html,
+        body {
+            border-color: var(--grey);
+            color: #e8e6e3;
+        }
+
+        button {
+            background-color: var(--pink);
+            text-emphasis-color: var(--white);
+        }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+    </style>
+
 
     <h1>RISC-V Online</h1>
+    <button type="submit" onClick="run();" style="display: block;">Step</button>
+    <div style="display: inline-flex; width: fit-content;">
 
-    <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
-        spellcheck="false" wrap="off" style="resize: none"></textarea>
-    <button type="submit" onClick="run();">Run</button>
-    <textarea id="out"></textarea>
+        <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
+            spellcheck="false" wrap="off" style="resize: none"></textarea>
+    </div>
+    <div class="center">
+        <table border="1" class="center" style="width: 100%;">
+            <tr>
+                <td >x1</td>
+                <td id="x1">0</td>
+                <td>x9</td>
+                <td id="x9">0</td>
+                <td>x17</td>
+                <td id="x17">0</td>
+                <td>x25</td>
+                <td id="x25">0</td>
+            </tr>
+            <tr>
+                <td>x2</td>
+                <td id="x2">0</td>
+                <td>x10</td>
+                <td id="x10">0</td>
+                <td>x18</td>
+                <td id="x18">0</td>
+                <td>x26</td>
+                <td id="x26">0</td>
+            </tr>
+            <tr>
+                <td>x3</td>
+                <td id="x3">0</td>
+                <td>x11</td>
+                <td id="x11">0</td>
+                <td>x19</td>
+                <td id="x19">0</td>
+                <td>x27</td>
+                <td id="x27">0</td>
+            </tr>
+            <tr>
+                <td>x4</td>
+                <td id="x4">0</td>
+                <td>x12</td>
+                <td id="x12">0</td>
+                <td>x20</td>
+                <td id="x20">0</td>
+                <td>x28</td>
+                <td id="x28">0</td>
+            </tr>
+            <tr>
+                <td>x5</td>
+                <td id="x5">0</td>
+                <td>x13</td>
+                <td id="x13">0</td>
+                <td>x21</td>
+                <td id="x21">0</td>
+                <td>x29</td>
+                <td id="x29">0</td>
+            </tr>
+            <tr>
+                <td>x6</td>
+                <td id="x6">0</td>
+                <td>x14</td>
+                <td id="x14">0</td>
+                <td>x22</td>
+                <td id="x22">0</td>
+                <td>x30</td>
+                <td id="x30">0</td>
+            </tr>
+            <tr>
+                <td>x7</td>
+                <td id="x7">0</td>
+                <td>x15</td>
+                <td id="x15">0</td>
+                <td>x23</td>
+                <td id="x23">0</td>
+                <td>x31</td>
+                <td id="x31">0</td>
+            </tr>
+            <tr>
+                <td>x8</td>
+                <td id="x8">0</td>
+                <td>x16</td>
+                <td id="x16">0</td>
+                <td>x24</td>
+                <td id="x24">0</td>
+                <td>PC</td>
+                <td id="pc">0</td>
+            </tr>
+        </table>
+    </div>
+    <textarea cols=50 rows=10 readonly style="resize: none" id="out"></textarea>
 
 </body>
 <script>
 
+
     function run() {
         var code_block = document.getElementById("code-block");
-        var lines = code_block.value.split("\n");
+        var lines = code_block.value.toLowerCase().split("\n");
         var out = document.getElementById("out");
 
+        var i = 0;
 
         lines.forEach(line => {
             // Always dealing with RV32I for now.
             line = line.trim();
             var bitstream = "11";
 
-            var split_in_2 = line.split(" ", 2);
-            let instruction = split_in_2[0];
+            var splitted = line.split(" ");
+
+            splitted = splitted.filter(token => { return token != ""; });
+
+            console.log(splitted);
+
+            if (splitted.length < 2) {
+                alert(`Failed parsing line ${i + 1}`)
+                throw `Bad parse, line ${i + 1}`;
+            }
+
+            let instruction = splitted[0];
+
+
             out.value += instruction;
+            out.value += splitted[1];
             out.value += "\n";
+
+            i++;
+
         });
     }
 </script>
