@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 1319;
+var viewWidth = 1318;
 var viewHeight = 95;
 var sectionId = 'dynsection-1';
 </script>
@@ -54,13 +54,13 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>src/RoL/emulation/emulator.hpp</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-91 1315,-91 1315,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-91 1314,-91 1314,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="546.5,-67.5 546.5,-86.5 718.5,-86.5 718.5,-67.5 546.5,-67.5"/>
-<text text-anchor="middle" x="632.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/RoL/emulation/emulator.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="587.5,-67.5 587.5,-86.5 759.5,-86.5 759.5,-67.5 587.5,-67.5"/>
+<text text-anchor="middle" x="673.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/RoL/emulation/emulator.hpp</text>
 </a>
 </g>
 </g>
@@ -76,8 +76,8 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M536.11,-71.3C433.04,-65.4 265.02,-53.23 121.5,-31 111.45,-29.44 100.62,-27.24 90.75,-25.03"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="536.01,-74.8 546.19,-71.87 536.4,-67.81 536.01,-74.8"/>
+<path fill="none" stroke="midnightblue" d="M577.37,-72.19C466.87,-66.88 280.29,-55.07 121.5,-31 111.44,-29.48 100.62,-27.29 90.74,-25.07"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="577.34,-75.7 587.5,-72.67 577.67,-68.7 577.34,-75.7"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -91,8 +91,8 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M559.34,-66.08C494.05,-57.15 395.85,-43.55 310.5,-31 297.76,-29.13 284.05,-27.05 271.16,-25.07"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="559.15,-69.58 569.53,-67.47 560.09,-62.65 559.15,-69.58"/>
+<path fill="none" stroke="midnightblue" d="M589.23,-66.27C515.6,-57.6 405.86,-44.26 310.5,-31 297.42,-29.18 283.33,-27.08 270.15,-25.06"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="589.03,-69.77 599.37,-67.46 589.85,-62.82 589.03,-69.77"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -106,119 +106,119 @@ var sectionId = 'dynsection-1';
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M571.31,-65.71C525.19,-57.53 460.51,-45.13 404.5,-31 397.71,-29.29 390.45,-27.18 383.71,-25.12"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="570.99,-69.21 581.45,-67.5 572.21,-62.32 570.99,-69.21"/>
+<path fill="none" stroke="midnightblue" d="M596.5,-66.1C542.17,-58.4 467.89,-46.43 403.5,-31 396.66,-29.36 389.36,-27.24 382.63,-25.12"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="596.01,-69.56 606.4,-67.48 596.98,-62.63 596.01,-69.56"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="ssi_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="413.5,-6 413.5,-25 481.5,-25 481.5,-6 413.5,-6"/>
-<text text-anchor="middle" x="447.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">src/ssi.cpp</text>
+<g id="a_node5"><a xlink:href="test__emulator__add_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="412.5,-0.5 412.5,-30.5 536.5,-30.5 536.5,-0.5 412.5,-0.5"/>
+<text text-anchor="start" x="420.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
+<text text-anchor="middle" x="474.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_add.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M595.35,-64.43C566.66,-55.45 526.01,-42.61 490.5,-31 484.66,-29.09 478.39,-27 472.49,-25.01"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="594.38,-67.79 604.96,-67.44 596.46,-61.11 594.38,-67.79"/>
+<path fill="none" stroke="midnightblue" d="M635.4,-64.61C602.94,-54.9 556.16,-40.92 521.4,-30.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="634.4,-67.96 644.99,-67.48 636.41,-61.26 634.4,-67.96"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="test__emulator__add_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="499.5,-0.5 499.5,-30.5 623.5,-30.5 623.5,-0.5 499.5,-0.5"/>
-<text text-anchor="start" x="507.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="561.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_add.cpp</text>
+<g id="a_node6"><a xlink:href="test__emulator__addi_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="554.5,-0.5 554.5,-30.5 678.5,-30.5 678.5,-0.5 554.5,-0.5"/>
+<text text-anchor="start" x="562.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
+<text text-anchor="middle" x="616.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_addi.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node1&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M614.51,-60.92C603.36,-51.58 589.14,-39.66 578.23,-30.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="612.41,-63.73 622.33,-67.48 616.91,-58.37 612.41,-63.73"/>
+<path fill="none" stroke="midnightblue" d="M658.26,-60.09C649.44,-50.88 638.43,-39.39 629.93,-30.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="655.89,-62.68 665.33,-67.48 660.94,-57.83 655.89,-62.68"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="test__emulator__addi_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="641.5,-0.5 641.5,-30.5 765.5,-30.5 765.5,-0.5 641.5,-0.5"/>
-<text text-anchor="start" x="649.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="703.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_addi.cpp</text>
+<g id="a_node7"><a xlink:href="ssi_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="696.5,-6 696.5,-25 764.5,-25 764.5,-6 696.5,-6"/>
+<text text-anchor="middle" x="730.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">src/ssi.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
 <g id="edge6" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M650.49,-60.92C661.64,-51.58 675.86,-39.66 686.77,-30.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="648.09,-58.37 642.67,-67.48 652.59,-63.73 648.09,-58.37"/>
+<path fill="none" stroke="midnightblue" d="M688.83,-60C699.62,-48.74 713.64,-34.1 722.35,-25.01"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="686.06,-57.83 681.67,-67.48 691.11,-62.68 686.06,-57.83"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
 <g id="a_node8"><a xlink:href="test__emulator__and_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="783.5,-0.5 783.5,-30.5 907.5,-30.5 907.5,-0.5 783.5,-0.5"/>
-<text text-anchor="start" x="791.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="845.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_and.cpp</text>
+<polygon fill="white" stroke="black" points="782.5,-0.5 782.5,-30.5 906.5,-30.5 906.5,-0.5 782.5,-0.5"/>
+<text text-anchor="start" x="790.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
+<text text-anchor="middle" x="844.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_and.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node8 -->
 <g id="edge7" class="edge">
 <title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M672.83,-64.73C707.59,-55.02 757.93,-40.96 795.3,-30.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="671.71,-61.41 663.02,-67.48 673.59,-68.16 671.71,-61.41"/>
+<path fill="none" stroke="midnightblue" d="M707.69,-64.1C735.52,-54.42 774.84,-40.74 804.2,-30.52"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="706.29,-60.88 698,-67.48 708.59,-67.49 706.29,-60.88"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="test__emulator__andi_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="925.5,-0.5 925.5,-30.5 1049.5,-30.5 1049.5,-0.5 925.5,-0.5"/>
-<text text-anchor="start" x="933.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="987.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_andi.cpp</text>
+<g id="a_node9"><a xlink:href="test__emulator__auipc_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="924.5,-0.5 924.5,-30.5 1048.5,-30.5 1048.5,-0.5 924.5,-0.5"/>
+<text text-anchor="start" x="932.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
+<text text-anchor="middle" x="986.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_auipc.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node1&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M701.18,-65.99C758.79,-57.38 843.17,-44.29 916.5,-31 919.35,-30.48 922.26,-29.94 925.19,-29.39"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="700.47,-62.56 691.1,-67.49 701.51,-69.48 700.47,-62.56"/>
+<path fill="none" stroke="midnightblue" d="M730.95,-65.61C780.02,-56.67 852.46,-43.3 915.5,-31 918.34,-30.45 921.24,-29.87 924.17,-29.29"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="730.06,-62.22 720.85,-67.45 731.31,-69.1 730.06,-62.22"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="test__emulator__auipc_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1067.5,-0.5 1067.5,-30.5 1191.5,-30.5 1191.5,-0.5 1067.5,-0.5"/>
-<text text-anchor="start" x="1075.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="1129.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_auipc.cpp</text>
+<g id="a_node10"><a xlink:href="test__emulator__andi_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="1066.5,-0.5 1066.5,-30.5 1190.5,-30.5 1190.5,-0.5 1066.5,-0.5"/>
+<text text-anchor="start" x="1074.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
+<text text-anchor="middle" x="1128.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_andi.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node10 -->
 <g id="edge9" class="edge">
 <title>Node1&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M728.97,-68.48C815.53,-61.09 945.91,-48.4 1058.5,-31 1061.36,-30.56 1064.28,-30.08 1067.22,-29.57"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="728.56,-65 718.89,-69.33 729.15,-71.97 728.56,-65"/>
+<path fill="none" stroke="midnightblue" d="M769.85,-67C847.7,-59.17 959.98,-46.64 1057.5,-31 1060.36,-30.54 1063.27,-30.05 1066.22,-29.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="769.18,-63.54 759.58,-68.02 769.87,-70.51 769.18,-63.54"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
 <g id="a_node11"><a xlink:href="test__xlen__32bit_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="1210,-0.5 1210,-30.5 1311,-30.5 1311,-0.5 1210,-0.5"/>
-<text text-anchor="start" x="1218" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_xlen</text>
-<text text-anchor="middle" x="1260.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_32bit.cpp</text>
+<polygon fill="white" stroke="black" points="1209,-0.5 1209,-30.5 1310,-30.5 1310,-0.5 1209,-0.5"/>
+<text text-anchor="start" x="1217" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_xlen</text>
+<text text-anchor="middle" x="1259.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_32bit.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node11 -->
 <g id="edge10" class="edge">
 <title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M728.69,-73.01C842.09,-68.42 1035.98,-57.23 1200.5,-31 1203.57,-30.51 1206.71,-29.95 1209.87,-29.33"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="728.5,-69.52 718.64,-73.41 728.77,-76.51 728.5,-69.52"/>
+<path fill="none" stroke="midnightblue" d="M769.66,-72.16C875.53,-66.91 1050.52,-55.23 1199.5,-31 1202.57,-30.5 1205.71,-29.93 1208.87,-29.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="769.45,-68.66 759.63,-72.65 769.79,-75.65 769.45,-68.66"/>
 </g>
 </g>
 </svg>

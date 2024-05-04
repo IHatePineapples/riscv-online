@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structemulation_1_1emulator.html#aafe3479d5fcf7b54119e30994ac24bf7" target="_top" xlink:title="ADD.">
+<g id="a_node2"><a xlink:href="structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" target="_top" xlink:title="ADD.">
 <polygon fill="white" stroke="black" points="336.5,-1676.85 336.5,-1706.85 452.5,-1706.85 452.5,-1676.85 336.5,-1676.85"/>
 <text text-anchor="start" x="344.5" y="-1694.85" font-family="Helvetica,sans-Serif" font-size="10.00">emulation::emulator</text>
 <text text-anchor="middle" x="394.5" y="-1683.85" font-family="Helvetica,sans-Serif" font-size="10.00">::add_</text>
