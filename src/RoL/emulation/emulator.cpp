@@ -124,26 +124,10 @@ namespace emulation
 
   void emulator::inc_pc()
   {
-    bool carry = false;
-    for (int i = 4; i < 32; ++i)
-    {
-      if (!pc.test(i))
-      {
-        pc.set(i, 1);
-        carry = false;
-      }
-      else
-      {
-        pc.set(i, 0);
-        carry = true;
-      }
-
-      if (!carry)
-        return;
-    }
-
-    if (carry)
-      printf("%s:%i: Exhausted PC past maximum ('%s'), overflowed! Proceeding anyway.", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
+    const auto old_pc = pc;
+    add_(pc, pc, xlen);
+    if (old_pc == pc)
+      printf("%s:%i: Exhausted PC past maximum ('%s'), overflowed! Proceeding anyway.\n", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
   }
 
   void emulator::lui_(reg &rd, const std::bitset<20> &imm)
