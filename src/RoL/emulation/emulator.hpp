@@ -245,7 +245,7 @@ namespace emulation
      *
      * \brief ADD.
      */
-    void add_(reg& rd, const reg& rs1, const reg& rs2);
+    void add_(reg& rd, const reg rs1, const reg rs2);
     /**
      * \fn sub_
      *

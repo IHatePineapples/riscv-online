@@ -484,7 +484,7 @@ namespace emulation
     rd[rd.size() - 1] = rs1[rs1.size() - 1];
   };
 
-  void emulator::add_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::add_(reg &rd, const reg rs1, const reg rs2)
   {
 
     bool carry = 0;
