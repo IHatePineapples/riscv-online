@@ -633,9 +633,10 @@ namespace emulation
       if (opc_r[5])
         lui_(rd, imm);
       else
+      {
         auipc_(rd, imm);
-
-      return;
+        return;
+      }
     }
     else if (opc_r == parse::jal)
     {
