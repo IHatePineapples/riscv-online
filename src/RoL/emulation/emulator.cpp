@@ -21,8 +21,6 @@ namespace emulation
     printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
     while (in_jq_.empty())
     {
-      /** Busy wait until a job is available*/
-      sleep_ms(2); // Sleeping to reduce CPU busy time slightly.
     }
 
     auto &[id, state] = in_jq_.front();
