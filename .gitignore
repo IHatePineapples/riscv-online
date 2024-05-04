@@ -56,6 +56,11 @@ _deps
 build
 generated
 
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+
 # IDE generated
 .cache
 .vscode
