@@ -471,6 +471,9 @@ namespace emulation
   void emulator::add_(reg &rd, const reg rs1, const reg rs2)
   {
 
+    rd = rs1.to_ulong() + rs2.to_ulong();
+    return;
+
     bool carry = 0;
     for (int i = 0; i < 32; ++i)
     {
