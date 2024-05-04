@@ -165,7 +165,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
     offset <<= 1;
 
     unsigned int address = rs1.to_ulong() + offset;
@@ -181,13 +181,13 @@ namespace emulation
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
       l += rs1.test(i) << i;
 
-    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
       r += rs2.test(i) << i;
 
-    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
 
     if (l == r)
       return;
@@ -196,7 +196,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -206,13 +206,13 @@ namespace emulation
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
       l += rs1.test(i) << i;
 
-    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
       r += rs2.test(i) << i;
 
-    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
 
     if (l == r)
       return;
@@ -221,7 +221,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -232,13 +232,13 @@ namespace emulation
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
       l += rs1.test(i) << i;
 
-    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
       r += rs2.test(i) << i;
 
-    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
 
     if (l >= r)
       return;
@@ -247,7 +247,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -257,13 +257,13 @@ namespace emulation
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
       l += rs1.test(i) << i;
 
-    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
       r += rs2.test(i) << i;
 
-    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
 
     if (l < r)
       return;
@@ -272,7 +272,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -285,7 +285,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -298,7 +298,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -309,7 +309,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
@@ -324,7 +324,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 2; ++i)
@@ -339,7 +339,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen; ++i)
@@ -354,7 +354,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
@@ -369,7 +369,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
@@ -382,7 +382,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 4; ++i)
@@ -395,7 +395,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
@@ -411,7 +411,7 @@ namespace emulation
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
       offset += imm.test(i) << i;
 
-    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen; ++i)
       ram[addr + i] = rs2.test(i);
