@@ -39,11 +39,11 @@ namespace emulation
   {
     reg tmp = 0;
     for (std::size_t i = 0; i < n; ++i)
-      tmp[i] = imm[i];
+      tmp[i] = imm.test(i);
 
     // Sign extend
     for (int i = n - 1; i < xlen - 1; ++i)
-      tmp[i] = imm[msb_pos];
+      tmp[i] = imm.test(msb_pos);
     return tmp;
   }
 
@@ -141,7 +141,7 @@ namespace emulation
     reg offset = 0;
 
     for (std::size_t i = 0; i < imm.size(); ++i)
-      offset[i + offset.size() - imm.size()] = imm[i];
+      offset[i + offset.size() - imm.size()] = imm.test(i);
     add_(rd, pc, offset);
     pc = rd;
   };
@@ -151,9 +151,9 @@ namespace emulation
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << (imm.size() - 1);
+    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
     offset <<= 1;
     rd = pc.to_ulong() + (2 << 4);
     pc = pc.to_ulong() + offset;
@@ -163,9 +163,9 @@ namespace emulation
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
     offset <<= 1;
 
     unsigned int address = rs1.to_ulong() + offset;
@@ -179,24 +179,24 @@ namespace emulation
 
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1[i] << i;
+      l += rs1.test(i) << i;
 
-    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2[i] << i;
+      r += rs2.test(i) << i;
 
-    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
 
     if (l == r)
       return;
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -204,24 +204,24 @@ namespace emulation
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1[i] << i;
+      l += rs1.test(i) << i;
 
-    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2[i] << i;
+      r += rs2.test(i) << i;
 
-    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
 
     if (l == r)
       return;
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -230,24 +230,24 @@ namespace emulation
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1[i] << i;
+      l += rs1.test(i) << i;
 
-    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2[i] << i;
+      r += rs2.test(i) << i;
 
-    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
 
     if (l >= r)
       return;
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -255,24 +255,24 @@ namespace emulation
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1[i] << i;
+      l += rs1.test(i) << i;
 
-    l -= rs1[rs1.size() - 1] << rs1.size() - 1;
+    l -= rs1.test(rs1.size() - 1) << rs1.size() - 1;
 
     int r = 0;
     for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2[i] << i;
+      r += rs2.test(i) << i;
 
-    r -= rs2[rs2.size() - 1] << rs2.size() - 1;
+    r -= rs2.test(rs2.size() - 1) << rs2.size() - 1;
 
     if (l < r)
       return;
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -283,9 +283,9 @@ namespace emulation
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -296,9 +296,9 @@ namespace emulation
       return;
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     pc = pc.to_ulong() + (offset << 1);
   }
@@ -307,13 +307,13 @@ namespace emulation
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
-      rd[i] = ram[addr + i];
+      rd[i] = ram.at(addr + i);
 
     rd = sign_extend<xlen>(rd, xlen / 4 - 1);
   };
@@ -322,13 +322,13 @@ namespace emulation
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 2; ++i)
-      rd[i] = ram[addr + i];
+      rd[i] = ram.at(addr + i);
 
     rd = sign_extend<xlen>(rd, xlen / 2 - 1);
   };
@@ -337,13 +337,13 @@ namespace emulation
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen; ++i)
-      rd[i] = ram[addr + i];
+      rd[i] = ram.at(addr + i);
   };
 
   void emulator::lbu_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -352,13 +352,13 @@ namespace emulation
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
-      rd[i] = ram[addr + i];
+      rd[i] = ram.at(addr + i);
   };
 
   void emulator::lhu_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -367,44 +367,39 @@ namespace emulation
 
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
-      rd[i] = ram[addr + i];
+      rd[i] = ram.at(addr + i);
   };
 
-  /** \todo Implement real RAM! */
   void emulator::sb_(reg &rs1, reg &rs2, std::bitset<12> imm)
   {
-    // RAM not implemented yet !
-    // This is will just cause stack corrution/decay lol
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 4; ++i)
-      ram[addr + i] = rs2[i];
+      ram[addr + i] = rs2.test(i);
   };
-  /** \todo Implement real RAM! */
+
   void emulator::sh_(reg &rs1, reg &rs2, std::bitset<12> imm)
   {
-    // RAM not implemented yet !
-    // This is will just cause stack corrution/decay lol
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
-      ram[addr + i] = rs2[i];
+      ram[addr + i] = rs2.test(i);
   };
 
   /** \todo Implement real RAM! */
@@ -414,12 +409,12 @@ namespace emulation
     // This is will just cause stack corrution/decay lol
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm[i] << i;
+      offset += imm.test(i) << i;
 
-    offset -= imm[imm.size() - 1] << imm.size() - 1;
+    offset -= imm.test(imm.size() - 1) << imm.size() - 1;
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen; ++i)
-      ram[addr + i] = rs2[i];
+      ram[addr + i] = rs2.test(i);
   };
 
   void emulator::addi_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -465,33 +460,23 @@ namespace emulation
   void emulator::srai_(reg &rd, reg &rs1, std::bitset<5> shamt)
   {
     rd = rs1 >> shamt.to_ulong();
-    rd[rd.size() - 1] = rs1[rs1.size() - 1];
+    rd[rd.size() - 1] = rs1.test(rs1.size() - 1);
   };
 
   void emulator::add_(reg &rd, const reg rs1, const reg rs2)
   {
 
     rd = rs1.to_ulong() + rs2.to_ulong();
+    printf("add_ : %s + %s = %s\n", rs1.to_string().c_str(), rs2.to_string().c_str(), rd.to_string().c_str());
     return;
 
-    bool carry = 0;
-    for (int i = 0; i < 32; ++i)
-    {
-      if (rs1[i] and rs2[i])
-      {
-        rd[i] = 0 + carry;
-        carry = 1;
-      }
-      else if (rs1[i] xor rs2[i])
-      {
-        rd[i] = !carry;
-      }
-      else
-      {
-        rd[i] = carry;
-        carry = 0;
-      }
-    }
+    // bool carry = 0;
+    // for (int i = 0; i < xlen; ++i)
+    // {
+    //   rd[i] = (rs1.test(i) ^ rs2.test(i)) ^ carry;
+    //   carry = (rs1.test(i) && rs2.test(i)) || (rs1.test(i) && carry) || (rs2.test(i) && carry);
+    // }
+
   };
 
   void emulator::sub_(reg &rd, const reg &rs1, const reg &rs2)
@@ -503,9 +488,9 @@ namespace emulation
     rs2_tmp.flip();
 
     bool carry = 0;
-    for (int i = 0; i < 32; ++i)
+    for (int i = 0; i < xlen; ++i)
     {
-      if (!rs2_tmp[i])
+      if (!rs2_tmp.test(i))
       {
         rs2_tmp[i] = 1;
         carry = 0;
@@ -520,7 +505,7 @@ namespace emulation
         break;
     }
 
-    emulator::add_(std::forward<reg &>(rd), std::forward<const reg &>(rs1), std::move(rs2_tmp));
+    emulator::add_(rd, rs1, std::move(rs2_tmp));
   };
 
   void emulator::sll_(reg &rd, const reg &rs1, const reg &rs2)
@@ -531,9 +516,9 @@ namespace emulation
   void emulator::slt_(reg &rd, const reg &rs1, const reg &rs2)
   {
     /** \todo Two's complement here! */
-    if (rs1[rs1.size() - 1] xor rs2[rs2.size() - 1])
+    if (rs1[rs1.size() - 1] xor rs2.test(rs2.size() - 1))
     {
-      rd = rs1[rs1.size() - 1] > rs2[rs2.size() - 1];
+      rd = rs1[rs1.size() - 1] > rs2.test(rs2.size() - 1);
       return;
     }
 
@@ -565,7 +550,7 @@ namespace emulation
   void emulator::sra_(reg &rd, const reg &rs1, const reg &rs2)
   {
     rd = rs1 >> rs2.to_ulong();
-    rd[rd.size() - 1] = rs1[rs1.size() - 1];
+    rd[rd.size() - 1] = rs1.test(rs1.size() - 1);
   };
 
   void emulator::or_(reg &rd, const reg &rs1, const reg &rs2)
@@ -592,22 +577,22 @@ namespace emulation
 
     for (int i = 0; i < xlen; ++i)
     {
-      r[i] = ram[pc.to_ulong() + xlen - i - 1];
+      r[i] = ram.at(pc.to_ulong() + xlen - i - 1);
     }
 
     std::bitset<7> opc_r;
 
     for (std::size_t i = 0; i < opc_r.size(); ++i)
-      opc_r[i] = r[i];
+      opc_r[i] = r.test(i);
 
     std::bitset<3> opc_l;
 
     for (std::size_t i = 0; i < opc_l.size(); ++i)
-      opc_l[i] = r[i + 12];
+      opc_l[i] = r.test(i + 12);
 
     std::bitset<5> rd_b;
     for (std::size_t i = 0; i < rd_b.size(); ++i)
-      rd_b[i] = r[i + 7];
+      rd_b[i] = r.test(i + 7);
 
     reg &rd = resolv_rd(rd_b);
 
@@ -615,9 +600,9 @@ namespace emulation
     {
       std::bitset<20> imm;
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm[i] = r[i + xlen - imm.size()];
+        imm[i] = r.test(i + xlen - imm.size());
 
-      if (opc_r[5])
+      if (opc_r.test(5))
         lui_(rd, imm);
       else
       {
@@ -631,12 +616,12 @@ namespace emulation
        * just pass a std::bitset<21> directly. */
       std::bitset<20> imm = 0;
       for (std::size_t i = 0; i < 10; ++i)
-        imm[i] = r[i + 21];
+        imm[i] = r.test(i + 21);
 
-      imm[10] = r[20];
+      imm[10] = r.test(20);
       for (std::size_t i = 11; i < 19; ++i)
-        imm[i] = r[i + 1];
-      imm[19] = r[31];
+        imm[i] = r.test(i + 1);
+      imm[19] = r.test(31);
 
       jal_(rd, imm);
       return;
@@ -645,13 +630,13 @@ namespace emulation
     std::bitset<5> rs1_b;
 
     for (std::size_t i = 0; i < rs1_b.size(); ++i)
-      rs1_b[i] = r[i + 15];
+      rs1_b[i] = r.test(i + 15);
 
     auto rs1 = resolv_rd(rs1_b);
 
     std::bitset<5> rs2_b;
     for (std::size_t i = 0; i < rs2_b.size(); ++i)
-      rs2_b[i] = r[i + 15];
+      rs2_b[i] = r.test(i + 15);
 
     auto rs2 = resolv_rd(rs2_b);
 
@@ -660,7 +645,7 @@ namespace emulation
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm[i] = r[i + xlen - imm.size()];
+        imm[i] = r.test(i + xlen - imm.size());
 
       jalr_(rd, rs1, imm);
       return;
@@ -671,13 +656,13 @@ namespace emulation
 
       std::bitset<12> imm = 0;
       for (std::size_t i = 0; i < 4; ++i)
-        imm[i] = r[i + 8];
+        imm[i] = r.test(i + 8);
 
       for (std::size_t i = 4; i < 10; ++i)
-        imm[i] = r[21 + i];
+        imm[i] = r.test(21 + i);
 
-      imm[10] = r[7];
-      imm[11] = r[31];
+      imm[10] = r.test(7);
+      imm[11] = r.test(31);
 
       switch (opc_l.to_ulong())
       {
@@ -712,7 +697,7 @@ namespace emulation
 
       for (std::size_t i = 0; i < imm.size(); ++i)
       {
-        imm[i] = r[i + xlen - imm.size()];
+        imm[i] = r.test(i + xlen - imm.size());
       }
 
       if (opc_r[4])
@@ -720,7 +705,7 @@ namespace emulation
         std::bitset<5> shamt = 0;
 
         for (std::size_t i = 0; i < shamt.size(); ++i)
-          shamt[i] = r[i + xlen - imm.size()];
+          shamt[i] = r.test(i + xlen - imm.size());
 
         switch (opc_r.to_ulong())
         {
@@ -746,7 +731,7 @@ namespace emulation
           slli_(rd, rs1, shamt);
           break;
         case 5:
-          if (r[30])
+          if (r.test(30))
             srli_(rd, rs1, shamt);
           else
             srai_(rd, rs1, shamt);
@@ -786,9 +771,9 @@ namespace emulation
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < 5; ++i)
-        imm[i] = r[i + 7];
+        imm[i] = r.test(i + 7);
       for (std::size_t i = 5; i < imm.size(); ++i)
-        imm[i] = r[i + 25];
+        imm[i] = r.test(i + 25);
 
       switch (opc_l.to_ulong())
       {
@@ -808,7 +793,7 @@ namespace emulation
       switch (opc_l.to_ulong())
       {
       case 0:
-        if (!r[30])
+        if (!r.test(30))
           add_(rd, rs1, rs2);
         else
           sub_(rd, rs1, rs2);
@@ -826,7 +811,7 @@ namespace emulation
         xor_(rd, rs1, rs2);
         break;
       case 5:
-        if (!r[30])
+        if (!r.test(30))
           srl_(rd, rs1, rs2);
         else
           sra_(rd, rs1, rs2);
@@ -858,7 +843,7 @@ namespace emulation
       reg bs(ram_c.data() + n, xlen);
 
       splitted.emplace_back(parse::base36_encode(bs.to_ulong()));
-      splitted[n / xlen].append("|");
+      splitted.at(n / xlen).append("|");
     }
 
     std::string out;

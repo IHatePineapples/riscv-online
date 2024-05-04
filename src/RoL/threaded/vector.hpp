@@ -77,7 +77,7 @@ public:
   void lock() { mutex_enter_blocking(&mtx_); }
   void unlock() { mutex_exit(&mtx_); }
 
-  T &operator[](std::size_t n) { return v_[n]; }
+  T &operator[](std::size_t n) { return v_.at(n); }
   void erase(std::vector<T>::iterator it) { v_.erase(it); }
 };
 

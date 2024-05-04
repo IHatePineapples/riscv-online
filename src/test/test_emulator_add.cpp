@@ -10,9 +10,9 @@ inline long operator*(const emulation::reg bs)
     
     int32_t representation = 0;
     for (std::size_t i = 0; i < bs.size() - 2; ++i)
-      representation += bs[i] << i;
+      representation += bs.test(i) << i;
 
-    representation -= bs[bs.size() - 1] << bs.size() - 2;
+    representation -= bs.test(bs.size() - 1) << bs.size() - 2;
     std::cout << representation << std::endl;
     return representation;
 }

@@ -33,7 +33,7 @@ namespace parse
 
     do
     {
-      buff += digits[abs(num % 36)];
+      buff += digits.at(abs(num % 36));
       num /= 36;
     } while (num);
 
@@ -68,7 +68,7 @@ namespace parse
         bs[0] = 1;
 
       for (int i = xlen - 1; i != -1; --i)
-        ram.emplace_back(bs[i]);
+        ram.emplace_back(bs.test(i));
     }
 
     return ram;
