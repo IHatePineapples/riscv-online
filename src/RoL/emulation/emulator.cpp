@@ -596,6 +596,13 @@ namespace emulation
 
     reg r = 0;
 
+    if (pc.to_ulong() + (xlen << 1) > ram.size())
+    {
+      printf("%s:%d: PC (%ld) out-of-bounds, resetting...", __PRETTY_FUNCTION__, __LINE__, pc.to_ulong());
+      pc.reset();
+      return;
+    }
+
     for (int i = 0; i < xlen; ++i)
     {
       r[i] = ram[pc.to_ulong() + xlen - i - 1];
