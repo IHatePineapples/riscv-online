@@ -74,7 +74,7 @@
     <div class="center">
         <table border="1" class="center" style="width: 100%;">
             <tr>
-                <td >x1</td>
+                <td>x1</td>
                 <td id="x1">0</td>
                 <td>x9</td>
                 <td id="x9">0</td>
@@ -159,7 +159,121 @@
 
 </body>
 <script>
+    console.log("❤ Welcome to RISC-V Online ! ❤")
+    const lui = "0110111";
+    const auipc = "0010111";
+    const jal = "1101111";
+    const jalr = "1100111";
+    const B = "1100011";
+    const S = "0100011";
+    const I = "0010011";
+    const L = "0000011"; // for load instructions
+    const R = "0110011";
 
+    const id = Math.floor(Math.random() * 255) + 1;
+
+    function reg_to_bin(reg) {
+        switch (reg) {
+            case "0":
+            case "x0":
+                return "00000"
+            case "1":
+            case "x1":
+                return "00001"
+            case "2":
+            case "x2":
+                return "00010"
+            case "3":
+            case "x3":
+                return "00011"
+            case "4":
+            case "x4":
+                return "00100"
+            case "5":
+            case "x5":
+                return "00101"
+            case "6":
+            case "x6":
+                return "00110"
+            case "7":
+            case "x7":
+                return "00111"
+            case "8":
+            case "x8":
+                return "01000"
+            case "9":
+            case "x9":
+                return "01001"
+            case "10":
+            case "x10":
+                return "01010"
+            case "11":
+            case "x11":
+                return "01011"
+            case "12":
+            case "x12":
+                return "01100"
+            case "13":
+            case "x13":
+                return "01101"
+            case "14":
+            case "x14":
+                return "01110"
+            case "15":
+            case "x15":
+                return "01111"
+            case "16":
+            case "x16":
+                return "10000"
+            case "17":
+            case "x17":
+                return "10001"
+            case "18":
+            case "x18":
+                return "10010"
+            case "19":
+            case "x19":
+                return "10011"
+            case "20":
+            case "x20":
+                return "10100"
+            case "21":
+            case "x21":
+                return "10101"
+            case "22":
+            case "x22":
+                return "10110"
+            case "23":
+            case "x23":
+                return "10111"
+            case "24":
+            case "x24":
+                return "11000"
+            case "25":
+            case "x25":
+                return "11001"
+            case "26":
+            case "x26":
+                return "11010"
+            case "27":
+            case "x27":
+                return "11011"
+            case "28":
+            case "x28":
+                return "11100"
+            case "29":
+            case "x29":
+                return "11101"
+            case "30":
+            case "x30":
+                return "11110"
+            case "31":
+            case "x31":
+                return "11111"
+            default:
+                return ""
+        }
+    }
 
     function run() {
         var code_block = document.getElementById("code-block");
@@ -168,32 +282,322 @@
 
         var i = 0;
 
+        var ram = "";
+
+        lines = lines.filter(line => { return line != ""; });
+
         lines.forEach(line => {
             // Always dealing with RV32I for now.
             line = line.trim();
-            var bitstream = "11";
+            var bitstream = "";
 
-            var splitted = line.split(" ");
+            line = line.replaceAll(",", " ");
+            line = line.replaceAll("(", " ");
+            line = line.replaceAll(")", " ");
+            var tokens = line.split(" ");
 
-            splitted = splitted.filter(token => { return token != ""; });
+            tokens = tokens.filter(token => { return token != ""; });
 
-            console.log(splitted);
+            console.log(tokens);
 
-            if (splitted.length < 2) {
-                alert(`Failed parsing line ${i + 1}`)
-                throw `Bad parse, line ${i + 1}`;
+            let opc_0_6 = tokens[0];
+
+            var rd = "";
+            var rs1 = "";
+            var rs2 = "";
+            var imm = "";
+
+            switch (tokens.length) {
+                case 3:
+                    rd = tokens[1];
+                    imm = tokens[2];
+                    break;
+                case 4:
+                    if (opc_0_6[0] == "b" || opc_0_6[0] == "s") {
+                        rs1 = tokens[1];
+                        imm = tokens[2];
+                    } else {
+                        rd = tokens[1];
+                        rs1 = tokens[2];
+                    }
+                    rs2 = tokens[3];
+                    break;
+                default:
+                    alert(`Bad arguments line ${i + 1}`)
+                    throw `Bad parse, line ${i + 1}`;
+                    break;
             }
 
-            let instruction = splitted[0];
+            if (rd != "") {
+                rd = reg_to_bin(rd);
+                if (rd == "") {
+                    alert(`Bad operand line ${i + 1}`)
+                    throw `Bad parse, line ${i + 1}`;
+                }
+            }
+            if (rs1 != "") {
+                rs1 = reg_to_bin(rs1);
+                if (rs1 == "") {
+                    alert(`Bad operand line ${i + 1}`)
+                    throw `Bad parse, line ${i + 1}`;
+                }
+            }
+            if (rs2 != "") {
+                rs2 = reg_to_bin(rs2);
+                if (rs2 == "") {
+                    alert(`Bad operand line ${i + 1}`)
+                    throw `Bad parse, line ${i + 1}`;
+                }
+            }
+            if (imm != "") {
+                imm = (parseInt(imm) >>> 0).toString(2);
+                if (imm.length < 20) imm = imm.padStart(20, "0");
+                else
+                    if (opc_0_6 == "jal") imm = imm.substring(imm.length - 20, imm.length);
+                    else imm = imm.substring(imm.length - 12, imm.length);
+            }
+
+            var ram_entry = "";
+
+            switch (opc_0_6) {
+
+                case "lui":
+                    ram_entry = `${imm}${rd}${lui}`;
+                    break;
+                case "auipc":
+                    ram_entry = `${imm}${rd}${auipc}`;
+                    break;
+                case "jal":
+                    // Now, here comes the monster:
+                    // imm = `${[0]}${imm[10]}${imm[11]}${imm[12]}${imm[13]}${imm[14]}${imm[15]}${imm[16]}${imm[17]}${imm[18]}${imm[19]}${imm[9]}${imm[1]}${imm[2]}${imm[3]}${imm[4]}${imm[5]}${imm[6]}${imm[7]}${imm[8]}`
+                    imm = `${imm[0]}${imm.substring(10, 20)}${imm[9]}${imm.substring(1, 9)}`;
+
+                    ram_entry = `${imm}${rd}${jal}`;
+                    break;
+                case "jalr":
+                    ram_entry = `${imm}${rs1}000${rd}${jalr}`;
+                    break;
+                case "beq":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "bne":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "blt":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}100${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "bge":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}101${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "bltu":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}110${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "bgeu":
+                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}111${imm.substring(8, 12)}${imm[1]}${B}`;
+                    break;
+                case "lb":
+                    ram_entry = `${imm}${rs1}000${rd}${L}`;
+                    break;
+                case "lh":
+                    ram_entry = `${imm}${rs1}001${rd}${L}`;
+                    break;
+                case "lw":
+                    ram_entry = `${imm}${rs1}010${rd}${L}`;
+                    break;
+                case "lbu":
+                    ram_entry = `${imm}${rs1}100${rd}${L}`;
+                    break;
+                case "lhu":
+                    ram_entry = `${imm}${rs1}101${rd}${L}`;
+                    break;
+                case "sb":
+                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${S}`;
+                    break;
+                case "sh":
+                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${S}`;
+                    break;
+                case "sw":
+                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}010${imm.substring(8, 12)}${S}`;
+                    break;
+                case "addi":
+                    ram_entry = `${imm}${rs1}000${rd}${I}`;
+                    break;
+                case "slti":
+                    ram_entry = `${imm}${rs1}010${rd}${I}`;
+                    break;
+                case "sltiu":
+                    ram_entry = `${imm}${rs1}011${rd}${I}`;
+                    break;
+                case "xori":
+                    ram_entry = `${imm}${rs1}100${rd}${I}`;
+                    break;
+                case "ori":
+                    ram_entry = `${imm}${rs1}110${rd}${I}`;
+                    break;
+                case "andi":
+                    ram_entry = `${imm}${rs1}111${rd}${I}`;
+                    break;
+                case "slli":
+                    ram_entry = `0000000${rs2}${rs1}001${rd}${I}`;
+                    break;
+                case "srli":
+                    ram_entry = `0000000${rs2}${rs1}101${rd}${I}`;
+                    break;
+                case "srai":
+                    ram_entry = `0100000${rs2}${rs1}101${rd}${I}`;
+                    break;
+                case "add":
+                    ram_entry = `0000000${rs2}${rs1}000${rd}${R}`;
+                    break;
+                case "sub":
+                    ram_entry = `0100000${rs2}${rs1}000${rd}${R}`;
+                    break;
+                case "sll":
+                    ram_entry = `0000000${rs2}${rs1}001${rd}${R}`;
+                    break;
+                case "slt":
+                    ram_entry = `0000000${rs2}${rs1}010${rd}${R}`;
+                    break;
+                case "sltu":
+                    ram_entry = `0000000${rs2}${rs1}011${rd}${R}`;
+                    break;
+                case "xor":
+                    ram_entry = `0000000${rs2}${rs1}100${rd}${R}`;
+                    break;
+                case "srl":
+                    ram_entry = `0000000${rs2}${rs1}101${rd}${R}`;
+                    break;
+                case "sra":
+                    ram_entry = `0100000${rs2}${rs1}101${rd}${R}`;
+                    break;
+                case "or":
+                    ram_entry = `0000000${rs2}${rs1}110${rd}${R}`;
+                    break;
+                case "and":
+                    ram_entry = `0000000${rs2}${rs1}111${rd}${R}`;
+                    break;
+                default:
+                    alert(`Unknown instruction line ${i + 1}`)
+                    throw `Bad parse, line ${i + 1}`;
+            }
 
 
-            out.value += instruction;
-            out.value += splitted[1];
-            out.value += "\n";
+            out.append(`${ram_entry}\n`);
+            ram_entry = parseInt(ram_entry, 2).toString(36);
+            out.append(`${ram_entry}\n`);
+            ram += `${ram_entry}|`;
 
             i++;
-
+            out.append(`${tokens}\n`)
+            out.append(`${ram}\n`)
         });
+
+        const xhr_submit = new XMLHttpRequest();
+        xhr_submit.open("POST", "http://192.168.3.4/submit");
+        xhr_submit.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+        xhr_submit.onload = () => {
+            if (xhr_submit.readyState == 4 && (xhr_submit.status == 201 || xhr_submit.status == 200)) {
+                console.log(JSON.parse(xhr_submit.responseText));
+            } else {
+                console.log(`Error: ${xhr_submit.status}`);
+                throw "Bad network.";
+            }
+        };
+
+        // Convert to unsigned int 32 ??
+        var x1 = parseInt(document.getElementById("x1").value, 10).toString(36);
+        var x2 = parseInt(document.getElementById("x2").value, 10).toString(36);
+        var x3 = parseInt(document.getElementById("x3").value, 10).toString(36);
+        var x4 = parseInt(document.getElementById("x4").value, 10).toString(36);
+        var x5 = parseInt(document.getElementById("x5").value, 10).toString(36);
+        var x6 = parseInt(document.getElementById("x6").value, 10).toString(36);
+        var x7 = parseInt(document.getElementById("x7").value, 10).toString(36);
+        var x8 = parseInt(document.getElementById("x8").value, 10).toString(36);
+        var x9 = parseInt(document.getElementById("x9").value, 10).toString(36);
+        var x10 = parseInt(document.getElementById("x10").value, 10).toString(36);
+        var x11 = parseInt(document.getElementById("x11").value, 10).toString(36);
+        var x12 = parseInt(document.getElementById("x12").value, 10).toString(36);
+        var x13 = parseInt(document.getElementById("x13").value, 10).toString(36);
+        var x14 = parseInt(document.getElementById("x14").value, 10).toString(36);
+        var x15 = parseInt(document.getElementById("x15").value, 10).toString(36);
+        var x16 = parseInt(document.getElementById("x16").value, 10).toString(36);
+        var x17 = parseInt(document.getElementById("x17").value, 10).toString(36);
+        var x18 = parseInt(document.getElementById("x18").value, 10).toString(36);
+        var x19 = parseInt(document.getElementById("x19").value, 10).toString(36);
+        var x20 = parseInt(document.getElementById("x20").value, 10).toString(36);
+        var x21 = parseInt(document.getElementById("x21").value, 10).toString(36);
+        var x22 = parseInt(document.getElementById("x22").value, 10).toString(36);
+        var x23 = parseInt(document.getElementById("x23").value, 10).toString(36);
+        var x24 = parseInt(document.getElementById("x24").value, 10).toString(36);
+        var x25 = parseInt(document.getElementById("x25").value, 10).toString(36);
+        var x26 = parseInt(document.getElementById("x26").value, 10).toString(36);
+        var x27 = parseInt(document.getElementById("x27").value, 10).toString(36);
+        var x28 = parseInt(document.getElementById("x28").value, 10).toString(36);
+        var x29 = parseInt(document.getElementById("x29").value, 10).toString(36);
+        var x30 = parseInt(document.getElementById("x30").value, 10).toString(36);
+        var x31 = parseInt(document.getElementById("x31").value, 10).toString(36);
+        var pc = parseInt(document.getElementById("pc").value, 10).toString(36);
+
+        var body = `id=${id}&ram=${ram}&ra=${x1}&sp=${x2}&gp=${x3}&tp=${x4}&t0=${x5}&t1=${x6}&t2=${x7}&fp=${x8}&s1=${x9}&a0=${x10}&a1=${x11}&a2=${x12}&a3=${x13}&a4=${x14}&a5=${x15}&a6=${x16}&a7=${x17}&s2=${x18}&s3=${x19}&s4=${x20}&s5=${x21}&s6=${x22}&s7=${x23}&s8=${x24}&s9=${x25}&s10=${x26}&s11=${x27}&t3=${x28}&t4=${x29}&t5=${x30}&t6=${x31}&pc=${pc}&prog=0&`;
+        xhr_submit.send(body)
+
+        var response;
+        var returned = false;
+        while (!returned) {
+
+            const xhr_return = new XMLHttpRequest();
+            xhr_return.open("POST", "http://192.168.3.4/return");
+            xhr_return.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+            xhr_return.onload = () => {
+                if (xhr_return.readyState == 4 && (xhr_return.status == 201 || xhr_return.status == 200)) {
+                    response = JSON.parse(xhr_return.responseText);
+                    console.log(response);
+                    returned = true;
+                } else {
+                    console.log(`Error: ${xhr_return.status}`);
+                    throw "Bad network.";
+                }
+            };
+        }
+
+        document.getElementById("x1").innerHTML = parseInt(response["x1"], 2).toString(16);
+        document.getElementById("x2").innerHTML = parseInt(response["x2"], 2).toString(16);
+        document.getElementById("x3").innerHTML = parseInt(response["x3"], 2).toString(16);
+        document.getElementById("x4").innerHTML = parseInt(response["x4"], 2).toString(16);
+        document.getElementById("x5").innerHTML = parseInt(response["x5"], 2).toString(16);
+        document.getElementById("x6").innerHTML = parseInt(response["x6"], 2).toString(16);
+        document.getElementById("x7").innerHTML = parseInt(response["x7"], 2).toString(16);
+        document.getElementById("x8").innerHTML = parseInt(response["x8"], 2).toString(16);
+        document.getElementById("x9").innerHTML = parseInt(response["x9"], 2).toString(16);
+        document.getElementById("x10").innerHTML = parseInt(response["x10"], 2).toString(16);
+        document.getElementById("x11").innerHTML = parseInt(response["x11"], 2).toString(16);
+        document.getElementById("x12").innerHTML = parseInt(response["x12"], 2).toString(16);
+        document.getElementById("x13").innerHTML = parseInt(response["x13"], 2).toString(16);
+        document.getElementById("x14").innerHTML = parseInt(response["x14"], 2).toString(16);
+        document.getElementById("x15").innerHTML = parseInt(response["x15"], 2).toString(16);
+        document.getElementById("x16").innerHTML = parseInt(response["x16"], 2).toString(16);
+        document.getElementById("x17").innerHTML = parseInt(response["x17"], 2).toString(16);
+        document.getElementById("x18").innerHTML = parseInt(response["x18"], 2).toString(16);
+        document.getElementById("x19").innerHTML = parseInt(response["x19"], 2).toString(16);
+        document.getElementById("x20").innerHTML = parseInt(response["x20"], 2).toString(16);
+        document.getElementById("x21").innerHTML = parseInt(response["x21"], 2).toString(16);
+        document.getElementById("x22").innerHTML = parseInt(response["x22"], 2).toString(16);
+        document.getElementById("x23").innerHTML = parseInt(response["x23"], 2).toString(16);
+        document.getElementById("x24").innerHTML = parseInt(response["x24"], 2).toString(16);
+        document.getElementById("x25").innerHTML = parseInt(response["x25"], 2).toString(16);
+        document.getElementById("x26").innerHTML = parseInt(response["x26"], 2).toString(16);
+        document.getElementById("x27").innerHTML = parseInt(response["x27"], 2).toString(16);
+        document.getElementById("x28").innerHTML = parseInt(response["x28"], 2).toString(16);
+        document.getElementById("x29").innerHTML = parseInt(response["x29"], 2).toString(16);
+        document.getElementById("x30").innerHTML = parseInt(response["x30"], 2).toString(16);
+        document.getElementById("x31").innerHTML = parseInt(response["x31"], 2).toString(16);
+        document.getElementById("pc").innerHTML = parseInt(response["pc"], 2).toString(16);
+
+
+
+
     }
 </script>
 
