@@ -37,7 +37,7 @@ int main()
                                           CYW43_AUTH_WPA2_MIXED_PSK))
   {
     printf("Failed connecting, trying again.\n");
-    sleep_ms(3000);
+    sleep_ms(1000);
   };
 
   printf("Connected, starting Emulator on core 1.\n");

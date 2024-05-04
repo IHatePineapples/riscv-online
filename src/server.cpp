@@ -22,9 +22,8 @@ namespace server
         init_all();
         for (;;)
         {
-            printf("%s:%d: Polling\n", __PRETTY_FUNCTION__, __LINE__);
             cyw43_arch_poll();
-            sleep_ms(200);
+            sleep_ms(50);
         }
     }
 }
