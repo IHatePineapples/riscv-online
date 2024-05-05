@@ -1,36 +1,31 @@
 #include "RoL/emulation/emulator.hpp"
 #include "RoL/parse.hpp"
+#if !RoL_testing
+#include "RoL/threaded/shared.hpp"
+#endif
 
 #include <ranges>
 #include <string>
 #include <sstream>
 #include <vector>
 
-#if !RoL_testing
-
-#include "RoL/threaded/shared.hpp"
-
-#endif
 namespace emulation
 {
 
 #if !RoL_testing
   void run()
   {
-  start_run:
-    printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
-    while (in_jq_.empty())
-    {
-    }
 
-    auto &[id, state] = in_jq_.front();
-    printf("%s:%d: Got a job [%d]!\n", __PRETTY_FUNCTION__, __LINE__, id);
+    printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
+    if(in_jq_.empty()) return;
+
+    auto [id, state] = in_jq_.front();
+    printf("%s:%d: Got a job [%d] in_jq.size() = '%d'!\n", __PRETTY_FUNCTION__, __LINE__, id, in_jq_.size());
     state.execute();
 
-    printf("%s:%d: Done [%d]!\n", __PRETTY_FUNCTION__, __LINE__, id);
     out_jq_.emplace_back({id, state});
     in_jq_.pop();
-    goto start_run;
+    printf("%s:%d: Done [%d]! in_jq.size() now = '%d'\n", __PRETTY_FUNCTION__, __LINE__, id, in_jq_.size());
   }
 #endif
 
