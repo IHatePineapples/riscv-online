@@ -50,7 +50,8 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
     const auto &[id, state] = current_job_;
 
     // If it's not ready, give up.
-    if (!id) return 0;
+    if (!id)
+        return 0;
 
     switch (iIndex)
     {
