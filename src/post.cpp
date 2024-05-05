@@ -18,6 +18,7 @@
 static void *current_connection;
 static void *valid_connection;
 
+static bool failed = false;
 static bool submit_job = false;
 static bool return_job = false;
 
@@ -393,7 +394,6 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         char *endptr = nullptr;
 
         unsigned char id = strtol(id_p, &endptr, 36);
-        /** \todo Implement ram */
 
         long ra = strtol(ra_p, &endptr, 36);
         long sp = strtol(sp_p, &endptr, 36);
@@ -427,10 +427,10 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         long t5 = strtol(t5_p, &endptr, 36);
         long t6 = strtol(t6_p, &endptr, 36);
         long pc = strtol(pc_p, &endptr, 36);
-
+        const std::string_view ram{ram_p, len_ram};
         /** \todo Parse program. */
         emulation::emulator state{};
-        state.ram = parse::decode_ram<emulation::xlen>({ram_p, len_ram});
+        state.ram = parse::decode_ram<emulation::xlen>(ram);
         state.ra = ra;
         state.sp = sp;
         state.gp = gp;
@@ -465,7 +465,7 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         state.pc = pc;
 
         in_jq_.push({id, state});
-        printf("%d: Submitted job [%d]\n", __LINE__, id);
+        printf("%d: Submitted job [%d] in_jq size () = '%d'\n", __LINE__, id, in_jq_.size());
     }
     else if (return_job)
     {
@@ -480,8 +480,8 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         char *id_p = (char *)pbuf_get_contiguous(p, id_buf, sizeof(id_buf), len_id, value_id);
 
         char id = strtol(id_p, nullptr, 36);
-        printf("%d: Returning job [%d] successffuly\n", __LINE__, id);
 
+        printf("%d: Pre-lock job [%d] out_jq_.size() = '%d'\n", __LINE__, id, out_jq_.size());
         out_jq_.lock();
         const auto it = std::find_if(out_jq_.begin(), out_jq_.end(), [id](const job_t &j)
                                      { return j.first == id; });
@@ -489,8 +489,10 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
         if (it == out_jq_.end())
         {
             // Not found, make sure SSI code path is aware !
+            failed = true;
             current_job_ = {};
             out_jq_.unlock();
+            printf("%d: Not returning job [%d] out_jq_.size() = '%d'\n", __LINE__, id, out_jq_.size());
             return ERR_VAL;
         }
 
@@ -498,6 +500,7 @@ err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 
         out_jq_.erase(it);
         out_jq_.unlock();
+        printf("%d: Returning job [%d] out_jq_.size() = '%d'\n", __LINE__, id, out_jq_.size());
     }
     /* not returning ERR_OK aborts the connection, so return ERR_OK unless the
        conenction is unknown */
@@ -512,10 +515,11 @@ void httpd_post_finished(void *connection, char *response_uri, u16_t response_ur
     current_connection = NULL;
     valid_connection = NULL;
 
-    if (return_job)
-        snprintf(response_uri, response_uri_len, "/return.json");
-    else
+    if (failed || submit_job)
         snprintf(response_uri, response_uri_len, "/submit.json");
+    else if (return_job)
+        snprintf(response_uri, response_uri_len, "/return.json");
     submit_job = false;
     return_job = false;
+    failed = false;
 }
