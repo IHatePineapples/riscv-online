@@ -15,10 +15,11 @@ namespace emulation
 #if !RoL_testing
   void run()
   {
-
     printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
-    if (in_jq_.empty())
-      return;
+    while (in_jq_.empty())
+    {
+      start_run:
+    }
 
     auto [id, state] = in_jq_.front();
     printf("%s:%d: Got a job [%d] in_jq.size() = '%d'!\n", __PRETTY_FUNCTION__, __LINE__, id, in_jq_.size());
@@ -27,6 +28,7 @@ namespace emulation
     out_jq_.emplace_back({id, state});
     in_jq_.pop();
     printf("%s:%d: Done [%d]! in_jq.size() now = '%d'\n", __PRETTY_FUNCTION__, __LINE__, id, in_jq_.size());
+    goto start_run;
   }
 #endif
 
@@ -639,7 +641,7 @@ namespace emulation
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm.set(i,  r.test(i + xlen - imm.size()));
+        imm.set(i, r.test(i + xlen - imm.size()));
 
       jalr_(rd, rs1, imm);
       return;
