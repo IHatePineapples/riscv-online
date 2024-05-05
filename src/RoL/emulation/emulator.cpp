@@ -17,7 +17,8 @@ namespace emulation
   {
 
     printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
-    if(in_jq_.empty()) return;
+    if (in_jq_.empty())
+      return;
 
     auto [id, state] = in_jq_.front();
     printf("%s:%d: Got a job [%d] in_jq.size() = '%d'!\n", __PRETTY_FUNCTION__, __LINE__, id, in_jq_.size());
@@ -34,11 +35,11 @@ namespace emulation
   {
     reg tmp = 0;
     for (std::size_t i = 0; i < n; ++i)
-      tmp[i] = imm.test(i);
+      tmp.set(i, imm.test(i));
 
     // Sign extend
     for (int i = n - 1; i < xlen - 1; ++i)
-      tmp[i] = imm.test(msb_pos);
+      tmp.set(i, imm.test(msb_pos));
     return tmp;
   }
 
@@ -136,7 +137,7 @@ namespace emulation
     reg offset = 0;
 
     for (std::size_t i = 0; i < imm.size(); ++i)
-      offset[i + offset.size() - imm.size()] = imm.test(i);
+      offset.set(i + offset.size() - imm.size(), imm.test(i));
     add_(rd, pc, offset);
     pc = rd;
   };
@@ -308,7 +309,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
-      rd[i] = ram.at(addr + i);
+      rd.set(i, ram.at(addr + i));
 
     rd = sign_extend<xlen>(rd, xlen / 4 - 1);
   };
@@ -323,7 +324,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 2; ++i)
-      rd[i] = ram.at(addr + i);
+      rd.set(i, ram.at(addr + i));
 
     rd = sign_extend<xlen>(rd, xlen / 2 - 1);
   };
@@ -338,7 +339,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen; ++i)
-      rd[i] = ram.at(addr + i);
+      rd.set(i, ram.at(addr + i));
   };
 
   void emulator::lbu_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -353,7 +354,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (std::size_t i = 0; i < xlen / 4; ++i)
-      rd[i] = ram.at(addr + i);
+      rd.set(i, ram.at(addr + i));
   };
 
   void emulator::lhu_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -368,7 +369,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
-      rd[i] = ram.at(addr + i);
+      rd.set(i, ram.at(addr + i));
   };
 
   void emulator::sb_(reg &rs1, reg &rs2, std::bitset<12> imm)
@@ -381,7 +382,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 4; ++i)
-      ram[addr + i] = rs2.test(i);
+      ram.at(addr + i) = rs2.test(i);
   };
 
   void emulator::sh_(reg &rs1, reg &rs2, std::bitset<12> imm)
@@ -394,7 +395,7 @@ namespace emulation
 
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen / 2; ++i)
-      ram[addr + i] = rs2.test(i);
+      ram.at(addr + i) = rs2.test(i);
   };
 
   /** \todo Implement real RAM! */
@@ -409,7 +410,7 @@ namespace emulation
     offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
     const auto addr = rs1.to_ulong() + offset;
     for (int i = 0; i < xlen; ++i)
-      ram[addr + i] = rs2.test(i);
+      ram.at(addr + i) = rs2.test(i);
   };
 
   void emulator::addi_(reg &rd, reg &rs1, std::bitset<12> imm)
@@ -455,7 +456,7 @@ namespace emulation
   void emulator::srai_(reg &rd, reg &rs1, std::bitset<5> shamt)
   {
     rd = rs1 >> shamt.to_ulong();
-    rd[rd.size() - 1] = rs1.test(rs1.size() - 1);
+    rd.set(rd.size() - 1, rs1.test(rs1.size() - 1));
   };
 
   void emulator::add_(reg &rd, const reg rs1, const reg rs2)
@@ -471,7 +472,6 @@ namespace emulation
     //   rd[i] = (rs1.test(i) ^ rs2.test(i)) ^ carry;
     //   carry = (rs1.test(i) && rs2.test(i)) || (rs1.test(i) && carry) || (rs2.test(i) && carry);
     // }
-
   };
 
   void emulator::sub_(reg &rd, const reg &rs1, const reg &rs2)
@@ -487,12 +487,12 @@ namespace emulation
     {
       if (!rs2_tmp.test(i))
       {
-        rs2_tmp[i] = 1;
+        rs2_tmp.set(i);
         carry = 0;
       }
       else
       {
-        rs2_tmp[i] = 0;
+        rs2_tmp.reset(i);
         carry = 1;
       }
 
@@ -510,14 +510,13 @@ namespace emulation
 
   void emulator::slt_(reg &rd, const reg &rs1, const reg &rs2)
   {
-    /** \todo Two's complement here! */
-    if (rs1[rs1.size() - 1] xor rs2.test(rs2.size() - 1))
+    if (rs1.test(rs1.size() - 1) xor rs2.test(rs2.size() - 1))
     {
-      rd = rs1[rs1.size() - 1] > rs2.test(rs2.size() - 1);
+      rd = rs1.test(rs1.size() - 1) > rs2.test(rs2.size() - 1);
       return;
     }
 
-    if (rs1[rs1.size() - 1] and rs2[rs2.size() - 1])
+    if (rs1.test(rs1.size() - 1) and rs2.test(rs2.size() - 1))
     {
       rd = rs1.to_ulong() > rs2.to_ulong();
       return;
@@ -545,7 +544,7 @@ namespace emulation
   void emulator::sra_(reg &rd, const reg &rs1, const reg &rs2)
   {
     rd = rs1 >> rs2.to_ulong();
-    rd[rd.size() - 1] = rs1.test(rs1.size() - 1);
+    rd.set(rd.size() - 1, rs1.test(rs1.size() - 1));
   };
 
   void emulator::or_(reg &rd, const reg &rs1, const reg &rs2)
@@ -572,22 +571,22 @@ namespace emulation
 
     for (int i = 0; i < xlen; ++i)
     {
-      r[i] = ram.at(pc.to_ulong() + xlen - i - 1);
+      r.set(i, ram.at(pc.to_ulong() + xlen - i - 1));
     }
 
     std::bitset<7> opc_r;
 
     for (std::size_t i = 0; i < opc_r.size(); ++i)
-      opc_r[i] = r.test(i);
+      opc_r.set(i, r.test(i));
 
     std::bitset<3> opc_l;
 
     for (std::size_t i = 0; i < opc_l.size(); ++i)
-      opc_l[i] = r.test(i + 12);
+      opc_l.set(i, r.test(i + 12));
 
     std::bitset<5> rd_b;
     for (std::size_t i = 0; i < rd_b.size(); ++i)
-      rd_b[i] = r.test(i + 7);
+      rd_b.set(i, r.test(i + 7));
 
     reg &rd = resolv_rd(rd_b);
 
@@ -595,7 +594,7 @@ namespace emulation
     {
       std::bitset<20> imm;
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm[i] = r.test(i + xlen - imm.size());
+        imm.set(i, r.test(i + xlen - imm.size()));
 
       if (opc_r.test(5))
         lui_(rd, imm);
@@ -611,12 +610,12 @@ namespace emulation
        * just pass a std::bitset<21> directly. */
       std::bitset<20> imm = 0;
       for (std::size_t i = 0; i < 10; ++i)
-        imm[i] = r.test(i + 21);
+        imm.set(i, r.test(i + 21));
 
-      imm[10] = r.test(20);
+      imm.set(10, r.test(20));
       for (std::size_t i = 11; i < 19; ++i)
-        imm[i] = r.test(i + 1);
-      imm[19] = r.test(31);
+        imm.set(i, r.test(i + 1));
+      imm.set(19, r.test(31));
 
       jal_(rd, imm);
       return;
@@ -625,13 +624,13 @@ namespace emulation
     std::bitset<5> rs1_b;
 
     for (std::size_t i = 0; i < rs1_b.size(); ++i)
-      rs1_b[i] = r.test(i + 15);
+      rs1_b.set(i, r.test(i + 15));
 
     auto rs1 = resolv_rd(rs1_b);
 
     std::bitset<5> rs2_b;
     for (std::size_t i = 0; i < rs2_b.size(); ++i)
-      rs2_b[i] = r.test(i + 15);
+      rs2_b.set(i, r.test(i + 15));
 
     auto rs2 = resolv_rd(rs2_b);
 
@@ -640,7 +639,7 @@ namespace emulation
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < imm.size(); ++i)
-        imm[i] = r.test(i + xlen - imm.size());
+        imm.set(i,  r.test(i + xlen - imm.size()));
 
       jalr_(rd, rs1, imm);
       return;
@@ -651,13 +650,13 @@ namespace emulation
 
       std::bitset<12> imm = 0;
       for (std::size_t i = 0; i < 4; ++i)
-        imm[i] = r.test(i + 8);
+        imm.set(i, r.test(i + 8));
 
       for (std::size_t i = 4; i < 10; ++i)
-        imm[i] = r.test(21 + i);
+        imm.set(i, r.test(21 + i));
 
-      imm[10] = r.test(7);
-      imm[11] = r.test(31);
+      imm.set(10, r.test(7));
+      imm.set(11, r.test(31));
 
       switch (opc_l.to_ulong())
       {
@@ -692,15 +691,15 @@ namespace emulation
 
       for (std::size_t i = 0; i < imm.size(); ++i)
       {
-        imm[i] = r.test(i + xlen - imm.size());
+        imm.set(i, r.test(i + xlen - imm.size()));
       }
 
-      if (opc_r[4])
+      if (opc_r.test(4))
       {
         std::bitset<5> shamt = 0;
 
         for (std::size_t i = 0; i < shamt.size(); ++i)
-          shamt[i] = r.test(i + xlen - imm.size());
+          shamt.set(i, r.test(i + xlen - imm.size()));
 
         switch (opc_r.to_ulong())
         {
@@ -766,9 +765,9 @@ namespace emulation
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < 5; ++i)
-        imm[i] = r.test(i + 7);
+        imm.set(i, r.test(i + 7));
       for (std::size_t i = 5; i < imm.size(); ++i)
-        imm[i] = r.test(i + 25);
+        imm.set(i, r.test(i + 25));
 
       switch (opc_l.to_ulong())
       {
