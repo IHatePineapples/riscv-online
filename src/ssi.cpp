@@ -55,7 +55,7 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
     switch (iIndex)
     {
     case 0:
-        printed = snprintf(pcInsert, iInsertLen, "Returned: %d", id);
+        printed = snprintf(pcInsert, iInsertLen, "%d", id);
         break;
     case 1:
         printed = snprintf(pcInsert, iInsertLen, state.serialize_ram().c_str());
