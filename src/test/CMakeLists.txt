@@ -9,6 +9,8 @@ add_subdirectory(../RoL/emulation/ ./RoL_emulation_bin.d)
     
 enable_testing()
     
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
     
 file(GLOB ALL_TESTS "test_*.cpp")
     
