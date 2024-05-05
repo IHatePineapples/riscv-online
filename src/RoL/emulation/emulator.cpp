@@ -18,7 +18,7 @@ namespace emulation
     printf("%s:%d: No jobs, taking a nap.\n", __PRETTY_FUNCTION__, __LINE__);
     while (in_jq_.empty())
     {
-      start_run:
+    start_run:
     }
 
     auto [id, state] = in_jq_.front();
@@ -45,7 +45,7 @@ namespace emulation
     return tmp;
   }
 
-  reg &emulator::resolv_rd(const std::bitset<5> &rd)
+  reg &emulator::resolv_rd(const std::bitset<5> rd)
   {
 
     switch (rd.to_ulong())
@@ -128,7 +128,7 @@ namespace emulation
       printf("%s:%i: Exhausted PC past maximum ('%s'), overflowed! Proceeding anyway.\n", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
   }
 
-  void emulator::lui_(reg &rd, const std::bitset<20> &imm)
+  void emulator::lui_(reg &rd, const std::bitset<20> imm)
   {
     rd = (imm.to_ulong() << (xlen - imm.size()));
   };
@@ -156,7 +156,7 @@ namespace emulation
     rd = pc.to_ulong() + (2 << 4);
     pc = pc.to_ulong() + offset;
   };
-  void emulator::jalr_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::jalr_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
 
     int offset = 0;
@@ -172,7 +172,7 @@ namespace emulation
     pc = address;
   };
 
-  void emulator::beq_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::beq_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
 
     int l = 0;
@@ -198,7 +198,7 @@ namespace emulation
 
     pc = pc.to_ulong() + (offset << 1);
   }
-  void emulator::bne_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::bne_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
@@ -224,7 +224,7 @@ namespace emulation
     pc = pc.to_ulong() + (offset << 1);
   }
 
-  void emulator::blt_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::blt_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
@@ -249,7 +249,7 @@ namespace emulation
 
     pc = pc.to_ulong() + (offset << 1);
   }
-  void emulator::bge_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::bge_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     int l = 0;
     for (std::size_t i = 0; i < rs1.size() - 2; ++i)
@@ -274,7 +274,7 @@ namespace emulation
 
     pc = pc.to_ulong() + (offset << 1);
   }
-  void emulator::bltu_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::bltu_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     if (rs1.to_ulong() >= rs2.to_ulong())
       return;
@@ -288,7 +288,7 @@ namespace emulation
     pc = pc.to_ulong() + (offset << 1);
   }
 
-  void emulator::bgeu_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::bgeu_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     if (rs1.to_ulong() < rs2.to_ulong())
       return;
@@ -301,7 +301,7 @@ namespace emulation
     pc = pc.to_ulong() + (offset << 1);
   }
 
-  void emulator::lb_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::lb_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
@@ -316,7 +316,7 @@ namespace emulation
     rd = sign_extend<xlen>(rd, xlen / 4 - 1);
   };
 
-  void emulator::lh_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::lh_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
@@ -331,7 +331,7 @@ namespace emulation
     rd = sign_extend<xlen>(rd, xlen / 2 - 1);
   };
 
-  void emulator::lw_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::lw_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
@@ -344,7 +344,7 @@ namespace emulation
       rd.set(i, ram.at(addr + i));
   };
 
-  void emulator::lbu_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::lbu_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = 0;
 
@@ -359,7 +359,7 @@ namespace emulation
       rd.set(i, ram.at(addr + i));
   };
 
-  void emulator::lhu_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::lhu_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = 0;
 
@@ -374,7 +374,7 @@ namespace emulation
       rd.set(i, ram.at(addr + i));
   };
 
-  void emulator::sb_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::sb_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
@@ -387,7 +387,7 @@ namespace emulation
       ram.at(addr + i) = rs2.test(i);
   };
 
-  void emulator::sh_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::sh_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     int offset = 0;
     for (std::size_t i = 0; i < imm.size() - 2; ++i)
@@ -400,8 +400,7 @@ namespace emulation
       ram.at(addr + i) = rs2.test(i);
   };
 
-  /** \todo Implement real RAM! */
-  void emulator::sw_(reg &rs1, reg &rs2, std::bitset<12> imm)
+  void emulator::sw_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     // RAM not implemented yet !
     // This is will just cause stack corrution/decay lol
@@ -415,47 +414,47 @@ namespace emulation
       ram.at(addr + i) = rs2.test(i);
   };
 
-  void emulator::addi_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::addi_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     add_(rd, rs1, sign_extend(imm));
   };
 
-  void emulator::slti_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::slti_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     slt_(rd, rs1, sign_extend(imm));
   };
 
-  void emulator::sltiu_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::sltiu_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = rs1.to_ulong() < sign_extend(imm).to_ulong();
   };
 
-  void emulator::xori_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::xori_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = rs1 ^ sign_extend(imm);
   };
 
-  void emulator::ori_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::ori_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = rs1 | sign_extend(imm);
   };
 
-  void emulator::andi_(reg &rd, reg &rs1, std::bitset<12> imm)
+  void emulator::andi_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
     rd = rs1 & sign_extend(imm);
   };
 
-  void emulator::slli_(reg &rd, reg &rs1, std::bitset<5> shamt)
+  void emulator::slli_(reg &rd, const reg rs1, const std::bitset<5> shamt)
   {
     rd = rs1 << shamt.to_ulong();
   };
 
-  void emulator::srli_(reg &rd, reg &rs1, std::bitset<5> shamt)
+  void emulator::srli_(reg &rd, const reg rs1, const std::bitset<5> shamt)
   {
     rd = rs1 >> shamt.to_ulong();
   };
 
-  void emulator::srai_(reg &rd, reg &rs1, std::bitset<5> shamt)
+  void emulator::srai_(reg &rd, const reg rs1, const std::bitset<5> shamt)
   {
     rd = rs1 >> shamt.to_ulong();
     rd.set(rd.size() - 1, rs1.test(rs1.size() - 1));
@@ -465,7 +464,6 @@ namespace emulation
   {
 
     rd = rs1.to_ulong() + rs2.to_ulong();
-    printf("add_ : %s + %s = %s\n", rs1.to_string().c_str(), rs2.to_string().c_str(), rd.to_string().c_str());
     return;
 
     // bool carry = 0;
@@ -476,41 +474,21 @@ namespace emulation
     // }
   };
 
-  void emulator::sub_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::sub_(reg &rd, const reg rs1, const reg rs2)
   {
     // Compute 2's complement, then do an ADD.
     // This is better than duplicating code.
-
-    reg rs2_tmp = rs2;
-    rs2_tmp.flip();
-
-    bool carry = 0;
-    for (int i = 0; i < xlen; ++i)
-    {
-      if (!rs2_tmp.test(i))
-      {
-        rs2_tmp.set(i);
-        carry = 0;
-      }
-      else
-      {
-        rs2_tmp.reset(i);
-        carry = 1;
-      }
-
-      if (!carry)
-        break;
-    }
-
-    emulator::add_(rd, rs1, std::move(rs2_tmp));
+    reg rs2_tmp;
+    emulator::add_(rs2_tmp, ~rs2, 1);
+    emulator::add_(rd, rs1, rs2_tmp);
   };
 
-  void emulator::sll_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::sll_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1 << rs2.to_ulong();
   }
 
-  void emulator::slt_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::slt_(reg &rd, const reg rs1, const reg rs2)
   {
     if (rs1.test(rs1.size() - 1) xor rs2.test(rs2.size() - 1))
     {
@@ -528,33 +506,33 @@ namespace emulation
     return;
   };
 
-  void emulator::sltu_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::sltu_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1.to_ulong() > rs2.to_ulong(); // ? 1 : 0;
   };
 
-  void emulator::xor_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::xor_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1 ^ rs2;
   };
 
-  void emulator::srl_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::srl_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1 >> rs2.to_ulong();
   };
 
-  void emulator::sra_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::sra_(reg &rd, const reg rs1, const reg rs2)
   {
-    rd = rs1 >> rs2.to_ulong();
+    rd = (rs1 >> rs2.to_ulong());
     rd.set(rd.size() - 1, rs1.test(rs1.size() - 1));
   };
 
-  void emulator::or_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::or_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1 | rs2;
   };
 
-  void emulator::and_(reg &rd, const reg &rs1, const reg &rs2)
+  void emulator::and_(reg &rd, const reg rs1, const reg rs2)
   {
     rd = rs1 & rs2;
   };
