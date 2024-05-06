@@ -13,8 +13,6 @@ add_custom_target(fsdata
 
 set(riscv "RISCV_Online")
 add_executable(${riscv} riscv_online.cpp # main() entry-point
-    cgi.cpp
-    cgi.h
     config.hpp
     post.cpp
     server.cpp
