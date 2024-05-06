@@ -56,10 +56,10 @@ namespace emulation
     /**
      * \fn resolv_rd
      * \param rd bitset where the rd is encoded as a 5 bit digit.
-     * 
+     *
      * \brief Returns a reference to the destination register bitset `rd` points to.
-    */
-    reg &resolv_rd(const std::bitset<5> );
+     */
+    reg &resolv_rd(const std::bitset<5>);
 
     /**
      * \fn inc_pc
@@ -76,7 +76,7 @@ namespace emulation
      * \param imm
      * \brief Load Upper Immediate.
      */
-    void lui_(reg &, const std::bitset<20> );
+    void lui_(reg &, const std::bitset<20>);
 
     /**
      * \fn auipc_
@@ -90,13 +90,13 @@ namespace emulation
      *
      * \brief Jump And Link.
      */
-    void jal_(reg& rd, const std::bitset<20> imm);
+    void jal_(reg &rd, const std::bitset<20> imm);
     /**
      * \fn jalr_
      *
      * \brief Jump And Link Register.
      */
-    void jalr_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void jalr_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn beq_
      *
@@ -138,31 +138,31 @@ namespace emulation
      *
      * \brief Load Byte.
      */
-    void lb_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void lb_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn lh_
      *
      * \brief Load Halfword.
      */
-    void lh_(reg& rd,const reg rs1,const std::bitset<12> imm);
+    void lh_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn lw_
      *
      * \brief Load Word.
      */
-    void lw_(reg& rd,const reg rs1,const std::bitset<12> imm);
+    void lw_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn lbu_
      *
      * \brief Load Byte Unsigned.
      */
-    void lbu_(reg& rd,const reg rs1,const std::bitset<12> imm);
+    void lbu_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn lhu_
      *
      * \brief Load Halfword Unsigned.
      */
-    void lhu_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void lhu_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn sb_
      *
@@ -186,100 +186,100 @@ namespace emulation
      *
      * \brief Add Immediate.
      */
-    void addi_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void addi_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn slti_
      *
      * \brief Set Less Than Immediate.
      */
-    void slti_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void slti_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn sltiu_
      *
      * \brief Set Less Than Immediate Unsigned.
      */
-    void sltiu_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void sltiu_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn xori_
      *
      * \brief eXclusive OR Immediate.
      */
-    void xori_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void xori_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn ori_
      *
      * \brief OR Immediate.
      */
-    void ori_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void ori_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn andi_
      *
      * \brief AND Immediate.
      */
-    void andi_(reg& rd, const reg rs1, const std::bitset<12> imm);
+    void andi_(reg &rd, const reg rs1, const std::bitset<12> imm);
     /**
      * \fn slli_
      *
      * \brief Shift Left Logical Immediate.
      */
-    void slli_(reg& rd, const reg rs1, const std::bitset<5> shamt);
+    void slli_(reg &rd, const reg rs1, const std::bitset<5> shamt);
     /**
      * \fn stli
      *
      * \brief Shift Right Logical Immediate.
      */
-    void srli_(reg& rd, const reg rs1, const std::bitset<5> shamt);
+    void srli_(reg &rd, const reg rs1, const std::bitset<5> shamt);
     /**
      * \fn srai_
      *
      * \brief Shift Right Arithmetic Immediate.
      */
-    void srai_(reg& rd, const reg rs1, const std::bitset<5> shamt);
+    void srai_(reg &rd, const reg rs1, const std::bitset<5> shamt);
     /**
      * \fn add_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief ADD.
      */
-    void add_(reg& rd, const reg rs1, const reg rs2);
+    void add_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn sub_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief SUBstract.
      */
-    void sub_(reg& rd, const reg rs1, const reg rs2);
+    void sub_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn sll_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief Shift Left Logical.
      */
-    void sll_(reg& rd, const reg rs1, const reg rs2);
-    
+    void sll_(reg &rd, const reg rs1, const reg rs2);
+
     /**
      * \fn slt_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief Set Less Than.
      */
-    void slt_(reg& rd, const reg rs1, const reg rs2);
+    void slt_(reg &rd, const reg rs1, const reg rs2);
 
     /**
      * \fn sltu_
@@ -287,44 +287,44 @@ namespace emulation
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief Set Less Than Unsigned.
      */
-    void sltu_(reg& rd, const reg rs1, const reg rs2);
+    void sltu_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn xor_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief eXclusive OR.
      */
-    void xor_(reg& rd, const reg rs1, const reg rs2);
+    void xor_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn srl_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      *
      * \brief Shift Right Logical.
      */
-    void srl_(reg& rd, const reg rs1, const reg rs2);
+    void srl_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn sra_
      *
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      * rd = rs1 >> rs2, MSB extends, i.e. "signed" shift.
      * \brief Shift Right Arithmetic.
      */
-    void sra_(reg& rd, const reg rs1, const reg rs2);
+    void sra_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn or_
      * \param rd Destination rd.
@@ -333,18 +333,18 @@ namespace emulation
      *
      * \brief OR.
      */
-    void or_(reg& rd, const reg rs1, const reg rs2);
+    void or_(reg &rd, const reg rs1, const reg rs2);
     /**
      * \fn and_
      * \param rd Destination rd.
      * \param rs1 First operand.
      * \param rs2 Second operand.
-     * 
+     *
      * `rd = rs1 & rs2`
      * \brief AND.
-     * 
+     *
      */
-    void and_(reg& rd, const reg rs1, const reg rs2);
+    void and_(reg &rd, const reg rs1, const reg rs2);
 
     void execute();
 
