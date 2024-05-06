@@ -20,6 +20,7 @@ var lwipopts_8h =
     [ "LWIP_ETHERNET", "lwipopts_8h.html#a30e02dc217cc2995d0fd241d510c904f", null ],
     [ "LWIP_HTTPD", "lwipopts_8h.html#ae3f241fc385b2ffe2ef462bad97c5ba3", null ],
     [ "LWIP_HTTPD_CGI", "lwipopts_8h.html#afb28f7c5fee75f013a199d427452372c", null ],
+    [ "LWIP_HTTPD_CGI_SSI", "lwipopts_8h.html#ad3960bf65731bd0f1341867664afe860", null ],
     [ "LWIP_HTTPD_SSI", "lwipopts_8h.html#acb70e0cdd30a940f8bce681c6cc63949", null ],
     [ "LWIP_HTTPD_SSI_INCLUDE_TAG", "lwipopts_8h.html#a975961a6d22d1a077118fb85dfec809a", null ],
     [ "LWIP_HTTPD_SUPPORT_POST", "lwipopts_8h.html#acbea06ce33933e3ef2f2f1834a21cc2c", null ],

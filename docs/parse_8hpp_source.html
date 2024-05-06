@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('parse_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      std::bitset&lt;xlen&gt; bs = to_int;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">if</span> (bs.any())</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        bs[0] = 1;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        bs.set(0);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code" href="namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3">xlen</a> - 1; i != -1; --i)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ram.emplace_back(bs.test(i));</div>
