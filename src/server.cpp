@@ -8,7 +8,6 @@
 #include "RoL/threaded/shared.hpp"
 #include "ssi.h"
 
-
 namespace server
 {
     void init_all()
