@@ -32,7 +32,7 @@ namespace emulation
   }
 #endif
 
-  template <std::size_t n = 11>
+  template <std::size_t n>
   static constexpr reg sign_extend(std::bitset<n> imm, std::size_t msb_pos = (n - 1))
   {
     reg tmp = 0;
@@ -40,7 +40,7 @@ namespace emulation
       tmp.set(i, imm.test(i));
 
     // Sign extend
-    for (int i = n - 1; i < xlen - 1; ++i)
+    for (int i = n - 1; i < xlen; ++i)
       tmp.set(i, imm.test(msb_pos));
     return tmp;
   }
@@ -120,13 +120,7 @@ namespace emulation
     }
   }
 
-  void emulator::inc_pc()
-  {
-    const auto old_pc = pc;
-    add_(pc, pc, xlen);
-    if (old_pc == pc)
-      printf("%s:%i: Exhausted PC past maximum ('%s'), overflowed! Proceeding anyway.\n", __PRETTY_FUNCTION__, __LINE__, pc.to_string().c_str());
-  }
+  void emulator::increment_pc() { add_(pc, pc, xlen); }
 
   void emulator::lui_(reg &rd, const std::bitset<20> imm)
   {
@@ -313,7 +307,7 @@ namespace emulation
     for (std::size_t i = 0; i < xlen / 4; ++i)
       rd.set(i, ram.at(addr + i));
 
-    rd = sign_extend<xlen>(rd, xlen / 4 - 1);
+    rd = sign_extend(rd, xlen / 4 - 1);
   };
 
   void emulator::lh_(reg &rd, const reg rs1, const std::bitset<12> imm)
@@ -328,7 +322,7 @@ namespace emulation
     for (std::size_t i = 0; i < xlen / 2; ++i)
       rd.set(i, ram.at(addr + i));
 
-    rd = sign_extend<xlen>(rd, xlen / 2 - 1);
+    rd = sign_extend(rd, xlen / 2 - 1);
   };
 
   void emulator::lw_(reg &rd, const reg rs1, const std::bitset<12> imm)
@@ -479,9 +473,8 @@ namespace emulation
   {
     // Compute 2's complement, then do an ADD.
     // This is better than duplicating code.
-    reg rs2_tmp;
-    emulator::add_(rs2_tmp, ~rs2, 1);
-    emulator::add_(rd, rs1, rs2_tmp);
+    emulator::add_(rd, ~rs2, 1);
+    emulator::add_(rd, rs1, rd);
   };
 
   void emulator::sll_(reg &rd, const reg rs1, const reg rs2)
@@ -670,7 +663,7 @@ namespace emulation
 
       for (std::size_t i = 0; i < imm.size(); ++i)
       {
-        imm.set(i, r.test(i + xlen - imm.size() -1 ));
+        imm.set(i, r.test(i + xlen - imm.size() - 1));
       }
 
       if (opc_r.test(4))
@@ -800,8 +793,7 @@ namespace emulation
         break;
       }
     }
-
-    inc_pc();
+    increment_pc();
   }
 
   std::string emulator::serialize_ram() const

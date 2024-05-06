@@ -62,13 +62,13 @@ namespace emulation
     reg &resolv_rd(const std::bitset<5>);
 
     /**
-     * \fn inc_pc
+     * \fn increment_pc
      *
      * \brief Increments PC by `xlen` (32), using an optimised add with carry.
      * \warning Not prone to overflow. Trying to execute past maximum (2^32) will not increment anymore.
      * That shouldn't happen anyway, but it's important to know.
      */
-    void inc_pc();
+    void increment_pc();
 
     /**
      * \fn lui_
