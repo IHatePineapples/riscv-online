@@ -8,6 +8,7 @@
 #include <cstring>
 
 #include <algorithm>
+#include <memory>
 #include <string>
 
 #include "RoL/threaded/shared.hpp"
@@ -26,16 +27,14 @@ job_t current_job_{};
 
 err_t httpd_post_begin(void *connection, const char *uri, const char *,
                        u16_t, int, char *response_uri,
-                       u16_t response_uri_len, u8_t *post_auto_wnd)
+                       u16_t response_uri_len, u8_t *)
 {
     if (current_connection == connection)
         return ERR_VAL;
 
     current_connection = connection;
-    *post_auto_wnd = 1;
     if (!memcmp(uri, "/submit", 8))
     {
-        /* default page is "login failed" */
         snprintf(response_uri, response_uri_len, "/submit.json");
         /* e.g. for large uploads to slow flash over a fast connection, you should
            manually update the rx window. That way, a sender can only send a full
@@ -52,7 +51,6 @@ err_t httpd_post_begin(void *connection, const char *uri, const char *,
            manually update the rx window. That way, a sender can only send a full
            tcp window at a time. If this is required, set 'post_aut_wnd' to 0.
            We do not need to throttle upload speed here, so: */
-        *post_auto_wnd = 1;
         return_job = true;
         return ERR_OK;
     }
@@ -62,6 +60,7 @@ err_t httpd_post_begin(void *connection, const char *uri, const char *,
 
 err_t httpd_post_receive_data(void *connection, struct pbuf *p)
 {
+    std::unique_ptr<pbuf, decltype(&pbuf_free)> p_(p,  &pbuf_free);
     if (current_connection != connection)
         return ERR_VAL;
 
