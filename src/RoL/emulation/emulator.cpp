@@ -45,6 +45,16 @@ namespace emulation
     return tmp;
   }
 
+  template <std::size_t n>
+  static constexpr int to_sint(std::bitset<n> bs)
+  {
+    int rep = 0;
+    for (std::size_t i = 0; i < n - 2; ++i)
+      rep += bs.test(i) << i;
+    rep -= bs.test(n - 1) << (n - 1);
+    return rep;
+  }
+
   reg &emulator::resolv_rd(const std::bitset<5> rd)
   {
 
