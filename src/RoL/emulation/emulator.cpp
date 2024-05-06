@@ -416,6 +416,7 @@ namespace emulation
 
   void emulator::addi_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
+    printf("addi called\n");
     add_(rd, rs1, sign_extend(imm));
   };
 
@@ -624,8 +625,7 @@ namespace emulation
       jalr_(rd, rs1, imm);
       return;
     }
-
-    if (opc_r == parse::B)
+    else if (opc_r == parse::B)
     {
 
       std::bitset<12> imm = 0;
@@ -664,14 +664,13 @@ namespace emulation
         break;
       }
     }
-
-    if (opc_r == parse::I or opc_r == parse::L)
+    else if (opc_r == parse::I or opc_r == parse::L)
     {
       std::bitset<12> imm;
 
       for (std::size_t i = 0; i < imm.size(); ++i)
       {
-        imm.set(i, r.test(i + xlen - imm.size()));
+        imm.set(i, r.test(i + xlen - imm.size() -1 ));
       }
 
       if (opc_r.test(4))
@@ -681,7 +680,7 @@ namespace emulation
         for (std::size_t i = 0; i < shamt.size(); ++i)
           shamt.set(i, r.test(i + xlen - imm.size()));
 
-        switch (opc_r.to_ulong())
+        switch (opc_l.to_ulong())
         {
         case 0:
           addi_(rd, rs1, imm);
@@ -717,7 +716,7 @@ namespace emulation
       }
       else
       {
-        switch (opc_r.to_ulong())
+        switch (opc_l.to_ulong())
         {
         case 0:
           lb_(rd, rs1, imm);
@@ -812,12 +811,12 @@ namespace emulation
       ram_c.emplace_back(b + 48); // ASCII hack
 
     std::vector<std::string> splitted;
-    for (std::size_t n = 0; n < ram.size(); n += xlen)
+    for (std::size_t n = 0; n + xlen < ram_c.size(); n += xlen)
     {
       reg bs(ram_c.data() + n, xlen);
 
       splitted.emplace_back(parse::base36_encode(bs.to_ulong()));
-      splitted.at(n / xlen).append("|");
+      splitted.back().append("|");
     }
 
     std::string out;
