@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('post_8cpp.html',''); initResizable(); 
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="shared_8hpp_source.html">RoL/threaded/shared.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="emulator_8hpp_source.html">RoL/emulation/emulator.hpp</a>&quot;</code><br />
@@ -121,8 +122,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac109fa21e1504f9a4302883bc7535d78"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#ac109fa21e1504f9a4302883bc7535d78">httpd_post_begin</a> (void *connection, const char *uri, const char *, u16_t, int, char *response_uri, u16_t response_uri_len, u8_t *post_auto_wnd)</td></tr>
-<tr class="separator:ac109fa21e1504f9a4302883bc7535d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e7f7be954355a0dd6b7e059ced2bbdb"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#a8e7f7be954355a0dd6b7e059ced2bbdb">httpd_post_begin</a> (void *connection, const char *uri, const char *, u16_t, int, char *response_uri, u16_t response_uri_len, u8_t *)</td></tr>
+<tr class="separator:a8e7f7be954355a0dd6b7e059ced2bbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a461409c8813c2a82ba63fde987c0e537"><td class="memItemLeft" align="right" valign="top">err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#a461409c8813c2a82ba63fde987c0e537">httpd_post_receive_data</a> (void *connection, struct pbuf *p)</td></tr>
 <tr class="separator:a461409c8813c2a82ba63fde987c0e537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a477473f7ead250fec71f1f8b9926fec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="post_8cpp.html#a477473f7ead250fec71f1f8b9926fec5">httpd_post_finished</a> (void *connection, char *response_uri, u16_t response_uri_len)</td></tr>
@@ -156,13 +157,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00016">16</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00017">17</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac109fa21e1504f9a4302883bc7535d78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac109fa21e1504f9a4302883bc7535d78">&#9670;&nbsp;</a></span>httpd_post_begin()</h2>
+<a id="a8e7f7be954355a0dd6b7e059ced2bbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e7f7be954355a0dd6b7e059ced2bbdb">&#9670;&nbsp;</a></span>httpd_post_begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +214,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">u8_t *&#160;</td>
-          <td class="paramname"><em>post_auto_wnd</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -223,7 +224,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00027">27</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00028">28</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +260,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00510">510</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00509">509</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,9 +289,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Parse program. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Parse program. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00063">63</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00061">61</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -323,7 +324,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00018">18</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00019">19</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -339,7 +340,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00025">25</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00026">26</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -363,7 +364,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00021">21</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00022">22</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +388,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00023">23</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00024">24</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +412,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00022">22</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00023">23</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +436,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00019">19</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="post_8cpp_source.html#l00020">20</a> of file <a class="el" href="post_8cpp_source.html">post.cpp</a>.</p>
 
 </div>
 </div>

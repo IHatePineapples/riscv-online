@@ -1,11 +1,11 @@
 <map id="emulation::emulator::add_" name="emulation::emulator::add_">
 <area shape="rect" id="node1" title="ADD." alt="" coords="411,156,565,197"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01" title="Add Immediate." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="208,5,363,47"/>
 <area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,123,160,164"/>
 <area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="208,305,363,347"/>
 <area shape="rect" id="node7" href="$structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="208,123,363,164"/>
 <area shape="rect" id="node8" href="$test__emulator__add_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="258,254,313,281"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#af3cce7c55fd0ee41bb0ab47bb9c65b1f" title="SUBstract." alt="" coords="208,188,363,229"/>
+<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#ab87a4f2f0e06e29bdbc4215a1b3e8094" title="SUBstract." alt="" coords="208,188,363,229"/>
 <area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,39"/>
 <area shape="rect" id="node6" href="$test__emulator__auipc_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,313,110,339"/>
 </map>

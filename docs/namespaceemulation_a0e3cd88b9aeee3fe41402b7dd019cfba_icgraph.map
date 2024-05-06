@@ -1,11 +1,11 @@
 <map id="emulation::sign_extend" name="emulation::sign_extend">
 <area shape="rect" id="node1" title=" " alt="" coords="411,177,585,203"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a5f9c67126d2260f36d5149df40f3cd01" title="Add Immediate." alt="" coords="208,5,363,47"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#aed962b5f80b5af390a79d5a6aaa290f8" title="AND Immediate." alt="" coords="208,332,363,373"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#ae75621b92b72655354a0d36fa9ff4ab2" title="OR Immediate." alt="" coords="208,71,363,112"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a26320b09d16d03954e00f64f9f4a043e" title="Set Less Than Immediate." alt="" coords="208,136,363,177"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#a09c3d0223377df323d794fb6469f505f" title="Set Less Than Immediate Unsigned." alt="" coords="208,201,363,243"/>
-<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#a82c92b91f16ebb65040ce0b5da4b9d4e" title="eXclusive OR Immediate." alt="" coords="208,267,363,308"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="208,332,363,373"/>
+<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="208,71,363,112"/>
+<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="208,136,363,177"/>
+<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="208,201,363,243"/>
+<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="208,267,363,308"/>
 <area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,169,160,211"/>
 <area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,39"/>
 <area shape="rect" id="node6" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,339,110,366"/>
