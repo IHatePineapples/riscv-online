@@ -150,16 +150,10 @@ namespace emulation
 
   void emulator::jal_(reg &rd, const std::bitset<20> imm)
   {
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-    offset <<= 1;
-    rd = pc.to_ulong() + (2 << 4);
-    pc = pc.to_ulong() + offset;
+    add_(rd, pc, xlen);
+    add_(pc, pc, sign_extend(imm) << 1);
   };
+
   void emulator::jalr_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
 
