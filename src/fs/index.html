@@ -275,6 +275,118 @@
         }
     }
 
+    var retries = 0;
+    function return_job_r() {
+        const xhr_return = new XMLHttpRequest();
+        xhr_return.open("POST", "http://192.168.3.4/return");
+        xhr_return.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+        xhr_return.onload = () => {
+            if (xhr_return.readyState == 4 && xhr_return.status == 200) {
+                let response = JSON.parse(xhr_return.responseText);
+
+                console.log(response);
+                if (Object.keys(response).length > 5) {
+
+                    document.getElementById("x1").innerHTML = parseInt(response.ra, 2).toString(16);
+                    document.getElementById("x2").innerHTML = parseInt(response.sp, 2).toString(16);
+                    document.getElementById("x3").innerHTML = parseInt(response.gp, 2).toString(16);
+                    document.getElementById("x4").innerHTML = parseInt(response.tp, 2).toString(16);
+                    document.getElementById("x5").innerHTML = parseInt(response.t0, 2).toString(16);
+                    document.getElementById("x6").innerHTML = parseInt(response.t1, 2).toString(16);
+                    document.getElementById("x7").innerHTML = parseInt(response.t2, 2).toString(16);
+                    document.getElementById("x8").innerHTML = parseInt(response.fp, 2).toString(16);
+                    document.getElementById("x9").innerHTML = parseInt(response.s1, 2).toString(16);
+                    document.getElementById("x10").innerHTML = parseInt(response.a0, 2).toString(16);
+                    document.getElementById("x11").innerHTML = parseInt(response.a1, 2).toString(16);
+                    document.getElementById("x12").innerHTML = parseInt(response.a2, 2).toString(16);
+                    document.getElementById("x13").innerHTML = parseInt(response.a3, 2).toString(16);
+                    document.getElementById("x14").innerHTML = parseInt(response.a4, 2).toString(16);
+                    document.getElementById("x15").innerHTML = parseInt(response.a5, 2).toString(16);
+                    document.getElementById("x16").innerHTML = parseInt(response.a6, 2).toString(16);
+                    document.getElementById("x17").innerHTML = parseInt(response.a7, 2).toString(16);
+                    document.getElementById("x18").innerHTML = parseInt(response.s2, 2).toString(16);
+                    document.getElementById("x19").innerHTML = parseInt(response.s3, 2).toString(16);
+                    document.getElementById("x20").innerHTML = parseInt(response.s4, 2).toString(16);
+                    document.getElementById("x21").innerHTML = parseInt(response.s5, 2).toString(16);
+                    document.getElementById("x22").innerHTML = parseInt(response.s6, 2).toString(16);
+                    document.getElementById("x23").innerHTML = parseInt(response.s7, 2).toString(16);
+                    document.getElementById("x24").innerHTML = parseInt(response.s8, 2).toString(16);
+                    document.getElementById("x25").innerHTML = parseInt(response.s9, 2).toString(16);
+                    document.getElementById("x26").innerHTML = parseInt(response.s10, 2).toString(16);
+                    document.getElementById("x27").innerHTML = parseInt(response.s11, 2).toString(16);
+                    document.getElementById("x28").innerHTML = parseInt(response.t3, 2).toString(16);
+                    document.getElementById("x29").innerHTML = parseInt(response.t4, 2).toString(16);
+                    document.getElementById("x30").innerHTML = parseInt(response.t5, 2).toString(16);
+                    document.getElementById("x31").innerHTML = parseInt(response.t6, 2).toString(16);
+                    document.getElementById("pc").innerHTML = parseInt(response.pc, 2).toString(16);
+                    retries = 0;
+                } else {
+                }
+            } else {
+                console.log(`Error: ${xhr_return.status}`);
+            }
+        };
+
+        xhr_return.send(`id=${id}&`);
+
+    }
+
+    function send_job(ram) {
+
+        const xhr_submit = new XMLHttpRequest();
+        xhr_submit.open("POST", "http://192.168.3.4/submit");
+        xhr_submit.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+        xhr_submit.onload = () => {
+            if (xhr_submit.readyState == 4 && (xhr_submit.status == 201 || xhr_submit.status == 200)) {
+                console.log(JSON.parse(xhr_submit.responseText));
+            } else {
+                console.log(`Error: ${xhr_submit.status}`);
+                throw "Bad network.";
+            }
+        };
+
+        // Convert to unsigned int 32 ??
+        var x1 = parseInt(document.getElementById("x1").innerHTML, 16).toString(36);
+        var x2 = parseInt(document.getElementById("x2").innerHTML, 16).toString(36);
+        var x3 = parseInt(document.getElementById("x3").innerHTML, 16).toString(36);
+        var x4 = parseInt(document.getElementById("x4").innerHTML, 16).toString(36);
+        var x5 = parseInt(document.getElementById("x5").innerHTML, 16).toString(36);
+        var x6 = parseInt(document.getElementById("x6").innerHTML, 16).toString(36);
+        var x7 = parseInt(document.getElementById("x7").innerHTML, 16).toString(36);
+        var x8 = parseInt(document.getElementById("x8").innerHTML, 16).toString(36);
+        var x9 = parseInt(document.getElementById("x9").innerHTML, 16).toString(36);
+        var x10 = parseInt(document.getElementById("x10").innerHTML, 16).toString(36);
+        var x11 = parseInt(document.getElementById("x11").innerHTML, 16).toString(36);
+        var x12 = parseInt(document.getElementById("x12").innerHTML, 16).toString(36);
+        var x13 = parseInt(document.getElementById("x13").innerHTML, 16).toString(36);
+        var x14 = parseInt(document.getElementById("x14").innerHTML, 16).toString(36);
+        var x15 = parseInt(document.getElementById("x15").innerHTML, 16).toString(36);
+        var x16 = parseInt(document.getElementById("x16").innerHTML, 16).toString(36);
+        var x17 = parseInt(document.getElementById("x17").innerHTML, 16).toString(36);
+        var x18 = parseInt(document.getElementById("x18").innerHTML, 16).toString(36);
+        var x19 = parseInt(document.getElementById("x19").innerHTML, 16).toString(36);
+        var x20 = parseInt(document.getElementById("x20").innerHTML, 16).toString(36);
+        var x21 = parseInt(document.getElementById("x21").innerHTML, 16).toString(36);
+        var x22 = parseInt(document.getElementById("x22").innerHTML, 16).toString(36);
+        var x23 = parseInt(document.getElementById("x23").innerHTML, 16).toString(36);
+        var x24 = parseInt(document.getElementById("x24").innerHTML, 16).toString(36);
+        var x25 = parseInt(document.getElementById("x25").innerHTML, 16).toString(36);
+        var x26 = parseInt(document.getElementById("x26").innerHTML, 16).toString(36);
+        var x27 = parseInt(document.getElementById("x27").innerHTML, 16).toString(36);
+        var x28 = parseInt(document.getElementById("x28").innerHTML, 16).toString(36);
+        var x29 = parseInt(document.getElementById("x29").innerHTML, 16).toString(36);
+        var x30 = parseInt(document.getElementById("x30").innerHTML, 16).toString(36);
+        var x31 = parseInt(document.getElementById("x31").innerHTML, 16).toString(36);
+        var pc = parseInt(document.getElementById("pc").innerHTML, 16).toString(36);
+
+
+        var body = `id=${id}&ram=${ram}&ra=${x1}&sp=${x2}&gp=${x3}&tp=${x4}&t0=${x5}&t1=${x6}&t2=${x7}&fp=${x8}&s1=${x9}&a0=${x10}&a1=${x11}&a2=${x12}&a3=${x13}&a4=${x14}&a5=${x15}&a6=${x16}&a7=${x17}&s2=${x18}&s3=${x19}&s4=${x20}&s5=${x21}&s6=${x22}&s7=${x23}&s8=${x24}&s9=${x25}&s10=${x26}&s11=${x27}&t3=${x28}&t4=${x29}&t5=${x30}&t6=${x31}&pc=${pc}&prog=0&`;
+        console.log(body);
+        xhr_submit.send(body);
+    }
+
     function run() {
         var code_block = document.getElementById("code-block");
         var lines = code_block.value.toLowerCase().split("\n");
@@ -482,7 +594,6 @@
             }
 
 
-            out.append(`${ram_entry}\n`);
             ram_entry = parseInt(ram_entry, 2).toString(36);
             out.append(`${ram_entry}\n`);
             ram += `${ram_entry}|`;
@@ -492,111 +603,8 @@
             out.append(`${ram}\n`)
         });
 
-        const xhr_submit = new XMLHttpRequest();
-        xhr_submit.open("POST", "http://192.168.3.4/submit");
-        xhr_submit.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-
-        xhr_submit.onload = () => {
-            if (xhr_submit.readyState == 4 && (xhr_submit.status == 201 || xhr_submit.status == 200)) {
-                console.log(JSON.parse(xhr_submit.responseText));
-            } else {
-                console.log(`Error: ${xhr_submit.status}`);
-                throw "Bad network.";
-            }
-        };
-
-        // Convert to unsigned int 32 ??
-        var x1 = parseInt(document.getElementById("x1").innerHTML, 16).toString(36);
-        var x2 = parseInt(document.getElementById("x2").innerHTML, 16).toString(36);
-        var x3 = parseInt(document.getElementById("x3").innerHTML, 16).toString(36);
-        var x4 = parseInt(document.getElementById("x4").innerHTML, 16).toString(36);
-        var x5 = parseInt(document.getElementById("x5").innerHTML, 16).toString(36);
-        var x6 = parseInt(document.getElementById("x6").innerHTML, 16).toString(36);
-        var x7 = parseInt(document.getElementById("x7").innerHTML, 16).toString(36);
-        var x8 = parseInt(document.getElementById("x8").innerHTML, 16).toString(36);
-        var x9 = parseInt(document.getElementById("x9").innerHTML, 16).toString(36);
-        var x10 = parseInt(document.getElementById("x10").innerHTML, 16).toString(36);
-        var x11 = parseInt(document.getElementById("x11").innerHTML, 16).toString(36);
-        var x12 = parseInt(document.getElementById("x12").innerHTML, 16).toString(36);
-        var x13 = parseInt(document.getElementById("x13").innerHTML, 16).toString(36);
-        var x14 = parseInt(document.getElementById("x14").innerHTML, 16).toString(36);
-        var x15 = parseInt(document.getElementById("x15").innerHTML, 16).toString(36);
-        var x16 = parseInt(document.getElementById("x16").innerHTML, 16).toString(36);
-        var x17 = parseInt(document.getElementById("x17").innerHTML, 16).toString(36);
-        var x18 = parseInt(document.getElementById("x18").innerHTML, 16).toString(36);
-        var x19 = parseInt(document.getElementById("x19").innerHTML, 16).toString(36);
-        var x20 = parseInt(document.getElementById("x20").innerHTML, 16).toString(36);
-        var x21 = parseInt(document.getElementById("x21").innerHTML, 16).toString(36);
-        var x22 = parseInt(document.getElementById("x22").innerHTML, 16).toString(36);
-        var x23 = parseInt(document.getElementById("x23").innerHTML, 16).toString(36);
-        var x24 = parseInt(document.getElementById("x24").innerHTML, 16).toString(36);
-        var x25 = parseInt(document.getElementById("x25").innerHTML, 16).toString(36);
-        var x26 = parseInt(document.getElementById("x26").innerHTML, 16).toString(36);
-        var x27 = parseInt(document.getElementById("x27").innerHTML, 16).toString(36);
-        var x28 = parseInt(document.getElementById("x28").innerHTML, 16).toString(36);
-        var x29 = parseInt(document.getElementById("x29").innerHTML, 16).toString(36);
-        var x30 = parseInt(document.getElementById("x30").innerHTML, 16).toString(36);
-        var x31 = parseInt(document.getElementById("x31").innerHTML, 16).toString(36);
-        var pc = parseInt(document.getElementById("pc").innerHTML, 16).toString(36);
-
-
-        var body = `id=${id}&ram=${ram}&ra=${x1}&sp=${x2}&gp=${x3}&tp=${x4}&t0=${x5}&t1=${x6}&t2=${x7}&fp=${x8}&s1=${x9}&a0=${x10}&a1=${x11}&a2=${x12}&a3=${x13}&a4=${x14}&a5=${x15}&a6=${x16}&a7=${x17}&s2=${x18}&s3=${x19}&s4=${x20}&s5=${x21}&s6=${x22}&s7=${x23}&s8=${x24}&s9=${x25}&s10=${x26}&s11=${x27}&t3=${x28}&t4=${x29}&t5=${x30}&t6=${x31}&pc=${pc}&prog=0&`;
-        console.log(body);
-        xhr_submit.send(body);
-
-
-        const xhr_return = new XMLHttpRequest();
-        xhr_return.open("POST", "http://192.168.3.4/return");
-        xhr_return.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-
-        xhr_return.onload = () => {
-            if (xhr_return.readyState == 4 && xhr_return.status == 200) {
-                let response = JSON.parse(xhr_return.responseText);
-
-                console.log(response);
-                if (Object.keys(response).length > 5) {
-
-                    document.getElementById("x1").innerHTML = parseInt(response.ra, 2).toString(16);
-                    document.getElementById("x2").innerHTML = parseInt(response.sp, 2).toString(16);
-                    document.getElementById("x3").innerHTML = parseInt(response.gp, 2).toString(16);
-                    document.getElementById("x4").innerHTML = parseInt(response.tp, 2).toString(16);
-                    document.getElementById("x5").innerHTML = parseInt(response.t0, 2).toString(16);
-                    document.getElementById("x6").innerHTML = parseInt(response.t1, 2).toString(16);
-                    document.getElementById("x7").innerHTML = parseInt(response.t2, 2).toString(16);
-                    document.getElementById("x8").innerHTML = parseInt(response.fp, 2).toString(16);
-                    document.getElementById("x9").innerHTML = parseInt(response.s1, 2).toString(16);
-                    document.getElementById("x10").innerHTML = parseInt(response.a0, 2).toString(16);
-                    document.getElementById("x11").innerHTML = parseInt(response.a1, 2).toString(16);
-                    document.getElementById("x12").innerHTML = parseInt(response.a2, 2).toString(16);
-                    document.getElementById("x13").innerHTML = parseInt(response.a3, 2).toString(16);
-                    document.getElementById("x14").innerHTML = parseInt(response.a4, 2).toString(16);
-                    document.getElementById("x15").innerHTML = parseInt(response.a5, 2).toString(16);
-                    document.getElementById("x16").innerHTML = parseInt(response.a6, 2).toString(16);
-                    document.getElementById("x17").innerHTML = parseInt(response.a7, 2).toString(16);
-                    document.getElementById("x18").innerHTML = parseInt(response.s2, 2).toString(16);
-                    document.getElementById("x19").innerHTML = parseInt(response.s3, 2).toString(16);
-                    document.getElementById("x20").innerHTML = parseInt(response.s4, 2).toString(16);
-                    document.getElementById("x21").innerHTML = parseInt(response.s5, 2).toString(16);
-                    document.getElementById("x22").innerHTML = parseInt(response.s6, 2).toString(16);
-                    document.getElementById("x23").innerHTML = parseInt(response.s7, 2).toString(16);
-                    document.getElementById("x24").innerHTML = parseInt(response.s8, 2).toString(16);
-                    document.getElementById("x25").innerHTML = parseInt(response.s9, 2).toString(16);
-                    document.getElementById("x26").innerHTML = parseInt(response.s10, 2).toString(16);
-                    document.getElementById("x27").innerHTML = parseInt(response.s11, 2).toString(16);
-                    document.getElementById("x28").innerHTML = parseInt(response.t3, 2).toString(16);
-                    document.getElementById("x29").innerHTML = parseInt(response.t4, 2).toString(16);
-                    document.getElementById("x30").innerHTML = parseInt(response.t5, 2).toString(16);
-                    document.getElementById("x31").innerHTML = parseInt(response.t6, 2).toString(16);
-                    document.getElementById("pc").innerHTML = parseInt(response.pc, 2).toString(16);
-                }
-            } else {
-                console.log(`Error: ${xhr_return.status}`);
-                run();
-            }
-        };
-
-        xhr_return.send(`id=${id}&`);
-
+        send_job(ram);
+        return_job_r();
 
 
 
