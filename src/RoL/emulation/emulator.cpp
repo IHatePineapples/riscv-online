@@ -156,147 +156,48 @@ namespace emulation
 
   void emulator::jalr_(reg &rd, const reg rs1, const std::bitset<12> imm)
   {
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-    offset <<= 1;
-
-    unsigned int address = rs1.to_ulong() + offset;
-
-    rd = pc.to_ulong() + (1 << 5);
-    pc = address;
+    add_(rd, pc, xlen);
+    add_(pc, rs1, sign_extend(imm) << 1);
   };
 
   void emulator::beq_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
-
-    int l = 0;
-    for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1.test(i) << i;
-
-    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
-
-    int r = 0;
-    for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2.test(i) << i;
-
-    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
-
-    if (l == r)
+    if (rs1 != rs2)
       return;
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
   void emulator::bne_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
-    int l = 0;
-    for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1.test(i) << i;
-
-    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
-
-    int r = 0;
-    for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2.test(i) << i;
-
-    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
-
-    if (l == r)
+    if (rs1 == rs2)
       return;
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
 
   void emulator::blt_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
-    int l = 0;
-    for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1.test(i) << i;
-
-    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
-
-    int r = 0;
-    for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2.test(i) << i;
-
-    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
-
-    if (l >= r)
+    if (to_sint(rs1) >= to_sint(rs2))
       return;
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
+
   void emulator::bge_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
-    int l = 0;
-    for (std::size_t i = 0; i < rs1.size() - 2; ++i)
-      l += rs1.test(i) << i;
-
-    l -= rs1.test(rs1.size() - 1) << (rs1.size() - 1);
-
-    int r = 0;
-    for (std::size_t i = 0; i < rs2.size() - 2; ++i)
-      r += rs2.test(i) << i;
-
-    r -= rs2.test(rs2.size() - 1) << (rs2.size() - 1);
-
-    if (l < r)
+    if (to_sint(rs1) < to_sint(rs2))
       return;
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
   void emulator::bltu_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     if (rs1.to_ulong() >= rs2.to_ulong())
       return;
-
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
 
   void emulator::bgeu_(const reg rs1, const reg rs2, const std::bitset<12> imm)
   {
     if (rs1.to_ulong() < rs2.to_ulong())
       return;
-    int offset = 0;
-    for (std::size_t i = 0; i < imm.size() - 2; ++i)
-      offset += imm.test(i) << i;
-
-    offset -= imm.test(imm.size() - 1) << (imm.size() - 1);
-
-    pc = pc.to_ulong() + (offset << 1);
+    add_(pc, pc, sign_extend(imm) << 1);
   }
 
   void emulator::lb_(reg &rd, const reg rs1, const std::bitset<12> imm)
