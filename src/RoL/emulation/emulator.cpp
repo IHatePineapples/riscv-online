@@ -461,16 +461,12 @@ namespace emulation
 
   void emulator::add_(reg &rd, const reg rs1, const reg rs2)
   {
-
-    rd = rs1.to_ulong() + rs2.to_ulong();
-    return;
-
-    // bool carry = 0;
-    // for (int i = 0; i < xlen; ++i)
-    // {
-    //   rd[i] = (rs1.test(i) ^ rs2.test(i)) ^ carry;
-    //   carry = (rs1.test(i) && rs2.test(i)) || (rs1.test(i) && carry) || (rs2.test(i) && carry);
-    // }
+    bool carry = 0;
+    for (int i = 0; i < xlen; ++i)
+    {
+      rd[i] = (rs1.test(i) ^ rs2.test(i)) ^ carry;
+      carry = (rs1.test(i) && rs2.test(i)) || (rs1.test(i) && carry) || (rs2.test(i) && carry);
+    }
   };
 
   void emulator::sub_(reg &rd, const reg rs1, const reg rs2)
