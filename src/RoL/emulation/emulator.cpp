@@ -519,7 +519,8 @@ namespace emulation
       jalr_(rd, rs1, imm);
       return;
     }
-    else if (opc_r == parse::B)
+
+    if (opc_r == parse::B)
     {
 
       std::bitset<12> imm = 0;
@@ -558,7 +559,8 @@ namespace emulation
         break;
       }
     }
-    else if (opc_r == parse::I or opc_r == parse::L)
+
+    if (opc_r == parse::I or opc_r == parse::L)
     {
       std::bitset<12> imm;
 
@@ -633,7 +635,8 @@ namespace emulation
         }
       }
     }
-    else if (opc_r == parse::S)
+
+    if (opc_r == parse::S)
     {
       std::bitset<12> imm;
 
@@ -655,7 +658,8 @@ namespace emulation
         break;
       }
     }
-    else if (opc_r == parse::R)
+
+    if (opc_r == parse::R)
     {
       switch (opc_l.to_ulong())
       {
