@@ -427,17 +427,16 @@
             var rs2 = "";
             var imm = "";
 
+            rd = tokens[1];
             switch (tokens.length) {
                 case 3:
-                    rd = tokens[1];
                     imm = tokens[2];
                     break;
                 case 4:
-                    if (opc_0_6[0] == "b" || opc_0_6[0] == "s") {
+                    if (opc_0_6[0] == "b" || (opc_0_6[0] == "s" && opc_0_6.length === 2)) {
                         rs1 = tokens[1];
                         imm = tokens[2];
                     } else {
-                        rd = tokens[1];
                         rs1 = tokens[2];
                         imm = tokens[3];
                     }
