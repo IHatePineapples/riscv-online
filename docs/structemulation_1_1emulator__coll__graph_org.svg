@@ -52,7 +52,7 @@
 <text text-anchor="start" x="8" y="-477.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ram</text>
 <polyline fill="none" stroke="black" points="0,-470.5 116,-470.5 "/>
 <text text-anchor="start" x="8" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ resolv_rd()</text>
-<text text-anchor="start" x="8" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ inc_pc()</text>
+<text text-anchor="start" x="8" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ increment_pc()</text>
 <text text-anchor="start" x="8" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ lui_()</text>
 <text text-anchor="start" x="8" y="-425.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ auipc_()</text>
 <text text-anchor="start" x="8" y="-414.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ jal_()</text>

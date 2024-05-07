@@ -62,6 +62,7 @@ var searchData=
   ['test_5fxlen_5f32bit_2ecpp_297',['test_xlen_32bit.cpp',['../test__xlen__32bit_8cpp.html',1,'']]],
   ['to_5fopc_298',['to_opc',['../namespaceparse.html#aff8bceef399c52b78f80e2dbbfc435aa',1,'parse']]],
   ['to_5freg_299',['to_reg',['../namespaceparse.html#afeb4510776d150ecc11761be82ca7ec1',1,'parse']]],
-  ['todo_20list_300',['Todo List',['../todo.html',1,'']]],
-  ['tp_301',['tp',['../structemulation_1_1emulator.html#a01b5e6f99a859e43c83008ca16f1a0af',1,'emulation::emulator::tp()'],['../namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134a3817848ef191468810fc4b1cfc855ba1',1,'parse::tp()']]]
+  ['to_5fsint_300',['to_sint',['../namespaceemulation.html#aee0fa7445c58145231891f91a2993429',1,'emulation']]],
+  ['todo_20list_301',['Todo List',['../todo.html',1,'']]],
+  ['tp_302',['tp',['../structemulation_1_1emulator.html#a01b5e6f99a859e43c83008ca16f1a0af',1,'emulation::emulator::tp()'],['../namespaceparse.html#a3f6d3b346ffc1ec55ce4e1573aea8134a3817848ef191468810fc4b1cfc855ba1',1,'parse::tp()']]]
 ];

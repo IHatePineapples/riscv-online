@@ -1,4 +1,4 @@
-<map id="emulation::emulator::inc_pc" name="emulation::emulator::inc_pc">
+<map id="emulation::emulator::increment_pc" name="emulation::emulator::increment_pc">
 <area shape="rect" id="node1" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="5,5,160,47"/>
 <area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="208,5,363,47"/>
 </map>

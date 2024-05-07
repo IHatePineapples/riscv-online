@@ -41,6 +41,7 @@ var NAVTREEINDEX0 =
 "dir_744228610704725ebd5d7128a2bc9c58.html":[5,0,0,0],
 "emulator_8cpp.html":[5,0,0,0,0,0],
 "emulator_8cpp.html#a0e3cd88b9aeee3fe41402b7dd019cfba":[5,0,0,0,0,0,1],
+"emulator_8cpp.html#aee0fa7445c58145231891f91a2993429":[5,0,0,0,0,0,2],
 "emulator_8cpp.html#af40bee66d457d56de0b3b721199a7e10":[5,0,0,0,0,0,0],
 "emulator_8cpp_source.html":[5,0,0,0,0,0],
 "emulator_8hpp.html":[5,0,0,0,0,1],
@@ -144,7 +145,8 @@ var NAVTREEINDEX0 =
 "namespaceemulation.html":[3,0,0],
 "namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475":[3,0,0,1],
 "namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba":[3,0,0,3],
-"namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3":[3,0,0,4],
+"namespaceemulation.html#ab4535dcc0f526dc1b8c70125fefd99b3":[3,0,0,5],
+"namespaceemulation.html#aee0fa7445c58145231891f91a2993429":[3,0,0,4],
 "namespaceemulation.html#af40bee66d457d56de0b3b721199a7e10":[3,0,0,2],
 "namespacemembers.html":[3,1,0],
 "namespacemembers_enum.html":[3,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa499629ce03b097953665c430ea737f6f":[3,0,1,0,27],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa51e2f66f40782bd70c07ff2b13dff590":[3,0,1,0,11],
 "namespaceparse.html#acfc3b773ce544636484c919bcfff906fa524c29e44088703133bf9aa2fe34c463":[3,0,1,0,6],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa558ffc8f5770d8e4f95f51d822685532":[3,0,1,0,4],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa6235404c14f303c1857fa6c2889738e8":[3,0,1,0,36],
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa635fc06d049226d08e56335ad4261885":[3,0,1,0,14]
+"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa558ffc8f5770d8e4f95f51d822685532":[3,0,1,0,4]
 };

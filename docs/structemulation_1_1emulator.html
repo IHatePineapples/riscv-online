@@ -109,9 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c54971649155c376b35ea6bb11b25d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">reg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1">resolv_rd</a> (const std::bitset&lt; 5 &gt;)</td></tr>
 <tr class="memdesc:a7c54971649155c376b35ea6bb11b25d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the destination register bitset <code>rd</code> points to.  <a href="structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1">More...</a><br /></td></tr>
 <tr class="separator:a7c54971649155c376b35ea6bb11b25d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e7c17730a548d7014a78c1d5b19130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130">inc_pc</a> ()</td></tr>
-<tr class="memdesc:af1e7c17730a548d7014a78c1d5b19130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments PC by <code>xlen</code> (32), using an optimised add with carry.  <a href="structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130">More...</a><br /></td></tr>
-<tr class="separator:af1e7c17730a548d7014a78c1d5b19130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bdc593369f294fdb1927135edc18a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8">increment_pc</a> ()</td></tr>
+<tr class="memdesc:a94bdc593369f294fdb1927135edc18a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments PC by <code>xlen</code> (32), using an optimised add with carry.  <a href="structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8">More...</a><br /></td></tr>
+<tr class="separator:a94bdc593369f294fdb1927135edc18a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25dd59ec5b400ebb9b4a031ce3c60ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4">lui_</a> (<a class="el" href="namespaceemulation.html#a054a3ba06a8354bb9925d0528e308475">reg</a> &amp;, const std::bitset&lt; 20 &gt;)</td></tr>
 <tr class="memdesc:a25dd59ec5b400ebb9b4a031ce3c60ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load Upper Immediate.  <a href="structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4">More...</a><br /></td></tr>
 <tr class="separator:a25dd59ec5b400ebb9b4a031ce3c60ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,13 +348,13 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00464">464</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00363">363</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_abb02b50bf20caacea80357c21d0dd6a2_icgraph.svg" width="571" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_abb02b50bf20caacea80357c21d0dd6a2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -394,7 +394,7 @@ Public Attributes</h2></td></tr>
 
 <p>Add Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00417">417</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00316">316</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -457,7 +457,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <p><code>rd = rs1 &amp; rs2</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00536">536</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00430">430</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -503,7 +503,7 @@ Public Attributes</h2></td></tr>
 
 <p>AND Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00443">443</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00342">342</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -551,7 +551,7 @@ Public Attributes</h2></td></tr>
 
 <p>Add Upper Immeddiate to PC. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00136">136</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00140">140</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -605,12 +605,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch EQual. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00175">175</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00163">163</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a4764c8f8a813222723736010fe06c6f8_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a4764c8f8a813222723736010fe06c6f8_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -651,12 +659,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch Greater than or Equal. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00252">252</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00183">183</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aa8436f1782c600c2602784550783dd1d_cgraph.svg" width="388" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aa8436f1782c600c2602784550783dd1d_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -697,12 +713,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch Greater than or Equal Unsigned. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00291">291</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00196">196</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a9aba50a40e49223010db0ab4379859e3_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a9aba50a40e49223010db0ab4379859e3_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -743,12 +767,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch Less Than. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00227">227</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00176">176</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aff0ad86baa02712f534562bb703e66dc_cgraph.svg" width="388" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aff0ad86baa02712f534562bb703e66dc_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -789,12 +821,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch Less Than Unsigned. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00277">277</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00189">189</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_abc914f48206b4623f88d1c9b11ba8cde_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_abc914f48206b4623f88d1c9b11ba8cde_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -835,12 +875,20 @@ Public Attributes</h2></td></tr>
 
 <p>Branch Not Equal. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00201">201</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00169">169</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aea1938f1f04e4fd1c6ce359da8ec0f13_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aea1938f1f04e4fd1c6ce359da8ec0f13_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -864,26 +912,26 @@ Public Attributes</h2></td></tr>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Too complicated here, just pass a std::bitset&lt;21&gt; directly. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>goto: end </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00541">541</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00435">435</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a2e4d099ca70b1f19761f7918159eaf63_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
-<a id="af1e7c17730a548d7014a78c1d5b19130"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1e7c17730a548d7014a78c1d5b19130">&#9670;&nbsp;</a></span>inc_pc()</h2>
+<a id="a94bdc593369f294fdb1927135edc18a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bdc593369f294fdb1927135edc18a8">&#9670;&nbsp;</a></span>increment_pc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">emulation::emulator::inc_pc </td>
+          <td class="memname">emulation::emulator::increment_pc </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -894,21 +942,21 @@ Public Attributes</h2></td></tr>
 <p>Increments PC by <code>xlen</code> (32), using an optimised add with carry. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Not prone to overflow. Trying to execute past maximum (2^32) will not increment anymore. That shouldn't happen anyway, but it's important to know. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00123">123</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00133">133</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_af1e7c17730a548d7014a78c1d5b19130_cgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a94bdc593369f294fdb1927135edc18a8_cgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_af1e7c17730a548d7014a78c1d5b19130_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a94bdc593369f294fdb1927135edc18a8_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -942,12 +990,20 @@ Public Attributes</h2></td></tr>
 
 <p>Jump And Link. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00147">147</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00151">151</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6d495ced29be5a5f0f9eb07b8044cbb9_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6d495ced29be5a5f0f9eb07b8044cbb9_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -988,12 +1044,20 @@ Public Attributes</h2></td></tr>
 
 <p>Jump And Link Register. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00159">159</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00157">157</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a12cf345cf8f194678758f198e4af586d_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a12cf345cf8f194678758f198e4af586d_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1034,12 +1098,20 @@ Public Attributes</h2></td></tr>
 
 <p>Load Byte. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00304">304</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00203">203</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a742e0adc156e9bec9363000cc96329e1_cgraph.svg" width="416" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a742e0adc156e9bec9363000cc96329e1_icgraph.svg" width="396" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1080,12 +1152,12 @@ Public Attributes</h2></td></tr>
 
 <p>Load Byte Unsigned. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00347">347</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00246">246</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ad021424c8fc9355fa1363757161d8202_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1126,12 +1198,20 @@ Public Attributes</h2></td></tr>
 
 <p>Load Halfword. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00319">319</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00218">218</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a56a38bbe4fcffe68c28f743e2b6a528b_cgraph.svg" width="416" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a56a38bbe4fcffe68c28f743e2b6a528b_icgraph.svg" width="396" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1172,12 +1252,12 @@ Public Attributes</h2></td></tr>
 
 <p>Load Halfword Unsigned. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00362">362</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00261">261</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a486b7f38777c5ddffd581da9dfc6fc09_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1239,12 +1319,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00131">131</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00135">135</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a25dd59ec5b400ebb9b4a031ce3c60ab4_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1285,12 +1365,12 @@ Public Attributes</h2></td></tr>
 
 <p>Load Word. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00334">334</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00233">233</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a7c8661a191a75954ff25d2458b5996cd_icgraph.svg" width="399" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1339,12 +1419,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00531">531</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00425">425</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a669eb8d6d6ae4912f3a178a2274e794b_icgraph.svg" width="396" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1385,20 +1465,20 @@ Public Attributes</h2></td></tr>
 
 <p>OR Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00438">438</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00337">337</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6bd9d2dd11a7045a5bda8aa36e044df9_cgraph.svg" width="388" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div id="dynsection-38-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6bd9d2dd11a7045a5bda8aa36e044df9_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1429,12 +1509,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00048">48</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00058">58</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-39" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-39-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div id="dynsection-39-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a7c54971649155c376b35ea6bb11b25d1_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1475,12 +1555,12 @@ Public Attributes</h2></td></tr>
 
 <p>Store Byte. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00377">377</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00276">276</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-40" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-40-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div id="dynsection-40-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a2d89c27173db2771a49b6d34469869fd_icgraph.svg" width="399" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1504,12 +1584,12 @@ Public Attributes</h2></td></tr>
 
 <p>Dumps ram content in a serialized format, useful for rendering, for example back to userspace. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00807">807</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00704">704</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-41" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-41-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-41-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div id="dynsection-41-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a3ddcb06e2e448b28bb315e39d4c12a07_cgraph.svg" width="380" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1550,12 +1630,12 @@ Public Attributes</h2></td></tr>
 
 <p>Store Halfword. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00390">390</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00289">289</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-42" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-42-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-42-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div id="dynsection-42-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a974965ef3e4a012d008cde636e053fc6_icgraph.svg" width="399" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1604,12 +1684,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00487">487</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00381">381</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-43" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-43-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-43-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div id="dynsection-43-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a8e9e372611e883a750dc77f956f555c5_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1650,12 +1730,12 @@ Public Attributes</h2></td></tr>
 
 <p>Shift Left Logical Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00448">448</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00347">347</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-44" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-44-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-44-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div id="dynsection-44-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_aab67bc14a976694b3663d16ce48de60c_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1704,12 +1784,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00492">492</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00386">386</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-45" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-45-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-45-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div id="dynsection-45-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a69d2dbbf01d4b4627cd303f0b30f2b30_icgraph.svg" width="571" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1750,20 +1830,20 @@ Public Attributes</h2></td></tr>
 
 <p>Set Less Than Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00423">423</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00322">322</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-46" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-46-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-46-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-36-content" class="dyncontent" style="display:none;">
+<div id="dynsection-46-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6708f26995650c5023ba2e1f01043da3_cgraph.svg" width="388" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-47" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-47-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-47-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-37-content" class="dyncontent" style="display:none;">
+<div id="dynsection-47-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a6708f26995650c5023ba2e1f01043da3_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1804,20 +1884,20 @@ Public Attributes</h2></td></tr>
 
 <p>Set Less Than Immediate Unsigned. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00428">428</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00327">327</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-48" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-48-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-48-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-38-content" class="dyncontent" style="display:none;">
+<div id="dynsection-48-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ae7cb842573a7163c8453c332bb5212a4_cgraph.svg" width="388" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-39" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-39-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-49" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-49-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-49-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-39-content" class="dyncontent" style="display:none;">
+<div id="dynsection-49-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ae7cb842573a7163c8453c332bb5212a4_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1866,12 +1946,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00510">510</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-40" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-40-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00404">404</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-50" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-50-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-50-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-40-content" class="dyncontent" style="display:none;">
+<div id="dynsection-50-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_acff035e73727d764f8a0494351bee72b_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1921,12 +2001,12 @@ Public Attributes</h2></td></tr>
 </dl>
 <p>rd = rs1 &gt;&gt; rs2, MSB extends, i.e. "signed" shift. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00525">525</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-41" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-41-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-41-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00419">419</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-51" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-51-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-51-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-41-content" class="dyncontent" style="display:none;">
+<div id="dynsection-51-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_adc5a989fccb3ca25e5a16e957787d529_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -1967,12 +2047,12 @@ Public Attributes</h2></td></tr>
 
 <p>Shift Right Arithmetic Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00458">458</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-42" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-42-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-42-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00357">357</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-52" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-52-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-52-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-42-content" class="dyncontent" style="display:none;">
+<div id="dynsection-52-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a9f9bfde936d0d6a8c274b2d72e5b32fa_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2021,12 +2101,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00520">520</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-43" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-43-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-43-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00414">414</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-53" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-53-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-53-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-43-content" class="dyncontent" style="display:none;">
+<div id="dynsection-53-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a137e46f5f69e441803b811e6afe11dda_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2065,12 +2145,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00453">453</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-44" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-44-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-44-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00352">352</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-54" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-54-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-54-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-44-content" class="dyncontent" style="display:none;">
+<div id="dynsection-54-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a8a52df96c7e8c6a8bbb0a6f32b4e3c39_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2119,20 +2199,20 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00478">478</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-45" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-45-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-45-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00373">373</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-55" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-55-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-55-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-45-content" class="dyncontent" style="display:none;">
+<div id="dynsection-55-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ab87a4f2f0e06e29bdbc4215a1b3e8094_cgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-46" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-46-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-46-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-56" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-56-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-56-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-46-content" class="dyncontent" style="display:none;">
+<div id="dynsection-56-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ab87a4f2f0e06e29bdbc4215a1b3e8094_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2173,12 +2253,12 @@ Public Attributes</h2></td></tr>
 
 <p>Store Word. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00403">403</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-47" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-47-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-47-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00302">302</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-57" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-57-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-57-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-47-content" class="dyncontent" style="display:none;">
+<div id="dynsection-57-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_ab84a9c67aab2afc5889dfdf5b02d2861_icgraph.svg" width="402" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2227,12 +2307,12 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00515">515</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-48" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-48-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-48-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00409">409</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-58" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-58-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-58-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-48-content" class="dyncontent" style="display:none;">
+<div id="dynsection-58-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_a5f7e3ab86436e6b916e5c7006d2be413_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
@@ -2273,20 +2353,20 @@ Public Attributes</h2></td></tr>
 
 <p>eXclusive OR Immediate. </p>
 
-<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00433">433</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
-<div id="dynsection-49" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-49-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-49-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="emulator_8cpp_source.html#l00332">332</a> of file <a class="el" href="emulator_8cpp_source.html">emulator.cpp</a>.</p>
+<div id="dynsection-59" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-59-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-59-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-49-content" class="dyncontent" style="display:none;">
+<div id="dynsection-59-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_acff5e850933d78ceb45d425cb6491a4b_cgraph.svg" width="388" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<div id="dynsection-50" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-50-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-50-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-60" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-60-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-60-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-50-content" class="dyncontent" style="display:none;">
+<div id="dynsection-60-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemulation_1_1emulator_acff5e850933d78ceb45d425cb6491a4b_icgraph.svg" width="368" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>

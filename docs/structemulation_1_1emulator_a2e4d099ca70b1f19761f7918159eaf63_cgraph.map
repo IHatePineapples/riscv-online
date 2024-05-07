@@ -1,43 +1,44 @@
 <map id="emulation::emulator::execute" name="emulation::emulator::execute">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1200,160,1241"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="454,201,609,243"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="225,711,379,752"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a444c6ab55271b38ca33592f096ed7a93" title="AND." alt="" coords="225,136,379,177"/>
-<area shape="rect" id="node6" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="225,1673,379,1715"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="225,5,379,47"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="225,319,379,360"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="225,384,379,425"/>
-<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="225,449,379,491"/>
-<area shape="rect" id="node11" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="225,515,379,556"/>
-<area shape="rect" id="node12" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="225,580,379,621"/>
-<area shape="rect" id="node13" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="225,645,379,687"/>
-<area shape="rect" id="node14" href="$structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="225,71,379,112"/>
-<area shape="rect" id="node15" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="225,776,379,817"/>
-<area shape="rect" id="node16" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="225,841,379,883"/>
-<area shape="rect" id="node17" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="211,907,393,934"/>
-<area shape="rect" id="node18" href="$structemulation_1_1emulator.html#ad021424c8fc9355fa1363757161d8202" title="Load Byte Unsigned." alt="" coords="225,959,379,1000"/>
-<area shape="rect" id="node19" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="211,1025,393,1051"/>
-<area shape="rect" id="node20" href="$structemulation_1_1emulator.html#a486b7f38777c5ddffd581da9dfc6fc09" title="Load Halfword Unsigned." alt="" coords="225,1076,379,1117"/>
-<area shape="rect" id="node21" href="$structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4" title="Load Upper Immediate." alt="" coords="225,1141,379,1183"/>
-<area shape="rect" id="node22" href="$structemulation_1_1emulator.html#a7c8661a191a75954ff25d2458b5996cd" title="Load Word." alt="" coords="209,1207,395,1234"/>
-<area shape="rect" id="node23" href="$structemulation_1_1emulator.html#a669eb8d6d6ae4912f3a178a2274e794b" title="OR." alt="" coords="211,1258,393,1285"/>
-<area shape="rect" id="node24" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="225,1804,379,1845"/>
-<area shape="rect" id="node25" href="$structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1" title="Returns a reference to the destination register bitset rd points to." alt="" coords="225,1375,379,1416"/>
-<area shape="rect" id="node26" href="$structemulation_1_1emulator.html#a2d89c27173db2771a49b6d34469869fd" title="Store Byte." alt="" coords="209,1441,395,1467"/>
-<area shape="rect" id="node27" href="$structemulation_1_1emulator.html#a974965ef3e4a012d008cde636e053fc6" title="Store Halfword." alt="" coords="209,1491,395,1518"/>
-<area shape="rect" id="node28" href="$structemulation_1_1emulator.html#a8e9e372611e883a750dc77f956f555c5" title="Shift Left Logical." alt="" coords="225,1543,379,1584"/>
-<area shape="rect" id="node29" href="$structemulation_1_1emulator.html#aab67bc14a976694b3663d16ce48de60c" title="Shift Left Logical Immediate." alt="" coords="225,1608,379,1649"/>
-<area shape="rect" id="node30" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="454,2284,609,2325"/>
-<area shape="rect" id="node31" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="225,2196,379,2237"/>
-<area shape="rect" id="node32" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="225,1309,379,1351"/>
-<area shape="rect" id="node33" href="$structemulation_1_1emulator.html#acff035e73727d764f8a0494351bee72b" title="Set Less Than Unsigned." alt="" coords="225,1869,379,1911"/>
-<area shape="rect" id="node34" href="$structemulation_1_1emulator.html#adc5a989fccb3ca25e5a16e957787d529" title="Shift Right Arithmetic." alt="" coords="225,1935,379,1976"/>
-<area shape="rect" id="node35" href="$structemulation_1_1emulator.html#a9f9bfde936d0d6a8c274b2d72e5b32fa" title="Shift Right Arithmetic Immediate." alt="" coords="225,2000,379,2041"/>
-<area shape="rect" id="node36" href="$structemulation_1_1emulator.html#a137e46f5f69e441803b811e6afe11dda" title="Shift Right Logical." alt="" coords="225,2065,379,2107"/>
-<area shape="rect" id="node37" href="$structemulation_1_1emulator.html#a8a52df96c7e8c6a8bbb0a6f32b4e3c39" title=" " alt="" coords="225,2131,379,2172"/>
-<area shape="rect" id="node38" href="$structemulation_1_1emulator.html#ab87a4f2f0e06e29bdbc4215a1b3e8094" title="SUBstract." alt="" coords="225,201,379,243"/>
-<area shape="rect" id="node39" href="$structemulation_1_1emulator.html#ab84a9c67aab2afc5889dfdf5b02d2861" title="Store Word." alt="" coords="208,2262,396,2289"/>
-<area shape="rect" id="node40" href="$structemulation_1_1emulator.html#a5f7e3ab86436e6b916e5c7006d2be413" title="eXclusive OR." alt="" coords="225,2313,379,2355"/>
-<area shape="rect" id="node41" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="225,1739,379,1780"/>
-<area shape="rect" id="node4" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="444,1714,619,1741"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,1205,160,1247"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="454,384,609,425"/>
+<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="225,645,379,687"/>
+<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a444c6ab55271b38ca33592f096ed7a93" title="AND." alt="" coords="225,1323,379,1364"/>
+<area shape="rect" id="node6" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="225,1037,379,1079"/>
+<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="225,123,379,164"/>
+<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="225,711,379,752"/>
+<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="225,776,379,817"/>
+<area shape="rect" id="node11" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="225,253,379,295"/>
+<area shape="rect" id="node12" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="225,319,379,360"/>
+<area shape="rect" id="node13" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="225,384,379,425"/>
+<area shape="rect" id="node14" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="225,449,379,491"/>
+<area shape="rect" id="node15" href="$structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="225,188,379,229"/>
+<area shape="rect" id="node16" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="225,515,379,556"/>
+<area shape="rect" id="node17" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="225,580,379,621"/>
+<area shape="rect" id="node18" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="211,1103,393,1130"/>
+<area shape="rect" id="node19" href="$structemulation_1_1emulator.html#ad021424c8fc9355fa1363757161d8202" title="Load Byte Unsigned." alt="" coords="225,1388,379,1429"/>
+<area shape="rect" id="node20" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="211,1154,393,1181"/>
+<area shape="rect" id="node21" href="$structemulation_1_1emulator.html#a486b7f38777c5ddffd581da9dfc6fc09" title="Load Halfword Unsigned." alt="" coords="225,1453,379,1495"/>
+<area shape="rect" id="node22" href="$structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4" title="Load Upper Immediate." alt="" coords="225,1519,379,1560"/>
+<area shape="rect" id="node23" href="$structemulation_1_1emulator.html#a7c8661a191a75954ff25d2458b5996cd" title="Load Word." alt="" coords="209,1585,395,1611"/>
+<area shape="rect" id="node24" href="$structemulation_1_1emulator.html#a669eb8d6d6ae4912f3a178a2274e794b" title="OR." alt="" coords="211,1635,393,1662"/>
+<area shape="rect" id="node25" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="225,841,379,883"/>
+<area shape="rect" id="node26" href="$structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1" title="Returns a reference to the destination register bitset rd points to." alt="" coords="225,1687,379,1728"/>
+<area shape="rect" id="node27" href="$structemulation_1_1emulator.html#a2d89c27173db2771a49b6d34469869fd" title="Store Byte." alt="" coords="209,1753,395,1779"/>
+<area shape="rect" id="node28" href="$structemulation_1_1emulator.html#a974965ef3e4a012d008cde636e053fc6" title="Store Halfword." alt="" coords="209,1803,395,1830"/>
+<area shape="rect" id="node29" href="$structemulation_1_1emulator.html#a8e9e372611e883a750dc77f956f555c5" title="Shift Left Logical." alt="" coords="225,1855,379,1896"/>
+<area shape="rect" id="node30" href="$structemulation_1_1emulator.html#aab67bc14a976694b3663d16ce48de60c" title="Shift Left Logical Immediate." alt="" coords="225,1920,379,1961"/>
+<area shape="rect" id="node31" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="454,1235,609,1276"/>
+<area shape="rect" id="node32" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="225,1205,379,1247"/>
+<area shape="rect" id="node33" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="225,907,379,948"/>
+<area shape="rect" id="node34" href="$structemulation_1_1emulator.html#acff035e73727d764f8a0494351bee72b" title="Set Less Than Unsigned." alt="" coords="225,1985,379,2027"/>
+<area shape="rect" id="node35" href="$structemulation_1_1emulator.html#adc5a989fccb3ca25e5a16e957787d529" title="Shift Right Arithmetic." alt="" coords="225,2051,379,2092"/>
+<area shape="rect" id="node36" href="$structemulation_1_1emulator.html#a9f9bfde936d0d6a8c274b2d72e5b32fa" title="Shift Right Arithmetic Immediate." alt="" coords="225,2116,379,2157"/>
+<area shape="rect" id="node37" href="$structemulation_1_1emulator.html#a137e46f5f69e441803b811e6afe11dda" title="Shift Right Logical." alt="" coords="225,2181,379,2223"/>
+<area shape="rect" id="node38" href="$structemulation_1_1emulator.html#a8a52df96c7e8c6a8bbb0a6f32b4e3c39" title=" " alt="" coords="225,2247,379,2288"/>
+<area shape="rect" id="node39" href="$structemulation_1_1emulator.html#ab87a4f2f0e06e29bdbc4215a1b3e8094" title="SUBstract." alt="" coords="225,5,379,47"/>
+<area shape="rect" id="node40" href="$structemulation_1_1emulator.html#ab84a9c67aab2afc5889dfdf5b02d2861" title="Store Word." alt="" coords="208,2313,396,2339"/>
+<area shape="rect" id="node41" href="$structemulation_1_1emulator.html#a5f7e3ab86436e6b916e5c7006d2be413" title="eXclusive OR." alt="" coords="225,2364,379,2405"/>
+<area shape="rect" id="node42" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="225,972,379,1013"/>
+<area shape="rect" id="node4" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="444,751,619,778"/>
+<area shape="rect" id="node10" href="$namespaceemulation.html#aee0fa7445c58145231891f91a2993429" title=" " alt="" coords="461,591,601,618"/>
 </map>

@@ -1,12 +1,22 @@
 <map id="emulation::sign_extend" name="emulation::sign_extend">
-<area shape="rect" id="node1" title=" " alt="" coords="411,177,585,203"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="208,5,363,47"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="208,332,363,373"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="208,71,363,112"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="208,136,363,177"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="208,201,363,243"/>
-<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="208,267,363,308"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,169,160,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="439,475,613,502"/>
+<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="222,5,377,47"/>
+<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="222,71,377,112"/>
+<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="222,500,377,541"/>
+<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="222,565,377,607"/>
+<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="222,631,377,672"/>
+<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="222,696,377,737"/>
+<area shape="rect" id="node11" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="222,761,377,803"/>
+<area shape="rect" id="node12" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="222,827,377,868"/>
+<area shape="rect" id="node13" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="222,892,377,933"/>
+<area shape="rect" id="node14" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="222,957,377,999"/>
+<area shape="rect" id="node15" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="208,137,391,163"/>
+<area shape="rect" id="node16" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="208,187,391,214"/>
+<area shape="rect" id="node17" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="222,239,377,280"/>
+<area shape="rect" id="node18" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="222,304,377,345"/>
+<area shape="rect" id="node19" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="222,369,377,411"/>
+<area shape="rect" id="node20" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="222,435,377,476"/>
+<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,467,160,508"/>
 <area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,39"/>
-<area shape="rect" id="node6" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,339,110,366"/>
+<area shape="rect" id="node6" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,78,110,105"/>
 </map>

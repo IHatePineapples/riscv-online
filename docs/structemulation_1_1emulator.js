@@ -12,7 +12,7 @@ var structemulation_1_1emulator =
     [ "bltu_", "structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde", null ],
     [ "bne_", "structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13", null ],
     [ "execute", "structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63", null ],
-    [ "inc_pc", "structemulation_1_1emulator.html#af1e7c17730a548d7014a78c1d5b19130", null ],
+    [ "increment_pc", "structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8", null ],
     [ "jal_", "structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9", null ],
     [ "jalr_", "structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d", null ],
     [ "lb_", "structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1", null ],
