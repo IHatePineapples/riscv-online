@@ -65,7 +65,7 @@
 
 
     <h1>RISC-V Online</h1>
-    <button type="submit" onClick="run();" style="display: block;">Step</button>
+    <button id="run-button" type="submit" onClick="run();" style="display: block;">Step</button>
     <div style="display: inline-flex; width: fit-content;">
 
         <textarea id="code-block" cols="50" rows="30" autocomplete="off" autocorrect="off" autocapitalize="none"
@@ -275,7 +275,17 @@
         }
     }
 
-    var retries = 0;
+    function parse2sComplement(bitstring) {
+        let negative = (bitstring[0] === '1');
+        if (!negative)
+            return parseInt(bitstring, 2);
+        let inverse = '';
+        for (let i = 0; i < bitstring.length; i++) {
+            inverse += (bitstring[i] === '0' ? '1' : '0');
+        }
+        return (parseInt(inverse, 2) + 1) * -1;
+    }
+
     function return_job_r() {
         const xhr_return = new XMLHttpRequest();
         xhr_return.open("POST", "http://192.168.3.4/return");
@@ -288,39 +298,38 @@
                 console.log(response);
                 if (Object.keys(response).length > 5) {
 
-                    document.getElementById("x1").innerHTML = parseInt(response.ra, 2).toString(16);
-                    document.getElementById("x2").innerHTML = parseInt(response.sp, 2).toString(16);
-                    document.getElementById("x3").innerHTML = parseInt(response.gp, 2).toString(16);
-                    document.getElementById("x4").innerHTML = parseInt(response.tp, 2).toString(16);
-                    document.getElementById("x5").innerHTML = parseInt(response.t0, 2).toString(16);
-                    document.getElementById("x6").innerHTML = parseInt(response.t1, 2).toString(16);
-                    document.getElementById("x7").innerHTML = parseInt(response.t2, 2).toString(16);
-                    document.getElementById("x8").innerHTML = parseInt(response.fp, 2).toString(16);
-                    document.getElementById("x9").innerHTML = parseInt(response.s1, 2).toString(16);
-                    document.getElementById("x10").innerHTML = parseInt(response.a0, 2).toString(16);
-                    document.getElementById("x11").innerHTML = parseInt(response.a1, 2).toString(16);
-                    document.getElementById("x12").innerHTML = parseInt(response.a2, 2).toString(16);
-                    document.getElementById("x13").innerHTML = parseInt(response.a3, 2).toString(16);
-                    document.getElementById("x14").innerHTML = parseInt(response.a4, 2).toString(16);
-                    document.getElementById("x15").innerHTML = parseInt(response.a5, 2).toString(16);
-                    document.getElementById("x16").innerHTML = parseInt(response.a6, 2).toString(16);
-                    document.getElementById("x17").innerHTML = parseInt(response.a7, 2).toString(16);
-                    document.getElementById("x18").innerHTML = parseInt(response.s2, 2).toString(16);
-                    document.getElementById("x19").innerHTML = parseInt(response.s3, 2).toString(16);
-                    document.getElementById("x20").innerHTML = parseInt(response.s4, 2).toString(16);
-                    document.getElementById("x21").innerHTML = parseInt(response.s5, 2).toString(16);
-                    document.getElementById("x22").innerHTML = parseInt(response.s6, 2).toString(16);
-                    document.getElementById("x23").innerHTML = parseInt(response.s7, 2).toString(16);
-                    document.getElementById("x24").innerHTML = parseInt(response.s8, 2).toString(16);
-                    document.getElementById("x25").innerHTML = parseInt(response.s9, 2).toString(16);
-                    document.getElementById("x26").innerHTML = parseInt(response.s10, 2).toString(16);
-                    document.getElementById("x27").innerHTML = parseInt(response.s11, 2).toString(16);
-                    document.getElementById("x28").innerHTML = parseInt(response.t3, 2).toString(16);
-                    document.getElementById("x29").innerHTML = parseInt(response.t4, 2).toString(16);
-                    document.getElementById("x30").innerHTML = parseInt(response.t5, 2).toString(16);
-                    document.getElementById("x31").innerHTML = parseInt(response.t6, 2).toString(16);
-                    document.getElementById("pc").innerHTML = parseInt(response.pc, 2).toString(16);
-                    retries = 0;
+                    document.getElementById("x1").innerHTML = parse2sComplement(response.ra).toString(16);
+                    document.getElementById("x2").innerHTML = parse2sComplement(response.sp).toString(16);
+                    document.getElementById("x3").innerHTML = parse2sComplement(response.gp).toString(16);
+                    document.getElementById("x4").innerHTML = parse2sComplement(response.tp).toString(16);
+                    document.getElementById("x5").innerHTML = parse2sComplement(response.t0).toString(16);
+                    document.getElementById("x6").innerHTML = parse2sComplement(response.t1).toString(16);
+                    document.getElementById("x7").innerHTML = parse2sComplement(response.t2).toString(16);
+                    document.getElementById("x8").innerHTML = parse2sComplement(response.fp).toString(16);
+                    document.getElementById("x9").innerHTML = parse2sComplement(response.s1).toString(16);
+                    document.getElementById("x10").innerHTML = parse2sComplement(response.a0).toString(16);
+                    document.getElementById("x11").innerHTML = parse2sComplement(response.a1).toString(16);
+                    document.getElementById("x12").innerHTML = parse2sComplement(response.a2).toString(16);
+                    document.getElementById("x13").innerHTML = parse2sComplement(response.a3).toString(16);
+                    document.getElementById("x14").innerHTML = parse2sComplement(response.a4).toString(16);
+                    document.getElementById("x15").innerHTML = parse2sComplement(response.a5).toString(16);
+                    document.getElementById("x16").innerHTML = parse2sComplement(response.a6).toString(16);
+                    document.getElementById("x17").innerHTML = parse2sComplement(response.a7).toString(16);
+                    document.getElementById("x18").innerHTML = parse2sComplement(response.s2).toString(16);
+                    document.getElementById("x19").innerHTML = parse2sComplement(response.s3).toString(16);
+                    document.getElementById("x20").innerHTML = parse2sComplement(response.s4).toString(16);
+                    document.getElementById("x21").innerHTML = parse2sComplement(response.s5).toString(16);
+                    document.getElementById("x22").innerHTML = parse2sComplement(response.s6).toString(16);
+                    document.getElementById("x23").innerHTML = parse2sComplement(response.s7).toString(16);
+                    document.getElementById("x24").innerHTML = parse2sComplement(response.s8).toString(16);
+                    document.getElementById("x25").innerHTML = parse2sComplement(response.s9).toString(16);
+                    document.getElementById("x26").innerHTML = parse2sComplement(response.s10).toString(16);
+                    document.getElementById("x27").innerHTML = parse2sComplement(response.s11).toString(16);
+                    document.getElementById("x28").innerHTML = parse2sComplement(response.t3).toString(16);
+                    document.getElementById("x29").innerHTML = parse2sComplement(response.t4).toString(16);
+                    document.getElementById("x30").innerHTML = parse2sComplement(response.t5).toString(16);
+                    document.getElementById("x31").innerHTML = parse2sComplement(response.t6).toString(16);
+                    document.getElementById("pc").innerHTML = parse2sComplement(response.pc).toString(16);
                 } else {
                 }
             } else {
@@ -604,7 +613,7 @@
         });
 
         send_job(ram);
-        setTimeout(return_job_r, 500);
+        setTimeout(return_job_r, 100);
 
 
     }
