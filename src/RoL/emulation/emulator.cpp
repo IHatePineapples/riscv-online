@@ -437,7 +437,7 @@ namespace emulation
 
     reg r = 0;
 
-    if (pc.to_ulong() + (xlen << 1) > ram.size())
+    if (static_cast<std::size_t>(pc.to_ulong() + (xlen << 1)) > ram.size())
     {
       printf("%s:%d: PC (%ld) out-of-bounds, resetting...", __PRETTY_FUNCTION__, __LINE__, pc.to_ulong());
       pc.reset();
