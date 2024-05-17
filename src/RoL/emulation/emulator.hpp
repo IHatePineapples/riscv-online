@@ -349,14 +349,6 @@ namespace emulation
     void execute();
 
     /**
-     * \fn load_to_ram
-     *
-     * \brief Loads binary "program" in RAM.
-     * \note This is called before execuation.
-     */
-    void load_to_ram();
-
-    /**
      * \fn serialize_ram
      *
      * \brief Dumps ram content in a serialized format, useful for rendering, for example back to userspace.
