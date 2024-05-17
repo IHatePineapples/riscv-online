@@ -19,7 +19,6 @@ var structemulation_1_1emulator =
     [ "lbu_", "structemulation_1_1emulator.html#ad021424c8fc9355fa1363757161d8202", null ],
     [ "lh_", "structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b", null ],
     [ "lhu_", "structemulation_1_1emulator.html#a486b7f38777c5ddffd581da9dfc6fc09", null ],
-    [ "load_to_ram", "structemulation_1_1emulator.html#a59f0e167588fcf42b48de83d72f36b89", null ],
     [ "lui_", "structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4", null ],
     [ "lw_", "structemulation_1_1emulator.html#a7c8661a191a75954ff25d2458b5996cd", null ],
     [ "or_", "structemulation_1_1emulator.html#a669eb8d6d6ae4912f3a178a2274e794b", null ],

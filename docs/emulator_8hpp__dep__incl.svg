@@ -175,10 +175,10 @@ var sectionId = 'dynsection-1';
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="test__emulator__andi_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="test__emulator__auipc_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="924.5,-0.5 924.5,-30.5 1048.5,-30.5 1048.5,-0.5 924.5,-0.5"/>
 <text text-anchor="start" x="932.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="986.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_andi.cpp</text>
+<text text-anchor="middle" x="986.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_auipc.cpp</text>
 </a>
 </g>
 </g>
@@ -191,10 +191,10 @@ var sectionId = 'dynsection-1';
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="test__emulator__auipc_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node10"><a xlink:href="test__emulator__andi_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1066.5,-0.5 1066.5,-30.5 1190.5,-30.5 1190.5,-0.5 1066.5,-0.5"/>
 <text text-anchor="start" x="1074.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="1128.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_auipc.cpp</text>
+<text text-anchor="middle" x="1128.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_andi.cpp</text>
 </a>
 </g>
 </g>
