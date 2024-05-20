@@ -149,10 +149,10 @@ var sectionId = 'dynsection-1';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="test__emulator__addi_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="test__emulator__add_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="412.5,-0.5 412.5,-30.5 536.5,-30.5 536.5,-0.5 412.5,-0.5"/>
 <text text-anchor="start" x="420.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="474.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_addi.cpp</text>
+<text text-anchor="middle" x="474.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_add.cpp</text>
 </a>
 </g>
 </g>
@@ -165,10 +165,10 @@ var sectionId = 'dynsection-1';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="test__emulator__add_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="test__emulator__addi_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="554.5,-0.5 554.5,-30.5 678.5,-30.5 678.5,-0.5 554.5,-0.5"/>
 <text text-anchor="start" x="562.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/test/test_emulator</text>
-<text text-anchor="middle" x="616.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_add.cpp</text>
+<text text-anchor="middle" x="616.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_addi.cpp</text>
 </a>
 </g>
 </g>
