@@ -406,7 +406,7 @@
 
         var ram = "";
 
-        lines = lines.filter(line => { return line != ""; });
+        // lines = lines.filter(line => { return line != ""; });
 
         lines.forEach(line => {
             // Always dealing with RV32I for now.
@@ -420,195 +420,204 @@
 
             tokens = tokens.filter(token => { return token != ""; });
 
-            let opc_0_6 = tokens[0];
+            if (line == "") {
+                ram += "0|";
+                i++;
+                out.append(`${tokens}\n`)
+                out.append(`${ram}\n`)
+            } else {
 
-            var rd = "";
-            var rs1 = "";
-            var rs2 = "";
-            var imm = "";
 
-            rd = tokens[1];
-            switch (tokens.length) {
-                case 3:
-                    imm = tokens[2];
-                    break;
-                case 4:
-                    if (opc_0_6[0] == "b" || (opc_0_6[0] == "s" && opc_0_6.length === 2)) {
-                        rs1 = tokens[1];
+                let opc_0_6 = tokens[0];
+
+                var rd = "";
+                var rs1 = "";
+                var rs2 = "";
+                var imm = "";
+
+                rd = tokens[1];
+                switch (tokens.length) {
+                    case 3:
                         imm = tokens[2];
-                    } else {
-                        rs1 = tokens[2];
-                        imm = tokens[3];
+                        break;
+                    case 4:
+                        if (opc_0_6[0] == "b" || (opc_0_6[0] == "s" && opc_0_6.length === 2)) {
+                            rs1 = tokens[1];
+                            imm = tokens[2];
+                        } else {
+                            rs1 = tokens[2];
+                            imm = tokens[3];
+                        }
+                        rs2 = tokens[3];
+                        break;
+                    default:
+                        alert(`Bad arguments line ${i + 1}`)
+                        throw `Bad parse, line ${i + 1}`;
+                        break;
+                }
+
+                if (rd != "") {
+                    rd = reg_to_bin(rd);
+                    if (rd == "") {
+                        alert(`Bad operand line ${i + 1}`)
+                        throw `Bad parse, line ${i + 1}`;
                     }
-                    rs2 = tokens[3];
-                    break;
-                default:
-                    alert(`Bad arguments line ${i + 1}`)
-                    throw `Bad parse, line ${i + 1}`;
-                    break;
-            }
-
-            if (rd != "") {
-                rd = reg_to_bin(rd);
-                if (rd == "") {
-                    alert(`Bad operand line ${i + 1}`)
-                    throw `Bad parse, line ${i + 1}`;
                 }
-            }
-            if (rs1 != "") {
-                rs1 = reg_to_bin(rs1);
-                if (rs1 == "") {
-                    alert(`Bad rs1 operand line ${i + 1}`)
-                    throw `Bad parse, line ${i + 1}`;
+                if (rs1 != "") {
+                    rs1 = reg_to_bin(rs1);
+                    if (rs1 == "") {
+                        alert(`Bad rs1 operand line ${i + 1}`)
+                        throw `Bad parse, line ${i + 1}`;
+                    }
                 }
-            }
-            if (imm != "") {
-                imm = (parseInt(imm) >>> 0).toString(2);
-                if (imm.length < 20) imm = imm.padStart(20, "0");
-                else
-                    if (opc_0_6 == "jal") imm = imm.substring(imm.length - 20, imm.length);
-                    else imm = imm.substring(imm.length - 12, imm.length);
-            }
-            if (rs2 != "") {
-                rs2 = reg_to_bin(rs2);
-                if (rs2 == "" && imm == "") {
-                    alert(`Bad 3rd operand line ${i + 1}`)
-                    throw `Bad parse, line ${i + 1}`;
+                if (imm != "") {
+                    imm = (parseInt(imm) >>> 0).toString(2);
+                    if (imm.length < 20) imm = imm.padStart(20, "0");
+                    else
+                        if (opc_0_6 == "jal") imm = imm.substring(imm.length - 20, imm.length);
+                        else imm = imm.substring(imm.length - 12, imm.length);
                 }
+                if (rs2 != "") {
+                    rs2 = reg_to_bin(rs2);
+                    if (rs2 == "" && imm == "") {
+                        alert(`Bad 3rd operand line ${i + 1}`)
+                        throw `Bad parse, line ${i + 1}`;
+                    }
+                }
+
+                var ram_entry = "";
+
+                switch (opc_0_6) {
+
+                    case "lui":
+                        ram_entry = `${imm}${rd}${lui}`;
+                        break;
+                    case "auipc":
+                        ram_entry = `${imm}${rd}${auipc}`;
+                        break;
+                    case "jal":
+                        // Now, here comes the monster:
+                        // imm = `${[0]}${imm[10]}${imm[11]}${imm[12]}${imm[13]}${imm[14]}${imm[15]}${imm[16]}${imm[17]}${imm[18]}${imm[19]}${imm[9]}${imm[1]}${imm[2]}${imm[3]}${imm[4]}${imm[5]}${imm[6]}${imm[7]}${imm[8]}`
+                        imm = `${imm[0]}${imm.substring(10, 20)}${imm[9]}${imm.substring(1, 9)}`;
+
+                        ram_entry = `${imm}${rd}${jal}`;
+                        break;
+                    case "jalr":
+                        ram_entry = `${imm}${rs1}000${rd}${jalr}`;
+                        break;
+                    case "beq":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "bne":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "blt":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}100${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "bge":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}101${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "bltu":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}110${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "bgeu":
+                        ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}111${imm.substring(8, 12)}${imm[1]}${B}`;
+                        break;
+                    case "lb":
+                        ram_entry = `${imm}${rs1}000${rd}${L}`;
+                        break;
+                    case "lh":
+                        ram_entry = `${imm}${rs1}001${rd}${L}`;
+                        break;
+                    case "lw":
+                        ram_entry = `${imm}${rs1}010${rd}${L}`;
+                        break;
+                    case "lbu":
+                        ram_entry = `${imm}${rs1}100${rd}${L}`;
+                        break;
+                    case "lhu":
+                        ram_entry = `${imm}${rs1}101${rd}${L}`;
+                        break;
+                    case "sb":
+                        ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${S}`;
+                        break;
+                    case "sh":
+                        ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${S}`;
+                        break;
+                    case "sw":
+                        ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}010${imm.substring(8, 12)}${S}`;
+                        break;
+                    case "addi":
+                        ram_entry = `${imm}${rs1}000${rd}${I}`;
+                        break;
+                    case "slti":
+                        ram_entry = `${imm}${rs1}010${rd}${I}`;
+                        break;
+                    case "sltiu":
+                        ram_entry = `${imm}${rs1}011${rd}${I}`;
+                        break;
+                    case "xori":
+                        ram_entry = `${imm}${rs1}100${rd}${I}`;
+                        break;
+                    case "ori":
+                        ram_entry = `${imm}${rs1}110${rd}${I}`;
+                        break;
+                    case "andi":
+                        ram_entry = `${imm}${rs1}111${rd}${I}`;
+                        break;
+                    case "slli":
+                        ram_entry = `0000000${rs2}${rs1}001${rd}${I}`;
+                        break;
+                    case "srli":
+                        ram_entry = `0000000${rs2}${rs1}101${rd}${I}`;
+                        break;
+                    case "srai":
+                        ram_entry = `0100000${rs2}${rs1}101${rd}${I}`;
+                        break;
+                    case "add":
+                        ram_entry = `0000000${rs2}${rs1}000${rd}${R}`;
+                        break;
+                    case "sub":
+                        ram_entry = `0100000${rs2}${rs1}000${rd}${R}`;
+                        break;
+                    case "sll":
+                        ram_entry = `0000000${rs2}${rs1}001${rd}${R}`;
+                        break;
+                    case "slt":
+                        ram_entry = `0000000${rs2}${rs1}010${rd}${R}`;
+                        break;
+                    case "sltu":
+                        ram_entry = `0000000${rs2}${rs1}011${rd}${R}`;
+                        break;
+                    case "xor":
+                        ram_entry = `0000000${rs2}${rs1}100${rd}${R}`;
+                        break;
+                    case "srl":
+                        ram_entry = `0000000${rs2}${rs1}101${rd}${R}`;
+                        break;
+                    case "sra":
+                        ram_entry = `0100000${rs2}${rs1}101${rd}${R}`;
+                        break;
+                    case "or":
+                        ram_entry = `0000000${rs2}${rs1}110${rd}${R}`;
+                        break;
+                    case "and":
+                        ram_entry = `0000000${rs2}${rs1}111${rd}${R}`;
+                        break;
+                    default:
+                        alert(`Unknown instruction line ${i + 1}`)
+                        throw `Bad parse, line ${i + 1}`;
+                }
+
+
+                ram_entry = parseInt(ram_entry, 2).toString(36);
+                out.append(`${ram_entry}\n`);
+                ram += `${ram_entry}|`;
+
+                i++;
+                out.append(`${tokens}\n`)
+                out.append(`${ram}\n`)
             }
-
-            var ram_entry = "";
-
-            switch (opc_0_6) {
-
-                case "lui":
-                    ram_entry = `${imm}${rd}${lui}`;
-                    break;
-                case "auipc":
-                    ram_entry = `${imm}${rd}${auipc}`;
-                    break;
-                case "jal":
-                    // Now, here comes the monster:
-                    // imm = `${[0]}${imm[10]}${imm[11]}${imm[12]}${imm[13]}${imm[14]}${imm[15]}${imm[16]}${imm[17]}${imm[18]}${imm[19]}${imm[9]}${imm[1]}${imm[2]}${imm[3]}${imm[4]}${imm[5]}${imm[6]}${imm[7]}${imm[8]}`
-                    imm = `${imm[0]}${imm.substring(10, 20)}${imm[9]}${imm.substring(1, 9)}`;
-
-                    ram_entry = `${imm}${rd}${jal}`;
-                    break;
-                case "jalr":
-                    ram_entry = `${imm}${rs1}000${rd}${jalr}`;
-                    break;
-                case "beq":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "bne":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "blt":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}100${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "bge":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}101${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "bltu":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}110${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "bgeu":
-                    ram_entry = `${imm[0]}${imm.substring(2, 8)}${rs2}${rs1}111${imm.substring(8, 12)}${imm[1]}${B}`;
-                    break;
-                case "lb":
-                    ram_entry = `${imm}${rs1}000${rd}${L}`;
-                    break;
-                case "lh":
-                    ram_entry = `${imm}${rs1}001${rd}${L}`;
-                    break;
-                case "lw":
-                    ram_entry = `${imm}${rs1}010${rd}${L}`;
-                    break;
-                case "lbu":
-                    ram_entry = `${imm}${rs1}100${rd}${L}`;
-                    break;
-                case "lhu":
-                    ram_entry = `${imm}${rs1}101${rd}${L}`;
-                    break;
-                case "sb":
-                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}000${imm.substring(8, 12)}${S}`;
-                    break;
-                case "sh":
-                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}001${imm.substring(8, 12)}${S}`;
-                    break;
-                case "sw":
-                    ram_entry = `${imm.substring(0, 8)}${rs2}${rs1}010${imm.substring(8, 12)}${S}`;
-                    break;
-                case "addi":
-                    ram_entry = `${imm}${rs1}000${rd}${I}`;
-                    break;
-                case "slti":
-                    ram_entry = `${imm}${rs1}010${rd}${I}`;
-                    break;
-                case "sltiu":
-                    ram_entry = `${imm}${rs1}011${rd}${I}`;
-                    break;
-                case "xori":
-                    ram_entry = `${imm}${rs1}100${rd}${I}`;
-                    break;
-                case "ori":
-                    ram_entry = `${imm}${rs1}110${rd}${I}`;
-                    break;
-                case "andi":
-                    ram_entry = `${imm}${rs1}111${rd}${I}`;
-                    break;
-                case "slli":
-                    ram_entry = `0000000${rs2}${rs1}001${rd}${I}`;
-                    break;
-                case "srli":
-                    ram_entry = `0000000${rs2}${rs1}101${rd}${I}`;
-                    break;
-                case "srai":
-                    ram_entry = `0100000${rs2}${rs1}101${rd}${I}`;
-                    break;
-                case "add":
-                    ram_entry = `0000000${rs2}${rs1}000${rd}${R}`;
-                    break;
-                case "sub":
-                    ram_entry = `0100000${rs2}${rs1}000${rd}${R}`;
-                    break;
-                case "sll":
-                    ram_entry = `0000000${rs2}${rs1}001${rd}${R}`;
-                    break;
-                case "slt":
-                    ram_entry = `0000000${rs2}${rs1}010${rd}${R}`;
-                    break;
-                case "sltu":
-                    ram_entry = `0000000${rs2}${rs1}011${rd}${R}`;
-                    break;
-                case "xor":
-                    ram_entry = `0000000${rs2}${rs1}100${rd}${R}`;
-                    break;
-                case "srl":
-                    ram_entry = `0000000${rs2}${rs1}101${rd}${R}`;
-                    break;
-                case "sra":
-                    ram_entry = `0100000${rs2}${rs1}101${rd}${R}`;
-                    break;
-                case "or":
-                    ram_entry = `0000000${rs2}${rs1}110${rd}${R}`;
-                    break;
-                case "and":
-                    ram_entry = `0000000${rs2}${rs1}111${rd}${R}`;
-                    break;
-                default:
-                    alert(`Unknown instruction line ${i + 1}`)
-                    throw `Bad parse, line ${i + 1}`;
-            }
-
-
-            ram_entry = parseInt(ram_entry, 2).toString(36);
-            out.append(`${ram_entry}\n`);
-            ram += `${ram_entry}|`;
-
-            i++;
-            out.append(`${tokens}\n`)
-            out.append(`${ram}\n`)
         });
 
         send_job(ram);
