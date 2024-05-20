@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 23)
 include(extern/pico-sdk/pico_sdk_init.cmake)
 
 project("RISC-V Online"
-        VERSION 0.0.1
+        VERSION 1.0.1
         LANGUAGES C CXX ASM)
 
 pico_sdk_init()
