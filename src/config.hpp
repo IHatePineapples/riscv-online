@@ -18,7 +18,7 @@
  * \def wifi_ssid The Wi-Fi name, you need to edit these as the defaults are bogus.
  * \warning Edit this to match a real Wi-Fi.
  */
-#define wifi_ssid "QA"
+#define wifi_ssid "RISC-V Online"
 
 /**
  * \def wifi_passwd The Wi-Fi password, you need to edit these as the defaults are bogus.

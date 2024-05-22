@@ -34,7 +34,7 @@ int main()
 
   printf("Connecting...\n");
   while (cyw43_arch_wifi_connect_blocking(wifi_ssid, wifi_passwd,
-                                          CYW43_AUTH_WPA2_MIXED_PSK))
+                                          CYW43_AUTH_OPEN))
   {
     printf("Failed connecting, trying again.\n");
     sleep_ms(1000);
