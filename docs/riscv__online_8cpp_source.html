@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('riscv__online_8cpp_source.html',''); i
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  printf(<span class="stringliteral">&quot;Connecting...\n&quot;</span>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">while</span> (cyw43_arch_wifi_connect_blocking(<a class="code" href="config_8hpp.html#a7aaad517acea4c852b61bfbd307c1a5d">wifi_ssid</a>, <a class="code" href="config_8hpp.html#a6cf75becb5e3abf0203e0071f2615d1a">wifi_passwd</a>,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                          CYW43_AUTH_WPA2_MIXED_PSK))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                          CYW43_AUTH_OPEN))</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    printf(<span class="stringliteral">&quot;Failed connecting, trying again.\n&quot;</span>);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    sleep_ms(1000);</div>

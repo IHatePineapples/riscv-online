@@ -13,40 +13,40 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="72,-56.5 72,-75.5 157,-75.5 157,-56.5 72,-56.5"/>
-<text text-anchor="middle" x="114.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/server.hpp</text>
+<polygon fill="#bfbfbf" stroke="black" points="57.5,-56.5 57.5,-75.5 142.5,-75.5 142.5,-56.5 57.5,-56.5"/>
+<text text-anchor="middle" x="100" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/server.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="riscv__online_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 113,-19.5 113,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="56.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/riscv_online.cpp</text>
+<g id="a_node2"><a xlink:href="server_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 84,-19.5 84,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="42" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/server.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M97.59,-49.25C87.3,-39.67 74.53,-27.79 65.99,-19.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="95.48,-52.07 105.18,-56.32 100.25,-46.95 95.48,-52.07"/>
+<path fill="none" stroke="midnightblue" d="M83.09,-49.25C72.8,-39.67 60.03,-27.79 51.49,-19.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="80.98,-52.07 90.68,-56.32 85.75,-46.95 80.98,-52.07"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="server_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="131.5,-0.5 131.5,-19.5 215.5,-19.5 215.5,-0.5 131.5,-0.5"/>
-<text text-anchor="middle" x="173.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/server.cpp</text>
+<g id="a_node3"><a xlink:href="riscv__online_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="102.5,-0.5 102.5,-19.5 215.5,-19.5 215.5,-0.5 102.5,-0.5"/>
+<text text-anchor="middle" x="159" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/riscv_online.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M131.39,-49.54C141.91,-39.91 155.07,-27.87 163.85,-19.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="128.99,-46.99 123.98,-56.32 133.72,-52.15 128.99,-46.99"/>
+<path fill="none" stroke="midnightblue" d="M116.89,-49.54C127.41,-39.91 140.57,-27.87 149.35,-19.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="114.49,-46.99 109.48,-56.32 119.22,-52.15 114.49,-46.99"/>
 </g>
 </g>
 </svg>

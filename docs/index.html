@@ -104,17 +104,58 @@ Requirements</h2>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Configure:</h2>
-<div class="fragment"><div class="line">cmake .</div>
+<div class="fragment"><div class="line">cmake -G Ninja .</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
 Build:</h2>
-<div class="fragment"><div class="line">make -j$(nproc)</div>
+<div class="fragment"><div class="line">ninja</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Testing:</h2>
 <div class="fragment"><div class="line">cd src/test</div>
 <div class="line">cmake .</div>
 <div class="line">make</div>
 <div class="line">make test</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md6"></a>
+How to use:</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Setup Wi-Fi</h2>
+<p>The board will try to connect by default to an open Wi-Fi named "RISC-V Online". This can be best setup using a phone's network tethering ability, such as on Android. Create this Wi-Fi network, name it "RISC-V Online" and make it open.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Flashing</h2>
+<p>There should now be a <code>*.uf2</code> file located in you binary tree : <code>src/*.uf2</code></p>
+<p>After locating it, plug in the MCU while holding the button on board, drag and drop that file.</p>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Access web UI</h2>
+<p>You now need to find the IP address of the board, which is best done just checking the list of connection in your AP. If using android tethering, this should be in your settings next to the AP settings.</p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Syntax</h2>
+<p>The builtin web interface support very basic assembly parsing:</p>
+<div class="fragment"><div class="line">lui x5, 2</div>
+<div class="line">add x5, 1</div>
+<div class="line">jal x0, -32 # Repeat add forever</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md11"></a>
+load/store</h2>
+<p>Loading storing from memory is supported. To allocate stack memory, you would usually use <code>.data</code> directives in assembly language. To achieve zeroed memory regions, you have to leave some lines empty, to act as padding.</p>
+<div class="fragment"><div class="line">lui x1, 0x2</div>
+<div class="line">sw x1, 0(x0)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+Direct web-API access</h2>
+<p>RISC-V Online has two API endpoints:</p>
+<div class="fragment"><div class="line">POST /submit</div>
+<div class="line">POST /return</div>
+</div><!-- fragment --><p> To submit an emulation state/job, the payload would look like this:</p>
+<div class="fragment"><div class="line">id=26&amp;ram=0|cs7|&amp;ra=0&amp;sp=0&amp;gp=0&amp;tp=cn4&amp;t0=0&amp;t1=0&amp;t2=0&amp;fp=0&amp;s1=0&amp;a0=0&amp;a1=0&amp;a2=0&amp;a3=0&amp;a4=0&amp;a5=0&amp;a6=0&amp;a7=0&amp;s2=0&amp;s3=0&amp;s4=0&amp;s5=0&amp;s6=0&amp;s7=0&amp;s8=0&amp;s9=0&amp;s10=0&amp;s11=0&amp;t3=0&amp;t4=0&amp;t5=0&amp;t6=0&amp;pc=w&amp;prog=0&amp;</div>
+</div><!-- fragment --><p>We send the register states, a random ID and program encoded in the ram.</p>
+<p>To encode the RAM, you need to encode each 32-bit memory regions as an integer, then, represented base 36. Each of these memory regions will be suffixed by the <code>|</code> delimiter. Concatenating all of these, and sending them within the <code>ram</code> parameter/field via POST. Everything being sent to <code>/submit</code>.</p>
+<p>To retrieve back the result, just <code>POST</code> the original ID</p>
+<div class="fragment"><div class="line">id=26</div>
+</div><!-- fragment --><p> to <code>/return</code>.</p>
+<p>This will return a JSON object with all the original fields updated. On error, from submit or during execution, this will return an empty object, <code>{ }</code>.</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+TODO:</h1>
+<ul>
+<li>Fix GitHub workflows, Ubuntu doesn't automatically pick up latest compiler, need to download it from ARM website. </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

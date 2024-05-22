@@ -31,6 +31,15 @@ var NAVTREE =
       [ "Build:", "index.html#autotoc_md4", null ],
       [ "Testing:", "index.html#autotoc_md5", null ]
     ] ],
+    [ "How to use:", "index.html#autotoc_md6", [
+      [ "Setup Wi-Fi", "index.html#autotoc_md7", null ],
+      [ "Flashing", "index.html#autotoc_md8", null ],
+      [ "Access web UI", "index.html#autotoc_md9", null ],
+      [ "Syntax", "index.html#autotoc_md10", null ],
+      [ "load/store", "index.html#autotoc_md11", null ],
+      [ "Direct web-API access", "index.html#autotoc_md12", null ]
+    ] ],
+    [ "TODO:", "index.html#autotoc_md13", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -68,8 +77,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa6235404c14f303c1857fa6c2889738e8",
-"structemulation_1_1emulator.html#a9c2ff124686a82f6d6a32963fa613015"
+"namespaceparse.html#acfc3b773ce544636484c919bcfff906fa39298c98110ba1e8b00cb7024e1241d3",
+"structemulation_1_1emulator.html#a7e2895aab0c0258ccacb00ba3e237f64"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
