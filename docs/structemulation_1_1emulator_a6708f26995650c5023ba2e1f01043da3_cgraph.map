@@ -1,5 +1,7 @@
 <map id="emulation::emulator::slti_" name="emulation::emulator::slti_">
-<area shape="rect" id="node1" title="Set Less Than Immediate." alt="" coords="5,27,160,69"/>
-<area shape="rect" id="node2" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="208,5,383,32"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="218,57,373,98"/>
+<area shape="rect" id="Node000001" title="Set Less Than Immediate." alt="" coords="5,27,160,67"/>
+<area shape="rect" id="Node000002" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="208,5,383,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,34,194,29,195,35,161,39"/>
+<area shape="rect" id="Node000003" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="218,55,373,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,55,205,61,204,66,160,60"/>
 </map>

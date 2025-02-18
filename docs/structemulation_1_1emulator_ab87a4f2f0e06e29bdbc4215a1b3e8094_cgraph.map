@@ -1,4 +1,5 @@
 <map id="emulation::emulator::sub_" name="emulation::emulator::sub_">
-<area shape="rect" id="node1" title="SUBstract." alt="" coords="5,5,160,47"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="208,5,363,47"/>
+<area shape="rect" id="Node000001" title="SUBstract." alt="" coords="5,5,160,45"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="208,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,23,194,23,194,28,160,28"/>
 </map>

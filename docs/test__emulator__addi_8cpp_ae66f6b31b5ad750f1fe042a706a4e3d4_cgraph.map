@@ -1,6 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,42,60,69"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="108,35,263,76"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="321,5,475,47"/>
-<area shape="rect" id="node4" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="311,71,485,98"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,42,60,67"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="108,35,263,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,52,94,52,94,57,60,57"/>
+<area shape="rect" id="Node000003" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="321,5,475,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="263,41,307,35,308,40,263,47"/>
+<area shape="rect" id="Node000004" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="311,70,485,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="263,62,297,67,297,72,263,67"/>
 </map>

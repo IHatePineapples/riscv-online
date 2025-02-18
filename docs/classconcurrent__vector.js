@@ -10,9 +10,9 @@ var classconcurrent__vector =
     [ "erase", "classconcurrent__vector.html#a4816dd67e2542cd82b1facdabe477a31", null ],
     [ "front", "classconcurrent__vector.html#a69128f0aca84e6e34fa4c85231eeaf9f", null ],
     [ "lock", "classconcurrent__vector.html#af99a6039a1177d9b2c4997288b974533", null ],
-    [ "operator=", "classconcurrent__vector.html#a59da1fce4264bc542d00c413939cb017", null ],
-    [ "operator=", "classconcurrent__vector.html#a9c094379824eb8723e658db1266ee554", null ],
-    [ "operator[]", "classconcurrent__vector.html#a7f41b0f5078aaaea78d6aa30ab3e82dc", null ],
+    [ "operator=", "classconcurrent__vector.html#a4379b2138cb2364b26c6964959c72fbc", null ],
+    [ "operator=", "classconcurrent__vector.html#a14dcb21c249e8b9415240f098f46a988", null ],
+    [ "operator[]", "classconcurrent__vector.html#aba2279a488fc08ece680f5f5267d3be3", null ],
     [ "size", "classconcurrent__vector.html#ab9861a78f8ea436d4faa94925d3b9ac1", null ],
     [ "unlock", "classconcurrent__vector.html#a490a93f96b5be4920dd9999fbd263f3c", null ]
 ];

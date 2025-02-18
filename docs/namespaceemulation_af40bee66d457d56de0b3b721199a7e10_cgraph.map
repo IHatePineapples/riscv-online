@@ -1,8 +1,13 @@
 <map id="emulation::run" name="emulation::run">
-<area shape="rect" id="node1" title=" " alt="" coords="5,122,123,149"/>
-<area shape="rect" id="node2" href="$classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3" title=" " alt="" coords="191,5,338,47"/>
-<area shape="rect" id="node3" href="$classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede" title=" " alt="" coords="171,71,359,98"/>
-<area shape="rect" id="node4" href="$classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8" title="Reference to first item in the queue." alt="" coords="176,122,353,149"/>
-<area shape="rect" id="node5" href="$classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc" title="Pops the first element of the queue, pointed to by front()." alt="" coords="179,173,350,199"/>
-<area shape="rect" id="node6" href="$classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df" title=" " alt="" coords="179,223,351,250"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,119,123,145"/>
+<area shape="rect" id="Node000002" href="$classconcurrent__vector.html#acd87374cfc3abe94c8fb4aa5637558e3" title=" " alt="" coords="191,5,338,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,117,119,87,169,55,184,48,186,53,172,60,122,91,82,121"/>
+<area shape="rect" id="Node000003" href="$classconcurrent__queue.html#ada7853bc4c571a8d8b363fde5e230ede" title=" " alt="" coords="171,70,359,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,117,198,96,200,101,117,122"/>
+<area shape="rect" id="Node000004" href="$classconcurrent__queue.html#acef464c5141917bfa1e207b762737ec8" title="Reference to first item in the queue." alt="" coords="176,119,353,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,129,162,129,162,135,123,135"/>
+<area shape="rect" id="Node000005" href="$classconcurrent__queue.html#acf8caf9c7d650bc24005970641d155cc" title="Pops the first element of the queue, pointed to by front()." alt="" coords="179,169,350,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="117,142,200,163,198,168,116,147"/>
+<area shape="rect" id="Node000006" href="$classconcurrent__queue.html#aff708b19304d9c28c0b12e0507e426df" title=" " alt="" coords="179,218,351,243"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="82,143,121,173,172,203,193,211,191,216,169,208,118,177,78,147"/>
 </map>

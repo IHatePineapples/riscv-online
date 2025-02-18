@@ -1,44 +1,114 @@
 <map id="emulation::emulator::execute" name="emulation::emulator::execute">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1205,160,1247"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="454,384,609,425"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="225,645,379,687"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a444c6ab55271b38ca33592f096ed7a93" title="AND." alt="" coords="225,1323,379,1364"/>
-<area shape="rect" id="node6" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="225,1037,379,1079"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="225,123,379,164"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="225,711,379,752"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="225,776,379,817"/>
-<area shape="rect" id="node11" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="225,253,379,295"/>
-<area shape="rect" id="node12" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="225,319,379,360"/>
-<area shape="rect" id="node13" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="225,384,379,425"/>
-<area shape="rect" id="node14" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="225,449,379,491"/>
-<area shape="rect" id="node15" href="$structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="225,188,379,229"/>
-<area shape="rect" id="node16" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="225,515,379,556"/>
-<area shape="rect" id="node17" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="225,580,379,621"/>
-<area shape="rect" id="node18" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="211,1103,393,1130"/>
-<area shape="rect" id="node19" href="$structemulation_1_1emulator.html#ad021424c8fc9355fa1363757161d8202" title="Load Byte Unsigned." alt="" coords="225,1388,379,1429"/>
-<area shape="rect" id="node20" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="211,1154,393,1181"/>
-<area shape="rect" id="node21" href="$structemulation_1_1emulator.html#a486b7f38777c5ddffd581da9dfc6fc09" title="Load Halfword Unsigned." alt="" coords="225,1453,379,1495"/>
-<area shape="rect" id="node22" href="$structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4" title="Load Upper Immediate." alt="" coords="225,1519,379,1560"/>
-<area shape="rect" id="node23" href="$structemulation_1_1emulator.html#a7c8661a191a75954ff25d2458b5996cd" title="Load Word." alt="" coords="209,1585,395,1611"/>
-<area shape="rect" id="node24" href="$structemulation_1_1emulator.html#a669eb8d6d6ae4912f3a178a2274e794b" title="OR." alt="" coords="211,1635,393,1662"/>
-<area shape="rect" id="node25" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="225,841,379,883"/>
-<area shape="rect" id="node26" href="$structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1" title="Returns a reference to the destination register bitset rd points to." alt="" coords="225,1687,379,1728"/>
-<area shape="rect" id="node27" href="$structemulation_1_1emulator.html#a2d89c27173db2771a49b6d34469869fd" title="Store Byte." alt="" coords="209,1753,395,1779"/>
-<area shape="rect" id="node28" href="$structemulation_1_1emulator.html#a974965ef3e4a012d008cde636e053fc6" title="Store Halfword." alt="" coords="209,1803,395,1830"/>
-<area shape="rect" id="node29" href="$structemulation_1_1emulator.html#a8e9e372611e883a750dc77f956f555c5" title="Shift Left Logical." alt="" coords="225,1855,379,1896"/>
-<area shape="rect" id="node30" href="$structemulation_1_1emulator.html#aab67bc14a976694b3663d16ce48de60c" title="Shift Left Logical Immediate." alt="" coords="225,1920,379,1961"/>
-<area shape="rect" id="node31" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="454,1235,609,1276"/>
-<area shape="rect" id="node32" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="225,1205,379,1247"/>
-<area shape="rect" id="node33" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="225,907,379,948"/>
-<area shape="rect" id="node34" href="$structemulation_1_1emulator.html#acff035e73727d764f8a0494351bee72b" title="Set Less Than Unsigned." alt="" coords="225,1985,379,2027"/>
-<area shape="rect" id="node35" href="$structemulation_1_1emulator.html#adc5a989fccb3ca25e5a16e957787d529" title="Shift Right Arithmetic." alt="" coords="225,2051,379,2092"/>
-<area shape="rect" id="node36" href="$structemulation_1_1emulator.html#a9f9bfde936d0d6a8c274b2d72e5b32fa" title="Shift Right Arithmetic Immediate." alt="" coords="225,2116,379,2157"/>
-<area shape="rect" id="node37" href="$structemulation_1_1emulator.html#a137e46f5f69e441803b811e6afe11dda" title="Shift Right Logical." alt="" coords="225,2181,379,2223"/>
-<area shape="rect" id="node38" href="$structemulation_1_1emulator.html#a8a52df96c7e8c6a8bbb0a6f32b4e3c39" title=" " alt="" coords="225,2247,379,2288"/>
-<area shape="rect" id="node39" href="$structemulation_1_1emulator.html#ab87a4f2f0e06e29bdbc4215a1b3e8094" title="SUBstract." alt="" coords="225,5,379,47"/>
-<area shape="rect" id="node40" href="$structemulation_1_1emulator.html#ab84a9c67aab2afc5889dfdf5b02d2861" title="Store Word." alt="" coords="208,2313,396,2339"/>
-<area shape="rect" id="node41" href="$structemulation_1_1emulator.html#a5f7e3ab86436e6b916e5c7006d2be413" title="eXclusive OR." alt="" coords="225,2364,379,2405"/>
-<area shape="rect" id="node42" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="225,972,379,1013"/>
-<area shape="rect" id="node4" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="444,751,619,778"/>
-<area shape="rect" id="node10" href="$namespaceemulation.html#aee0fa7445c58145231891f91a2993429" title=" " alt="" coords="461,591,601,618"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,1180,160,1220"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="454,376,609,416"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,1180,92,962,114,618,131,442,152,286,176,169,191,130,206,106,230,88,253,76,276,69,299,68,323,71,347,79,397,106,429,131,455,162,476,196,493,232,517,304,529,362,523,363,512,305,489,234,472,198,451,165,425,135,395,110,345,84,321,76,299,73,277,74,255,81,233,92,210,110,195,132,182,170,157,287,136,442,120,618,97,963,87,1180"/>
+<area shape="rect" id="Node000003" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="225,632,379,672"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,1179,97,1076,122,928,139,851,159,781,181,722,206,682,211,677,215,681,210,686,186,725,164,782,144,852,128,929,102,1077,89,1180"/>
+<area shape="rect" id="Node000005" href="$structemulation_1_1emulator.html#a444c6ab55271b38ca33592f096ed7a93" title="AND." alt="" coords="225,1295,379,1335"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="115,1218,209,1274,237,1287,235,1292,207,1278,112,1222"/>
+<area shape="rect" id="Node000006" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="225,1016,379,1056"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="96,1178,141,1124,172,1094,207,1067,220,1060,222,1064,209,1072,176,1098,145,1127,100,1182"/>
+<area shape="rect" id="Node000007" href="$structemulation_1_1emulator.html#a5c23ebba4840ee6cc2b1b1b0a83df86a" title="Add Upper Immeddiate to PC." alt="" coords="225,120,379,160"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="81,1180,81,990,85,847,93,688,108,528,130,379,145,314,162,256,183,207,206,170,212,164,216,168,210,174,187,210,167,258,150,315,136,380,113,528,98,688,90,847,86,990,86,1180"/>
+<area shape="rect" id="Node000008" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="225,696,379,736"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="81,1180,83,1101,88,1046,98,985,113,922,135,859,166,799,206,746,211,741,215,745,210,750,170,802,140,861,118,923,103,986,93,1047,88,1101,86,1180"/>
+<area shape="rect" id="Node000009" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="225,760,379,800"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="82,1180,87,1111,105,1012,121,958,142,905,170,855,206,810,211,805,215,809,210,814,175,858,147,907,126,960,110,1013,93,1111,87,1180"/>
+<area shape="rect" id="Node000011" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="225,248,379,288"/>
+<area shape="poly" id="edge17_Node000001_Node000011" title=" " alt="" coords="81,1180,85,1012,90,886,100,748,115,608,137,480,151,423,167,372,185,331,206,298,212,292,216,296,210,302,190,333,172,374,156,424,143,481,121,609,105,748,96,886,90,1012,87,1180"/>
+<area shape="rect" id="Node000012" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="225,312,379,352"/>
+<area shape="poly" id="edge20_Node000001_Node000012" title=" " alt="" coords="82,1180,87,1022,104,777,119,649,141,530,169,431,187,392,206,362,212,356,215,360,210,366,191,395,174,433,146,531,125,649,109,778,92,1022,87,1180"/>
+<area shape="rect" id="Node000013" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="225,376,379,416"/>
+<area shape="poly" id="edge24_Node000001_Node000013" title=" " alt="" coords="82,1180,88,1032,107,807,123,689,144,579,172,489,188,454,206,426,212,420,215,424,210,430,193,456,177,491,150,581,129,690,113,807,94,1033,87,1180"/>
+<area shape="rect" id="Node000014" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="225,440,379,480"/>
+<area shape="poly" id="edge27_Node000001_Node000014" title=" " alt="" coords="82,1180,90,1044,111,837,127,729,148,630,174,547,189,515,206,490,212,484,216,488,210,494,194,518,179,549,153,631,132,730,116,838,96,1044,87,1180"/>
+<area shape="rect" id="Node000015" href="$structemulation_1_1emulator.html#a94bdc593369f294fdb1927135edc18a8" title="Increments PC by xlen (32), using an optimised add with carry." alt="" coords="225,184,379,224"/>
+<area shape="poly" id="edge30_Node000001_Node000015" title=" " alt="" coords="81,1180,83,1001,88,866,97,718,112,568,134,429,148,368,165,314,184,269,206,234,212,228,216,232,210,238,189,271,170,316,153,369,139,430,117,569,102,718,93,866,88,1001,86,1180"/>
+<area shape="rect" id="Node000016" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="225,504,379,544"/>
+<area shape="poly" id="edge32_Node000001_Node000016" title=" " alt="" coords="83,1179,93,1054,115,867,131,769,152,680,176,606,191,577,206,554,212,548,216,552,210,558,195,579,181,608,157,681,136,770,120,868,98,1054,88,1180"/>
+<area shape="rect" id="Node000017" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="225,568,379,608"/>
+<area shape="poly" id="edge35_Node000001_Node000017" title=" " alt="" coords="83,1179,95,1065,119,897,135,810,155,730,179,664,192,638,206,618,212,612,216,616,210,622,196,641,184,666,160,732,140,811,124,898,100,1066,88,1180"/>
+<area shape="rect" id="Node000018" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="211,1081,393,1106"/>
+<area shape="poly" id="edge38_Node000001_Node000018" title=" " alt="" coords="108,1177,153,1146,207,1116,229,1108,231,1113,209,1121,156,1151,111,1182"/>
+<area shape="rect" id="Node000019" href="$structemulation_1_1emulator.html#ad021424c8fc9355fa1363757161d8202" title="Load Byte Unsigned." alt="" coords="225,1359,379,1399"/>
+<area shape="poly" id="edge40_Node000001_Node000019" title=" " alt="" coords="98,1218,142,1280,174,1315,210,1345,219,1350,216,1355,206,1349,170,1319,138,1284,94,1222"/>
+<area shape="rect" id="Node000020" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="211,1130,393,1155"/>
+<area shape="poly" id="edge41_Node000001_Node000020" title=" " alt="" coords="159,1177,239,1156,240,1161,160,1183"/>
+<area shape="rect" id="Node000021" href="$structemulation_1_1emulator.html#a486b7f38777c5ddffd581da9dfc6fc09" title="Load Halfword Unsigned." alt="" coords="225,1423,379,1463"/>
+<area shape="poly" id="edge43_Node000001_Node000021" title=" " alt="" coords="93,1220,108,1260,133,1310,167,1363,210,1409,216,1413,213,1418,206,1413,162,1366,128,1313,104,1262,88,1222"/>
+<area shape="rect" id="Node000022" href="$structemulation_1_1emulator.html#a25dd59ec5b400ebb9b4a031ce3c60ab4" title="Load Upper Immediate." alt="" coords="225,1487,379,1527"/>
+<area shape="poly" id="edge44_Node000001_Node000022" title=" " alt="" coords="90,1220,102,1270,124,1338,159,1410,183,1443,210,1473,215,1477,212,1481,206,1477,178,1447,155,1413,119,1340,97,1272,85,1221"/>
+<area shape="rect" id="Node000023" href="$structemulation_1_1emulator.html#a7c8661a191a75954ff25d2458b5996cd" title="Load Word." alt="" coords="209,1551,395,1577"/>
+<area shape="poly" id="edge45_Node000001_Node000023" title=" " alt="" coords="88,1220,95,1282,115,1367,130,1413,151,1458,177,1500,210,1537,217,1542,214,1547,206,1541,173,1503,146,1461,125,1415,109,1369,90,1283,83,1221"/>
+<area shape="rect" id="Node000024" href="$structemulation_1_1emulator.html#a669eb8d6d6ae4912f3a178a2274e794b" title="OR." alt="" coords="211,1601,393,1626"/>
+<area shape="poly" id="edge46_Node000001_Node000024" title=" " alt="" coords="87,1220,91,1290,108,1389,123,1443,145,1496,173,1545,210,1587,214,1591,211,1595,206,1591,169,1548,140,1498,118,1444,103,1390,86,1290,81,1220"/>
+<area shape="rect" id="Node000025" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="225,824,379,864"/>
+<area shape="poly" id="edge47_Node000001_Node000025" title=" " alt="" coords="83,1179,92,1120,113,1039,129,995,149,951,175,910,206,874,212,869,215,873,210,878,179,913,154,954,134,997,118,1040,98,1121,89,1180"/>
+<area shape="rect" id="Node000026" href="$structemulation_1_1emulator.html#a7c54971649155c376b35ea6bb11b25d1" title="Returns a reference to the destination register bitset rd points to." alt="" coords="225,1651,379,1691"/>
+<area shape="poly" id="edge49_Node000001_Node000026" title=" " alt="" coords="86,1220,89,1297,94,1350,104,1408,120,1469,142,1530,171,1586,210,1637,215,1642,211,1646,206,1640,167,1589,137,1532,114,1471,99,1409,89,1350,84,1297,81,1220"/>
+<area shape="rect" id="Node000027" href="$structemulation_1_1emulator.html#a2d89c27173db2771a49b6d34469869fd" title="Store Byte." alt="" coords="209,1715,395,1741"/>
+<area shape="poly" id="edge50_Node000001_Node000027" title=" " alt="" coords="89,1220,102,1321,127,1466,144,1541,164,1608,186,1664,210,1701,216,1706,212,1710,206,1704,181,1666,158,1610,139,1542,122,1467,97,1322,84,1221"/>
+<area shape="rect" id="Node000028" href="$structemulation_1_1emulator.html#a974965ef3e4a012d008cde636e053fc6" title="Store Halfword." alt="" coords="209,1765,395,1790"/>
+<area shape="poly" id="edge51_Node000001_Node000028" title=" " alt="" coords="88,1220,100,1330,124,1490,140,1573,160,1648,183,1710,196,1734,210,1752,214,1755,210,1759,206,1755,192,1737,179,1712,155,1650,135,1574,119,1491,95,1330,83,1220"/>
+<area shape="rect" id="Node000029" href="$structemulation_1_1emulator.html#a8e9e372611e883a750dc77f956f555c5" title="Shift Left Logical." alt="" coords="225,1815,379,1855"/>
+<area shape="poly" id="edge52_Node000001_Node000029" title=" " alt="" coords="88,1220,99,1338,122,1513,139,1603,159,1686,183,1755,196,1781,210,1801,216,1806,212,1810,206,1804,191,1784,178,1757,154,1688,134,1604,117,1514,94,1339,83,1221"/>
+<area shape="rect" id="Node000030" href="$structemulation_1_1emulator.html#aab67bc14a976694b3663d16ce48de60c" title="Shift Left Logical Immediate." alt="" coords="225,1879,379,1919"/>
+<area shape="poly" id="edge53_Node000001_Node000030" title=" " alt="" coords="88,1220,97,1350,119,1543,135,1644,155,1737,180,1813,195,1843,210,1865,216,1871,212,1874,206,1868,190,1845,175,1815,150,1738,130,1645,113,1544,92,1350,82,1221"/>
+<area shape="rect" id="Node000031" href="$structemulation_1_1emulator.html#a69d2dbbf01d4b4627cd303f0b30f2b30" title="Set Less Than." alt="" coords="454,1208,609,1248"/>
+<area shape="poly" id="edge54_Node000001_Node000031" title=" " alt="" coords="150,1217,208,1229,329,1236,440,1233,440,1238,329,1242,208,1235,149,1223"/>
+<area shape="rect" id="Node000032" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="225,1180,379,1220"/>
+<area shape="poly" id="edge55_Node000001_Node000032" title=" " alt="" coords="160,1197,211,1197,211,1203,160,1203"/>
+<area shape="rect" id="Node000033" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="225,888,379,928"/>
+<area shape="poly" id="edge58_Node000001_Node000033" title=" " alt="" coords="85,1179,98,1131,121,1066,157,998,179,966,206,938,212,933,215,938,210,942,184,969,161,1001,126,1068,103,1132,91,1181"/>
+<area shape="rect" id="Node000034" href="$structemulation_1_1emulator.html#acff035e73727d764f8a0494351bee72b" title="Set Less Than Unsigned." alt="" coords="225,1943,379,1983"/>
+<area shape="poly" id="edge60_Node000001_Node000034" title=" " alt="" coords="87,1220,95,1360,115,1573,131,1684,152,1787,178,1871,193,1904,210,1929,216,1935,212,1938,206,1932,189,1907,173,1873,147,1788,126,1685,110,1574,90,1361,82,1220"/>
+<area shape="rect" id="Node000035" href="$structemulation_1_1emulator.html#adc5a989fccb3ca25e5a16e957787d529" title="Shift Right Arithmetic." alt="" coords="225,2007,379,2047"/>
+<area shape="poly" id="edge61_Node000001_Node000035" title=" " alt="" coords="87,1220,93,1371,111,1603,127,1725,148,1837,176,1930,192,1966,210,1993,215,1999,212,2002,206,1996,187,1968,171,1932,143,1838,122,1725,106,1603,88,1371,82,1220"/>
+<area shape="rect" id="Node000036" href="$structemulation_1_1emulator.html#a9f9bfde936d0d6a8c274b2d72e5b32fa" title="Shift Right Arithmetic Immediate." alt="" coords="225,2071,379,2111"/>
+<area shape="poly" id="edge62_Node000001_Node000036" title=" " alt="" coords="87,1220,91,1382,108,1633,123,1765,145,1887,174,1988,191,2027,210,2057,216,2063,212,2066,206,2060,186,2030,169,1990,140,1888,118,1766,102,1633,86,1382,81,1220"/>
+<area shape="rect" id="Node000037" href="$structemulation_1_1emulator.html#a137e46f5f69e441803b811e6afe11dda" title="Shift Right Logical." alt="" coords="225,2135,379,2175"/>
+<area shape="poly" id="edge63_Node000001_Node000037" title=" " alt="" coords="87,1220,89,1392,95,1521,104,1663,119,1805,141,1937,155,1995,171,2046,189,2089,210,2121,216,2127,212,2130,206,2124,185,2091,166,2048,150,1997,136,1938,114,1806,99,1663,89,1521,84,1392,81,1220"/>
+<area shape="rect" id="Node000038" href="$structemulation_1_1emulator.html#a8a52df96c7e8c6a8bbb0a6f32b4e3c39" title=" " alt="" coords="225,2199,379,2239"/>
+<area shape="poly" id="edge64_Node000001_Node000038" title=" " alt="" coords="86,1220,88,1403,92,1541,101,1693,116,1846,138,1987,152,2050,169,2105,188,2150,210,2185,216,2191,212,2194,206,2188,183,2153,164,2107,147,2051,133,1988,110,1846,95,1693,87,1541,82,1403,81,1220"/>
+<area shape="rect" id="Node000039" href="$structemulation_1_1emulator.html#ab87a4f2f0e06e29bdbc4215a1b3e8094" title="SUBstract." alt="" coords="225,5,379,45"/>
+<area shape="poly" id="edge65_Node000001_Node000039" title=" " alt="" coords="82,1180,95,957,120,602,138,419,158,257,180,132,193,89,206,62,216,52,220,55,210,66,198,91,186,133,163,258,143,420,126,603,100,958,88,1180"/>
+<area shape="rect" id="Node000040" href="$structemulation_1_1emulator.html#ab84a9c67aab2afc5889dfdf5b02d2861" title="Store Word." alt="" coords="208,2263,396,2289"/>
+<area shape="poly" id="edge67_Node000001_Node000040" title=" " alt="" coords="88,1220,100,1428,126,1757,143,1925,163,2074,185,2188,198,2226,210,2249,214,2253,210,2257,206,2252,193,2228,180,2189,158,2075,138,1926,120,1757,95,1428,82,1220"/>
+<area shape="rect" id="Node000041" href="$structemulation_1_1emulator.html#a5f7e3ab86436e6b916e5c7006d2be413" title="eXclusive OR." alt="" coords="225,2313,379,2353"/>
+<area shape="poly" id="edge68_Node000001_Node000041" title=" " alt="" coords="88,1220,100,1437,125,1781,143,1958,163,2115,185,2235,198,2275,210,2300,216,2306,212,2309,206,2303,193,2277,180,2236,157,2116,137,1958,120,1781,95,1437,82,1220"/>
+<area shape="rect" id="Node000042" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="225,952,379,992"/>
+<area shape="poly" id="edge69_Node000001_Node000042" title=" " alt="" coords="89,1179,105,1141,130,1094,164,1045,206,1002,213,997,216,1001,210,1006,168,1048,135,1097,110,1143,94,1181"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="376,630,394,618,422,585,455,533,512,427,517,429,460,536,427,588,398,622,379,634"/>
+<area shape="rect" id="Node000004" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="444,735,619,761"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="365,670,397,682,494,727,492,731,395,686,364,675"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="377,1014,394,1002,420,976,443,947,480,883,505,822,521,773,526,775,510,824,484,886,447,950,424,980,398,1006,380,1018"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="379,158,398,170,442,215,477,267,503,319,521,362,516,364,498,321,472,270,437,218,394,174,376,162"/>
+<area shape="poly" id="edge11_Node000008_Node000002" title=" " alt="" coords="378,694,394,682,415,656,424,630,430,601,442,567,511,427,515,430,446,569,435,603,429,631,420,658,398,686,381,698"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="380,724,431,731,430,737,379,729"/>
+<area shape="poly" id="edge14_Node000009_Node000002" title=" " alt="" coords="378,759,394,746,411,725,421,704,428,664,429,620,433,595,441,567,475,490,509,427,514,429,480,493,447,569,438,596,435,621,433,665,426,706,415,727,398,750,381,763"/>
+<area shape="poly" id="edge15_Node000009_Node000004" title=" " alt="" coords="379,767,430,759,431,765,380,772"/>
+<area shape="rect" id="Node000010" href="$namespaceemulation.html#aee0fa7445c58145231891f91a2993429" title=" " alt="" coords="461,579,601,605"/>
+<area shape="poly" id="edge16_Node000009_Node000010" title=" " alt="" coords="373,757,395,746,432,715,465,680,513,615,517,618,469,683,436,719,397,750,376,762"/>
+<area shape="poly" id="edge18_Node000011_Node000002" title=" " alt="" coords="370,286,397,298,451,331,497,365,494,369,448,335,395,302,368,290"/>
+<area shape="poly" id="edge19_Node000011_Node000004" title=" " alt="" coords="381,284,398,298,425,338,437,377,440,413,438,450,430,527,434,570,446,616,478,676,512,723,508,726,473,679,442,618,428,570,425,527,432,450,435,413,432,378,420,341,394,302,378,288"/>
+<area shape="poly" id="edge21_Node000012_Node000002" title=" " alt="" coords="375,350,447,370,446,375,374,355"/>
+<area shape="poly" id="edge22_Node000012_Node000004" title=" " alt="" coords="381,348,398,362,420,394,432,425,435,454,435,483,432,545,435,579,446,616,478,676,513,723,508,726,474,678,442,618,430,580,426,545,429,483,430,454,426,426,415,397,394,366,378,352"/>
+<area shape="poly" id="edge23_Node000012_Node000010" title=" " alt="" coords="379,350,398,362,428,399,463,455,520,565,515,568,458,457,424,402,394,366,376,354"/>
+<area shape="poly" id="edge25_Node000013_Node000002" title=" " alt="" coords="379,393,440,393,440,399,379,399"/>
+<area shape="poly" id="edge26_Node000013_Node000004" title=" " alt="" coords="381,413,398,426,416,450,426,473,432,517,433,563,437,588,446,616,479,675,513,723,509,726,475,678,442,618,432,590,427,563,426,517,421,474,411,453,394,430,378,417"/>
+<area shape="poly" id="edge28_Node000014_Node000002" title=" " alt="" coords="374,437,446,417,447,422,375,442"/>
+<area shape="poly" id="edge29_Node000014_Node000004" title=" " alt="" coords="381,478,398,490,420,520,428,550,434,581,446,616,481,675,514,723,510,726,476,678,442,618,428,582,423,551,415,523,394,494,378,482"/>
+<area shape="poly" id="edge31_Node000015_Node000002" title=" " alt="" coords="376,222,398,234,434,264,466,298,513,362,509,366,461,301,430,267,394,238,373,226"/>
+<area shape="poly" id="edge33_Node000016_Node000002" title=" " alt="" coords="368,502,395,490,448,457,494,423,497,427,451,461,397,494,370,506"/>
+<area shape="poly" id="edge34_Node000016_Node000004" title=" " alt="" coords="378,542,398,554,419,579,451,624,516,722,512,725,447,627,415,582,394,558,375,546"/>
+<area shape="poly" id="edge36_Node000017_Node000002" title=" " alt="" coords="373,566,394,554,430,525,461,491,509,426,513,430,466,494,434,528,398,558,376,570"/>
+<area shape="poly" id="edge37_Node000017_Node000004" title=" " alt="" coords="373,606,397,618,432,642,464,671,513,723,509,727,460,674,429,647,395,622,371,610"/>
+<area shape="poly" id="edge39_Node000018_Node000004" title=" " alt="" coords="375,1078,394,1066,425,1033,451,995,473,955,490,913,513,834,524,774,529,775,518,835,495,915,478,957,456,998,430,1037,398,1070,377,1083"/>
+<area shape="poly" id="edge42_Node000020_Node000004" title=" " alt="" coords="378,1128,394,1117,429,1078,458,1033,480,985,497,936,518,843,526,774,531,775,523,844,502,937,485,987,462,1036,433,1081,398,1121,381,1132"/>
+<area shape="poly" id="edge48_Node000025_Node000004" title=" " alt="" coords="364,821,395,810,492,765,494,769,397,814,365,826"/>
+<area shape="poly" id="edge56_Node000032_Node000004" title=" " alt="" coords="378,1178,394,1166,431,1120,461,1067,484,1011,501,955,520,850,527,774,532,774,526,851,506,956,489,1013,466,1070,436,1123,398,1170,381,1183"/>
+<area shape="poly" id="edge57_Node000032_Node000031" title=" " alt="" coords="380,1207,440,1214,440,1220,379,1212"/>
+<area shape="poly" id="edge59_Node000033_Node000004" title=" " alt="" coords="371,886,395,874,429,849,460,822,509,769,513,773,464,825,432,854,397,878,373,890"/>
+<area shape="poly" id="edge66_Node000039_Node000002" title=" " alt="" coords="372,43,398,62,428,97,453,136,474,178,491,220,515,299,528,362,523,363,510,301,486,222,469,180,448,139,423,100,394,66,369,48"/>
+<area shape="poly" id="edge70_Node000042_Node000004" title=" " alt="" coords="375,950,394,938,436,899,471,853,498,809,517,772,521,774,502,811,475,856,440,902,398,942,378,954"/>
 </map>

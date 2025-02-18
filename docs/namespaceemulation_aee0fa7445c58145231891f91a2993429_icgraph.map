@@ -1,6 +1,10 @@
 <map id="emulation::to_sint" name="emulation::to_sint">
-<area shape="rect" id="node1" title=" " alt="" coords="411,46,551,73"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="208,5,363,47"/>
-<area shape="rect" id="node4" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="208,71,363,112"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,39,160,80"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,45,551,70"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="208,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,46,363,41,363,35,397,41"/>
+<area shape="rect" id="Node000004" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="208,69,363,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,74,363,79,363,74,396,68"/>
+<area shape="rect" id="Node000003" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,37,160,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="195,42,161,48,160,42,194,37"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="194,78,160,72,161,67,195,72"/>
 </map>

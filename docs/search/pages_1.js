@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['risc_2dv_20online_731',['RISC-V Online',['../index.html',1,'']]]
+  ['list_0',['list',['../bug.html',1,'Bug List'],['../todo.html',1,'Todo List']]]
 ];

@@ -1,6 +1,9 @@
 <map id="emulation::emulator::blt_" name="emulation::emulator::blt_">
-<area shape="rect" id="node1" title="Branch Less Than." alt="" coords="5,64,160,105"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="218,5,373,47"/>
-<area shape="rect" id="node3" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="208,71,383,98"/>
-<area shape="rect" id="node4" href="$namespaceemulation.html#aee0fa7445c58145231891f91a2993429" title=" " alt="" coords="225,122,365,149"/>
+<area shape="rect" id="Node000001" title="Branch Less Than." alt="" coords="5,63,160,103"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#abb02b50bf20caacea80357c21d0dd6a2" title="ADD." alt="" coords="218,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,60,207,46,208,52,158,65"/>
+<area shape="rect" id="Node000003" href="$namespaceemulation.html#a0e3cd88b9aeee3fe41402b7dd019cfba" title=" " alt="" coords="208,70,383,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,80,194,80,194,85,160,85"/>
+<area shape="rect" id="Node000004" href="$namespaceemulation.html#aee0fa7445c58145231891f91a2993429" title=" " alt="" coords="225,119,365,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,98,227,113,226,119,160,103"/>
 </map>

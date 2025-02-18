@@ -1,5 +1,7 @@
 <map id="emulation::emulator::and_" name="emulation::emulator::and_">
-<area shape="rect" id="node1" title="AND." alt="" coords="208,35,363,76"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,5,160,47"/>
-<area shape="rect" id="node3" href="$test__emulator__and_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,71,110,98"/>
+<area shape="rect" id="Node000001" title="AND." alt="" coords="208,35,363,75"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,44,160,39,161,34,195,39"/>
+<area shape="rect" id="Node000003" href="$test__emulator__and_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,70,110,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,70,111,82,110,76,194,65"/>
 </map>

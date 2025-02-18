@@ -1,22 +1,56 @@
 <map id="emulation::sign_extend" name="emulation::sign_extend">
-<area shape="rect" id="node1" title=" " alt="" coords="439,475,613,502"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="222,5,377,47"/>
-<area shape="rect" id="node5" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="222,71,377,112"/>
-<area shape="rect" id="node7" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="222,500,377,541"/>
-<area shape="rect" id="node8" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="222,565,377,607"/>
-<area shape="rect" id="node9" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="222,631,377,672"/>
-<area shape="rect" id="node10" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="222,696,377,737"/>
-<area shape="rect" id="node11" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="222,761,377,803"/>
-<area shape="rect" id="node12" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="222,827,377,868"/>
-<area shape="rect" id="node13" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="222,892,377,933"/>
-<area shape="rect" id="node14" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="222,957,377,999"/>
-<area shape="rect" id="node15" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="208,137,391,163"/>
-<area shape="rect" id="node16" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="208,187,391,214"/>
-<area shape="rect" id="node17" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="222,239,377,280"/>
-<area shape="rect" id="node18" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="222,304,377,345"/>
-<area shape="rect" id="node19" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="222,369,377,411"/>
-<area shape="rect" id="node20" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="222,435,377,476"/>
-<area shape="rect" id="node3" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,467,160,508"/>
-<area shape="rect" id="node4" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,39"/>
-<area shape="rect" id="node6" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,78,110,105"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="439,465,613,490"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#a6f512f9a45e36c98c7248f3f0004123a" title="Add Immediate." alt="" coords="222,5,377,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,451,515,375,495,270,478,214,455,158,426,106,389,59,374,48,377,43,393,55,430,103,460,156,483,212,500,269,520,374,527,451"/>
+<area shape="rect" id="Node000005" href="$structemulation_1_1emulator.html#a09c4f3ae7b420c579e499c1225efb5b8" title="AND Immediate." alt="" coords="222,69,377,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="520,451,509,386,487,298,470,251,448,205,421,162,389,123,373,112,377,107,392,119,426,158,453,202,475,249,492,296,515,385,525,451"/>
+<area shape="rect" id="Node000007" href="$structemulation_1_1emulator.html#a4764c8f8a813222723736010fe06c6f8" title="Branch EQual." alt="" coords="222,489,377,529"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="425,494,377,501,376,496,424,489"/>
+<area shape="rect" id="Node000008" href="$structemulation_1_1emulator.html#aa8436f1782c600c2602784550783dd1d" title="Branch Greater than or Equal." alt="" coords="222,553,377,593"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="489,499,392,544,361,556,359,551,390,539,487,494"/>
+<area shape="rect" id="Node000009" href="$structemulation_1_1emulator.html#a9aba50a40e49223010db0ab4379859e3" title="Branch Greater than or Equal Unsigned." alt="" coords="222,617,377,657"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="508,502,459,555,427,583,392,608,369,620,366,615,389,603,423,579,455,551,504,499"/>
+<area shape="rect" id="Node000010" href="$structemulation_1_1emulator.html#aff0ad86baa02712f534562bb703e66dc" title="Branch Less Than." alt="" coords="222,681,377,721"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="516,503,497,540,470,585,434,631,392,671,373,683,370,679,389,667,431,628,465,582,492,538,511,501"/>
+<area shape="rect" id="Node000011" href="$structemulation_1_1emulator.html#abc914f48206b4623f88d1c9b11ba8cde" title="Branch Less Than Unsigned." alt="" coords="222,745,377,785"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="521,504,505,553,479,615,442,679,419,709,392,735,375,747,372,743,389,731,415,705,437,676,474,612,500,551,515,502"/>
+<area shape="rect" id="Node000012" href="$structemulation_1_1emulator.html#aea1938f1f04e4fd1c6ce359da8ec0f13" title="Branch Not Equal." alt="" coords="222,809,377,849"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="524,504,511,564,488,643,470,685,449,726,423,765,392,799,376,811,373,807,389,795,419,762,444,724,465,683,483,641,506,563,518,503"/>
+<area shape="rect" id="Node000013" href="$structemulation_1_1emulator.html#a6d495ced29be5a5f0f9eb07b8044cbb9" title="Jump And Link." alt="" coords="222,873,377,913"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="526,504,517,575,496,670,479,722,456,773,428,821,393,863,377,875,374,871,389,859,423,818,451,770,474,720,491,669,512,574,520,504"/>
+<area shape="rect" id="Node000014" href="$structemulation_1_1emulator.html#a12cf345cf8f194678758f198e4af586d" title="Jump And Link Register." alt="" coords="222,937,377,977"/>
+<area shape="poly" id="edge21_Node000001_Node000014" title=" " alt="" coords="527,504,522,584,515,638,504,697,487,758,463,819,432,876,393,927,378,939,374,935,389,923,428,873,459,817,482,757,499,696,510,637,517,584,522,503"/>
+<area shape="rect" id="Node000015" href="$structemulation_1_1emulator.html#a742e0adc156e9bec9363000cc96329e1" title="Load Byte." alt="" coords="208,134,391,159"/>
+<area shape="poly" id="edge23_Node000001_Node000015" title=" " alt="" coords="518,452,506,394,483,318,466,278,445,240,419,204,389,173,372,162,374,157,392,169,423,200,449,237,471,276,488,316,511,392,524,451"/>
+<area shape="rect" id="Node000016" href="$structemulation_1_1emulator.html#a56a38bbe4fcffe68c28f743e2b6a528b" title="Load Halfword." alt="" coords="208,183,391,209"/>
+<area shape="poly" id="edge25_Node000001_Node000016" title=" " alt="" coords="516,452,501,403,475,341,438,277,415,249,389,223,368,211,370,206,392,219,419,245,443,274,480,339,506,401,521,450"/>
+<area shape="rect" id="Node000017" href="$structemulation_1_1emulator.html#a6bd9d2dd11a7045a5bda8aa36e044df9" title="OR Immediate." alt="" coords="222,233,377,273"/>
+<area shape="poly" id="edge27_Node000001_Node000017" title=" " alt="" coords="511,454,492,417,465,372,431,327,389,287,370,276,373,271,392,283,434,323,470,369,497,414,516,451"/>
+<area shape="rect" id="Node000018" href="$structemulation_1_1emulator.html#a6708f26995650c5023ba2e1f01043da3" title="Set Less Than Immediate." alt="" coords="222,297,377,337"/>
+<area shape="poly" id="edge29_Node000001_Node000018" title=" " alt="" coords="504,456,455,404,423,376,389,352,366,340,369,335,392,347,427,372,459,400,508,452"/>
+<area shape="rect" id="Node000019" href="$structemulation_1_1emulator.html#ae7cb842573a7163c8453c332bb5212a4" title="Set Less Than Immediate Unsigned." alt="" coords="222,361,377,401"/>
+<area shape="poly" id="edge31_Node000001_Node000019" title=" " alt="" coords="487,461,390,416,359,404,361,399,392,411,489,456"/>
+<area shape="rect" id="Node000020" href="$structemulation_1_1emulator.html#acff5e850933d78ceb45d425cb6491a4b" title="eXclusive OR Immediate." alt="" coords="222,425,377,465"/>
+<area shape="poly" id="edge33_Node000001_Node000020" title=" " alt="" coords="424,466,376,459,377,454,425,460"/>
+<area shape="rect" id="Node000003" href="$structemulation_1_1emulator.html#a2e4d099ca70b1f19761f7918159eaf63" title=" " alt="" coords="5,457,160,497"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,56,210,59,173,107,144,161,122,219,107,277,90,384,87,457,81,457,85,383,102,276,117,218,139,159,168,104,206,56,210,52"/>
+<area shape="rect" id="Node000004" href="$test__emulator__addi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,13,110,38"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="209,28,110,28,110,23,209,23"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="214,119,210,123,177,163,151,208,130,256,114,304,95,394,88,458,82,457,90,393,109,303,125,254,146,206,173,160,206,120,211,115"/>
+<area shape="rect" id="Node000006" href="$test__emulator__andi_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="55,77,110,102"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="209,92,110,92,110,87,209,87"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="208,499,160,491,161,486,209,493"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="224,551,207,544,119,500,121,495,209,539,226,546"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="217,614,207,608,173,582,142,552,97,499,101,496,146,549,176,578,209,603,220,609"/>
+<area shape="poly" id="edge14_Node000010_Node000003" title=" " alt="" coords="213,676,206,671,165,630,131,582,106,536,89,499,94,497,111,533,136,579,169,626,210,667,216,672"/>
+<area shape="poly" id="edge16_Node000011_Node000003" title=" " alt="" coords="212,740,206,735,180,708,157,676,122,609,99,546,86,498,91,497,104,544,127,607,162,674,184,704,210,731,215,736"/>
+<area shape="poly" id="edge18_Node000012_Node000003" title=" " alt="" coords="211,803,206,799,175,763,150,723,130,680,114,637,93,556,83,498,89,497,98,555,119,635,134,678,155,720,180,760,210,795,214,799"/>
+<area shape="poly" id="edge20_Node000013_Node000003" title=" " alt="" coords="210,867,206,863,171,819,143,769,122,717,106,664,88,566,82,498,87,497,93,566,111,662,127,715,148,767,175,816,210,860,214,863"/>
+<area shape="poly" id="edge22_Node000014_Node000003" title=" " alt="" coords="210,931,206,927,166,875,136,815,114,753,98,690,89,630,83,576,81,497,86,497,89,575,94,629,103,689,119,751,141,813,171,872,210,924,214,927"/>
+<area shape="poly" id="edge24_Node000015_Node000003" title=" " alt="" coords="215,168,210,173,179,205,155,242,134,283,119,324,98,401,89,457,83,457,93,400,113,322,129,280,150,240,175,202,206,169,212,164"/>
+<area shape="poly" id="edge26_Node000016_Node000003" title=" " alt="" coords="218,217,210,223,183,250,161,280,125,346,103,410,90,458,85,457,98,408,121,344,156,277,179,246,206,219,215,213"/>
+<area shape="poly" id="edge28_Node000017_Node000003" title=" " alt="" coords="216,283,210,287,169,328,136,376,111,421,94,458,89,456,106,419,131,373,165,325,206,283,213,278"/>
+<area shape="poly" id="edge30_Node000018_Node000003" title=" " alt="" coords="220,346,209,352,176,377,146,406,101,459,97,455,142,402,173,373,207,347,217,341"/>
+<area shape="poly" id="edge32_Node000019_Node000003" title=" " alt="" coords="226,409,209,416,121,460,119,455,207,411,224,404"/>
+<area shape="poly" id="edge34_Node000020_Node000003" title=" " alt="" coords="209,461,161,469,160,463,208,456"/>
 </map>

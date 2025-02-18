@@ -1,4 +1,5 @@
 <map id="parse::base36_encode" name="parse::base36_encode">
-<area shape="rect" id="node1" title=" " alt="" coords="208,13,375,39"/>
-<area shape="rect" id="node2" href="$structemulation_1_1emulator.html#a3ddcb06e2e448b28bb315e39d4c12a07" title="Dumps ram content in a serialized format, useful for rendering, for example back to userspace." alt="" coords="5,5,160,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="208,13,375,38"/>
+<area shape="rect" id="Node000002" href="$structemulation_1_1emulator.html#a3ddcb06e2e448b28bb315e39d4c12a07" title="Dumps ram content in a serialized format, useful for rendering, for example back to userspace." alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,28,160,28,160,23,195,23"/>
 </map>
