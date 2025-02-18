@@ -103,7 +103,7 @@ We send the register states, a random ID and program encoded in the ram.
 To encode the RAM, you need to encode each 32-bit memory regions as an integer,
 then, represented base 36. Each of these memory regions will be suffixed by the `|`
 delimiter. Concatenating all of these, and sending them within the `ram` parameter/field
-via POST. Everything being sent to `/submit`.
+via POST. Everything should be sent to `/submit`.
 
 To retrieve back the result, just `POST` the original ID
 
