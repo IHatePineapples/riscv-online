@@ -31,7 +31,7 @@ cmake -G Ninja .
 ### Build:
 
 ```bash
-ninja
+cmake --build .
 ```
 
 ### Testing:
