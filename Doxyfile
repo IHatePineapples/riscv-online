@@ -2854,3 +2854,5 @@ MSCGEN_TOOL            =
 # command).
 
 MSCFILE_DIRS           =
+
+GENERATE_SITEMAP = YES
